@@ -12,9 +12,12 @@ export default function Header() {
           <Link href="/" className="text-2xl font-bold text-blue-600">GuruAvatar</Link>
           <div className="hidden md:flex md:items-center md:space-x-6">
             <Link href="/about" className="text-gray-700 hover:text-blue-600 transition duration-300">About</Link>
+            <Link href="/contact" className="text-gray-700 hover:text-blue-600 transition duration-300">Gurus</Link>
+            <Link href="/contact" className="text-gray-700 hover:text-blue-600 transition duration-300">Mentors</Link>
             <Link href="/approach" className="text-gray-700 hover:text-blue-600 transition duration-300">Our Approach</Link>
             <Link href="/for-institutions" className="text-gray-700 hover:text-blue-600 transition duration-300">For Institutions</Link>
             <Link href="/contact" className="text-gray-700 hover:text-blue-600 transition duration-300">Contact</Link>
+            <Link href="/contact" className="text-gray-700 hover:text-blue-600 transition duration-300">News</Link>
           </div>
           <button
             className="md:hidden text-gray-700 hover:text-blue-600 focus:outline-none"

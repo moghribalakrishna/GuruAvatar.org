@@ -34,19 +34,25 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Features Section */}
         <section className="mb-16">
           <h2 className="text-4xl font-bold text-center mb-12">Our Innovative Approach</h2>
           <div className="grid md:grid-cols-3 gap-8">
             {[
+              { title: "Habit Forging", icon: "🔨", description: "Build lasting habits through intentional practice and consistent effort.", link: "/habit-forging" },
               { title: "AI-Powered Learning", icon: "🤖", description: "Personalized learning paths and adaptive content tailored to each student's unique needs and pace." },
               { title: "Expert Mentorship", icon: "👥", description: "Connect with industry leaders and receive guidance to navigate your educational and career journey." },
-              { title: "Mindfulness Integration", icon: "🧘", description: "Incorporating meditation and mindfulness techniques to enhance focus, reduce stress, and improve overall well-being." }
+              { title: "Mindfulness Integration", icon: "🧘", description: "Incorporating meditation and mindfulness techniques to enhance focus, reduce stress, and improve overall well-being." },
+              { title: "Educational Ecosystem", icon: "🌱", description: "A holistic approach that integrates cutting-edge technology, personalized mentorship, and mindfulness practices to revolutionize the learning experience." }
             ].map((feature, index) => (
               <div key={index} className="bg-white text-indigo-900 p-6 rounded-lg shadow-xl hover:shadow-2xl transition duration-300 transform hover:-translate-y-1">
                 <div className="text-4xl mb-4">{feature.icon}</div>
                 <h3 className="text-2xl font-semibold mb-4">{feature.title}</h3>
-                <p className="text-gray-700">{feature.description}</p>
+                <p className="text-gray-700 mb-4">{feature.description}</p>
+                {feature.link && (
+                  <Link href={feature.link} className="text-orange-500 hover:text-orange-600 font-semibold">
+                    Learn more
+                  </Link>
+                )}
               </div>
             ))}
           </div>
