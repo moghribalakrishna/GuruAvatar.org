@@ -1,0 +1,11 @@
+"Create a digital illustration for an educational technology website homepage. The image should depict a futuristic classroom setting with the following elements:
+
+A central, glowing holographic avatar resembling a wise guru or teacher, floating above a modern desk.
+Around the avatar, display various holographic icons representing different subjects: a DNA strand for biology, mathematical equations, a globe for geography, and circuit diagrams for computer science.
+Students of diverse ethnicities and ages, some seated and some standing, interacting with floating, transparent touchscreens or holographic displays.
+Subtle, ethereal lines connecting the students' heads to the central avatar, representing AI-powered personalized learning.
+In the background, have a large window showing a serene natural scene with trees and a calm lake, symbolizing mindfulness and balance.
+Incorporate soft, glowing blue and orange lights throughout the scene, matching GuruAvatar's color scheme.
+Above the scene, in elegant, futuristic typography, display the text 'GuruAvatar: Revolutionizing Education'.
+
+The overall style should be clean, modern, and slightly abstract, with a color palette dominated by blues, whites, and touches of orange. The atmosphere should feel inspiring, innovative, and calming."

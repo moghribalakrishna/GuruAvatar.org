@@ -14,6 +14,17 @@ const config: Config = {
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
     },
+    animation: {
+      'spin-slow': 'spin 6s linear infinite',
+      'float': 'float 6s ease-in-out infinite',
+      'float-delay': 'float 6s ease-in-out infinite 3s',
+    },
+    keyframes: {
+      float: {
+        '0%, 100%': { transform: 'translateY(0)' },
+        '50%': { transform: 'translateY(-20px)' },
+      }
+    }
   },
   plugins: [],
 };
