@@ -19,11 +19,13 @@ const habits = [
 const HabitCard = ({ habit }) => (
   <Link href={`/habit-forging/${habit.id}`}>
     <motion.div
-      className="bg-gray-800 bg-opacity-50 p-4 rounded-lg cursor-pointer transition-all duration-300 flex items-center space-x-3"
-      whileHover={{ scale: 1.05 }}
+      className="bg-white bg-opacity-10 p-4 rounded-lg cursor-pointer transition-all duration-300 flex items-center space-x-3 hover:bg-opacity-20 hover:shadow-lg"
+      whileHover={{ scale: 1.03 }}
+      whileTap={{ scale: 0.98 }}
     >
       <span className="text-2xl">{habit.icon}</span>
       <span className="text-lg font-semibold">{habit.title}</span>
+      <ChevronRight className="ml-auto" size={20} />
     </motion.div>
   </Link>
 );
@@ -31,7 +33,7 @@ const HabitCard = ({ habit }) => (
 const HabitForge = () => {
   return (
     <div className="w-full max-w-4xl mx-auto">
-      <div className="mb-8 rounded-lg overflow-hidden">
+      <div className="mb-8 rounded-lg overflow-hidden max-w-2xl mx-auto">
         <video 
           autoPlay 
           loop 
@@ -53,7 +55,7 @@ const HabitForge = () => {
       <div className="mt-12 text-center">
         <Link href="/habit-forging/start">
           <motion.button
-            className="bg-blue-500 text-white px-6 py-3 rounded-full text-lg font-semibold hover:bg-blue-600 transition duration-300 flex items-center justify-center mx-auto"
+            className="bg-orange-500 text-white px-6 py-3 rounded-full text-lg font-semibold hover:bg-orange-600 transition duration-300 flex items-center justify-center mx-auto"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
