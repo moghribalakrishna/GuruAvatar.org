@@ -62,7 +62,7 @@ export default function About() {
               transition={{ duration: 0.5, delay: 0.5 }}
             >
               <Image 
-                src="/founder-image.jpg" 
+                src="/founder-image.jpeg" 
                 alt="Balakrishna Moghri, Founder of GuruAvatar" 
                 width={400} 
                 height={300} 

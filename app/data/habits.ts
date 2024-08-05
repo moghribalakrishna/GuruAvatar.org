@@ -49,8 +49,8 @@ export const habitsData = {
       { title: "Body Scan Meditation", description: "Systematically focus on different body parts", icon: Sun },
       { title: "Mindful Daily Activities", description: "Incorporate mindfulness into everyday tasks", icon: Moon }
     ],
-    imageSrc: "/images/mindfulness.webp",
-    journeyImageSrc: "/images/mindfulness-journey.webp",
+    imageSrc: "/mindfulness.webp",
+    journeyImageSrc: "/mindfulness-journey.webp",
     journeySteps: [
       "Understanding the principles of mindfulness",
       "Developing a regular meditation practice",
