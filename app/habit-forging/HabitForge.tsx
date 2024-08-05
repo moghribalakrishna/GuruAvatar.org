@@ -76,7 +76,7 @@ const HabitForge = () => {
       </div>
 
       <div className="mt-16 text-center">
-        <Link href="/habit-forging/start" passHref>
+        <Link href="/get-started" passHref>
           <motion.button
             className="bg-orange-500 text-white px-8 py-4 rounded-full text-xl font-semibold hover:bg-orange-600 transition duration-300 flex items-center justify-center mx-auto"
             whileHover={{ scale: 1.05 }}
