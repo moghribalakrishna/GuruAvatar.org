@@ -17,27 +17,34 @@ export default function HomeContent() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
             >
-              Revolutionizing 360° Learning with 
-              <span className="text-orange-400"> AI</span>, 
-              <span className="text-teal-400"> Mindfulness</span>, 
-              <span className="text-yellow-400"> Habits</span> & 
-              <span className="text-purple-400"> Mentorship</span>
+              Empowering Minds Through Non-Profit Education
             </motion.h1>
             <motion.p 
-              className="text-xl mb-8 text-blue-100"
+              className="text-xl mb-4 text-blue-100"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.5, delay: 0.2 }}
             >
-              GuruAvatar combines cutting-edge AI technology with holistic learning approaches to empower the next generation of innovators and leaders.
+              GuruAvatar is a non-profit organization dedicated to revolutionizing education through:
             </motion.p>
+            <motion.ul 
+              className="text-xl mb-8 text-blue-100 list-none space-y-2"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.5, delay: 0.3 }}
+            >
+              <li><span className="text-orange-400">✦</span> AI-Powered Learning</li>
+              <li><span className="text-teal-400">✦</span> Mindfulness Practices</li>
+              <li><span className="text-yellow-400">✦</span> Habit Formation</li>
+              <li><span className="text-purple-400">✦</span> Expert Mentorship</li>
+            </motion.ul>
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ duration: 0.5, delay: 0.4 }}
+              transition={{ duration: 0.5, delay: 0.5 }}
             >
-              <Link href="/contact" className="bg-orange-500 text-white px-8 py-4 rounded-full text-xl font-semibold hover:bg-orange-600 transition duration-300 inline-block shadow-lg">
-                Start Your Journey
+              <Link href="/about" className="bg-orange-500 text-white px-8 py-4 rounded-full text-xl font-semibold hover:bg-orange-600 transition duration-300 inline-block shadow-lg">
+                Discover Our Mission
               </Link>
             </motion.div>
           </div>
@@ -64,19 +71,39 @@ export default function HomeContent() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
           >
-            Our Innovative Approach
+            Our Non-Profit Approach to Holistic Education
           </motion.h2>
-          <div className="grid md:grid-cols-3 lg:grid-cols-5 gap-6">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
-              { title: "Habit Forging", icon: "🔨", description: "Build lasting habits through intentional practice.", link: "/habit-forging", image: "/habit-forging.webp" },
-              { title: "AI-Powered Learning", icon: "🤖", description: "Personalized learning paths tailored to you.", image: "/ai-powered-learning.webp" },
-              { title: "Expert Mentorship", icon: "👥", description: "Connect with industry leaders for guidance.", image: "/expert-mentorship.webp" },
-              { title: "Mindfulness Integration", icon: "🧘", description: "Enhance focus and reduce stress.", image: "/mindfulness-integration.webp" },
-              { title: "Educational Ecosystem", icon: "🌱", description: "A holistic approach to revolutionize learning.", image: "/educational-ecosystem.webp" }
+              { 
+                title: "AI-Powered Learning", 
+                icon: "🤖", 
+                description: "Personalized learning paths adapted to individual needs, made accessible through our non-profit model.", 
+                image: "/ai-powered-learning.webp" 
+              },
+              { 
+                title: "Mindfulness Integration", 
+                icon: "🧘", 
+                description: "Enhance well-being through guided mindfulness practices, freely available to all our learners.", 
+                image: "/mindfulness-integration.webp" 
+              },
+              { 
+                title: "Habit Forging", 
+                icon: "🔨", 
+                description: "Develop success-driving habits with our scientifically-backed system, offered at no cost.", 
+                link: "/habit-forging", 
+                image: "/habit-forging.webp" 
+              },
+              { 
+                title: "Expert Mentorship", 
+                icon: "👥", 
+                description: "Connect with volunteer industry leaders for guidance and insights, bridging education and real-world experience.", 
+                image: "/expert-mentorship.webp" 
+              }
             ].map((feature, index) => (
               <Link href={feature.link || '#'} key={index}>
                 <motion.div 
-                  className="bg-white bg-opacity-10 p-4 rounded-xl shadow-xl hover:shadow-2xl transition duration-300 transform hover:-translate-y-1 cursor-pointer h-full flex flex-col"
+                  className="bg-white bg-opacity-10 p-6 rounded-xl shadow-xl hover:shadow-2xl transition duration-300 transform hover:-translate-y-1 cursor-pointer h-full flex flex-col"
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
@@ -86,12 +113,12 @@ export default function HomeContent() {
                     alt={feature.title}
                     width={400}
                     height={225}
-                    className="rounded-lg mb-3 w-full h-32 object-cover"
+                    className="rounded-lg mb-4 w-full h-40 object-cover"
                   />
-                  <h3 className="text-lg font-semibold mb-2">{feature.title}</h3>
+                  <h3 className="text-xl font-semibold mb-2">{feature.title}</h3>
                   <p className="text-blue-100 text-sm flex-grow">{feature.description}</p>
-                  <span className="text-orange-400 hover:text-orange-300 font-semibold text-sm mt-2 inline-block">
-                    Learn more →
+                  <span className="text-orange-400 hover:text-orange-300 font-semibold text-sm mt-4 inline-block">
+                    Learn More →
                   </span>
                 </motion.div>
               </Link>
@@ -106,11 +133,18 @@ export default function HomeContent() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
         >
-          <h2 className="text-4xl font-bold mb-6">Ready to Transform Your Educational Journey?</h2>
-          <p className="text-xl mb-8 text-blue-100">Join GuruAvatar today and experience the future of learning.</p>
-          <Link href="/contact" className="bg-orange-500 text-white px-8 py-4 rounded-full text-xl font-semibold hover:bg-orange-600 transition duration-300 inline-block shadow-lg">
-            Get Started Now
-          </Link>
+          <h2 className="text-4xl font-bold mb-6">Join Our Non-Profit Educational Revolution</h2>
+          <p className="text-xl mb-8 text-blue-100">
+            Support GuruAvatar's mission to provide free, transformative education. Together, we can make quality learning accessible to all.
+          </p>
+          <div className="space-x-4">
+            <Link href="/get-involved" className="bg-orange-500 text-white px-8 py-4 rounded-full text-xl font-semibold hover:bg-orange-600 transition duration-300 inline-block shadow-lg">
+              Get Involved
+            </Link>
+            <Link href="/donate" className="bg-teal-500 text-white px-8 py-4 rounded-full text-xl font-semibold hover:bg-teal-600 transition duration-300 inline-block shadow-lg">
+              Donate
+            </Link>
+          </div>
         </motion.section>
       </div>
     </div>
