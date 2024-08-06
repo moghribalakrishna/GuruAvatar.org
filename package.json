@@ -23,6 +23,7 @@
     "react": "^18",
     "react-dom": "^18",
     "recharts": "^2.12.7",
+    "strapi-sdk-javascript": "^0.3.3",
     "three": "^0.167.1"
   },
   "devDependencies": {

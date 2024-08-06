@@ -22,7 +22,9 @@ export default function Header() {
             <Link href="/get-involved" className="text-gray-700 hover:text-blue-600 transition duration-300">Get Involved</Link>
             <Link href="/faq" className="text-gray-700 hover:text-blue-600 transition duration-300">FAQ</Link>
             <Link href="/get-started" className="text-gray-700 hover:text-blue-600 transition duration-300">Get Started</Link>
+            <Link href="/blog" className="text-gray-700 hover:text-blue-600 transition duration-300">Blog</Link>
             <Link href="/donate" className="bg-orange-500 text-white px-4 py-2 rounded-full hover:bg-orange-600 transition duration-300">Donate</Link>
+           
           </div>
           <button
             className="md:hidden text-gray-700 hover:text-blue-600 focus:outline-none"
@@ -40,7 +42,9 @@ export default function Header() {
             <Link href="/get-involved" className="block py-2 text-gray-700 hover:text-blue-600 transition duration-300">Get Involved</Link>
             <Link href="/faq" className="block py-2 text-gray-700 hover:text-blue-600 transition duration-300">FAQ</Link>
             <Link href="/get-started" className="block py-2 text-gray-700 hover:text-blue-600 transition duration-300">Get Started</Link>
+            <Link href="/blog" className="text-gray-700 hover:text-blue-600 transition duration-300">Blog</Link>
             <Link href="/donate" className="block py-2 bg-orange-500 text-white px-4 rounded-full hover:bg-orange-600 transition duration-300">Donate</Link>
+            
           </div>
         )}
       </div>
