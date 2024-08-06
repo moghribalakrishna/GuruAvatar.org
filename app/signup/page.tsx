@@ -1,34 +1,24 @@
 'use client';
 
 import React, { useState } from 'react';
-import { motion } from 'framer-motion';
 import { useRouter } from 'next/navigation';
+import { motion } from 'framer-motion';
+import { signup } from '../lib/auth';
 
 export default function Signup() {
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [error, setError] = useState('');
   const router = useRouter();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
-      const response = await fetch(`${process.env.NEXT_PUBLIC_STRAPI_API_URL}/api/auth/local/register`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ username, email, password }),
-      });
-      const data = await response.json();
-      if (response.ok) {
-        localStorage.setItem('token', data.jwt);
-        alert('Signup successful!');
-        router.push('/'); // Redirect to home page
-      } else {
-        alert(data.error.message);
-      }
-    } catch (error) {
-      console.error('Error:', error);
-      alert('An error occurred. Please try again.');
+      await signup(username, email, password);
+      router.push('/login');
+    } catch (err) {
+      setError('Signup failed. Please try again.');
     }
   };
 
@@ -41,6 +31,7 @@ export default function Signup() {
         transition={{ duration: 0.5 }}
       >
         <h2 className="text-3xl font-bold mb-6 text-gray-800">Sign Up</h2>
+        {error && <p className="text-red-500 mb-4">{error}</p>}
         <form onSubmit={handleSubmit}>
           <div className="mb-4">
             <label htmlFor="username" className="block text-gray-700 text-sm font-bold mb-2">Username</label>

@@ -3,20 +3,28 @@
 import Link from 'next/link'
 import { useState, useEffect } from 'react'
 import { useRouter } from 'next/navigation';
+import { getUserProfile, logout } from '../lib/auth';
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
-  const [isLoggedIn, setIsLoggedIn] = useState(false)
+  const [user, setUser] = useState(null)
   const router = useRouter();
 
   useEffect(() => {
-    const token = localStorage.getItem('token');
-    setIsLoggedIn(!!token);
+    const checkUserLoggedIn = async () => {
+      try {
+        const profile = await getUserProfile();
+        setUser(profile);
+      } catch (error) {
+        setUser(null);
+      }
+    };
+    checkUserLoggedIn();
   }, []);
 
-  const handleLogout = () => {
-    localStorage.removeItem('token');
-    setIsLoggedIn(false);
+  const handleLogout = async () => {
+    await logout();
+    setUser(null);
     router.push('/');
   };
 
@@ -39,8 +47,11 @@ export default function Header() {
             <Link href="/get-started" className="text-gray-600 hover:text-blue-600">Get Started</Link>
             <Link href="/blog" className="text-gray-600 hover:text-blue-600">Blog</Link>
             <Link href="/donate" className="bg-orange-500 text-white px-4 py-2 rounded-full hover:bg-orange-600">Donate</Link>
-            {isLoggedIn ? (
-              <button onClick={handleLogout} className="text-gray-600 hover:text-blue-600">Logout</button>
+            {user ? (
+              <>
+                <Link href="/profile" className="text-gray-600 hover:text-blue-600">Profile</Link>
+                <button onClick={handleLogout} className="text-gray-600 hover:text-blue-600">Logout</button>
+              </>
             ) : (
               <>
                 <Link href="/login" className="text-gray-600 hover:text-blue-600">Login</Link>

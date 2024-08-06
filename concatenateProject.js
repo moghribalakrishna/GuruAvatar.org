@@ -6,7 +6,7 @@ function concatenateDirectory(sourceDir, outputPath, outputFormat) {
   let fileCount = 0;
 
   // Exclude directories and files
-  const excludePaths = ['node_modules', '.next', '.git', 'concatenateProject.js', 'guruavatar.js', 'package-lock.json', 'yarn.lock', 'public'];
+  const excludePaths = ['node_modules', '.next', '.git', 'concatenateProject.js', 'guruavatar-website.js', 'package-lock.json', 'yarn.lock', 'public'];
   
   // Include only these file extensions
   const includeExtensions = ['.js', '.jsx', '.ts', '.tsx', '.css', '.scss', '.sass', '.less', '.json', '.md'];
@@ -102,7 +102,7 @@ function concatenateDirectory(sourceDir, outputPath, outputFormat) {
 // Define the source directory and output file
 const sourceDir = path.join(__dirname, '.');
 const outputFormat = '.js'; // Change this to '.ts' or '.html' as needed
-const outputFilePath = path.join(__dirname, `guruavatar${outputFormat}`);
+const outputFilePath = path.join(__dirname, `guruavatar-website${outputFormat}`);
 
 // Call the function to concatenate the directory
 try {
