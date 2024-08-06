@@ -78,6 +78,9 @@ export default function About() {
               <p className="text-lg mb-4">
                 Founded in 2024 by Balakrishna Moghri, GuruAvatar emerged from a vision to transform education on a global scale. Inspired by his experiences in Singapore and driven by a desire to make a difference, Balakrishna set out to create an educational platform that would bridge the gap between traditional learning and the needs of the 21st century.
               </p>
+              <p className="text-lg mb-4">
+                Balakrishna's journey as an entrepreneur, including his experiences with startups like AlienHu, shaped his understanding of the power of technology to solve real-world problems. He realized that by combining AI, mindfulness practices, and personalized mentorship, we could create a truly transformative educational experience.
+              </p>
               <p className="text-lg">
                 What began as a simple idea has grown into a comprehensive educational ecosystem, powered by AI and grounded in holistic development principles.
               </p>
@@ -92,7 +95,7 @@ export default function About() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.7 }}
           >
-            Our Impact
+            GuruAvatar and Swaabhyas
           </motion.h2>
           <motion.p 
             className="text-lg mb-4"
@@ -100,13 +103,40 @@ export default function About() {
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5, delay: 0.8 }}
           >
+            At the heart of GuruAvatar's mission lies Swaabhyas, our innovative educational platform. Swaabhyas is designed to serve as a comprehensive life companion for students, seamlessly integrating cutting-edge technology with proven educational methodologies to foster holistic growth, academic excellence, and future readiness.
+          </motion.p>
+          <motion.p 
+            className="text-lg mb-4"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.5, delay: 0.9 }}
+          >
+            While GuruAvatar is the non-profit organization driving our mission, Swaabhyas is the tool through which we deliver our transformative educational experience. Together, they form a powerful ecosystem dedicated to democratizing quality education and empowering learners worldwide.
+          </motion.p>
+        </section>
+
+        <section className="mb-16">
+          <motion.h2 
+            className="text-3xl font-semibold mb-4"
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 1 }}
+          >
+            Our Impact
+          </motion.h2>
+          <motion.p 
+            className="text-lg mb-4"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.5, delay: 1.1 }}
+          >
             As a non-profit organization, our success is measured by the lives we touch and the positive change we create. Since our inception, GuruAvatar has:
           </motion.p>
           <motion.ul 
             className="list-disc list-inside text-lg mb-4 space-y-2"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ duration: 0.5, delay: 0.9 }}
+            transition={{ duration: 0.5, delay: 1.2 }}
           >
             <li>Reached over 100,000 students across 50 countries</li>
             <li>Partnered with 200+ educational institutions</li>
@@ -117,7 +147,7 @@ export default function About() {
             className="text-lg"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ duration: 0.5, delay: 1 }}
+            transition={{ duration: 0.5, delay: 1.3 }}
           >
             Every donation, every volunteer hour, and every partnership contributes directly to expanding our reach and deepening our impact.
           </motion.p>
@@ -128,7 +158,7 @@ export default function About() {
             className="text-3xl font-semibold mb-4"
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 1.1 }}
+            transition={{ duration: 0.5, delay: 1.4 }}
           >
             Our Approach
           </motion.h2>
@@ -136,7 +166,7 @@ export default function About() {
             className="text-lg mb-4"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ duration: 0.5, delay: 1.2 }}
+            transition={{ duration: 0.5, delay: 1.5 }}
           >
             GuruAvatar's innovative educational model is built on four core pillars:
           </motion.p>
@@ -144,7 +174,7 @@ export default function About() {
             className="list-disc list-inside text-lg mb-4 space-y-2"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ duration: 0.5, delay: 1.3 }}
+            transition={{ duration: 0.5, delay: 1.6 }}
           >
             <li>AI-Powered Learning: Personalized, adaptive learning experiences</li>
             <li>Mindfulness Integration: Techniques to enhance focus and well-being</li>
@@ -161,7 +191,7 @@ export default function About() {
             className="text-3xl font-semibold mb-4"
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 1.4 }}
+            transition={{ duration: 0.5, delay: 1.7 }}
           >
             Join Our Mission
           </motion.h2>
@@ -169,7 +199,7 @@ export default function About() {
             className="text-lg mb-6"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ duration: 0.5, delay: 1.5 }}
+            transition={{ duration: 0.5, delay: 1.8 }}
           >
             As a non-profit, we rely on the support of individuals and organizations who share our vision. There are many ways you can contribute to our mission:
           </motion.p>
