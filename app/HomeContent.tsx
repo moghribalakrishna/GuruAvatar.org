@@ -4,6 +4,7 @@ import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
+import { link } from 'fs';
 
 interface BlogPost {
   id: number;
@@ -21,7 +22,7 @@ export default function HomeContent() {
     async function fetchRecentPosts() {
       try {
         console.log('Fetching posts from:', process.env.NEXT_PUBLIC_STRAPI_API_URL);
-        const response = await fetch(`${process.env.NEXT_PUBLIC_STRAPI_API_URL}/api/blogs?pagination[limit]=3&sort[0]=PublishDate:desc`);
+        const response = await fetch(`${process.env.NEXT_PUBLIC_STRAPI_API_URL}/blogs?pagination[limit]=3&sort[0]=PublishDate:desc`);
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
         }
@@ -106,20 +107,7 @@ export default function HomeContent() {
             Our Non-Profit Approach to Holistic Education
           </motion.h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {[
-              { 
-                title: "AI-Powered Learning", 
-                icon: "🤖", 
-                description: "Personalized learning paths adapted to individual needs, made accessible through our non-profit model.", 
-                image: "/ai-powered-learning.webp" 
-              },
-              { 
-                title: "Mindfulness Integration", 
-                icon: "🧘", 
-                description: "Enhance well-being through guided mindfulness practices, freely available to all our learners.", 
-                image: "/mindfulness-integration.webp" 
-              },
-              { 
+            {[              { 
                 title: "Habit Forging", 
                 icon: "🔨", 
                 description: "Develop success-driving habits with our scientifically-backed system, offered at no cost.", 
@@ -127,9 +115,24 @@ export default function HomeContent() {
                 image: "/habit-forging.webp" 
               },
               { 
+                title: "AI-Powered Learning", 
+                icon: "🤖", 
+                description: "Personalized learning paths adapted to individual needs, made accessible through our non-profit model.",
+                link: "/ai-learning",  
+                image: "/ai-powered-learning.webp" 
+              },
+              { 
+                title: "Mindfulness Integration", 
+                icon: "🧘", 
+                description: "Enhance well-being through guided mindfulness practices, freely available to all our learners.", 
+                link: "/mindful-integration", 
+                image: "/mindfulness-integration.webp" 
+              },
+              { 
                 title: "Expert Mentorship", 
                 icon: "👥", 
                 description: "Connect with volunteer industry leaders for guidance and insights, bridging education and real-world experience.", 
+                link: "/expert-mentorship",
                 image: "/expert-mentorship.webp" 
               }
             ].map((feature, index) => (

@@ -19,7 +19,7 @@ export default function BlogPage() {
   useEffect(() => {
     async function fetchPosts() {
       try {
-        const response = await fetch(`${process.env.NEXT_PUBLIC_STRAPI_API_URL}/api/blogs?pagination[limit]=10&sort[0]=PublishDate:desc`);
+        const response = await fetch(`${process.env.NEXT_PUBLIC_STRAPI_API_URL}/blogs?pagination[limit]=10&sort[0]=PublishDate:desc`);
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
         }

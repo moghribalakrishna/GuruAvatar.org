@@ -1,20 +1,25 @@
+// File: app/login/page.tsx
+
 'use client';
 
 import React, { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { motion } from 'framer-motion';
 import { login } from '../lib/auth';
+import { useAuth } from '../contexts/AuthContext';
 
 export default function Login() {
   const [identifier, setIdentifier] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const router = useRouter();
+  const { dispatch } = useAuth();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
-      await login(identifier, password);
+      const user = await login(identifier, password);
+      dispatch({ type: 'LOGIN', payload: user });
       router.push('/profile');
     } catch (err) {
       setError('Login failed. Please check your credentials and try again.');

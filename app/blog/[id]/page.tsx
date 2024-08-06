@@ -25,7 +25,7 @@ export default function BlogPostPage() {
   useEffect(() => {
     async function fetchPost() {
       try {
-        const response = await fetch(`${process.env.NEXT_PUBLIC_STRAPI_API_URL}/api/blogs/${id}`);
+        const response = await fetch(`${process.env.NEXT_PUBLIC_STRAPI_API_URL}/blogs/${id}`);
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
         }
