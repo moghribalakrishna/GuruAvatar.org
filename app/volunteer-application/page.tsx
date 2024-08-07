@@ -1,10 +1,10 @@
-// File: app/volunteer-application/page.tsx
-
 'use client';
 
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Send, AlertCircle } from 'lucide-react';
+import axios from 'axios';
+import { useRouter } from 'next/navigation';
 
 interface FormData {
   name: string;
@@ -32,11 +32,11 @@ export default function VolunteerApplicationPage() {
   const [errors, setErrors] = useState<FormErrors>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitSuccess, setSubmitSuccess] = useState(false);
+  const router = useRouter();
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
-    // Clear the error when user starts typing
     if (errors[name]) {
       setErrors({ ...errors, [name]: '' });
     }
@@ -49,7 +49,6 @@ export default function VolunteerApplicationPage() {
     } else {
       setFormData({ ...formData, interests: formData.interests.filter(interest => interest !== value) });
     }
-    // Clear the error when user selects an interest
     if (errors.interests) {
       setErrors({ ...errors, interests: '' });
     }
@@ -93,19 +92,26 @@ export default function VolunteerApplicationPage() {
     if (validateForm()) {
       setIsSubmitting(true);
       try {
-        // Simulate API call
-        await new Promise(resolve => setTimeout(resolve, 2000));
-        // If successful:
-        setSubmitSuccess(true);
-        // Reset form after successful submission
-        setFormData({
-          name: '',
-          email: '',
-          phone: '',
-          interests: [],
-          experience: '',
-          availability: '',
+        const response = await axios.post(`${process.env.NEXT_PUBLIC_STRAPI_API_URL}/volunteers`, {
+          data: formData
         });
+
+        if (response.status === 200) {
+          setSubmitSuccess(true);
+          setFormData({
+            name: '',
+            email: '',
+            phone: '',
+            interests: [],
+            experience: '',
+            availability: '',
+          });
+          setTimeout(() => {
+            router.push('/volunteer-thank-you');
+          }, 3000);
+        } else {
+          throw new Error('Failed to submit application');
+        }
       } catch (error) {
         console.error('Error submitting form:', error);
         setErrors({ ...errors, submit: 'An error occurred. Please try again.' });
