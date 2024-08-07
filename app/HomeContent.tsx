@@ -22,7 +22,7 @@ export default function HomeContent() {
     async function fetchRecentPosts() {
       try {
         console.log('Fetching posts from:', process.env.NEXT_PUBLIC_STRAPI_API_URL);
-        const response = await fetch(`${process.env.NEXT_PUBLIC_STRAPI_API_URL}/blogs?pagination[limit]=3&sort[0]=PublishDate:desc`);
+        const response = await fetch(`${process.env.NEXT_PUBLIC_STRAPI_API_URL}/blogs?pagination[limit]=3&sort[0]=publishDate:desc`);
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
         }
