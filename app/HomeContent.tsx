@@ -64,10 +64,10 @@ export default function HomeContent() {
               animate={{ opacity: 1 }}
               transition={{ duration: 0.5, delay: 0.3 }}
             >
-              <li><span className="text-orange-400">✦</span> AI-Powered Learning</li>
-              <li><span className="text-teal-400">✦</span> Mindfulness Practices</li>
               <li><span className="text-yellow-400">✦</span> Habit Formation</li>
+              <li><span className="text-teal-400">✦</span> Mindfulness Practices</li>
               <li><span className="text-purple-400">✦</span> Expert Mentorship</li>
+              <li><span className="text-orange-400">✦</span> AI-Powered Learning</li>
             </motion.ul>
             <motion.div
               initial={{ opacity: 0 }}
@@ -115,26 +115,26 @@ export default function HomeContent() {
                 image: "/habit-forging.webp" 
               },
               { 
+                title: "Mindfulness Integration", 
+                icon: "🧘", 
+                description: "Enhance well-being through guided mindfulness practices, freely available to all our learners.", 
+                link: "/mindful-integration", 
+                image: "/mindfulness-integration.webp" 
+              },  { 
+                title: "Expert Mentorship", 
+                icon: "👥", 
+                description: "Connect with volunteer industry leaders for guidance and insights, bridging education and real-world experience.", 
+                link: "/expert-mentorship",
+                image: "/expert-mentorship.webp" 
+              },
+              { 
                 title: "AI-Powered Learning", 
                 icon: "🤖", 
                 description: "Personalized learning paths adapted to individual needs, made accessible through our non-profit model.",
                 link: "/ai-learning",  
                 image: "/ai-powered-learning.webp" 
               },
-              { 
-                title: "Mindfulness Integration", 
-                icon: "🧘", 
-                description: "Enhance well-being through guided mindfulness practices, freely available to all our learners.", 
-                link: "/mindful-integration", 
-                image: "/mindfulness-integration.webp" 
-              },
-              { 
-                title: "Expert Mentorship", 
-                icon: "👥", 
-                description: "Connect with volunteer industry leaders for guidance and insights, bridging education and real-world experience.", 
-                link: "/expert-mentorship",
-                image: "/expert-mentorship.webp" 
-              }
+            
             ].map((feature, index) => (
               <Link href={feature.link || '#'} key={index}>
                 <motion.div 
