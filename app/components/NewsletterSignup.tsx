@@ -1,8 +1,7 @@
-// File: app/components/NewsletterSignup.tsx
-
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Mail, Send } from 'lucide-react';
+import axios from 'axios';
 
 export default function NewsletterSignup() {
   const [email, setEmail] = useState('');
@@ -15,12 +14,17 @@ export default function NewsletterSignup() {
     setIsSubmitting(true);
     setError('');
 
-    // Here you would typically send a request to your API
     try {
-      // Simulating an API call
-      await new Promise(resolve => setTimeout(resolve, 1000));
-      setIsSuccess(true);
-      setEmail('');
+      const response = await axios.post(`${process.env.NEXT_PUBLIC_STRAPI_API_URL}/newsletter-subscriptions`, {
+        data: { email }
+      });
+
+      if (response.status === 200) {
+        setIsSuccess(true);
+        setEmail('');
+      } else {
+        throw new Error('Failed to subscribe');
+      }
     } catch (err) {
       setError('An error occurred. Please try again.');
     } finally {
