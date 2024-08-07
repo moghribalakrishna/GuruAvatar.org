@@ -3,71 +3,132 @@
 'use client';
 
 import React, { useState } from 'react';
-import { useRouter } from 'next/navigation';
 import { motion } from 'framer-motion';
-import { login } from '../lib/auth';
-import { useAuth } from '../contexts/AuthContext';
+import { Mail, Lock } from 'lucide-react';
 
-export default function Login() {
-  const [identifier, setIdentifier] = useState('');
+export default function LoginPage() {
+  const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [error, setError] = useState('');
-  const router = useRouter();
-  const { dispatch } = useAuth();
+  const [showForgotPassword, setShowForgotPassword] = useState(false);
+  const [forgotPasswordEmail, setForgotPasswordEmail] = useState('');
+  const [errors, setErrors] = useState<{[key: string]: string}>({});
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleLogin = (e: React.FormEvent) => {
     e.preventDefault();
-    try {
-      const user = await login(identifier, password);
-      dispatch({ type: 'LOGIN', payload: user });
-      router.push('/profile');
-    } catch (err) {
-      setError('Login failed. Please check your credentials and try again.');
-    }
+    // Implement login logic here
+    console.log("Login attempted with:", { email, password });
+  };
+
+  const handleForgotPassword = (e: React.FormEvent) => {
+    e.preventDefault();
+    // Implement forgot password logic here
+    console.log("Password reset requested for:", forgotPasswordEmail);
   };
 
   return (
-    <div className="bg-gradient-to-b from-blue-900 to-teal-700 min-h-screen flex items-center justify-center">
+    <div className="min-h-screen bg-gradient-to-b from-blue-900 to-teal-700 flex items-center justify-center px-4 sm:px-6 lg:px-8">
       <motion.div 
-        className="bg-white p-8 rounded-lg shadow-lg max-w-md w-full"
+        className="max-w-md w-full space-y-8 bg-white p-10 rounded-xl shadow-lg"
         initial={{ opacity: 0, y: -50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
       >
-        <h2 className="text-3xl font-bold mb-6 text-gray-800">Log In</h2>
-        {error && <p className="text-red-500 mb-4">{error}</p>}
-        <form onSubmit={handleSubmit}>
-          <div className="mb-4">
-            <label htmlFor="identifier" className="block text-gray-700 text-sm font-bold mb-2">Email or Username</label>
-            <input
-              type="text"
-              id="identifier"
-              className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-              value={identifier}
-              onChange={(e) => setIdentifier(e.target.value)}
-              required
-            />
-          </div>
-          <div className="mb-6">
-            <label htmlFor="password" className="block text-gray-700 text-sm font-bold mb-2">Password</label>
-            <input
-              type="password"
-              id="password"
-              className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              required
-            />
-          </div>
-          <div className="flex items-center justify-between">
-            <button
-              type="submit"
-              className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-            >
-              Log In
-            </button>
-          </div>
-        </form>
+        <div>
+          <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">
+            {showForgotPassword ? "Reset Your Password" : "Sign in to your account"}
+          </h2>
+        </div>
+        {!showForgotPassword ? (
+          <form className="mt-8 space-y-6" onSubmit={handleLogin}>
+            <input type="hidden" name="remember" value="true" />
+            <div className="rounded-md shadow-sm -space-y-px">
+              <div>
+                <label htmlFor="email-address" className="sr-only">Email address</label>
+                <div className="flex items-center">
+                  <Mail className="h-5 w-5 text-gray-400 absolute ml-3" />
+                  <input
+                    id="email-address"
+                    name="email"
+                    type="email"
+                    autoComplete="email"
+                    required
+                    className="appearance-none rounded-none relative block w-full px-3 py-2 pl-10 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
+                    placeholder="Email address"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                  />
+                </div>
+              </div>
+              <div>
+                <label htmlFor="password" className="sr-only">Password</label>
+                <div className="flex items-center">
+                  <Lock className="h-5 w-5 text-gray-400 absolute ml-3" />
+                  <input
+                    id="password"
+                    name="password"
+                    type="password"
+                    autoComplete="current-password"
+                    required
+                    className="appearance-none rounded-none relative block w-full px-3 py-2 pl-10 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
+                    placeholder="Password"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                  />
+                </div>
+              </div>
+            </div>
+
+            <div className="flex items-center justify-between">
+              <div className="text-sm">
+                <a href="#" className="font-medium text-indigo-600 hover:text-indigo-500" onClick={() => setShowForgotPassword(true)}>
+                  Forgot your password?
+                </a>
+              </div>
+            </div>
+
+            <div>
+              <button
+                type="submit"
+                className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+              >
+                Sign in
+              </button>
+            </div>
+          </form>
+        ) : (
+          <form className="mt-8 space-y-6" onSubmit={handleForgotPassword}>
+            <div>
+              <label htmlFor="forgot-password-email" className="sr-only">Email address</label>
+              <div className="flex items-center">
+                <Mail className="h-5 w-5 text-gray-400 absolute ml-3" />
+                <input
+                  id="forgot-password-email"
+                  name="email"
+                  type="email"
+                  autoComplete="email"
+                  required
+                  className="appearance-none rounded-md relative block w-full px-3 py-2 pl-10 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
+                  placeholder="Email address"
+                  value={forgotPasswordEmail}
+                  onChange={(e) => setForgotPasswordEmail(e.target.value)}
+                />
+              </div>
+            </div>
+            <div>
+              <button
+                type="submit"
+                className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+              >
+                Reset Password
+              </button>
+            </div>
+            <div className="text-sm text-center">
+              <a href="#" className="font-medium text-indigo-600 hover:text-indigo-500" onClick={() => setShowForgotPassword(false)}>
+                Back to Login
+              </a>
+            </div>
+          </form>
+        )}
       </motion.div>
     </div>
   );

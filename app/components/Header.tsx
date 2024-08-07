@@ -34,7 +34,6 @@ export default function Header() {
             <Link href="/programs-and-courses" className="text-gray-600 hover:text-blue-600">Programs & Courses</Link>
             <Link href="/success-stories" className="text-gray-600 hover:text-blue-600">Success Stories</Link>
             <Link href="/get-involved" className="text-gray-600 hover:text-blue-600">Get Involved</Link>
-            <Link href="/faq" className="text-gray-600 hover:text-blue-600">FAQ</Link>
             <Link href="/get-started" className="text-gray-600 hover:text-blue-600">Get Started</Link>
             <Link href="/blog" className="text-gray-600 hover:text-blue-600">Blog</Link>
             <Link href="/donate" className="bg-orange-500 text-white px-4 py-2 rounded-full hover:bg-orange-600">Donate</Link>
