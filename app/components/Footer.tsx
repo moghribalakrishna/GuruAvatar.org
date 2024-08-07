@@ -21,11 +21,13 @@ export default function Footer() {
               <li><Link href="/impact-report" className="text-gray-600 hover:text-blue-600 transition duration-300">Our Impact</Link></li>
               <li><Link href="/success-stories" className="text-gray-600 hover:text-blue-600 transition duration-300">Success Stories</Link></li>
               <li><Link href="/get-involved" className="text-gray-600 hover:text-blue-600 transition duration-300">Get Involved</Link></li>
+              <li><Link href="/contact" className="text-gray-600 hover:text-blue-600 transition duration-300">Contact Us</Link></li>
               <li><Link href="/faq" className="text-gray-600 hover:text-blue-600 transition duration-300">FAQ</Link></li>
+              
             </ul>
           </div>
           <div>
-            <h3 className="text-lg font-semibold mb-4">Contact Us</h3>
+            <h3 className="text-lg font-semibold mb-4">Contact Info</h3>
             <p className="text-sm text-gray-600 mb-2">Email: info@guruavatar.org</p>
             <p className="text-sm text-gray-600 mb-4">Phone: +1 (555) 123-4567</p>
             <div className="flex space-x-4">
