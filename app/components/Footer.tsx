@@ -1,4 +1,6 @@
+'use client';
 import Link from 'next/link'
+import NewsletterSignup from './NewsletterSignup'
 
 export default function Footer() {
   return (
@@ -23,18 +25,10 @@ export default function Footer() {
               <li><Link href="/get-involved" className="text-gray-600 hover:text-blue-600 transition duration-300">Get Involved</Link></li>
               <li><Link href="/contact" className="text-gray-600 hover:text-blue-600 transition duration-300">Contact Us</Link></li>
               <li><Link href="/faq" className="text-gray-600 hover:text-blue-600 transition duration-300">FAQ</Link></li>
-              
             </ul>
           </div>
           <div>
-            <h3 className="text-lg font-semibold mb-4">Contact Info</h3>
-            <p className="text-sm text-gray-600 mb-2">Email: info@guruavatar.org</p>
-            <p className="text-sm text-gray-600 mb-4">Phone: +1 (555) 123-4567</p>
-            <div className="flex space-x-4">
-              <a href="#" className="text-gray-400 hover:text-blue-600"><i className="fab fa-facebook-f"></i></a>
-              <a href="#" className="text-gray-400 hover:text-blue-600"><i className="fab fa-twitter"></i></a>
-              <a href="#" className="text-gray-400 hover:text-blue-600"><i className="fab fa-linkedin-in"></i></a>
-            </div>
+            <NewsletterSignup />
           </div>
         </div>
         <div className="mt-8 pt-8 border-t border-gray-200 flex flex-col md:flex-row justify-between items-center">
