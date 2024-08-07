@@ -1,10 +1,9 @@
-// File: app/suggest-course/page.tsx
-
 'use client';
 
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { BookOpen, User, Mail, Send } from 'lucide-react';
+import axios from 'axios';
 
 interface FormData {
   name: string;
@@ -37,17 +36,24 @@ export default function SuggestCoursePage() {
     setError('');
 
     try {
-      // Simulating an API call
-      await new Promise(resolve => setTimeout(resolve, 1500));
-      setIsSuccess(true);
-      setFormData({
-        name: '',
-        email: '',
-        courseTitle: '',
-        courseDescription: '',
-        targetAudience: '',
+      const response = await axios.post(`${process.env.NEXT_PUBLIC_STRAPI_API_URL}/course-suggestions`, {
+        data: formData
       });
+
+      if (response.status === 200) {
+        setIsSuccess(true);
+        setFormData({
+          name: '',
+          email: '',
+          courseTitle: '',
+          courseDescription: '',
+          targetAudience: '',
+        });
+      } else {
+        throw new Error('Failed to submit course suggestion');
+      }
     } catch (err) {
+      console.error('Error submitting form:', err);
       setError('An error occurred. Please try again.');
     } finally {
       setIsSubmitting(false);

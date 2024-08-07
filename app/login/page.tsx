@@ -1,10 +1,10 @@
-// File: app/login/page.tsx
-
 'use client';
 
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Mail, Lock } from 'lucide-react';
+import axios from 'axios';
+import { useRouter } from 'next/navigation';
 
 export default function LoginPage() {
   const [email, setEmail] = useState('');
@@ -12,17 +12,51 @@ export default function LoginPage() {
   const [showForgotPassword, setShowForgotPassword] = useState(false);
   const [forgotPasswordEmail, setForgotPasswordEmail] = useState('');
   const [errors, setErrors] = useState<{[key: string]: string}>({});
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const router = useRouter();
 
-  const handleLogin = (e: React.FormEvent) => {
+  const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Implement login logic here
-    console.log("Login attempted with:", { email, password });
+    setIsSubmitting(true);
+    setErrors({});
+
+    try {
+      const response = await axios.post(`${process.env.NEXT_PUBLIC_STRAPI_API_URL}/auth/local`, {
+        identifier: email,
+        password: password
+      });
+
+      if (response.data.jwt) {
+        // Store the token in localStorage or a secure cookie
+        localStorage.setItem('token', response.data.jwt);
+        // Redirect to dashboard or home page
+        router.push('/');
+      }
+    } catch (error) {
+      console.error('Login error:', error);
+      setErrors({ login: 'Invalid email or password' });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
-  const handleForgotPassword = (e: React.FormEvent) => {
+  const handleForgotPassword = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Implement forgot password logic here
-    console.log("Password reset requested for:", forgotPasswordEmail);
+    setIsSubmitting(true);
+    setErrors({});
+
+    try {
+      await axios.post(`${process.env.NEXT_PUBLIC_STRAPI_API_URL}/api/auth/forgot-password`, {
+        email: forgotPasswordEmail
+      });
+      // Show success message
+      setErrors({ success: 'Password reset instructions sent to your email' });
+    } catch (error) {
+      console.error('Forgot password error:', error);
+      setErrors({ forgotPassword: 'Error sending reset instructions' });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -86,12 +120,15 @@ export default function LoginPage() {
               </div>
             </div>
 
+            {errors.login && <p className="text-red-500 text-sm">{errors.login}</p>}
+
             <div>
               <button
                 type="submit"
+                disabled={isSubmitting}
                 className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
               >
-                Sign in
+                {isSubmitting ? 'Signing in...' : 'Sign in'}
               </button>
             </div>
           </form>
@@ -114,12 +151,15 @@ export default function LoginPage() {
                 />
               </div>
             </div>
+            {errors.forgotPassword && <p className="text-red-500 text-sm">{errors.forgotPassword}</p>}
+            {errors.success && <p className="text-green-500 text-sm">{errors.success}</p>}
             <div>
               <button
                 type="submit"
+                disabled={isSubmitting}
                 className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
               >
-                Reset Password
+                {isSubmitting ? 'Sending...' : 'Reset Password'}
               </button>
             </div>
             <div className="text-sm text-center">

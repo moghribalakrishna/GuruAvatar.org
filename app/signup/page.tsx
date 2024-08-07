@@ -1,10 +1,10 @@
-// File: app/signup/page.tsx
-
 'use client';
 
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { User, Mail, Lock, BookOpen, School } from 'lucide-react';
+import axios from 'axios';
+import { useRouter } from 'next/navigation';
 
 interface FormData {
   name: string;
@@ -25,6 +25,8 @@ export default function EnhancedSignupPage() {
     educationLevel: '',
   });
   const [errors, setErrors] = useState<{[key: string]: string}>({});
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const router = useRouter();
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
@@ -54,12 +56,31 @@ export default function EnhancedSignupPage() {
     return Object.keys(newErrors).length === 0;
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (validateForm()) {
-      // Submit the form
-      console.log("Form submitted:", formData);
-      // Here you would typically send the data to your backend
+      setIsSubmitting(true);
+      try {
+        const response = await axios.post(`${process.env.NEXT_PUBLIC_STRAPI_API_URL}/auth/local/register`, {
+          username: formData.name,
+          email: formData.email,
+          password: formData.password,
+          interests: formData.interests,
+          educationLevel: formData.educationLevel
+        });
+
+        if (response.status === 200) {
+          // Redirect to login page or dashboard
+          router.push('/login');
+        } else {
+          throw new Error('Failed to register');
+        }
+      } catch (error) {
+        console.error('Error submitting form:', error);
+        setErrors({ ...errors, submit: 'An error occurred. Please try again.' });
+      } finally {
+        setIsSubmitting(false);
+      }
     }
   };
 
@@ -198,9 +219,10 @@ export default function EnhancedSignupPage() {
           <div>
             <button
               type="submit"
+              disabled={isSubmitting}
               className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
             >
-              Sign up
+              {isSubmitting ? 'Signing up...' : 'Sign up'}
             </button>
           </div>
         </form>

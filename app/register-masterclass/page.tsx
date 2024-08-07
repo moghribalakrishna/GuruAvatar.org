@@ -1,10 +1,9 @@
-// File: app/register-masterclass/page.tsx
-
 'use client';
 
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Send, AlertCircle } from 'lucide-react';
+import axios from 'axios';
 
 interface FormData {
   name: string;
@@ -33,7 +32,7 @@ export default function RegisterMasterclassPage() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitSuccess, setSubmitSuccess] = useState(false);
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
     if (errors[name]) {
@@ -77,17 +76,23 @@ export default function RegisterMasterclassPage() {
     if (validateForm()) {
       setIsSubmitting(true);
       try {
-        // Simulate API call
-        await new Promise(resolve => setTimeout(resolve, 2000));
-        setSubmitSuccess(true);
-        setFormData({
-          name: '',
-          email: '',
-          phone: '',
-          occupation: '',
-          experience: '',
-          expectations: '',
+        const response = await axios.post(`${process.env.NEXT_PUBLIC_STRAPI_API_URL}/masterclass-registrations`, {
+          data: formData
         });
+
+        if (response.status === 200) {
+          setSubmitSuccess(true);
+          setFormData({
+            name: '',
+            email: '',
+            phone: '',
+            occupation: '',
+            experience: '',
+            expectations: '',
+          });
+        } else {
+          throw new Error('Failed to submit registration');
+        }
       } catch (error) {
         console.error('Error submitting form:', error);
         setErrors({ ...errors, submit: 'An error occurred. Please try again.' });
