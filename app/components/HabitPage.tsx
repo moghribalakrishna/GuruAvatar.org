@@ -117,7 +117,8 @@ export default function HabitPage({ habitId }: HabitPageProps) {
         )}
 
         <div className="mt-12 text-center">
-          <Link href={`/courses/${habit.title.toLowerCase().replace(' ', '-')}`}>
+          {/* <Link href={`/courses/${habit.title.toLowerCase().replace(' ', '-')}`}> */}
+          <Link href="/habit-forging/registration">
             <motion.button 
               className="bg-orange-500 text-white px-10 py-4 rounded-full text-xl font-semibold hover:bg-orange-600 transition duration-300 shadow-lg"
               whileHover={{ scale: 1.05 }}
