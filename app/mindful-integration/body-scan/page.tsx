@@ -1,11 +1,22 @@
 'use client';
-import React, { useState } from 'react';
+
+import React, { useState, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import { Eye, Brain, Heart, Battery, Moon } from 'lucide-react';
+import Image from 'next/image';
 
 export default function BodyScanPage() {
   const [showTimer, setShowTimer] = useState(false);
-  const [time, setTime] = useState(900); // 15 minutes in seconds
+  const [time, setTime] = useState(300); // 5 minutes in seconds
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    if (videoRef.current) {
+      videoRef.current.play().catch(error => {
+        console.error("Auto-play was prevented:", error);
+      });
+    }
+  }, []);
 
   const startTimer = () => {
     setShowTimer(true);
@@ -32,6 +43,19 @@ export default function BodyScanPage() {
           <Eye className="w-12 h-12 mr-4 text-green-300" />
           Body Scan Meditation
         </motion.h1>
+
+        <div className="mb-8 rounded-xl overflow-hidden">
+          <video 
+            ref={videoRef}
+            className="w-full"
+            loop
+            muted
+            playsInline
+          >
+            <source src="/videos/mindful-integration/body-scan.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+        </div>
 
         <motion.section 
           className="mb-8"
@@ -102,6 +126,20 @@ export default function BodyScanPage() {
             <li>Be patient and kind with yourself – it's normal for the mind to wander during this practice</li>
             <li>Consider using a guided body scan recording until you're comfortable leading yourself</li>
           </ul>
+        </motion.section>
+        <motion.section 
+          className="mb-8"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5, delay: 0.8 }}
+        >
+          <Image 
+            src="/images/mindful-integration/body-scan.webp" 
+            alt="Body Scan Meditation Practice" 
+            width={800} 
+            height={400} 
+            className="rounded-xl shadow-2xl"
+          />
         </motion.section>
 
         <motion.section 

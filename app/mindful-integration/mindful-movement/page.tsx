@@ -1,11 +1,22 @@
 'use client';
-import React, { useState } from 'react';
+
+import React, { useState, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import { Move, Activity, Wind, Sun, Brain } from 'lucide-react';
+import Image from 'next/image';
 
 export default function MindfulMovementPage() {
   const [showTimer, setShowTimer] = useState(false);
   const [time, setTime] = useState(300); // 5 minutes in seconds
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    if (videoRef.current) {
+      videoRef.current.play().catch(error => {
+        console.error("Auto-play was prevented:", error);
+      });
+    }
+  }, []);
 
   const startTimer = () => {
     setShowTimer(true);
@@ -32,6 +43,19 @@ export default function MindfulMovementPage() {
           <Move className="w-12 h-12 mr-4 text-yellow-300" />
           Mindful Movement
         </motion.h1>
+
+        <div className="mb-8 rounded-xl overflow-hidden">
+          <video 
+            ref={videoRef}
+            className="w-full"
+            loop
+            muted
+            playsInline
+          >
+            <source src="/videos/mindful-integration/mindful-movement.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+        </div>
 
         <motion.section 
           className="mb-8"
@@ -106,6 +130,20 @@ export default function MindfulMovementPage() {
             <li><strong>Mindful Swimming:</strong> Paying attention to the feeling of water on your skin, your breath, and the movement of your body through water.</li>
             <li><strong>Mindful Dance:</strong> Moving to music while staying aware of your body's movements and emotional responses.</li>
           </ul>
+        </motion.section>
+        <motion.section 
+          className="mb-8"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5, delay: 0.8 }}
+        >
+          <Image 
+            src="/images/mindful-integration/mindful-movement.webp" 
+            alt="Mindful Movement Practice" 
+            width={800} 
+            height={400} 
+            className="rounded-xl shadow-2xl"
+          />
         </motion.section>
 
         <motion.section 
@@ -269,7 +307,7 @@ export default function MindfulMovementPage() {
             <li>Incorporate loving-kindness meditation into your movement practice to cultivate positive emotions</li>
           </ul>
         </motion.section>
-
+        
         <motion.section 
           className="text-center"
           initial={{ opacity: 0 }}

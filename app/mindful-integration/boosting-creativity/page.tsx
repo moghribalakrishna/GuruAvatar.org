@@ -1,11 +1,22 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import { Zap, Bulb, Palette, Book, Brain, Sun } from 'lucide-react';
 import Link from 'next/link';
+import Image from 'next/image';
 
 export default function BoostingCreativityPage() {
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    if (videoRef.current) {
+      videoRef.current.play().catch(error => {
+        console.error("Auto-play was prevented:", error);
+      });
+    }
+  }, []);
+
   const [showExercise, setShowExercise] = useState(false);
   const [randomWords, setRandomWords] = useState<string[]>([]);
 
@@ -28,6 +39,19 @@ export default function BoostingCreativityPage() {
           <Zap className="w-12 h-12 mr-4 text-yellow-300" />
           Boosting Creativity
         </motion.h1>
+
+        <div className="mb-8 rounded-xl overflow-hidden">
+          <video 
+            ref={videoRef}
+            className="w-full"
+            loop
+            muted
+            playsInline
+          >
+            <source src="/videos/mindful-integration/boosting-creativity.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+        </div>
 
         <motion.section 
           className="mb-8"
@@ -82,6 +106,20 @@ export default function BoostingCreativityPage() {
             <li><strong>Reverse Thinking:</strong> Consider the opposite of conventional approaches.</li>
             <li><strong>Meditation and Mindfulness:</strong> Clear your mind to make room for new ideas.</li>
           </ol>
+        </motion.section>
+        <motion.section 
+          className="mb-8"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5, delay: 0.8 }}
+        >
+          <Image 
+            src="/images/mindful-integration/boosting-creativity.webp" 
+            alt= "Bossting Creativity"
+            width={800} 
+            height={400} 
+            className="rounded-xl shadow-2xl"
+          />
         </motion.section>
 
         <motion.section 

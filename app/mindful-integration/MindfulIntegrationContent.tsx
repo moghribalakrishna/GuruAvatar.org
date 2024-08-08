@@ -4,7 +4,7 @@ import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
-import {  Brain, Heart, Move, Eye, Apple, MessageCircle, Laptop, Smartphone, Smile, Book, Zap } from 'lucide-react';
+import { Brain, Heart, Move, Eye, Apple, MessageCircle, Laptop, Smartphone, Smile, Book, Zap } from 'lucide-react';
 
 const mindfulnessPractices = [
   { id: 'breath-awareness', icon: Brain, title: 'Breath Awareness', description: 'Anchor your attention and improve focus through mindful breathing.' },
@@ -58,6 +58,11 @@ export default function MindfulIntegrationContent() {
         whileHover={{ scale: 1.03 }}
         whileTap={{ scale: 0.98 }}
       >
+        <img 
+          src={`/images/mindful-integration/${practice.id}.webp`} 
+          alt={practice.title} 
+          className="w-full h-48 object-cover mb-4 rounded-lg"
+        />
         <practice.icon className="w-12 h-12 text-purple-400 mb-4" />
         <h3 className="text-xl font-semibold mb-2">{practice.title}</h3>
         <p className="text-blue-100">{practice.description}</p>

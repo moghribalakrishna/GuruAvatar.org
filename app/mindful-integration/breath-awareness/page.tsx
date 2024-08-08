@@ -1,11 +1,22 @@
 'use client';
-import React, { useState } from 'react';
+
+import React, { useState, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
-import {  Brain, Heart, Clock, Sun } from 'lucide-react';
+import { Brain, Heart, Clock, Sun } from 'lucide-react';
+import Image from 'next/image';
 
 export default function BreathAwarenessPage() {
   const [showTimer, setShowTimer] = useState(false);
   const [time, setTime] = useState(300); // 5 minutes in seconds
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    if (videoRef.current) {
+      videoRef.current.play().catch(error => {
+        console.error("Auto-play was prevented:", error);
+      });
+    }
+  }, []);
 
   const startTimer = () => {
     setShowTimer(true);
@@ -32,6 +43,19 @@ export default function BreathAwarenessPage() {
           <Brain className="w-12 h-12 mr-4 text-blue-300" />
           Breath Awareness Meditation
         </motion.h1>
+
+        <div className="mb-8 rounded-xl overflow-hidden">
+          <video 
+            ref={videoRef}
+            className="w-full"
+            loop
+            muted
+            playsInline
+          >
+            <source src="/videos/mindful-integration/breath-awareness.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+        </div>
 
         <motion.section 
           className="mb-8"
@@ -100,7 +124,20 @@ export default function BreathAwarenessPage() {
             <li>Gradually increase the duration of your practice as you become more comfortable</li>
           </ul>
         </motion.section>
-
+        <motion.section 
+          className="mb-8"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5, delay: 0.8 }}
+        >
+          <Image 
+            src="/images/mindful-integration/breath-awareness.webp" 
+            alt="Breath Awareness Meditation Practice" 
+            width={800} 
+            height={400} 
+            className="rounded-xl shadow-2xl"
+          />
+        </motion.section>
         <motion.section 
           className="mb-8"
           initial={{ opacity: 0 }}
@@ -121,7 +158,7 @@ export default function BreathAwarenessPage() {
           ) : (
             <div className="text-center">
               <p className="text-4xl font-bold mb-4">{Math.floor(time / 60)}:{(time % 60).toString().padStart(2, '0')}</p>
-              <p className="text-lg">Focus on your breath. Gently return your attention to your breath whenever your mind wanders.</p>
+              <p className="text-lg">Focus on your breath. Notice any distractions and gently return your attention to your breath.</p>
             </div>
           )}
         </motion.section>
@@ -145,11 +182,13 @@ export default function BreathAwarenessPage() {
           </ul>
         </motion.section>
 
+       
+
         <motion.section 
           className="text-center"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 0.5, delay: 0.8 }}
+          transition={{ duration: 0.5, delay: 0.9 }}
         >
           <h2 className="text-2xl font-semibold mb-4">Ready to Deepen Your Practice?</h2>
           <p className="text-lg mb-6">
