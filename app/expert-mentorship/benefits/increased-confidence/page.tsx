@@ -1,108 +1,118 @@
-// File: app/expert-mentorship/benefits/increased-confidence/page.tsx
-
 'use client';
 
 import React from 'react';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
-import { ChartBar, ArrowLeft } from 'lucide-react';
+import { ChartBar, ChevronRight, Star, Target, Users, Brain } from 'lucide-react';
 
 export default function IncreasedConfidencePage() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-blue-900 to-teal-700 text-white p-8">
       <div className="max-w-4xl mx-auto">
-        <Link href="/expert-mentorship/benefits" className="inline-flex items-center text-blue-300 hover:text-blue-200 mb-8">
-          <ArrowLeft className="mr-2" /> Back to Benefits
+        <Link href="/expert-mentorship/benefits" className="inline-flex items-center text-blue-300 hover:text-blue-200 mb-8 transition duration-300">
+          <ChevronRight className="mr-2 rotate-180" /> Back to Benefits
         </Link>
         
-        <motion.h1
+        <motion.h1 
           className="text-4xl font-bold mb-6 flex items-center"
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
         >
           <ChartBar className="w-12 h-12 mr-4 text-yellow-400" />
-          Increased Confidence
+          Increased Confidence: Empowering Your Potential
         </motion.h1>
-
-        <motion.div 
-          className="mb-8"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.5, delay: 0.2 }}
-        >
-          <video 
-            className="w-full rounded-xl shadow-lg"
-            controls
-            poster="/videos/increased-confidence-poster.jpg"
-          >
-            <source src="/videos/increased-confidence.mp4" type="video/mp4" />
-            Your browser does not support the video tag.
-          </video>
-        </motion.div>
-
-        <motion.p 
-          className="text-xl mb-6"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.5, delay: 0.3 }}
-        >
-          Building self-confidence is a crucial outcome of our expert mentorship program. Through validation, constructive feedback, and support from your mentor, you'll develop a stronger sense of self-assurance in your abilities and decisions.
-        </motion.p>
-
-        <motion.h2 
-          className="text-2xl font-semibold mb-4"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.5, delay: 0.4 }}
-        >
-          How Mentorship Boosts Your Confidence:
-        </motion.h2>
-
-        <motion.ul 
-          className="list-disc list-inside space-y-2 mb-6"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.5, delay: 0.5 }}
-        >
-          <li>Validation of your skills and potential from industry experts</li>
-          <li>Constructive feedback to help you improve and grow</li>
-          <li>Support in overcoming imposter syndrome and self-doubt</li>
-          <li>Encouragement to take on new challenges and stretch your abilities</li>
-          <li>Recognition of your achievements and progress</li>
-        </motion.ul>
-
-        <motion.div 
-          className="mb-8"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.5, delay: 0.6 }}
-        >
-          <img 
-            src="/images/increased-confidence.jpg" 
-            alt="Increased confidence through mentorship" 
-            className="w-full rounded-xl shadow-lg"
-          />
-          {/* Image description: A mentor and mentee in a celebratory pose, with holographic displays showing the mentee's growth in confidence and achievements over time */}
-        </motion.div>
 
         <motion.p 
           className="text-xl mb-8"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 0.5, delay: 0.7 }}
+          transition={{ duration: 0.5, delay: 0.2 }}
         >
-          With increased confidence gained through expert mentorship, you'll be better equipped to take on new challenges, speak up in professional settings, and pursue ambitious goals in your career and personal life.
+          Confidence is the cornerstone of success in both academic and professional realms. Our expert mentorship program is designed to boost your self-assurance, allowing you to tackle challenges with resilience and achieve your goals with unwavering belief in your abilities.
         </motion.p>
+
+        <motion.div 
+          className="mb-12 bg-white bg-opacity-10 rounded-xl p-6"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.3 }}
+        >
+          <h2 className="text-2xl font-semibold mb-4">The Confidence Advantage</h2>
+          <ul className="space-y-4">
+            <li className="flex items-start">
+              <Star className="w-6 h-6 text-green-400 mr-2 flex-shrink-0" />
+              <span><strong className="text-green-400">Enhanced Performance:</strong> Confident students are more likely to participate actively and excel in their studies.</span>
+            </li>
+            <li className="flex items-start">
+              <Target className="w-6 h-6 text-green-400 mr-2 flex-shrink-0" />
+              <span><strong className="text-green-400">Goal Achievement:</strong> With increased confidence, you'll set higher goals and be more motivated to achieve them.</span>
+            </li>
+            <li className="flex items-start">
+              <Users className="w-6 h-6 text-green-400 mr-2 flex-shrink-0" />
+              <span><strong className="text-green-400">Better Relationships:</strong> Confidence improves communication skills and helps build stronger professional networks.</span>
+            </li>
+            <li className="flex items-start">
+              <Brain className="w-6 h-6 text-green-400 mr-2 flex-shrink-0" />
+              <span><strong className="text-green-400">Resilience:</strong> Face challenges head-on with a positive mindset and bounce back from setbacks more easily.</span>
+            </li>
+          </ul>
+        </motion.div>
+
+        <motion.div 
+          className="mb-12"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.4 }}
+        >
+          <h2 className="text-2xl font-semibold mb-4">Our Confidence-Boosting Strategies</h2>
+          <div className="grid md:grid-cols-2 gap-6">
+            <div className="bg-white bg-opacity-10 rounded-xl p-6">
+              <h3 className="text-xl font-semibold mb-2">Positive Reinforcement</h3>
+              <p>Receive consistent encouragement and recognition for your efforts and achievements.</p>
+            </div>
+            <div className="bg-white bg-opacity-10 rounded-xl p-6">
+              <h3 className="text-xl font-semibold mb-2">Skill Mastery</h3>
+              <p>Develop new competencies under expert guidance, building confidence through accomplishment.</p>
+            </div>
+            <div className="bg-white bg-opacity-10 rounded-xl p-6">
+              <h3 className="text-xl font-semibold mb-2">Constructive Feedback</h3>
+              <p>Learn to view feedback as a growth opportunity, enhancing your skills and self-assurance.</p>
+            </div>
+            <div className="bg-white bg-opacity-10 rounded-xl p-6">
+              <h3 className="text-xl font-semibold mb-2">Mindset Transformation</h3>
+              <p>Shift from a fixed to a growth mindset, embracing challenges as opportunities to learn and improve.</p>
+            </div>
+          </div>
+        </motion.div>
+
+        <motion.div 
+          className="mb-12"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.5 }}
+        >
+          <h2 className="text-2xl font-semibold mb-4">Success Stories</h2>
+          <div className="bg-white bg-opacity-10 rounded-xl p-6">
+            <blockquote className="text-lg italic mb-4">
+              "Before joining GuruAvatar's mentorship program, I doubted my abilities and shied away from challenges. Now, I confidently tackle complex projects and have even presented at industry conferences. The transformation in my self-belief has been life-changing!"
+            </blockquote>
+            <p className="text-right">- Sarah L., Data Scientist</p>
+          </div>
+        </motion.div>
 
         <motion.div 
           className="text-center"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 0.5, delay: 0.8 }}
+          transition={{ duration: 0.5, delay: 0.6 }}
         >
-          <Link href="/expert-mentorship/find-mentor" className="bg-orange-500 text-white px-8 py-4 rounded-full text-xl font-semibold hover:bg-orange-600 transition duration-300 inline-block">
-            Boost Your Confidence
+          <h2 className="text-3xl font-semibold mb-6">Ready to Boost Your Confidence?</h2>
+          <p className="text-xl mb-8">
+            Unlock your full potential with our expert mentorship and watch your confidence soar to new heights.
+          </p>
+          <Link href="/expert-mentorship/find-mentor" className="bg-yellow-500 text-white px-8 py-4 rounded-full text-xl font-semibold hover:bg-yellow-600 transition duration-300 inline-block">
+            Start Your Confidence Journey
           </Link>
         </motion.div>
       </div>
