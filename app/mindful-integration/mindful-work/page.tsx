@@ -1,11 +1,22 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
+import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { Laptop, Clock, Brain, BookOpen, Coffee, Sun } from 'lucide-react';
 import Link from 'next/link';
 
 export default function MindfulWorkStudyPage() {
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    if (videoRef.current) {
+      videoRef.current.play().catch(error => {
+        console.error("Auto-play was prevented:", error);
+      });
+    }
+  }, []);
+
   const [showTimer, setShowTimer] = useState(false);
   const [time, setTime] = useState(1500); // 25 minutes in seconds (Pomodoro technique)
 
@@ -34,7 +45,18 @@ export default function MindfulWorkStudyPage() {
           <Laptop className="w-12 h-12 mr-4 text-yellow-300" />
           Mindful Work and Study
         </motion.h1>
-
+     <div className="mb-8 rounded-xl overflow-hidden">
+          <video 
+            ref={videoRef}
+            className="w-full"
+            loop
+            muted
+            playsInline
+          >
+            <source src="/videos/mindful-integration/mindful-work.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+        </div>
         <motion.section 
           className="mb-8"
           initial={{ opacity: 0 }}
@@ -106,7 +128,20 @@ export default function MindfulWorkStudyPage() {
             <li>End your work or study session with a brief reflection on what you've accomplished.</li>
           </ol>
         </motion.section>
-
+        <motion.section 
+          className="mb-8"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5, delay: 0.8 }}
+        >
+          <Image 
+            src="/images/mindful-integration/mindful-work.webp" 
+            alt="Observing thoughts" 
+            width={800} 
+            height={400} 
+            className="rounded-xl shadow-2xl"
+          />
+        </motion.section>
         <motion.section 
           className="mb-8"
           initial={{ opacity: 0 }}

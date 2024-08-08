@@ -1,11 +1,24 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
+import Image from 'next/image';
+ 
 import { motion } from 'framer-motion';
 import { Brain, Book, Repeat, Zap, Sun } from 'lucide-react';
 import Link from 'next/link';
 
 export default function EnhancingMemoryPage() {
+
+ const videoRef = useRef<HTMLVideoElement>(null);
+
+ useEffect(() => {
+   if (videoRef.current) {
+     videoRef.current.play().catch(error => {
+       console.error("Auto-play was prevented:", error);
+     });
+   }
+ }, []);
+
   const [showExercise, setShowExercise] = useState(false);
   const [memoryList, setMemoryList] = useState<string[]>([]);
   const [userInput, setUserInput] = useState('');
@@ -35,7 +48,18 @@ export default function EnhancingMemoryPage() {
           <Brain className="w-12 h-12 mr-4 text-purple-300" />
           Enhancing Memory and Retention
         </motion.h1>
-
+        <div className="mb-8 rounded-xl overflow-hidden">
+          <video 
+            ref={videoRef}
+            className="w-full"
+            loop
+            muted
+            playsInline
+          >
+            <source src="/videos/mindful-integration/enhancing-memory.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+        </div>
         <motion.section 
           className="mb-8"
           initial={{ opacity: 0 }}
@@ -90,7 +114,20 @@ export default function EnhancingMemoryPage() {
             <li><strong>Dual Coding:</strong> Combine verbal and visual information for better retention.</li>
           </ol>
         </motion.section>
-
+        <motion.section 
+          className="mb-8"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5, delay: 0.8 }}
+        >
+          <Image 
+            src="/images/mindful-integration/enhancing-memory.webp" 
+            alt="Observing thoughts" 
+            width={800} 
+            height={400} 
+            className="rounded-xl shadow-2xl"
+          />
+        </motion.section>
         <motion.section 
           className="mb-8"
           initial={{ opacity: 0 }}

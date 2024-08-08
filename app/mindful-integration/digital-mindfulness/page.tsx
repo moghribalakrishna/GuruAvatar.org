@@ -1,11 +1,22 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
+import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { Smartphone, Wifi, Clock, Eye, Battery, Sun } from 'lucide-react';
 import Link from 'next/link';
 
 export default function DigitalMindfulnessPage() {
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    if (videoRef.current) {
+      videoRef.current.play().catch(error => {
+        console.error("Auto-play was prevented:", error);
+      });
+    }
+  }, []);
+
   const [showTimer, setShowTimer] = useState(false);
   const [time, setTime] = useState(300); // 5 minutes in seconds
 
@@ -34,6 +45,18 @@ export default function DigitalMindfulnessPage() {
           <Smartphone className="w-12 h-12 mr-4 text-purple-300" />
           Digital Mindfulness
         </motion.h1>
+        <div className="mb-8 rounded-xl overflow-hidden">
+          <video 
+            ref={videoRef}
+            className="w-full"
+            loop
+            muted
+            playsInline
+          >
+            <source src="/videos/mindful-integration/digital-mindfulness.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+        </div>
 
         <motion.section 
           className="mb-8"
@@ -106,7 +129,20 @@ export default function DigitalMindfulnessPage() {
             <li>Reflect on your digital habits and their impact on your well-being.</li>
           </ol>
         </motion.section>
-
+        <motion.section 
+          className="mb-8"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5, delay: 0.8 }}
+        >
+          <Image 
+            src="/images/mindful-integration/digital-mindfulness.webp" 
+            alt="Observing thoughts" 
+            width={800} 
+            height={400} 
+            className="rounded-xl shadow-2xl"
+          />
+        </motion.section>
         <motion.section 
           className="mb-8"
           initial={{ opacity: 0 }}

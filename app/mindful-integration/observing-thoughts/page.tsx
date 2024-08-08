@@ -1,6 +1,5 @@
 'use client';
 import React, { useState, useEffect, useRef } from 'react';
-
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { Brain, Eye, Cloud, Sun, Wind } from 'lucide-react';
