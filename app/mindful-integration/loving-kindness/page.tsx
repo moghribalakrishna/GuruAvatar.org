@@ -261,14 +261,14 @@ export default function LovingKindnessPage() {
           <p className="text-lg mb-6">
             Explore our additional resources to enhance your understanding and experience of Loving-Kindness Meditation.
           </p>
-          <div className="space-x-4">
-            <button className="bg-purple-500 text-white px-6 py-3 rounded-full text-lg font-semibold hover:bg-purple-600 transition duration-300">
-              Join a Guided Group Session
-            </button>
-            <button className="bg-blue-500 text-white px-6 py-3 rounded-full text-lg font-semibold hover:bg-blue-600 transition duration-300">
-              Explore Advanced Practices
-            </button>
-          </div>
+          <div className="mt-8 flex justify-center space-x-4">
+          <Link href="/mindful-integration/mindfulness-community" className="bg-blue-500 text-white px-6 py-3 rounded-full text-lg font-semibold hover:bg-blue-600 transition duration-300">
+            Join Our Community
+          </Link>
+          <Link href="/mindful-integration/free-consultation" className="bg-green-500 text-white px-6 py-3 rounded-full text-lg font-semibold hover:bg-green-600 transition duration-300">
+            Schedule a Free Consultation
+          </Link>
+        </div>
         </motion.section>
       </div>
     </div>

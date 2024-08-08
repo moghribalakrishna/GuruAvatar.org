@@ -4,6 +4,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import { Brain, Heart, Clock, Sun } from 'lucide-react';
 import Image from 'next/image';
+import Link from 'next/link';
 
 export default function BreathAwarenessPage() {
   const [showTimer, setShowTimer] = useState(false);
@@ -194,15 +195,16 @@ export default function BreathAwarenessPage() {
           <p className="text-lg mb-6">
             Explore our other mindfulness techniques or connect with a meditation coach for personalized guidance.
           </p>
-          <div className="space-x-4">
-            <button className="bg-purple-500 text-white px-6 py-3 rounded-full text-lg font-semibold hover:bg-purple-600 transition duration-300">
-              Explore More Techniques
-            </button>
-            <button className="bg-green-500 text-white px-6 py-3 rounded-full text-lg font-semibold hover:bg-green-600 transition duration-300">
-              Connect with a Coach
-            </button>
-          </div>
-        </motion.section>
+
+          <div className="mt-8 flex justify-center space-x-4">
+          <Link href="/mindful-integration/mindfulness-community" className="bg-blue-500 text-white px-6 py-3 rounded-full text-lg font-semibold hover:bg-blue-600 transition duration-300">
+            Join Our Community
+          </Link>
+          <Link href="/mindful-integration/free-consultation" className="bg-green-500 text-white px-6 py-3 rounded-full text-lg font-semibold hover:bg-green-600 transition duration-300">
+            Schedule a Free Consultation
+          </Link>
+        </div>
+      </motion.section>
       </div>
     </div>
   );

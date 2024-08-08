@@ -195,14 +195,14 @@ export default function MindfulEatingPage() {
           <p className="text-lg mb-6">
             Explore our additional resources to enhance your mindful eating journey.
           </p>
-          <div className="space-x-4">
-            <Link href="/mindful-eating-course" className="bg-blue-500 text-white px-6 py-3 rounded-full text-lg font-semibold hover:bg-blue-600 transition duration-300">
-              Join Mindful Eating Course
-            </Link>
-            <Link href="/nutrition-resources" className="bg-green-500 text-white px-6 py-3 rounded-full text-lg font-semibold hover:bg-green-600 transition duration-300">
-              Explore Nutrition Resources
-            </Link>
-          </div>
+          <div className="mt-8 flex justify-center space-x-4">
+          <Link href="/mindful-integration/mindfulness-community" className="bg-blue-500 text-white px-6 py-3 rounded-full text-lg font-semibold hover:bg-blue-600 transition duration-300">
+            Join Our Community
+          </Link>
+          <Link href="/mindful-integration/free-consultation" className="bg-green-500 text-white px-6 py-3 rounded-full text-lg font-semibold hover:bg-green-600 transition duration-300">
+            Schedule a Free Consultation
+          </Link>
+        </div>
         </motion.section>
       </div>
     </div>

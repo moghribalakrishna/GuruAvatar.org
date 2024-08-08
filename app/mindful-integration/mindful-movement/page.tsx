@@ -4,6 +4,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import { Move, Activity, Wind, Sun, Brain } from 'lucide-react';
 import Image from 'next/image';
+import Link from 'next/link';
 
 export default function MindfulMovementPage() {
   const [showTimer, setShowTimer] = useState(false);
@@ -318,14 +319,14 @@ export default function MindfulMovementPage() {
           <p className="text-lg mb-6">
             Whether you're new to mindfulness or looking to deepen your practice, mindful movement offers a dynamic way to cultivate presence and enhance your overall well-being.
           </p>
-          <div className="space-x-4">
-            <button className="bg-green-500 text-white px-6 py-3 rounded-full text-lg font-semibold hover:bg-green-600 transition duration-300">
-              Try a Guided Practice
-            </button>
-            <button className="bg-yellow-500 text-white px-6 py-3 rounded-full text-lg font-semibold hover:bg-yellow-600 transition duration-300">
-              Create a Personal Plan
-            </button>
-          </div>
+          <div className="mt-8 flex justify-center space-x-4">
+          <Link href="/mindful-integration/mindfulness-community" className="bg-blue-500 text-white px-6 py-3 rounded-full text-lg font-semibold hover:bg-blue-600 transition duration-300">
+            Join Our Community
+          </Link>
+          <Link href="/mindful-integration/free-consultation" className="bg-green-500 text-white px-6 py-3 rounded-full text-lg font-semibold hover:bg-green-600 transition duration-300">
+            Schedule a Free Consultation
+          </Link>
+        </div>
         </motion.section>
       </div>
     </div>

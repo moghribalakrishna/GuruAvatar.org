@@ -4,7 +4,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import { Eye, Brain, Heart, Battery, Moon } from 'lucide-react';
 import Image from 'next/image';
-
+import Link from 'next/link';
 export default function BodyScanPage() {
   const [showTimer, setShowTimer] = useState(false);
   const [time, setTime] = useState(300); // 5 minutes in seconds
@@ -216,14 +216,14 @@ export default function BodyScanPage() {
           <p className="text-lg mb-6">
             Deepen your understanding and experience of body scan meditation with our additional resources and personalized guidance.
           </p>
-          <div className="space-x-4">
-            <button className="bg-purple-500 text-white px-6 py-3 rounded-full text-lg font-semibold hover:bg-purple-600 transition duration-300">
-              Access Guided Recordings
-            </button>
-            <button className="bg-blue-500 text-white px-6 py-3 rounded-full text-lg font-semibold hover:bg-blue-600 transition duration-300">
-              Schedule a 1:1 Session
-            </button>
-          </div>
+          <div className="mt-8 flex justify-center space-x-4">
+          <Link href="/mindful-integration/mindfulness-community" className="bg-blue-500 text-white px-6 py-3 rounded-full text-lg font-semibold hover:bg-blue-600 transition duration-300">
+            Join Our Community
+          </Link>
+          <Link href="/mindful-integration/free-consultation" className="bg-green-500 text-white px-6 py-3 rounded-full text-lg font-semibold hover:bg-green-600 transition duration-300">
+            Schedule a Free Consultation
+          </Link>
+        </div>
         </motion.section>
       </div>
     </div>
