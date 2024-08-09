@@ -4,6 +4,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import { Heart, Users, Smile, Sun, Globe } from 'lucide-react';
 import Image from 'next/image';
+import Link from 'next/link';
 
 export default function LovingKindnessPage() {
   const [showTimer, setShowTimer] = useState(false);

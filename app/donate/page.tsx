@@ -12,7 +12,7 @@ const impactItems = [
   { icon: Zap, text: "Provide a year of mentorship and advanced courses to a high-potential student", amount: 500 },
 ];
 
-const DonationImpact = ({ amount }) => {
+const DonationImpact = ({ amount }: { amount: number }) => {
   const achievableImpacts = impactItems.filter(item => item.amount <= amount);
   return (
     <div className="mt-4">

@@ -2,9 +2,15 @@
 
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Book, Users, Zap, Brain, Clock, Star } from 'lucide-react';
+import { Book, Users, Zap, Brain, Clock, Star, LucideIcon } from 'lucide-react';
 
-const programTypes = [
+interface Program {
+  name: string;
+  icon: LucideIcon;
+  description: string;
+}
+
+const programTypes: Program[] = [
   { 
     name: "Self-Paced Courses", 
     icon: Book, 
@@ -22,7 +28,15 @@ const programTypes = [
   }
 ];
 
-const sampleCourses = [
+interface Course {
+  title: string;
+  category: string;
+  duration: string;
+  level: string;
+  description: string;
+}
+
+const sampleCourses: Course[] = [
   {
     title: "AI Fundamentals",
     category: "Technology",
@@ -53,7 +67,7 @@ const sampleCourses = [
   }
 ];
 
-const ProgramTypeCard = ({ program }) => (
+const ProgramTypeCard: React.FC<{ program: Program }> = ({ program }) => (
   <motion.div 
     className="bg-white bg-opacity-10 rounded-xl p-6"
     initial={{ opacity: 0, y: 20 }}
@@ -66,7 +80,7 @@ const ProgramTypeCard = ({ program }) => (
   </motion.div>
 );
 
-const CourseCard = ({ course }) => (
+const CourseCard: React.FC<{ course: Course }> = ({ course }) => (
   <motion.div 
     className="bg-white bg-opacity-10 rounded-xl p-6"
     initial={{ opacity: 0, y: 20 }}

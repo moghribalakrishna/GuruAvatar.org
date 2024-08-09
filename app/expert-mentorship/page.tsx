@@ -5,7 +5,15 @@ import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { Users, Zap, Target, BookOpen, Brain, Rocket, ArrowRight } from 'lucide-react';
 
-const ClickableCard = ({ href, icon: Icon, title, description, iconColor }) => (
+interface ClickableCardProps {
+  href: string;
+  icon: React.ComponentType<{ className?: string }>;
+  title: string;
+  description: string;
+  iconColor?: string;
+}
+
+const ClickableCard: React.FC<ClickableCardProps> = ({ href, icon: Icon, title, description, iconColor }) => (
   <Link href={href}>
     <motion.div
       className="bg-white bg-opacity-10 p-6 rounded-xl cursor-pointer transition-all duration-300 hover:bg-opacity-20 hover:shadow-lg group relative overflow-hidden"

@@ -1,5 +1,3 @@
-// File: app/profile/page.tsx
-
 'use client';
 
 import React, { useEffect, useState } from 'react';
@@ -7,10 +5,16 @@ import { useRouter } from 'next/navigation';
 import { motion } from 'framer-motion';
 import { getUserProfile, updateUserProfile, logout } from '../lib/auth';
 
+interface User {
+  username: string;
+  email: string;
+  bio?: string;
+}
+
 export default function Profile() {
-  const [user, setUser] = useState(null);
+  const [user, setUser] = useState<User | null>(null);
   const [editing, setEditing] = useState(false);
-  const [formData, setFormData] = useState({
+  const [formData, setFormData] = useState<User>({
     username: '',
     email: '',
     bio: '',
@@ -28,6 +32,7 @@ export default function Profile() {
           bio: profile.bio || '',
         });
       } catch (error) {
+        console.error('Error fetching user profile:', error);
         router.push('/login');
       }
     };
@@ -39,11 +44,11 @@ export default function Profile() {
     router.push('/');
   };
 
-  const handleInputChange = (e) => {
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
       const updatedProfile = await updateUserProfile(formData);

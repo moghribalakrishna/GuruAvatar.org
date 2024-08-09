@@ -18,7 +18,18 @@ const habits = [
   { id: "financial-literacy", title: "Financial Literacy", video: "/videos/financial-literacy.mp4" }
 ];
 
-const HabitCard = ({ habit }) => {
+interface Habit {
+  id: string;
+  title: string;
+  video: string;
+  // Add other properties as needed
+}
+
+interface HabitCardProps {
+  habit: Habit;
+}
+
+const HabitCard: React.FC<HabitCardProps> = ({ habit }) => {
   const videoRef = useRef<HTMLVideoElement>(null);
 
   useEffect(() => {

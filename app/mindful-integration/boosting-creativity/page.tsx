@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
-import { Zap, Bulb, Palette, Book, Brain, Sun } from 'lucide-react';
+import { Zap, Palette, Book, Brain, Sun } from 'lucide-react';
 import Link from 'next/link';
 import Image from 'next/image';
 

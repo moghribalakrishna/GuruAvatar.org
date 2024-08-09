@@ -27,7 +27,10 @@ export const mentorshipAreas = [
       ],
       approach: 'Jane believes in a hands-on approach to mentoring, encouraging her mentees to work on real-world projects and challenges. She emphasizes the importance of staying current with the latest research and fostering a growth mindset.',
       availableTimes: ['Weekday evenings', 'Saturday mornings'],
-      languages: ['English', 'Mandarin']
+      languages: ['English', 'Mandarin'],
+      rating: 4.8,
+      studentsHelped: 42,
+      yearsExperience: 15
     },
     {
       id: 'john-smith',
@@ -44,9 +47,11 @@ export const mentorshipAreas = [
       ],
       approach: 'John takes a pragmatic approach to mentoring, focusing on actionable strategies and real-world problem-solving. He believes in the power of networking and often connects his mentees with valuable industry contacts.',
       availableTimes: ['Weekday lunchtimes', 'Sunday afternoons'],
-      languages: ['English', 'Spanish']
-    },
-    // Add more mentor profiles here
+      languages: ['English', 'Spanish'],
+      rating: 4.6,
+      studentsHelped: 28,
+      yearsExperience: 10
+    }
   ];
   
   export const testimonials = [

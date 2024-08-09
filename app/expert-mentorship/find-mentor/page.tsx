@@ -13,11 +13,16 @@ interface Mentor {
   title: string;
   image: string;
   expertise: string[];
+  areas: string[];
+  bio: string;
+  achievements: string[];
+  approach: string;
+  availableTimes: string[];
+  languages: string[];
   rating: number;
   studentsHelped: number;
   yearsExperience: number;
 }
-
 export default function EnhancedFindMentorPage() {
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedArea, setSelectedArea] = useState('All');
