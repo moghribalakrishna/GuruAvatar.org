@@ -176,7 +176,7 @@ export default function About() {
               The seven-year journey with AlienHu, while challenging, provided Balakrishna with invaluable experience in product development, team building, B2B and B2C software creation, investor pitching, and company scaling. These experiences, coupled with the personal growth from overcoming numerous obstacles, reinvigorated Balakrishna's commitment to the original GuruAvatar vision.
             </p>
             <p className="text-lg mb-4">
-              Now, with a wealth of experience and renewed confidence, Balakrishna has returned to his GuruAvatar dream. This time, he's pursuing it as a non-profit organization, aiming to provide students with a 360-degree mindful learning experience. The goal is to create a comprehensive support system that empowers students to improve society and face future challenges with courage and wisdom.
+              Now, with a wealth of experience and renewed confidence, Balakrishna has returned to his GuruAvatar dream. This time, he's pursuing it as a non-profit organization, aiming to provide students with a 360° mindful learning experience. The goal is to create a comprehensive support system that empowers students to improve society and face future challenges with courage and wisdom.
             </p>
           </motion.div>
         </section>
