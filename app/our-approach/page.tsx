@@ -1,33 +1,38 @@
-'use client'
+'use client';
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Brain, Users, Zap, BookOpen, Repeat, Heart } from 'lucide-react';
+import { Brain, Users, Zap, Repeat, BookOpen } from 'lucide-react';
 import Link from 'next/link';
+import Image from 'next/image';
 
 const approachSections = [
   {
     icon: Brain,
     title: "AI-Powered Learning",
     description: "Our advanced AI algorithms create personalized learning paths, adapting in real-time to each student's progress and learning style.",
-    link: "/our-approach/ai-powered-learning"
+    link: "/our-approach/ai-powered-learning",
+    imageSrc: "/images/our-approach/ai-learning-illustration.webp" // Replace with the actual image path
   },
   {
     icon: Users,
     title: "Expert Mentorship",
     description: "We connect students with industry professionals, providing guidance, inspiration, and real-world insights to enhance their learning journey.",
-    link: "/our-approach/expert-mentorship"
+    link: "/our-approach/expert-mentorship",
+    imageSrc: "/images/our-approach/expert-mentorship-illustration.webp" // Replace with the actual image path
   },
   {
     icon: Zap,
     title: "Mindfulness Integration",
     description: "By incorporating mindfulness techniques, we help students enhance focus, reduce stress, and improve overall well-being.",
-    link: "/our-approach/mindfulness-integration"
+    link: "/our-approach/mindfulness-integration",
+    imageSrc: "/images/our-approach/mindfulness-illustration.webp" // Replace with the actual image path
   },
   {
     icon: Repeat,
     title: "Habit Formation",
     description: "We employ scientifically-backed methods to help students build lasting habits that support continuous learning and personal growth.",
-    link: "/our-approach/habit-formation"
+    link: "/our-approach/habit-formation",
+    imageSrc: "/images/our-approach/habit-formation-illustration.webp" // Replace with the actual image path
   }
 ];
 
@@ -53,6 +58,17 @@ export default function OurApproachPage() {
           At GuruAvatar, we're pioneering a holistic, technology-enhanced approach to education. Our innovative methodology combines cutting-edge AI with time-honored practices to create a truly transformative learning experience.
         </motion.p>
 
+        {/* Main image for Our Approach page */}
+        <div className="text-center mb-12">
+          <Image 
+            src="/images/our-approach/our-approach.webp" // Replace with the actual path to the overall image
+            alt="Holistic Educational Approach"
+            width={800}
+            height={400}
+            className="rounded-lg mx-auto"
+          />
+        </div>
+
         <section className="mb-16">
           <h2 className="text-3xl font-semibold mb-8 text-center">The Four Pillars of GuruAvatar</h2>
           <div className="grid md:grid-cols-2 gap-8">
@@ -66,6 +82,13 @@ export default function OurApproachPage() {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
                 >
+                  <Image 
+                    src={section.imageSrc}
+                    alt={section.title}
+                    width={400}
+                    height={225}
+                    className="rounded-lg mb-4 w-full h-40 object-cover"
+                  />
                   <section.icon className="w-12 h-12 text-blue-300 mb-4" />
                   <h3 className="text-2xl font-semibold mb-2">{section.title}</h3>
                   <p className="text-gray-300">{section.description}</p>
