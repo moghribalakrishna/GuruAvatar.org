@@ -78,7 +78,7 @@ const InstructorPage = () => {
             Join Mr Balakrishna Moghri in this immersive AI Masterclass and gain insights from one of the field's leading experts.
           </p>
           <a 
-            href="/ai-masterclass/enroll" 
+            href="/ai-masterclass/register" 
             className="bg-teal-500 text-white px-8 py-4 rounded-full text-xl font-semibold hover:bg-teal-600 transition duration-300 inline-flex items-center"
           >
             <BookOpen className="mr-2" />

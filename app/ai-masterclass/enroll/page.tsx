@@ -1,4 +1,4 @@
-// File: app/ai-masterclass/enroll/page.tsx
+// File: app/ai-masterclass/register/page.tsx
 'use client';
 
 import React, { useState } from 'react';
