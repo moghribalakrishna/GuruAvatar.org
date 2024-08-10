@@ -1,84 +1,139 @@
-'use client';
-
+'use client'
 import React from 'react';
-import Image from 'next/image';
 import { motion } from 'framer-motion';
-import { Brain, Focus, Repeat, Users } from 'lucide-react';
+import { Brain, Users, Zap, BookOpen, Repeat, Heart } from 'lucide-react';
+import Link from 'next/link';
+
+const approachSections = [
+  {
+    icon: Brain,
+    title: "AI-Powered Learning",
+    description: "Our advanced AI algorithms create personalized learning paths, adapting in real-time to each student's progress and learning style.",
+    link: "/our-approach/ai-powered-learning"
+  },
+  {
+    icon: Users,
+    title: "Expert Mentorship",
+    description: "We connect students with industry professionals, providing guidance, inspiration, and real-world insights to enhance their learning journey.",
+    link: "/our-approach/expert-mentorship"
+  },
+  {
+    icon: Zap,
+    title: "Mindfulness Integration",
+    description: "By incorporating mindfulness techniques, we help students enhance focus, reduce stress, and improve overall well-being.",
+    link: "/our-approach/mindfulness-integration"
+  },
+  {
+    icon: Repeat,
+    title: "Habit Formation",
+    description: "We employ scientifically-backed methods to help students build lasting habits that support continuous learning and personal growth.",
+    link: "/our-approach/habit-formation"
+  }
+];
 
 export default function OurApproachPage() {
   return (
-    <div className="bg-gradient-to-b from-blue-900 via-blue-800 to-teal-900 min-h-screen text-white">
-      <div className="container mx-auto px-4 py-16">
+    <div className="min-h-screen bg-gradient-to-b from-blue-900 to-teal-700 text-white p-8">
+      <div className="max-w-4xl mx-auto">
         <motion.h1 
-          className="text-5xl font-bold mb-8 text-center"
+          className="text-4xl font-bold mb-6 text-center"
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
         >
           Our Approach to Revolutionary Education
         </motion.h1>
-        
-        <section className="mb-16">
-          <motion.p 
-            className="text-xl mb-8 text-center"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-          >
-            At GuruAvatar, we believe in a holistic, technology-enhanced approach to education. Our methodology combines cutting-edge AI with time-honored practices to create a truly transformative learning experience.
-          </motion.p>
-        </section>
+
+        <motion.p 
+          className="text-xl mb-12 text-center"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+        >
+          At GuruAvatar, we're pioneering a holistic, technology-enhanced approach to education. Our innovative methodology combines cutting-edge AI with time-honored practices to create a truly transformative learning experience.
+        </motion.p>
 
         <section className="mb-16">
+          <h2 className="text-3xl font-semibold mb-8 text-center">The Four Pillars of GuruAvatar</h2>
           <div className="grid md:grid-cols-2 gap-8">
-            <motion.div 
-              className="bg-white bg-opacity-10 p-6 rounded-xl"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.3 }}
-            >
-              <Brain className="w-16 h-16 text-blue-400 mb-4" />
-              <h2 className="text-2xl font-semibold mb-4">AI-Powered Learning</h2>
-              <p className="text-lg">Our advanced AI algorithms create personalized learning paths, adapting in real-time to each student's progress and learning style.</p>
-            </motion.div>
-
-            <motion.div 
-              className="bg-white bg-opacity-10 p-6 rounded-xl"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.4 }}
-            >
-              <Focus className="w-16 h-16 text-green-400 mb-4" />
-              <h2 className="text-2xl font-semibold mb-4">Mindfulness Integration</h2>
-              <p className="text-lg">We incorporate mindfulness techniques to enhance focus, reduce stress, and improve overall well-being, creating a holistic learning experience.</p>
-            </motion.div>
-
-            <motion.div 
-              className="bg-white bg-opacity-10 p-6 rounded-xl"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.5 }}
-            >
-              <Repeat className="w-16 h-16 text-purple-400 mb-4" />
-              <h2 className="text-2xl font-semibold mb-4">Habit Formation</h2>
-              <p className="text-lg">Using scientifically-backed methods, we help students build lasting habits that support continuous learning and personal growth.</p>
-            </motion.div>
-
-            <motion.div 
-              className="bg-white bg-opacity-10 p-6 rounded-xl"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.6 }}
-            >
-              <Users className="w-16 h-16 text-orange-400 mb-4" />
-              <h2 className="text-2xl font-semibold mb-4">Expert Mentorship</h2>
-              <p className="text-lg">Our platform connects students with industry experts and educators, providing guidance, inspiration, and real-world insights.</p>
-            </motion.div>
+            {approachSections.map((section, index) => (
+              <Link href={section.link} key={index}>
+                <motion.div 
+                  className="bg-white bg-opacity-10 p-6 rounded-xl cursor-pointer transition-all duration-300 hover:bg-opacity-20 hover:shadow-lg"
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                >
+                  <section.icon className="w-12 h-12 text-blue-300 mb-4" />
+                  <h3 className="text-2xl font-semibold mb-2">{section.title}</h3>
+                  <p className="text-gray-300">{section.description}</p>
+                </motion.div>
+              </Link>
+            ))}
           </div>
         </section>
 
-        {/* Rest of the component remains the same */}
-        
+        <section className="mb-16">
+          <h2 className="text-3xl font-semibold mb-8 text-center">The GuruAvatar Difference</h2>
+          <motion.div 
+            className="bg-white bg-opacity-10 p-8 rounded-xl"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.6 }}
+          >
+            <p className="text-lg mb-4">
+              What sets GuruAvatar apart is our commitment to providing a 360-degree educational experience. We don't just focus on academic knowledge; we nurture the whole individual:
+            </p>
+            <ul className="list-disc list-inside space-y-2 text-gray-300">
+              <li><strong className="text-white">Personalized Learning:</strong> Our AI adapts to each student's unique needs and learning style.</li>
+              <li><strong className="text-white">Real-World Relevance:</strong> Expert mentors bridge the gap between theory and practice.</li>
+              <li><strong className="text-white">Emotional Intelligence:</strong> Mindfulness practices foster self-awareness and emotional regulation.</li>
+              <li><strong className="text-white">Lifelong Skills:</strong> We instill habits that support continuous growth and adaptability.</li>
+            </ul>
+          </motion.div>
+        </section>
+
+        <section className="mb-16">
+          <h2 className="text-3xl font-semibold mb-8 text-center">Our Vision for the Future of Education</h2>
+          <motion.p 
+            className="text-lg mb-6"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.5, delay: 0.7 }}
+          >
+            At GuruAvatar, we envision a world where quality education is accessible to all, regardless of geographical or economic barriers. Our approach is designed to:
+          </motion.p>
+          <motion.ul 
+            className="list-disc list-inside space-y-2 text-gray-300"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.5, delay: 0.8 }}
+          >
+            <li>Democratize access to world-class education</li>
+            <li>Foster a love for lifelong learning</li>
+            <li>Prepare students for the challenges of the 21st century</li>
+            <li>Nurture not just knowledgeable, but emotionally intelligent and adaptable individuals</li>
+            <li>Create a global community of learners and mentors</li>
+          </motion.ul>
+        </section>
+
+        <motion.section 
+          className="text-center"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5, delay: 0.9 }}
+        >
+          <h2 className="text-3xl font-semibold mb-6">Join the Education Revolution</h2>
+          <p className="text-xl mb-8">
+            Experience the future of learning with GuruAvatar. Together, we can transform education and empower the next generation of learners.
+          </p>
+          <Link href="/get-started" className="bg-orange-500 text-white px-8 py-4 rounded-full text-xl font-semibold hover:bg-orange-600 transition duration-300 inline-flex items-center">
+            <BookOpen className="mr-2" />
+            Start Your Learning Journey
+          </Link>
+        </motion.section>
       </div>
     </div>
   );
