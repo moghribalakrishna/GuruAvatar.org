@@ -4,7 +4,7 @@ import React from 'react';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
-import { ArrowRight, Users, Target, Zap, BookOpen, Brain } from 'lucide-react';
+import { ArrowRight, Users, Target, Zap, BookOpen, Brain, Quote } from 'lucide-react';
 
 export default function About() {
   return (
@@ -17,7 +17,26 @@ export default function About() {
           transition={{ duration: 0.5 }}
         >
           About GuruAvatar
+          <span className="block text-sm text-orange-400 mt-2">
+            since 2012 to ∞
+          </span>
         </motion.h1>
+        <section className="my-16">
+          <motion.div
+            className="bg-white bg-opacity-10 p-8 rounded-lg shadow-lg text-center max-w-3xl mx-auto"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+          >
+            <Quote className="w-12 h-12 mx-auto text-orange-400 mb-4" />
+            <p className="text-2xl font-semibold mb-4 italic">
+              “In today’s world, education is at your fingertips—free and accessible to all. What truly makes the difference is the drive to learn, the practice of mindfulness, the cultivation of good habits, and the guidance of a mentor.”
+            </p>
+            <p className="text-lg font-medium text-orange-400">
+              - Balakrishna Moghri, Founder of GuruAvatar
+            </p>
+          </motion.div>
+        </section>
         
         <section className="mb-16">
           <motion.h2 
