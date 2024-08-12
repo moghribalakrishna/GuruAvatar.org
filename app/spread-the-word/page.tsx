@@ -19,7 +19,7 @@ const shareMessages = [
 export default function SpreadTheWordPage() {
   const [copiedMessage, setCopiedMessage] = useState('');
 
-  const handleCopy = (message) => {
+  const handleCopy = (message:string) => {
     navigator.clipboard.writeText(message);
     setCopiedMessage(message);
     setTimeout(() => setCopiedMessage(''), 3000);

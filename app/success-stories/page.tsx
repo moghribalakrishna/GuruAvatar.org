@@ -5,6 +5,14 @@ import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { Star } from 'lucide-react';
 
+interface Story {
+  name: string;
+  location: string;
+  image: string;
+  story: string;
+  achievement: string;
+}
+
 const successStories = [
   {
     name: "Priya Sharma",
@@ -36,7 +44,7 @@ const successStories = [
   }
 ];
 
-const SuccessStoryCard = ({ story }) => (
+const SuccessStoryCard = ({ story }: { story: Story }) => (
   <motion.div 
     className="bg-white bg-opacity-10 rounded-xl p-6 flex flex-col h-full"
     initial={{ opacity: 0, y: 20 }}
