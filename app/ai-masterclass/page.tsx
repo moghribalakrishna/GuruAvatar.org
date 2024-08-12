@@ -19,7 +19,7 @@ const AIMasterclassPage = () => {
       setCurrentSlide((prevSlide) => (prevSlide + 1) % slides.length);
     }, 5000);
     return () => clearInterval(timer);
-  }, []);
+  }, [slides.length]);
 
   const nextSlide = () => setCurrentSlide((prevSlide) => (prevSlide + 1) % slides.length);
   const prevSlide = () => setCurrentSlide((prevSlide) => (prevSlide - 1 + slides.length) % slides.length);

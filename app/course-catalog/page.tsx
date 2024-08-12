@@ -61,7 +61,7 @@ const courses = [
   }
 ];
 
-const categories = ["All", ...new Set(courses.map(course => course.category))];
+const categories = ["All", ...Array.from(new Set(courses.map(course => course.category)))];
 const levels = ["All", "Beginner", "Intermediate", "Advanced", "All Levels"];
 
 export default function CourseCatalogPage() {
