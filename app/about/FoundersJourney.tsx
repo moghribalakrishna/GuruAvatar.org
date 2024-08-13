@@ -103,7 +103,7 @@ export default function FoundersJourney() {
         >
           <h3 className="text-2xl font-semibold mb-4">Deepa Kongara: The Pillar of Strength</h3>
           <p className="text-lg mb-4">
-            Deepa Kongara's role in the GuruAvatar journey is a testament to her resilience, wisdom, and unwavering support. With her background in education and experience as a teacher, Deepa brought invaluable insights into the practical needs of students and educators. Her expertise in curriculum development and teaching methodologies became the bedrock of GuruAvatar's innovative approach.
+            Deepa Kongara's role in the GuruAvatar journey is a testament to her resilience, wisdom, and unwavering support. Deepa brought invaluable insights into the practical needs of students and educators. Her expertise in curriculum development and teaching methodologies became the bedrock of GuruAvatar's innovative approach.
           </p>
           <p className="text-lg mb-4">
             Throughout the challenging early years, Deepa wore multiple hats - supportive partner, soon-to-be mother, and co-architect of the GuruAvatar vision. Her focus on integrating mindfulness and emotional intelligence into the curriculum became a defining feature of GuruAvatar's holistic approach to education. Deepa's strength in the face of uncertainty and her ability to balance personal responsibilities with the demands of building GuruAvatar were crucial in navigating the turbulent waters of entrepreneurship.
@@ -122,10 +122,7 @@ export default function FoundersJourney() {
           Together, Balakrishna and Deepa faced numerous challenges - financial constraints, skepticism from peers, and the daunting task of reimagining education in a country as diverse and complex as India. Their journey was marked by sleepless nights, moments of doubt, and personal sacrifices. Yet, it was precisely these challenges that forged their resolve and deepened their commitment to the mission of transforming education.
         </p>
         <p className="text-lg mb-4">
-          Their complementary skills and shared vision created a synergy that would prove invaluable in the years to come. Balakrishna's technological expertise and entrepreneurial drive, combined with Deepa's educational background and focus on holistic development, laid the foundation for an educational platform that was both innovative and deeply rooted in pedagogical best practices.
-        </p>
-        <p className="text-lg mb-4">
-          Looking at their photos from 2013, taken in Hong Kong during GuruAvatar's founding days, one can see the determination and hope in their eyes. These images capture a moment in time when their shared dream was just beginning to take shape, a visual testament to the young couple who dared to envision a revolution in education.
+          Their complementary skills and shared vision created a synergy that would prove invaluable in the years to come. Balakrishna's technological expertise and entrepreneurial drive, combined with Deepa's educational interest and focus on holistic development, laid the foundation for an educational platform that was both innovative and deeply rooted in pedagogical best practices.
         </p>
       </motion.div>
     </section>

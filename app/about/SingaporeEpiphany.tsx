@@ -21,8 +21,7 @@ const SingaporeEpiphany = ({ isActive }) => {
       <div className="grid md:grid-cols-2 gap-8 mb-8">
         <div>
           <p className="text-lg mb-4">
-            In 2012, Balakrishna Moghri's life took an unexpected turn during a business trip to
-            Singapore. The stark contrast between Singapore's development and his native India
+            In 2012, Balakrishna Moghri's life took an unexpected turn when he landed in Singapore for his 1st Job. The stark contrast between Singapore's development and his native India
             sparked a profound introspection about the root causes of this disparity.
           </p>
           <p className="text-lg mb-4">
@@ -69,9 +68,9 @@ const SingaporeEpiphany = ({ isActive }) => {
               exit={{ opacity: 0, height: 0 }}
             >
               <p className="text-lg mb-4">
-                During sleepless nights in his Singapore hotel room, Balakrishna reflected on his
+                During sleepless nights in his Singapore condo, Balakrishna reflected on his
                 own journey. He realized that his success compared to his peers stemmed largely
-                from his habit of asking critical questions and his insatiable curiosity.
+                from his habit of asking critical questions, his insatiable curiosity & right Habits.
               </p>
               <p className="text-lg mb-4">
                 This epiphany became the cornerstone of what would eventually become GuruAvatar's

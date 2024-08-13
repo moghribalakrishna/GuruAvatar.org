@@ -52,7 +52,7 @@ const LeapOfFaith = ({ isActive }) => {
           </li>
           <li className="flex items-start">
             <Heart className="text-pink-400 mr-2 mt-1" />
-            <span>Embark on this journey with Deepa as life partners</span>
+            <span>Embark on this journey with Deepa as life partners & Co-Founders</span>
           </li>
         </ul>
       </div>
@@ -73,10 +73,10 @@ const LeapOfFaith = ({ isActive }) => {
               exit={{ opacity: 0, height: 0 }}
             >
               <p className="text-lg mb-4">
-                Deepa Kongara's support was instrumental in this pivotal moment. As an educator herself, she brought valuable insights into the practical needs of students and teachers.
+                Deepa Kongara's support was instrumental in this pivotal moment.she brought valuable insights into the practical needs of students and teachers.
               </p>
               <p className="text-lg mb-4">
-                Her expertise in curriculum development and teaching methodologies would later become the bedrock of GuruAvatar's innovative approach. Deepa's decision to support Balakrishna's vision, even as they were about to start their life together, was a testament to her belief in the transformative power of education.
+                Her deep interest in curriculum development and teaching methodologies would later become the bedrock of GuruAvatar's innovative approach. Deepa's decision to support Balakrishna's vision, even as they were about to start their life together, was a testament to her belief in the transformative power of education.
               </p>
               <blockquote className="border-l-4 border-orange-500 pl-4 italic text-lg">
                 "We're in this together now. If we can change even one life through better education, it will all be worth it." - Deepa Kongara
