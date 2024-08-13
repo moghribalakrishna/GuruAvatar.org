@@ -3,10 +3,15 @@ import { motion, AnimatePresence } from 'framer-motion';
 import Image from 'next/image';
 import { Target, ChevronDown, ChevronUp, Globe, Layers, Users, Zap } from 'lucide-react';
 
-const FutureVision = ({ isActive }) => {
-  const [expandedSection, setExpandedSection] = useState(null);
+// Define the prop types
+interface FutureVisionProps {
+  isActive: boolean;
+}
 
-  const toggleSection = (section) => {
+const FutureVision: React.FC<FutureVisionProps> = ({ isActive }) => {
+  const [expandedSection, setExpandedSection] = useState<null | string>(null);
+
+  const toggleSection = (section: string) => {
     setExpandedSection(expandedSection === section ? null : section);
   };
 

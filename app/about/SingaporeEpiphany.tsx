@@ -3,10 +3,15 @@ import { motion, AnimatePresence } from 'framer-motion';
 import Image from 'next/image';
 import { Lightbulb, ChevronDown, ChevronUp } from 'lucide-react';
 
-const SingaporeEpiphany = ({ isActive }) => {
-  const [expandedSection, setExpandedSection] = useState(null);
+// Define the prop types
+interface SingaporeEpiphanyProps {
+  isActive: boolean;
+}
 
-  const toggleSection = (section) => {
+const SingaporeEpiphany: React.FC<SingaporeEpiphanyProps> = ({ isActive }) => {
+  const [expandedSection, setExpandedSection] = useState<null | string>(null);
+
+  const toggleSection = (section: string) => {
     setExpandedSection(expandedSection === section ? null : section);
   };
 

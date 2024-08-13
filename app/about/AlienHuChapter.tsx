@@ -2,11 +2,15 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Image from 'next/image';
 import { Award, ChevronDown, ChevronUp, TrendingUp, Users, DollarSign, Zap } from 'lucide-react';
+// Define the prop types
+interface AlienHuChapterProps {
+  isActive: boolean;
+}
 
-const AlienHuChapter = ({ isActive }) => {
-  const [expandedSection, setExpandedSection] = useState(null);
+const AlienHuChapter: React.FC<AlienHuChapterProps> = ({ isActive }) => {
+  const [expandedSection, setExpandedSection] = useState<null | string>(null);
 
-  const toggleSection = (section) => {
+  const toggleSection = (section: string) => {
     setExpandedSection(expandedSection === section ? null : section);
   };
 

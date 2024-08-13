@@ -3,28 +3,41 @@ import { motion } from 'framer-motion';
 import Image from 'next/image';
 import { Users, Target, Zap, BookOpen, Globe, ChartBar } from 'lucide-react';
 
-const ImpactMetric = ({ icon: Icon, value, description }) => (
+// Define the prop types
+interface ImpactMetricProps {
+  icon: React.ComponentType<React.SVGProps<SVGSVGElement>>;
+  value: string | number;
+  description: string;
+}
+
+const ImpactMetric: React.FC<ImpactMetricProps> = ({ icon: Icon, value, description }) => (
   <motion.div 
     className="flex flex-col items-center p-6 bg-white bg-opacity-10 rounded-lg shadow-lg"
     whileHover={{ scale: 1.05 }}
-    transition={{ type: "spring", stiffness: 300 }}
   >
-    <Icon className="text-orange-400 mb-4" size={40} />
-    <h3 className="text-3xl font-bold mb-2">{value}</h3>
-    <p className="text-center">{description}</p>
+    <Icon className="w-12 h-12 text-blue-500" />
+    <h3 className="mt-4 text-2xl font-bold">{value}</h3>
+    <p className="mt-2 text-gray-500">{description}</p>
   </motion.div>
 );
 
-const VisionItem = ({ icon: Icon, title, description }) => (
+// Define the prop types for VisionItem
+interface VisionItemProps {
+  icon: React.ComponentType<React.SVGProps<SVGSVGElement>>;
+  title: string;
+  description: string;
+}
+
+const VisionItem: React.FC<VisionItemProps> = ({ icon: Icon, title, description }) => (
   <motion.div 
     className="flex items-start p-6 bg-white bg-opacity-5 rounded-lg shadow-lg"
     whileHover={{ scale: 1.02 }}
     transition={{ type: "spring", stiffness: 300 }}
   >
-    <Icon className="text-teal-400 mr-4 flex-shrink-0" size={24} />
-    <div>
-      <h3 className="text-xl font-semibold mb-2">{title}</h3>
-      <p>{description}</p>
+    <Icon className="w-12 h-12 text-blue-500" />
+    <div className="ml-4">
+      <h3 className="text-xl font-bold">{title}</h3>
+      <p className="mt-2 text-gray-500">{description}</p>
     </div>
   </motion.div>
 );

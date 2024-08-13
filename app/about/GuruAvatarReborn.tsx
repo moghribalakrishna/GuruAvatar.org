@@ -3,12 +3,18 @@ import { motion, AnimatePresence } from 'framer-motion';
 import Image from 'next/image';
 import { Zap, ChevronDown, ChevronUp, Book, Users, Brain, Globe } from 'lucide-react';
 
-const GuruAvatarReborn = ({ isActive }) => {
-  const [expandedSection, setExpandedSection] = useState(null);
+// Define the prop types
+interface GuruAvatarRebornProps {
+  isActive: boolean;
+}
 
-  const toggleSection = (section) => {
+const GuruAvatarReborn: React.FC<GuruAvatarRebornProps> = ({ isActive }) => {
+  const [expandedSection, setExpandedSection] = useState<null | string>(null);
+
+  const toggleSection = (section: string) => {
     setExpandedSection(expandedSection === section ? null : section);
   };
+
 
   return (
     <motion.div

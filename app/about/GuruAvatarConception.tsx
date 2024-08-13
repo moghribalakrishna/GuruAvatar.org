@@ -3,12 +3,18 @@ import { motion, AnimatePresence } from 'framer-motion';
 import Image from 'next/image';
 import { Users, ChevronDown, ChevronUp, Code, BookOpen, Brain, Target } from 'lucide-react';
 
-const GuruAvatarConception = ({ isActive }) => {
-  const [expandedSection, setExpandedSection] = useState(null);
+// Define the prop types
+interface GuruAvatarConceptionProps {
+  isActive: boolean;
+}
 
-  const toggleSection = (section) => {
+const GuruAvatarConception: React.FC<GuruAvatarConceptionProps> = ({ isActive }) => {
+  const [expandedSection, setExpandedSection] = useState<null | string>(null);
+
+  const toggleSection = (section: string) => {
     setExpandedSection(expandedSection === section ? null : section);
   };
+
 
   return (
     <motion.div

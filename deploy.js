@@ -111,6 +111,10 @@ async function ensureNpmPackage(ssh, packageName, global = false) {
 async function deploy() {
   try {
     console.log('Checking local dependencies...');
+    // Clean up old build files
+    await executeCommand('rm -rf  guruavatar-*');
+    await executeCommand('rm -rf  guruavatar_*');
+
     await executeCommand('npm install');
 
     console.log('Building Next.js project...');

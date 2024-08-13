@@ -3,10 +3,15 @@ import { motion, AnimatePresence } from 'framer-motion';
 import Image from 'next/image';
 import { Rocket, ChevronDown, ChevronUp, DollarSign, Home, Heart } from 'lucide-react';
 
-const LeapOfFaith = ({ isActive }) => {
-  const [expandedSection, setExpandedSection] = useState(null);
+// Define the prop types
+interface LeapOfFaithProps {
+  isActive: boolean;
+}
 
-  const toggleSection = (section) => {
+const LeapOfFaith: React.FC<LeapOfFaithProps> = ({ isActive }) => {
+  const [expandedSection, setExpandedSection] = useState<null | string>(null);
+
+  const toggleSection = (section: string) => {
     setExpandedSection(expandedSection === section ? null : section);
   };
 
