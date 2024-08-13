@@ -21,13 +21,18 @@ export default function FoundersJourney() {
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.5, delay: 0.2 }}
         >
-          <Image
-            src="/founder-image.jpeg"
-            alt="Balakrishna Moghri, Co-founder of GuruAvatar"
-            width={400}
-            height={300}
-            className="rounded-xl shadow-2xl"
-          />
+          <div className="relative">
+            <Image
+              src="/founder-image.jpeg"
+              alt="Balakrishna Moghri, Co-founder of GuruAvatar"
+              width={400}
+              height={300}
+              className="rounded-xl shadow-2xl"
+            />
+            <p className="text-sm text-center mt-2 text-gray-300 italic">
+              Balakrishna Moghri in 2013, during GuruAvatar's founding days in Hong Kong
+            </p>
+          </div>
         </motion.div>
         <motion.div
           className="md:w-1/2"
@@ -67,13 +72,18 @@ export default function FoundersJourney() {
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.5, delay: 0.5 }}
         >
-          <Image
-            src="/deepa-image.webp"
-            alt="Deepa Kongara, Co-founder of GuruAvatar"
-            width={400}
-            height={300}
-            className="rounded-xl shadow-2xl"
-          />
+          <div className="relative">
+            <Image
+              src="/cofounder-image.webp"
+              alt="Deepa Kongara, Co-founder of GuruAvatar"
+              width={400}
+              height={300}
+              className="rounded-xl shadow-2xl"
+            />
+            <p className="text-sm text-center mt-2 text-gray-300 italic">
+              Deepa Kongara in 2013, as GuruAvatar was taking shape in Hong Kong
+            </p>
+          </div>
         </motion.div>
         <motion.div
           className="md:w-1/2 md:order-1"
@@ -103,6 +113,9 @@ export default function FoundersJourney() {
         </p>
         <p className="text-lg mb-4">
           Their complementary skills and shared vision created a synergy that would prove invaluable in the years to come. Balakrishna's technological expertise and entrepreneurial drive, combined with Deepa's educational background and focus on holistic development, laid the foundation for an educational platform that was both innovative and deeply rooted in pedagogical best practices.
+        </p>
+        <p className="text-lg mb-4">
+          Looking at their photos from 2013, taken in Hong Kong during GuruAvatar's founding days, one can see the determination and hope in their eyes. These images capture a moment in time when their shared dream was just beginning to take shape, a visual testament to the young couple who dared to envision a revolution in education.
         </p>
       </motion.div>
     </section>
