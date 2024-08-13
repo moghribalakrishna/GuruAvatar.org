@@ -1,5 +1,4 @@
 'use client';
-
 import React from 'react';
 import { motion } from 'framer-motion';
 import MissionStatement from './MissionStatement';
@@ -11,14 +10,14 @@ export default function About() {
   return (
     <div className="bg-gradient-to-b from-blue-900 to-teal-700 min-h-screen text-white">
       <div className="container mx-auto px-4 py-16">
-        <motion.h1 
+        <motion.h1
           className="text-5xl font-bold mb-8 text-center"
           initial={{ opacity: 0, y: -50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
         >
           The GuruAvatar Journey
-          <motion.span 
+          <motion.span
             className="block text-sm text-orange-400 mt-2"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -27,7 +26,6 @@ export default function About() {
             A Decade of Sacrifice, Innovation, and Hope
           </motion.span>
         </motion.h1>
-
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -35,7 +33,6 @@ export default function About() {
         >
           <MissionStatement />
         </motion.div>
-
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -43,7 +40,6 @@ export default function About() {
         >
           <FoundersJourney />
         </motion.div>
-
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -51,7 +47,6 @@ export default function About() {
         >
           <GuruAvatarEvolution />
         </motion.div>
-
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}

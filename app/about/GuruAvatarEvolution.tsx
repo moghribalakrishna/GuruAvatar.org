@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronDown, ChevronUp } from 'lucide-react';
 import Timeline from './TimelineOverview';
@@ -22,25 +22,27 @@ const journeyPhases = [
 const Journey = () => {
   const [currentPhase, setCurrentPhase] = useState(null);
   const [showOverview, setShowOverview] = useState(true);
+  const sectionRefs = useRef([]);
 
   useEffect(() => {
     const handleScroll = () => {
-      const scrollPosition = window.scrollY;
-      const windowHeight = window.innerHeight;
-      const docHeight = document.documentElement.scrollHeight;
-      const scrollPercentage = (scrollPosition / (docHeight - windowHeight)) * 100;
+      const scrollPosition = window.scrollY + window.innerHeight / 2;
 
-      const newPhase = journeyPhases.find((phase, index) => {
-        const phaseStart = (index / journeyPhases.length) * 100;
-        const phaseEnd = ((index + 1) / journeyPhases.length) * 100;
-        return scrollPercentage >= phaseStart && scrollPercentage < phaseEnd;
+      const currentSection = sectionRefs.current.find((ref) => {
+        if (ref && ref.offsetTop && ref.offsetHeight) {
+          return scrollPosition >= ref.offsetTop && scrollPosition < ref.offsetTop + ref.offsetHeight;
+        }
+        return false;
       });
 
-      if (newPhase && newPhase.id !== currentPhase?.id) {
-        setCurrentPhase(newPhase);
+      if (currentSection) {
+        const newPhase = journeyPhases.find((phase) => phase.id === currentSection.id);
+        if (newPhase && newPhase.id !== currentPhase?.id) {
+          setCurrentPhase(newPhase);
+        }
       }
 
-      setShowOverview(scrollPercentage < 5);
+      setShowOverview(window.scrollY < 100);
     };
 
     window.addEventListener('scroll', handleScroll);
@@ -50,7 +52,6 @@ const Journey = () => {
   return (
     <div className="bg-gradient-to-b from-blue-900 to-teal-700 min-h-screen text-white">
       <Timeline currentPhase={currentPhase?.title} />
-      
       <AnimatePresence>
         {showOverview && (
           <motion.div
@@ -71,13 +72,16 @@ const Journey = () => {
           </motion.div>
         )}
       </AnimatePresence>
-
-      {journeyPhases.map((phase) => (
-        <section key={phase.id} className="min-h-screen flex items-center justify-center p-8">
+      {journeyPhases.map((phase, index) => (
+        <section
+          key={phase.id}
+          id={phase.id}
+          ref={(el) => (sectionRefs.current[index] = el)}
+          className="min-h-screen flex items-center justify-center p-8"
+        >
           <phase.component isActive={currentPhase?.id === phase.id} />
         </section>
       ))}
-
       <div className="fixed bottom-4 right-4 bg-white bg-opacity-20 p-2 rounded-full">
         <button onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
           <ChevronUp size={24} />

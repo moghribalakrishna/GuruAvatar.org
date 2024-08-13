@@ -13,11 +13,13 @@ const timelineData = [
 
 const Timeline = ({ currentPhase }) => {
   return (
-    <div className="fixed left-0 top-1/2 transform -translate-y-1/2 bg-white bg-opacity-10 p-4 rounded-r-lg">
+    <div className="fixed left-0 top-1/2 transform -translate-y-1/2 bg-white bg-opacity-20 backdrop-blur-md p-4 rounded-r-lg shadow-lg">
       {timelineData.map((item, index) => (
         <motion.div
           key={item.year}
-          className={`flex items-center mb-4 ${currentPhase === item.title ? 'opacity-100' : 'opacity-50'}`}
+          className={`flex items-center mb-4 ${
+            currentPhase === item.title ? 'opacity-100' : 'opacity-50'
+          }`}
           initial={{ x: -50, opacity: 0 }}
           animate={{ x: 0, opacity: 1 }}
           transition={{ delay: index * 0.1 }}
