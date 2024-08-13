@@ -17,7 +17,7 @@ const LeapOfFaith = ({ isActive }) => {
       animate={{ opacity: isActive ? 1 : 0.3 }}
       transition={{ duration: 0.5 }}
     >
-      <h2 className="text-4xl font-bold mb-6">2013: The Leap of Faith</h2>
+      <h2 className="text-4xl font-bold mb-6">2013: The Leap of Faith & Return Back to India from HongKong</h2>
       
       <div className="grid md:grid-cols-2 gap-8 mb-8">
         <div>
@@ -25,12 +25,12 @@ const LeapOfFaith = ({ isActive }) => {
             In 2013, Balakrishna Moghri stood at a crossroads. The vision of GuruAvatar, born from his epiphany in Singapore, now demanded action. But pursuing this dream meant leaving behind a secure, high-paying career in Hong Kong.
           </p>
           <p className="text-lg mb-4">
-            This was not just a career decision; it was a life-altering choice that would impact not only Balakrishna but also his soon-to-be wife, Deepa Kongara.
+            This was not just a career decision; it was a life-altering choice that would impact not only Balakrishna but also his wife, Deepa Kongara.
           </p>
         </div>
         <div>
           <Image
-            src="/balakrishna-deepa-2013.jpg"
+            src="/images/about/back-2-India.webp"
             alt="Balakrishna and Deepa in 2013"
             width={600}
             height={400}

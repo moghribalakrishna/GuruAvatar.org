@@ -30,7 +30,7 @@ const AlienHuChapter = ({ isActive }) => {
         </div>
         <div>
           <Image
-            src="/alienhu-launch-2016.jpg"
+            src="/images/about/guruavatar-journey.webp"
             alt="AlienHu Launch 2016"
             width={600}
             height={400}

@@ -30,7 +30,7 @@ const GuruAvatarReborn = ({ isActive }) => {
         </div>
         <div>
           <Image
-            src="/guruavatar-relaunch-2023.jpg"
+            src="/images/about/growth-impact.webp"
             alt="GuruAvatar Relaunch 2023"
             width={600}
             height={400}

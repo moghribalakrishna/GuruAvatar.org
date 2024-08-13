@@ -61,7 +61,7 @@ export default function FoundersJourney() {
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5, delay: 0.4 }}
       >
-        <h3 className="text-2xl font-semibold mb-4">The Leap of Faith</h3>
+        <h3 className="text-2xl font-semibold mb-4">The Leap of Faith & return Back to India from HongKong </h3>
         <p className="text-lg mb-4">
           The path to realizing this vision was fraught with challenges. In 2013, Balakrishna faced a pivotal moment - choosing between a secure, high-paying career and the uncertain path of an education innovator. It was during this time that he married Deepa Kongara, whose unwavering support would prove instrumental in the years to come.
         </p>

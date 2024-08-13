@@ -30,7 +30,7 @@ const GuruAvatarConception = ({ isActive }) => {
         </div>
         <div>
           <Image
-            src="/guruavatar-planning-2014.jpg"
+            src="/images/about/balakrishna-deepa-2013.webp"
             alt="GuruAvatar Planning Session 2014"
             width={600}
             height={400}

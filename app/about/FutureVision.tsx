@@ -30,7 +30,7 @@ const FutureVision = ({ isActive }) => {
         </div>
         <div>
           <Image
-            src="/guruavatar-future-vision.jpg"
+            src="/images/about/technology-traditional-education.webp"
             alt="GuruAvatar Future Vision"
             width={600}
             height={400}

@@ -33,7 +33,7 @@ const SingaporeEpiphany = ({ isActive }) => {
         </div>
         <div>
           <Image
-            src="/images/about/singapore-skyline-2012.webp"
+            src="/images/about/singapore-skyline.webp"
             alt="Singapore Skyline 2012"
             width={600}
             height={400}
