@@ -1,3 +1,4 @@
+// File: app/about/page.tsx
 'use client';
 import React from 'react';
 import { motion } from 'framer-motion';
@@ -26,6 +27,7 @@ export default function About() {
             A Decade of Sacrifice, Innovation, and Hope
           </motion.span>
         </motion.h1>
+
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -33,6 +35,7 @@ export default function About() {
         >
           <MissionStatement />
         </motion.div>
+
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -40,6 +43,7 @@ export default function About() {
         >
           <FoundersJourney />
         </motion.div>
+
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -47,6 +51,7 @@ export default function About() {
         >
           <GuruAvatarEvolution />
         </motion.div>
+
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
