@@ -2,10 +2,10 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import MissionStatement from '../components/MissionStatement';
-import FoundersJourney from '../components/FoundersJourney';
-import GuruAvatarEvolution from '../components/GuruAvatarEvolution';
-import ImpactAndFuture from '../components/ImpactAndFuture';
+import MissionStatement from './MissionStatement';
+import FoundersJourney from './FoundersJourney';
+import GuruAvatarEvolution from './GuruAvatarEvolution';
+import ImpactAndFuture from './ImpactAndFuture';
 
 export default function About() {
   return (
