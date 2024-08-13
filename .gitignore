@@ -36,5 +36,5 @@ yarn-error.log*
 next-env.d.ts
 guruavatar.zip
 guruavatar.js
-guruavatar-website.js
-guruavatar-website.min.txt
+guruavatar-website*
+guruavatar_*
