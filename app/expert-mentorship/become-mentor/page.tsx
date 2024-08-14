@@ -2,12 +2,15 @@
 
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Send, AlertCircle } from 'lucide-react';
+import { Send, AlertCircle, Check } from 'lucide-react';
 import axios from 'axios';
+import PhoneInput from 'react-phone-input-2';
+import 'react-phone-input-2/lib/style.css';
 
 interface FormData {
   name: string;
   email: string;
+  phone: string;
   expertise: string;
   experience: string;
   motivation: string;
@@ -17,6 +20,7 @@ export default function BecomeMentorPage() {
   const [formData, setFormData] = useState<FormData>({
     name: '',
     email: '',
+    phone: '',
     expertise: '',
     experience: '',
     motivation: '',
@@ -33,11 +37,19 @@ export default function BecomeMentorPage() {
     }
   };
 
+  const handlePhoneChange = (value: string) => {
+    setFormData({ ...formData, phone: value });
+    if (errors.phone) {
+      setErrors({ ...errors, phone: '' });
+    }
+  };
+
   const validateForm = (): boolean => {
     const newErrors: {[key: string]: string} = {};
     if (!formData.name.trim()) newErrors.name = "Name is required";
     if (!formData.email.trim()) newErrors.email = "Email is required";
     if (!/\S+@\S+\.\S+/.test(formData.email)) newErrors.email = "Email is invalid";
+    if (!formData.phone.trim()) newErrors.phone = "Phone number is required";
     if (!formData.expertise.trim()) newErrors.expertise = "Area of expertise is required";
     if (!formData.experience.trim()) newErrors.experience = "Experience is required";
     if (!formData.motivation.trim()) newErrors.motivation = "Motivation is required";
@@ -59,6 +71,7 @@ export default function BecomeMentorPage() {
           setFormData({
             name: '',
             email: '',
+            phone: '',
             expertise: '',
             experience: '',
             motivation: '',
@@ -76,124 +89,131 @@ export default function BecomeMentorPage() {
   };
 
   return (
-    <div className="bg-gradient-to-b from-blue-900 via-blue-800 to-teal-900 min-h-screen text-white">
-      <div className="container mx-auto px-4 py-16">
-        <motion.h1 
-          className="text-5xl font-bold mb-8 text-center"
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
+    <div className="bg-gradient-to-br from-blue-900 via-purple-800 to-teal-700 text-white p-8 rounded-xl shadow-lg max-w-4xl mx-auto">
+      <h2 className="text-4xl font-bold mb-6 text-center">Become a Mentor</h2>
+      <p className="text-xl mb-8 text-center text-blue-200">
+        Share your expertise and make a lasting impact on the next generation of learners. Join our mentorship program and help shape the future of education.
+      </p>
+
+      {submitSuccess ? (
+        <motion.div
+          className="bg-green-500 bg-opacity-20 p-8 rounded-xl text-center"
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.5 }}
         >
-          Become a Mentor
-        </motion.h1>
-        
-        <motion.p 
-          className="text-xl mb-12 text-center max-w-3xl mx-auto"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.5, delay: 0.2 }}
-        >
-          Share your expertise and make a lasting impact on the next generation of learners. Join our mentorship program and help shape the future of education.
-        </motion.p>
+          <Check className="w-16 h-16 mx-auto mb-4 text-green-400" />
+          <h3 className="text-2xl font-bold mb-4">Thank You for Applying!</h3>
+          <p className="text-lg">Your mentor application has been submitted successfully. We'll review your information and get back to you soon.</p>
+        </motion.div>
+      ) : (
+        <form onSubmit={handleSubmit} className="space-y-6 bg-white bg-opacity-10 p-8 rounded-xl">
+          <div>
+            <label htmlFor="name" className="block mb-2 font-semibold">Full Name *</label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              value={formData.name}
+              onChange={handleInputChange}
+              className="w-full px-3 py-2 bg-white bg-opacity-20 rounded-md text-white placeholder-gray-300"
+              placeholder="Enter your full name"
+              required
+            />
+            {errors.name && <p className="text-red-400 text-sm mt-1">{errors.name}</p>}
+          </div>
 
-        {submitSuccess ? (
-          <motion.div
-            className="max-w-2xl mx-auto bg-green-500 bg-opacity-20 p-8 rounded-xl text-center"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.5 }}
-          >
-            <h2 className="text-2xl font-bold mb-4">Thank You for Applying!</h2>
-            <p>Your mentor application has been submitted successfully. We'll review your information and get back to you soon.</p>
-          </motion.div>
-        ) : (
-          <motion.form
-            className="max-w-2xl mx-auto bg-white bg-opacity-10 p-8 rounded-xl"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.5, delay: 0.3 }}
-            onSubmit={handleSubmit}
-          >
-            <div className="mb-6">
-              <label htmlFor="name" className="block mb-2">Full Name *</label>
-              <input
-                type="text"
-                id="name"
-                name="name"
-                value={formData.name}
-                onChange={handleInputChange}
-                className={`w-full px-3 py-2 bg-white bg-opacity-20 rounded text-white ${errors.name ? 'border-red-500' : ''}`}
-                required
+          <div>
+            <label htmlFor="email" className="block mb-2 font-semibold">Email Address *</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              value={formData.email}
+              onChange={handleInputChange}
+              className="w-full px-3 py-2 bg-white bg-opacity-20 rounded-md text-white placeholder-gray-300"
+              placeholder="your.email@example.com"
+              required
+            />
+            {errors.email && <p className="text-red-400 text-sm mt-1">{errors.email}</p>}
+          </div>
+
+          <div>
+            <label htmlFor="phone" className="block mb-2 font-semibold">Phone Number *</label>
+            <div className="relative max-w-md">
+              <PhoneInput
+                country={'in'}
+                value={formData.phone}
+                onChange={handlePhoneChange}
+                inputProps={{
+                  name: 'phone',
+                  required: true,
+                  className: 'w-full px-3 py-2 bg-white bg-opacity-20 rounded-md text-white placeholder-gray-300 pl-14'
+                }}
+                containerClass="!w-full"
+                buttonClass="!bg-white !bg-opacity-20 !border-r-0 !px-3 !pl-3"
+                dropdownClass="!bg-gray-800 !text-white"
               />
-              {errors.name && <p className="text-red-500 text-sm mt-1">{errors.name}</p>}
             </div>
+            {errors.phone && <p className="text-red-400 text-sm mt-1">{errors.phone}</p>}
+          </div>
 
-            <div className="mb-6">
-              <label htmlFor="email" className="block mb-2">Email Address *</label>
-              <input
-                type="email"
-                id="email"
-                name="email"
-                value={formData.email}
-                onChange={handleInputChange}
-                className={`w-full px-3 py-2 bg-white bg-opacity-20 rounded text-white ${errors.email ? 'border-red-500' : ''}`}
-                required
-              />
-              {errors.email && <p className="text-red-500 text-sm mt-1">{errors.email}</p>}
+          <div>
+            <label htmlFor="expertise" className="block mb-2 font-semibold">Area of Expertise *</label>
+            <input
+              type="text"
+              id="expertise"
+              name="expertise"
+              value={formData.expertise}
+              onChange={handleInputChange}
+              className="w-full px-3 py-2 bg-white bg-opacity-20 rounded-md text-white placeholder-gray-300"
+              placeholder="E.g., Machine Learning, Web Development, Data Science"
+              required
+            />
+            {errors.expertise && <p className="text-red-400 text-sm mt-1">{errors.expertise}</p>}
+          </div>
+
+          <div>
+            <label htmlFor="experience" className="block mb-2 font-semibold">Relevant Experience *</label>
+            <textarea
+              id="experience"
+              name="experience"
+              value={formData.experience}
+              onChange={handleInputChange}
+              className="w-full px-3 py-2 bg-white bg-opacity-20 rounded-md text-white placeholder-gray-300"
+              rows={4}
+              placeholder="Briefly describe your relevant experience in your area of expertise"
+              required
+            ></textarea>
+            {errors.experience && <p className="text-red-400 text-sm mt-1">{errors.experience}</p>}
+          </div>
+
+          <div>
+            <label htmlFor="motivation" className="block mb-2 font-semibold">Why do you want to be a mentor? *</label>
+            <textarea
+              id="motivation"
+              name="motivation"
+              value={formData.motivation}
+              onChange={handleInputChange}
+              className="w-full px-3 py-2 bg-white bg-opacity-20 rounded-md text-white placeholder-gray-300"
+              rows={4}
+              placeholder="Share your motivation for becoming a mentor"
+              required
+            ></textarea>
+            {errors.motivation && <p className="text-red-400 text-sm mt-1">{errors.motivation}</p>}
+          </div>
+
+          {errors.submit && (
+            <div className="bg-red-500 bg-opacity-20 p-3 rounded-md flex items-center">
+              <AlertCircle className="mr-2" />
+              <p>{errors.submit}</p>
             </div>
+          )}
 
-            <div className="mb-6">
-              <label htmlFor="expertise" className="block mb-2">Area of Expertise *</label>
-              <input
-                type="text"
-                id="expertise"
-                name="expertise"
-                value={formData.expertise}
-                onChange={handleInputChange}
-                className={`w-full px-3 py-2 bg-white bg-opacity-20 rounded text-white ${errors.expertise ? 'border-red-500' : ''}`}
-                required
-              />
-              {errors.expertise && <p className="text-red-500 text-sm mt-1">{errors.expertise}</p>}
-            </div>
-
-            <div className="mb-6">
-              <label htmlFor="experience" className="block mb-2">Relevant Experience *</label>
-              <textarea
-                id="experience"
-                name="experience"
-                value={formData.experience}
-                onChange={handleInputChange}
-                className={`w-full px-3 py-2 bg-white bg-opacity-20 rounded text-white ${errors.experience ? 'border-red-500' : ''}`}
-                rows={4}
-                required
-              ></textarea>
-              {errors.experience && <p className="text-red-500 text-sm mt-1">{errors.experience}</p>}
-            </div>
-
-            <div className="mb-6">
-              <label htmlFor="motivation" className="block mb-2">Why do you want to be a mentor? *</label>
-              <textarea
-                id="motivation"
-                name="motivation"
-                value={formData.motivation}
-                onChange={handleInputChange}
-                className={`w-full px-3 py-2 bg-white bg-opacity-20 rounded text-white ${errors.motivation ? 'border-red-500' : ''}`}
-                rows={4}
-                required
-              ></textarea>
-              {errors.motivation && <p className="text-red-500 text-sm mt-1">{errors.motivation}</p>}
-            </div>
-
-            {errors.submit && (
-              <div className="mb-6 bg-red-500 bg-opacity-20 p-3 rounded flex items-center">
-                <AlertCircle className="mr-2" />
-                <p>{errors.submit}</p>
-              </div>
-            )}
-
+          <div className="flex justify-center">
             <button
               type="submit"
-              className="bg-orange-500 text-white px-6 py-3 rounded-full text-lg font-semibold hover:bg-orange-600 transition duration-300 flex items-center justify-center w-full disabled:opacity-50 disabled:cursor-not-allowed"
+              className="bg-gradient-to-r from-orange-500 to-pink-500 text-white px-6 py-3 rounded-full text-lg font-semibold hover:from-orange-600 hover:to-pink-600 transition duration-300 flex items-center justify-center max-w-md w-full"
               disabled={isSubmitting}
             >
               {isSubmitting ? (
@@ -211,9 +231,9 @@ export default function BecomeMentorPage() {
                 </>
               )}
             </button>
-          </motion.form>
-        )}
-      </div>
+          </div>
+        </form>
+      )}
     </div>
   );
 }
