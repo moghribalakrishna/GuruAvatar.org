@@ -4,6 +4,8 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Send, AlertCircle } from 'lucide-react';
 import axios from 'axios';
+import PhoneInput from 'react-phone-input-2';
+import 'react-phone-input-2/lib/style.css';
 
 interface FormData {
   name: string;
@@ -40,6 +42,13 @@ export default function RegisterMasterclassPage() {
     }
   };
 
+  const handlePhoneChange = (value: string) => {
+    setFormData({ ...formData, phone: value });
+    if (errors.phone) {
+      setErrors({ ...errors, phone: '' });
+    }
+  };
+
   const validateForm = (): boolean => {
     const newErrors: FormErrors = {};
 
@@ -55,8 +64,6 @@ export default function RegisterMasterclassPage() {
 
     if (!formData.phone.trim()) {
       newErrors.phone = 'Phone number is required';
-    } else if (!/^\+?[\d\s-]{10,}$/.test(formData.phone)) {
-      newErrors.phone = 'Phone number is invalid';
     }
 
     if (!formData.occupation.trim()) {
@@ -103,140 +110,131 @@ export default function RegisterMasterclassPage() {
   };
 
   return (
-    <div className="bg-gradient-to-b from-blue-900 via-blue-800 to-teal-900 min-h-screen text-white">
-      <div className="container mx-auto px-4 py-16">
-        <motion.h1 
-          className="text-5xl font-bold mb-8 text-center"
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
+    <div className="bg-gradient-to-br from-blue-900 via-purple-800 to-teal-700 text-white p-8 rounded-xl shadow-lg max-w-4xl mx-auto">
+      <h2 className="text-4xl font-bold mb-6 text-center">Register for AI Masterclass</h2>
+      <p className="text-xl mb-8 text-center text-blue-200">
+        Join our intensive AI Masterclass and gain hands-on experience with cutting-edge AI technologies. Space is limited, so register now!
+      </p>
+
+      {submitSuccess ? (
+        <motion.div
+          className="bg-green-500 bg-opacity-20 p-8 rounded-xl text-center"
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.5 }}
         >
-          Register for AI Masterclass
-        </motion.h1>
-        
-        <motion.p 
-          className="text-xl mb-12 text-center max-w-3xl mx-auto"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.5, delay: 0.2 }}
-        >
-          Join our intensive AI Masterclass and gain hands-on experience with cutting-edge AI technologies. Space is limited, so register now!
-        </motion.p>
+          <h3 className="text-2xl font-bold mb-4">Registration Successful!</h3>
+          <p className="text-lg">Thank you for registering for our AI Masterclass. We'll be in touch soon with more details.</p>
+        </motion.div>
+      ) : (
+        <form onSubmit={handleSubmit} className="space-y-6 bg-white bg-opacity-10 p-8 rounded-xl">
+          <div>
+            <label htmlFor="name" className="block mb-2 font-semibold">Full Name *</label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              value={formData.name}
+              onChange={handleInputChange}
+              className={`w-full px-3 py-2 bg-white bg-opacity-20 rounded-md text-white placeholder-gray-300 ${errors.name ? 'border border-red-400' : ''}`}
+              placeholder="Enter your full name"
+              required
+            />
+            {errors.name && <p className="text-red-400 text-sm mt-1">{errors.name}</p>}
+          </div>
 
-        {submitSuccess ? (
-          <motion.div
-            className="max-w-2xl mx-auto bg-green-500 bg-opacity-20 p-8 rounded-xl text-center"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.5 }}
-          >
-            <h2 className="text-2xl font-bold mb-4">Registration Successful!</h2>
-            <p>Thank you for registering for our AI Masterclass. We'll be in touch soon with more details.</p>
-          </motion.div>
-        ) : (
-          <motion.form
-            className="max-w-2xl mx-auto bg-white bg-opacity-10 p-8 rounded-xl"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.5, delay: 0.3 }}
-            onSubmit={handleSubmit}
-          >
-            <div className="mb-6">
-              <label htmlFor="name" className="block mb-2">Full Name *</label>
-              <input
-                type="text"
-                id="name"
-                name="name"
-                value={formData.name}
-                onChange={handleInputChange}
-                className={`w-full px-3 py-2 bg-white bg-opacity-20 rounded text-white ${errors.name ? 'border-red-500' : ''}`}
-                required
-              />
-              {errors.name && <p className="text-red-500 text-sm mt-1">{errors.name}</p>}
-            </div>
+          <div>
+            <label htmlFor="email" className="block mb-2 font-semibold">Email Address *</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              value={formData.email}
+              onChange={handleInputChange}
+              className={`w-full px-3 py-2 bg-white bg-opacity-20 rounded-md text-white placeholder-gray-300 ${errors.email ? 'border border-red-400' : ''}`}
+              placeholder="abc@example.com"
+              required
+            />
+            {errors.email && <p className="text-red-400 text-sm mt-1">{errors.email}</p>}
+          </div>
 
-            <div className="mb-6">
-              <label htmlFor="email" className="block mb-2">Email Address *</label>
-              <input
-                type="email"
-                id="email"
-                name="email"
-                value={formData.email}
-                onChange={handleInputChange}
-                className={`w-full px-3 py-2 bg-white bg-opacity-20 rounded text-white ${errors.email ? 'border-red-500' : ''}`}
-                required
-              />
-              {errors.email && <p className="text-red-500 text-sm mt-1">{errors.email}</p>}
-            </div>
-
-            <div className="mb-6">
-              <label htmlFor="phone" className="block mb-2">Phone Number *</label>
-              <input
-                type="tel"
-                id="phone"
-                name="phone"
+          <div>
+            <label htmlFor="phone" className="block mb-2 font-semibold">Phone Number *</label>
+            <div className="relative max-w-md">
+              <PhoneInput
+                country={'in'}
                 value={formData.phone}
-                onChange={handleInputChange}
-                className={`w-full px-3 py-2 bg-white bg-opacity-20 rounded text-white ${errors.phone ? 'border-red-500' : ''}`}
-                required
+                onChange={handlePhoneChange}
+                inputProps={{
+                  name: 'phone',
+                  required: true,
+                  className: 'w-full px-3 py-2 bg-white bg-opacity-20 rounded-md text-white placeholder-gray-300 pl-14' // Added padding-left for spacing
+                }}
+                containerClass="!w-full"
+                buttonClass="!bg-white !bg-opacity-20 !border-r-0 !px-3 !pl-3"
+                dropdownClass="!bg-gray-800 !text-white"
               />
-              {errors.phone && <p className="text-red-500 text-sm mt-1">{errors.phone}</p>}
             </div>
+            {errors.phone && <p className="text-red-400 text-sm mt-1">{errors.phone}</p>}
+          </div>
 
-            <div className="mb-6">
-              <label htmlFor="occupation" className="block mb-2">Occupation *</label>
-              <input
-                type="text"
-                id="occupation"
-                name="occupation"
-                value={formData.occupation}
-                onChange={handleInputChange}
-                className={`w-full px-3 py-2 bg-white bg-opacity-20 rounded text-white ${errors.occupation ? 'border-red-500' : ''}`}
-                required
-              />
-              {errors.occupation && <p className="text-red-500 text-sm mt-1">{errors.occupation}</p>}
+          <div>
+            <label htmlFor="occupation" className="block mb-2 font-semibold">Occupation *</label>
+            <input
+              type="text"
+              id="occupation"
+              name="occupation"
+              value={formData.occupation}
+              onChange={handleInputChange}
+              className={`w-full px-3 py-2 bg-white bg-opacity-20 rounded-md text-white placeholder-gray-300 ${errors.occupation ? 'border border-red-400' : ''}`}
+              placeholder="Software Engineer"
+              required
+            />
+            {errors.occupation && <p className="text-red-400 text-sm mt-1">{errors.occupation}</p>}
+          </div>
+
+          <div>
+            <label htmlFor="experience" className="block mb-2 font-semibold">Experience with AI *</label>
+            <select
+              id="experience"
+              name="experience"
+              value={formData.experience}
+              onChange={handleInputChange}
+              className={`w-full px-3 py-2 bg-white bg-opacity-20 rounded-md text-white ${errors.experience ? 'border border-red-400' : ''}`}
+              required
+            >
+              <option value="">Select your experience level</option>
+              <option value="Beginner">Beginner</option>
+              <option value="Intermediate">Intermediate</option>
+              <option value="Advanced">Advanced</option>
+            </select>
+            {errors.experience && <p className="text-red-400 text-sm mt-1">{errors.experience}</p>}
+          </div>
+
+          <div>
+            <label htmlFor="expectations" className="block mb-2 font-semibold">What do you hope to learn from this masterclass?</label>
+            <textarea
+              id="expectations"
+              name="expectations"
+              value={formData.expectations}
+              onChange={handleInputChange}
+              className="w-full px-3 py-2 bg-white bg-opacity-20 rounded-md text-white placeholder-gray-300"
+              rows={4}
+              placeholder="Describe your expectations"
+            ></textarea>
+          </div>
+
+          {errors.submit && (
+            <div className="bg-red-500 bg-opacity-20 p-3 rounded-md flex items-center">
+              <AlertCircle className="mr-2" />
+              <p>{errors.submit}</p>
             </div>
+          )}
 
-            <div className="mb-6">
-              <label htmlFor="experience" className="block mb-2">Experience with AI *</label>
-              <select
-                id="experience"
-                name="experience"
-                value={formData.experience}
-                onChange={handleInputChange}
-                className={`w-full px-3 py-2 bg-white bg-opacity-20 rounded text-white ${errors.experience ? 'border-red-500' : ''}`}
-                required
-              >
-                <option value="">Select your experience level</option>
-                <option value="Beginner">Beginner</option>
-                <option value="Intermediate">Intermediate</option>
-                <option value="Advanced">Advanced</option>
-              </select>
-              {errors.experience && <p className="text-red-500 text-sm mt-1">{errors.experience}</p>}
-            </div>
-
-            <div className="mb-6">
-              <label htmlFor="expectations" className="block mb-2">What do you hope to learn from this masterclass?</label>
-              <textarea
-                id="expectations"
-                name="expectations"
-                value={formData.expectations}
-                onChange={handleInputChange}
-                className="w-full px-3 py-2 bg-white bg-opacity-20 rounded text-white"
-                rows={4}
-              ></textarea>
-            </div>
-
-            {errors.submit && (
-              <div className="mb-6 bg-red-500 bg-opacity-20 p-3 rounded flex items-center">
-                <AlertCircle className="mr-2" />
-                <p>{errors.submit}</p>
-              </div>
-            )}
-
+          <div className="flex justify-center">
             <button
               type="submit"
-              className="bg-orange-500 text-white px-6 py-3 rounded-full text-lg font-semibold hover:bg-orange-600 transition duration-300 flex items-center justify-center w-full disabled:opacity-50 disabled:cursor-not-allowed"
+              className="bg-gradient-to-r from-orange-500 to-pink-500 text-white px-6 py-3               rounded-full text-lg font-semibold hover:from-orange-600 hover:to-pink-600 transition duration-300 flex items-center justify-center max-w-md w-full"
               disabled={isSubmitting}
             >
               {isSubmitting ? (
@@ -254,9 +252,9 @@ export default function RegisterMasterclassPage() {
                 </>
               )}
             </button>
-          </motion.form>
-        )}
-      </div>
+          </div>
+        </form>
+      )}
     </div>
   );
 }
