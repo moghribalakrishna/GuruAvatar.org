@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { BookOpen, User, Mail, Send } from 'lucide-react';
+import { BookOpen, User, Mail, Send, Check } from 'lucide-react';
 import axios from 'axios';
 
 interface FormData {
@@ -61,135 +61,134 @@ export default function SuggestCoursePage() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-blue-900 to-teal-700 flex items-center justify-center px-4 sm:px-6 lg:px-8">
-      <motion.div 
-        className="max-w-md w-full space-y-8 bg-white p-10 rounded-xl shadow-lg"
-        initial={{ opacity: 0, y: -50 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
-      >
-        <div>
-          <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">
-            Suggest a Course
-          </h2>
-          <p className="mt-2 text-center text-sm text-gray-600">
-            Have an idea for a course? We'd love to hear it!
-          </p>
-        </div>
-        {isSuccess ? (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            className="text-center text-green-600"
-          >
-            <p className="text-xl font-semibold">Thank you for your suggestion!</p>
-            <p className="mt-2">We'll review your course idea and get back to you soon.</p>
-          </motion.div>
-        ) : (
-          <form className="mt-8 space-y-6" onSubmit={handleSubmit}>
-            <div className="rounded-md shadow-sm -space-y-px">
-              <div>
-                <label htmlFor="name" className="sr-only">Name</label>
-                <div className="flex items-center">
-                  <User className="h-5 w-5 text-gray-400 absolute ml-3" />
-                  <input
-                    id="name"
-                    name="name"
-                    type="text"
-                    required
-                    className="appearance-none rounded-none relative block w-full px-3 py-2 pl-10 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
-                    placeholder="Your Name"
-                    value={formData.name}
-                    onChange={handleInputChange}
-                  />
-                </div>
-              </div>
-              <div>
-                <label htmlFor="email" className="sr-only">Email</label>
-                <div className="flex items-center">
-                  <Mail className="h-5 w-5 text-gray-400 absolute ml-3" />
-                  <input
-                    id="email"
-                    name="email"
-                    type="email"
-                    required
-                    className="appearance-none rounded-none relative block w-full px-3 py-2 pl-10 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
-                    placeholder="Your Email"
-                    value={formData.email}
-                    onChange={handleInputChange}
-                  />
-                </div>
-              </div>
-              <div>
-                <label htmlFor="courseTitle" className="sr-only">Course Title</label>
-                <div className="flex items-center">
-                  <BookOpen className="h-5 w-5 text-gray-400 absolute ml-3" />
-                  <input
-                    id="courseTitle"
-                    name="courseTitle"
-                    type="text"
-                    required
-                    className="appearance-none rounded-none relative block w-full px-3 py-2 pl-10 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
-                    placeholder="Suggested Course Title"
-                    value={formData.courseTitle}
-                    onChange={handleInputChange}
-                  />
-                </div>
-              </div>
-              <div>
-                <label htmlFor="courseDescription" className="sr-only">Course Description</label>
-                <textarea
-                  id="courseDescription"
-                  name="courseDescription"
-                  required
-                  className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
-                  placeholder="Brief description of the course"
-                  rows={4}
-                  value={formData.courseDescription}
-                  onChange={handleInputChange}
-                />
-              </div>
-              <div>
-                <label htmlFor="targetAudience" className="sr-only">Target Audience</label>
-                <input
-                  id="targetAudience"
-                  name="targetAudience"
-                  type="text"
-                  required
-                  className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
-                  placeholder="Who is this course for?"
-                  value={formData.targetAudience}
-                  onChange={handleInputChange}
-                />
-              </div>
-            </div>
+    <div className="bg-gradient-to-br from-blue-900 via-purple-800 to-teal-700 text-white p-8 rounded-xl shadow-lg max-w-4xl mx-auto">
+      <h2 className="text-4xl font-bold mb-6 text-center">Suggest a Course</h2>
+      <p className="text-xl mb-8 text-center text-blue-200">
+        Have an idea for a course? We'd love to hear it! Your suggestions help us create content that matters to you.
+      </p>
 
-            {error && <p className="text-red-500 text-sm">{error}</p>}
-
-            <div>
-              <button
-                type="submit"
-                disabled={isSubmitting}
-                className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-              >
-                {isSubmitting ? (
-                  <motion.div
-                    animate={{ rotate: 360 }}
-                    transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
-                  >
-                    <Send className="w-5 h-5" />
-                  </motion.div>
-                ) : (
-                  <>
-                    <Send className="w-5 h-5 mr-2" />
-                    Submit Course Suggestion
-                  </>
-                )}
-              </button>
+      {isSuccess ? (
+        <motion.div
+          className="bg-green-500 bg-opacity-20 p-8 rounded-xl text-center"
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.5 }}
+        >
+          <Check className="w-16 h-16 mx-auto mb-4 text-green-400" />
+          <h3 className="text-2xl font-bold mb-4">Thank you for your suggestion!</h3>
+          <p className="text-lg">We'll review your course idea and get back to you soon.</p>
+        </motion.div>
+      ) : (
+        <form onSubmit={handleSubmit} className="space-y-6 bg-white bg-opacity-10 p-8 rounded-xl">
+          <div>
+            <label htmlFor="name" className="block mb-2 font-semibold">Your Name *</label>
+            <div className="relative">
+              <User className="h-5 w-5 text-gray-400 absolute top-3 left-3" />
+              <input
+                id="name"
+                name="name"
+                type="text"
+                required
+                className="w-full px-3 py-2 pl-10 bg-white bg-opacity-20 rounded-md text-white placeholder-gray-300"
+                placeholder="Enter your name"
+                value={formData.name}
+                onChange={handleInputChange}
+              />
             </div>
-          </form>
-        )}
-      </motion.div>
+          </div>
+
+          <div>
+            <label htmlFor="email" className="block mb-2 font-semibold">Your Email *</label>
+            <div className="relative">
+              <Mail className="h-5 w-5 text-gray-400 absolute top-3 left-3" />
+              <input
+                id="email"
+                name="email"
+                type="email"
+                required
+                className="w-full px-3 py-2 pl-10 bg-white bg-opacity-20 rounded-md text-white placeholder-gray-300"
+                placeholder="your.email@example.com"
+                value={formData.email}
+                onChange={handleInputChange}
+              />
+            </div>
+          </div>
+
+          <div>
+            <label htmlFor="courseTitle" className="block mb-2 font-semibold">Suggested Course Title *</label>
+            <div className="relative">
+              <BookOpen className="h-5 w-5 text-gray-400 absolute top-3 left-3" />
+              <input
+                id="courseTitle"
+                name="courseTitle"
+                type="text"
+                required
+                className="w-full px-3 py-2 pl-10 bg-white bg-opacity-20 rounded-md text-white placeholder-gray-300"
+                placeholder="Enter your suggested course title"
+                value={formData.courseTitle}
+                onChange={handleInputChange}
+              />
+            </div>
+          </div>
+
+          <div>
+            <label htmlFor="courseDescription" className="block mb-2 font-semibold">Course Description *</label>
+            <textarea
+              id="courseDescription"
+              name="courseDescription"
+              required
+              className="w-full px-3 py-2 bg-white bg-opacity-20 rounded-md text-white placeholder-gray-300"
+              placeholder="Provide a brief description of the course"
+              rows={4}
+              value={formData.courseDescription}
+              onChange={handleInputChange}
+            />
+          </div>
+
+          <div>
+            <label htmlFor="targetAudience" className="block mb-2 font-semibold">Target Audience *</label>
+            <input
+              id="targetAudience"
+              name="targetAudience"
+              type="text"
+              required
+              className="w-full px-3 py-2 bg-white bg-opacity-20 rounded-md text-white placeholder-gray-300"
+              placeholder="Who is this course for?"
+              value={formData.targetAudience}
+              onChange={handleInputChange}
+            />
+          </div>
+
+          {error && (
+            <div className="bg-red-500 bg-opacity-20 p-3 rounded-md flex items-center">
+              <p className="text-red-200">{error}</p>
+            </div>
+          )}
+
+          <div className="flex justify-center">
+            <button
+              type="submit"
+              className="bg-gradient-to-r from-orange-500 to-pink-500 text-white px-6 py-3 rounded-full text-lg font-semibold hover:from-orange-600 hover:to-pink-600 transition duration-300 flex items-center justify-center max-w-md w-full"
+              disabled={isSubmitting}
+            >
+              {isSubmitting ? (
+                <>
+                  <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                    <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                    <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                  </svg>
+                  Submitting...
+                </>
+              ) : (
+                <>
+                  <Send className="mr-2" />
+                  Submit Course Suggestion
+                </>
+              )}
+            </button>
+          </div>
+        </form>
+      )}
     </div>
   );
 }

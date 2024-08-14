@@ -169,7 +169,7 @@ export default function CourseCatalogPage() {
             We're constantly expanding our course offerings. If you don't see a course that meets your needs, let us know!
           </p>
           <a 
-            href="/suggest-course" 
+            href="/forms/suggest-course" 
             className="bg-orange-500 text-white px-8 py-3 rounded-full text-lg font-semibold hover:bg-orange-600 transition duration-300 inline-flex items-center"
           >
             <Lucide.Mail className="mr-2" />
