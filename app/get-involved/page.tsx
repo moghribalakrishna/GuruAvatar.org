@@ -10,21 +10,21 @@ const involvementOptions = [
     icon: Heart,
     description: "Support our mission financially. Every contribution, no matter how small, helps us reach more students.",
     action: "Make a Donation",
-    link: "/forms/donate"
+    link: "/donate"
   },
   {
     title: "Volunteer",
     icon: Users,
     description: "Share your skills and time. We need mentors, tutors, and various other volunteers to help our students.",
     action: "Become a Volunteer",
-    link: "/forms/volunteer"
+    link: "/volunteer"
   },
   {
     title: "Partner with Us",
     icon: Building,
     description: "Are you an educational institution or a company? Partner with us to expand our reach and impact.",
     action: "Explore Partnerships",
-    link: "/forms/partnerships"
+    link: "/partnerships"
   },
   {
     title: "Spread the Word",

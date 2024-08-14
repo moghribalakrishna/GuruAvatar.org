@@ -142,7 +142,7 @@ export default function VolunteerPage() {
             Join our team of dedicated volunteers and help shape the future of education. Every contribution, big or small, brings us closer to our goal of accessible, quality education for all.
           </p>
           <a 
-            href="/volunteer-application" 
+            href="/volunteer/application" 
             className="bg-orange-500 text-white px-8 py-3 rounded-full text-lg font-semibold hover:bg-orange-600 transition duration-300 inline-flex items-center"
           >
             <Users className="mr-2" />

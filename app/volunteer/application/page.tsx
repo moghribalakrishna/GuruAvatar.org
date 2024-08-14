@@ -67,7 +67,9 @@ export default function VolunteerApplicationPage() {
       newErrors.email = 'Email is invalid';
     }
 
-    if (formData.phone && !/^\+?[\d\s-]{10,}$/.test(formData.phone)) {
+    if (!formData.phone.trim()) {
+      newErrors.phone = 'Phone number is required';
+    } else if (!/^\+?[\d\s-]{10,}$/.test(formData.phone)) {
       newErrors.phone = 'Phone number is invalid';
     }
 
@@ -107,7 +109,7 @@ export default function VolunteerApplicationPage() {
             availability: '',
           });
           setTimeout(() => {
-            router.push('/volunteer-thank-you');
+            router.push('/volunteer/thank-you');
           }, 3000);
         } else {
           throw new Error('Failed to submit application');
@@ -191,7 +193,7 @@ export default function VolunteerApplicationPage() {
             </div>
 
             <div className="mb-6">
-              <label htmlFor="phone" className="block mb-2">Phone Number</label>
+              <label htmlFor="phone" className="block mb-2">Phone Number *</label>
               <input
                 type="tel"
                 id="phone"
@@ -199,6 +201,7 @@ export default function VolunteerApplicationPage() {
                 value={formData.phone}
                 onChange={handleInputChange}
                 className={`w-full px-3 py-2 bg-white bg-opacity-20 rounded text-white ${errors.phone ? 'border-red-500' : ''}`}
+                required
               />
               {errors.phone && <p className="text-red-500 text-sm mt-1">{errors.phone}</p>}
             </div>
