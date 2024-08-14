@@ -131,7 +131,7 @@ export default function ExpertMentorshipPage() {
               iconColor="text-yellow-400"
             />
             <ClickableCard
-              href="/free-consultation"
+              href="/forms/free-consultation"
               icon={Zap}
               title="Free Consultation"
               description="Schedule a free session to explore how mentorship can benefit you."
