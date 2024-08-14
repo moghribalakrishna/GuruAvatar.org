@@ -24,14 +24,14 @@ const involvementOptions = [
     icon: Building,
     description: "Are you an educational institution or a company? Partner with us to expand our reach and impact.",
     action: "Explore Partnerships",
-    link: "/partnerships"
+    link: "/partner"
   },
   {
     title: "Spread the Word",
     icon: MessageCircle,
     description: "Help us reach more people. Share our mission on social media and within your network.",
     action: "Share Our Mission",
-    link: "#share"
+    link: "/spread-the-word"
   }
 ];
 
