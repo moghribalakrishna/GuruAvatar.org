@@ -4,6 +4,8 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Send, AlertCircle, Check } from 'lucide-react';
 import axios from 'axios';
+import PhoneInput from 'react-phone-input-2';
+import 'react-phone-input-2/lib/style.css';
 
 interface FormData {
   name: string;
@@ -41,6 +43,13 @@ export default function HabitForgingRegistration() {
     }
   };
 
+  const handlePhoneChange = (value: string) => {
+    setFormData({ ...formData, phone: value });
+    if (errors.phone) {
+      setErrors({ ...errors, phone: '' });
+    }
+  };
+
   const handleCheckboxChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { value, checked } = e.target;
     if (checked) {
@@ -56,7 +65,6 @@ export default function HabitForgingRegistration() {
     if (!formData.email) newErrors.email = "Email is required";
     if (!/\S+@\S+\.\S+/.test(formData.email)) newErrors.email = "Email is invalid";
     if (!formData.phone) newErrors.phone = "Phone number is required";
-    if (!/^\+?[1-9]\d{1,14}$/.test(formData.phone)) newErrors.phone = "Phone number is invalid";
     if (formData.selectedHabits.length === 0) newErrors.selectedHabits = "Please select at least one habit";
     if (!formData.preferredStartDate) newErrors.preferredStartDate = "Please select a preferred start date";
     setErrors(newErrors);
@@ -147,16 +155,21 @@ export default function HabitForgingRegistration() {
 
           <div>
             <label htmlFor="phone" className="block mb-2 font-semibold">Phone Number *</label>
-            <input
-              type="tel"
-              id="phone"
-              name="phone"
-              value={formData.phone}
-              onChange={handleInputChange}
-              className="w-full px-3 py-2 bg-white bg-opacity-20 rounded-md text-white placeholder-gray-300"
-              placeholder="+1 (123) 456-7890"
-              required
-            />
+            <div className="relative max-w-md">
+              <PhoneInput
+                country={'in'}
+                value={formData.phone}
+                onChange={handlePhoneChange}
+                inputProps={{
+                  name: 'phone',
+                  required: true,
+                  className: 'w-full px-3 py-2 bg-white bg-opacity-20 rounded-md text-white placeholder-gray-300'
+                }}
+                containerClass="!w-full"
+                buttonClass="!bg-white !bg-opacity-20 !border-r-0 !px-3"
+                dropdownClass="!bg-gray-800 !text-white"
+              />
+            </div>
             {errors.phone && <p className="text-red-400 text-sm mt-1">{errors.phone}</p>}
           </div>
 
@@ -214,26 +227,28 @@ export default function HabitForgingRegistration() {
             </div>
           )}
 
-          <button
-            type="submit"
-            className="w-full bg-gradient-to-r from-orange-500 to-pink-500 text-white px-6 py-3 rounded-full text-lg font-semibold hover:from-orange-600 hover:to-pink-600 transition duration-300 flex items-center justify-center"
-            disabled={isSubmitting}
-          >
-            {isSubmitting ? (
-              <>
-                <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                  <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
-                  <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-                </svg>
-                Registering...
-              </>
-            ) : (
-              <>
-                <Send className="mr-2" />
-                Register for Habit Forging Classes
-              </>
-            )}
-          </button>
+          <div className="flex justify-center">
+            <button
+              type="submit"
+              className="bg-gradient-to-r from-orange-500 to-pink-500 text-white px-6 py-3 rounded-full text-lg font-semibold hover:from-orange-600 hover:to-pink-600 transition duration-300 flex items-center justify-center max-w-md w-full"
+              disabled={isSubmitting}
+            >
+              {isSubmitting ? (
+                <>
+                  <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                    <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                    <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                  </svg>
+                  Registering...
+                </>
+              ) : (
+                <>
+                  <Send className="mr-2" />
+                  Register for Habit Forging Classes
+                </>
+              )}
+            </button>
+          </div>
         </form>
       )}
     </div>
