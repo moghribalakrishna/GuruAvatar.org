@@ -4,10 +4,13 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Send, AlertCircle } from 'lucide-react';
 import axios from 'axios';
+import PhoneInput from 'react-phone-input-2';
+import 'react-phone-input-2/lib/style.css';
 
 interface FormData {
   name: string;
   email: string;
+  phone: string;
   subject: string;
   message: string;
 }
@@ -20,6 +23,7 @@ export default function ContactPage() {
   const [formData, setFormData] = useState<FormData>({
     name: '',
     email: '',
+    phone: '',
     subject: '',
     message: '',
   });
@@ -36,6 +40,13 @@ export default function ContactPage() {
     }
   };
 
+  const handlePhoneChange = (value: string) => {
+    setFormData({ ...formData, phone: value });
+    if (errors.phone) {
+      setErrors({ ...errors, phone: '' });
+    }
+  };
+
   const validateForm = (): boolean => {
     const newErrors: FormErrors = {};
 
@@ -47,6 +58,10 @@ export default function ContactPage() {
       newErrors.email = 'Email is required';
     } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
       newErrors.email = 'Email is invalid';
+    }
+
+    if (!formData.phone.trim()) {
+      newErrors.phone = 'Phone number is required';
     }
 
     if (!formData.subject.trim()) {
@@ -75,6 +90,7 @@ export default function ContactPage() {
           setFormData({
             name: '',
             email: '',
+            phone: '',
             subject: '',
             message: '',
           });
@@ -155,6 +171,24 @@ export default function ContactPage() {
                 required
               />
               {errors.email && <p className="text-red-500 text-sm mt-1">{errors.email}</p>}
+            </div>
+
+            <div className="mb-6">
+              <label htmlFor="phone" className="block mb-2">Phone Number *</label>
+              <PhoneInput
+                country={'in'}
+                value={formData.phone}
+                onChange={handlePhoneChange}
+                inputProps={{
+                  name: 'phone',
+                  required: true,
+                  className: 'w-full px-3 py-2 bg-white bg-opacity-20 rounded text-white'
+                }}
+                containerClass={`${errors.phone ? 'border-red-500' : ''}`}
+                buttonClass="bg-white bg-opacity-20"
+                dropdownClass="bg-white text-gray-800"
+              />
+              {errors.phone && <p className="text-red-500 text-sm mt-1">{errors.phone}</p>}
             </div>
 
             <div className="mb-6">

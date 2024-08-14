@@ -5,6 +5,8 @@ import { motion } from 'framer-motion';
 import { Send, AlertCircle } from 'lucide-react';
 import axios from 'axios';
 import { useRouter } from 'next/navigation';
+import PhoneInput from 'react-phone-input-2';
+import 'react-phone-input-2/lib/style.css';
 
 interface FormData {
   name: string;
@@ -42,6 +44,13 @@ export default function VolunteerApplicationPage() {
     }
   };
 
+  const handlePhoneChange = (value: string) => {
+    setFormData({ ...formData, phone: value });
+    if (errors.phone) {
+      setErrors({ ...errors, phone: '' });
+    }
+  };
+
   const handleCheckboxChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { value, checked } = e.target;
     if (checked) {
@@ -69,8 +78,6 @@ export default function VolunteerApplicationPage() {
 
     if (!formData.phone.trim()) {
       newErrors.phone = 'Phone number is required';
-    } else if (!/^\+?[\d\s-]{10,}$/.test(formData.phone)) {
-      newErrors.phone = 'Phone number is invalid';
     }
 
     if (formData.interests.length === 0) {
@@ -194,14 +201,18 @@ export default function VolunteerApplicationPage() {
 
             <div className="mb-6">
               <label htmlFor="phone" className="block mb-2">Phone Number *</label>
-              <input
-                type="tel"
-                id="phone"
-                name="phone"
+              <PhoneInput
+                country={'in'}
                 value={formData.phone}
-                onChange={handleInputChange}
-                className={`w-full px-3 py-2 bg-white bg-opacity-20 rounded text-white ${errors.phone ? 'border-red-500' : ''}`}
-                required
+                onChange={handlePhoneChange}
+                inputProps={{
+                  name: 'phone',
+                  required: true,
+                  className: 'w-full px-3 py-2 bg-white bg-opacity-20 rounded text-white'
+                }}
+                containerClass={`${errors.phone ? 'border-red-500' : ''}`}
+                buttonClass="bg-white bg-opacity-20"
+                dropdownClass="bg-white text-gray-800"
               />
               {errors.phone && <p className="text-red-500 text-sm mt-1">{errors.phone}</p>}
             </div>
