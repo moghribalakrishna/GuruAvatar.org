@@ -158,7 +158,7 @@ export default function FinancialTransparencyPage() {
             We're committed to transparency. If you have any questions about our financial practices or reports, we're here to help.
           </p>
           <a 
-            href="/contact" 
+            href="/forms/contact" 
             className="bg-orange-500 text-white px-8 py-3 rounded-full text-lg font-semibold hover:bg-orange-600 transition duration-300 inline-flex items-center"
           >
             <Lucide.Mail className="mr-2" />

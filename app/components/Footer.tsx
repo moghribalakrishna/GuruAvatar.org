@@ -1,6 +1,6 @@
 'use client';
 import Link from 'next/link'
-import NewsletterSignup from './NewsletterSignup'
+import NewsletterSignup from '../forms/news-letter/NewsletterSignup'
 
 export default function Footer() {
   return (
@@ -23,7 +23,7 @@ export default function Footer() {
               <li><Link href="/impact-report" className="text-gray-600 hover:text-blue-600 transition duration-300">Our Impact</Link></li>
               <li><Link href="/success-stories" className="text-gray-600 hover:text-blue-600 transition duration-300">Success Stories</Link></li>
               <li><Link href="/get-involved" className="text-gray-600 hover:text-blue-600 transition duration-300">Get Involved</Link></li>
-              <li><Link href="/contact" className="text-gray-600 hover:text-blue-600 transition duration-300">Contact Us</Link></li>
+              <li><Link href="/forms/contact" className="text-gray-600 hover:text-blue-600 transition duration-300">Contact Us</Link></li>
               <li><Link href="/faq" className="text-gray-600 hover:text-blue-600 transition duration-300">FAQ</Link></li>
             </ul>
           </div>

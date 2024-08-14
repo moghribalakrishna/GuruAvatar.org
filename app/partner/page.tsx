@@ -136,7 +136,7 @@ export default function PartnerPage() {
             Take the first step towards a revolutionary educational partnership. Our team is excited to explore how we can work together to empower learners and shape the future of education.
           </p>
           <a 
-            href="/contact" 
+            href="/forms/contact" 
             className="bg-orange-500 text-white px-8 py-3 rounded-full text-lg font-semibold hover:bg-orange-600 transition duration-300 inline-flex items-center"
           >
             <Mail className="mr-2" />

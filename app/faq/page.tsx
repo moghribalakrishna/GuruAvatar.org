@@ -119,7 +119,7 @@ export default function FAQPage() {
             If you couldn't find the answer you were looking for, please don't hesitate to reach out to us directly.
           </p>
           <a 
-            href="/contact" 
+            href="/forms/contact" 
             className="bg-orange-500 text-white px-8 py-3 rounded-full text-lg font-semibold hover:bg-orange-600 transition duration-300 inline-block"
           >
             Contact Us

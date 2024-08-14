@@ -10,21 +10,21 @@ const involvementOptions = [
     icon: Heart,
     description: "Support our mission financially. Every contribution, no matter how small, helps us reach more students.",
     action: "Make a Donation",
-    link: "/donate"
+    link: "/forms/donate"
   },
   {
     title: "Volunteer",
     icon: Users,
     description: "Share your skills and time. We need mentors, tutors, and various other volunteers to help our students.",
     action: "Become a Volunteer",
-    link: "/volunteer"
+    link: "/forms/volunteer"
   },
   {
     title: "Partner with Us",
     icon: Building,
     description: "Are you an educational institution or a company? Partner with us to expand our reach and impact.",
     action: "Explore Partnerships",
-    link: "/partnerships"
+    link: "/forms/partnerships"
   },
   {
     title: "Spread the Word",
@@ -90,7 +90,7 @@ export default function GetInvolvedPage() {
             We're here to help. If you have any questions about getting involved or supporting GuruAvatar, please don't hesitate to reach out.
           </p>
           <a 
-            href="/contact" 
+            href="/forms/contact" 
             className="bg-teal-500 text-white px-8 py-3 rounded-full text-lg font-semibold hover:bg-teal-600 transition duration-300 inline-block"
           >
             Contact Us

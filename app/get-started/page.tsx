@@ -146,7 +146,7 @@ export default function GetStartedPage() {
               FAQs
             </Link>
             <Link 
-              href="/contact" 
+              href="/forms/contact" 
               className="bg-purple-500 text-white px-6 py-3 rounded-full text-lg font-semibold hover:bg-purple-600 transition duration-300 inline-flex items-center"
             >
               <Lucide.MessageCircle className="mr-2" />
