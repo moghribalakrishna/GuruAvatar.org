@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Send, AlertCircle } from 'lucide-react';
+import { Send, AlertCircle, Check } from 'lucide-react';
 import axios from 'axios';
 import PhoneInput from 'react-phone-input-2';
 import 'react-phone-input-2/lib/style.css';
@@ -107,74 +107,58 @@ export default function ContactPage() {
   };
 
   return (
-    <div className="bg-gradient-to-b from-blue-900 via-blue-800 to-teal-900 min-h-screen text-white">
-      <div className="container mx-auto px-4 py-16">
-        <motion.h1 
-          className="text-5xl font-bold mb-8 text-center"
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
+    <div className="bg-gradient-to-br from-blue-900 via-purple-800 to-teal-700 text-white p-8 rounded-xl shadow-lg max-w-4xl mx-auto">
+      <h2 className="text-4xl font-bold mb-6 text-center">Contact Us</h2>
+      <p className="text-xl mb-8 text-center text-blue-200">
+        Have a question or want to get involved? We'd love to hear from you. Fill out the form below and we'll get back to you as soon as possible.
+      </p>
+
+      {submitSuccess ? (
+        <motion.div
+          className="bg-green-500 bg-opacity-20 p-8 rounded-xl text-center"
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.5 }}
         >
-          Contact Us
-        </motion.h1>
-        
-        <motion.p 
-          className="text-xl mb-12 text-center max-w-3xl mx-auto"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.5, delay: 0.2 }}
-        >
-          Have a question or want to get involved? We'd love to hear from you. Fill out the form below and we'll get back to you as soon as possible.
-        </motion.p>
+          <Check className="w-16 h-16 mx-auto mb-4 text-green-400" />
+          <h3 className="text-2xl font-bold mb-4">Thank You!</h3>
+          <p className="text-lg">Your message has been sent successfully. We'll be in touch soon.</p>
+        </motion.div>
+      ) : (
+        <form onSubmit={handleSubmit} className="space-y-6 bg-white bg-opacity-10 p-8 rounded-xl">
+          <div>
+            <label htmlFor="name" className="block mb-2 font-semibold">Full Name *</label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              value={formData.name}
+              onChange={handleInputChange}
+              className="w-full px-3 py-2 bg-white bg-opacity-20 rounded-md text-white placeholder-gray-300"
+              placeholder="Enter your full name"
+              required
+            />
+            {errors.name && <p className="text-red-400 text-sm mt-1">{errors.name}</p>}
+          </div>
 
-        {submitSuccess ? (
-          <motion.div
-            className="max-w-2xl mx-auto bg-green-500 bg-opacity-20 p-8 rounded-xl text-center"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.5 }}
-          >
-            <h2 className="text-2xl font-bold mb-4">Thank You!</h2>
-            <p>Your message has been sent successfully. We'll be in touch soon.</p>
-          </motion.div>
-        ) : (
-          <motion.form
-            className="max-w-2xl mx-auto bg-white bg-opacity-10 p-8 rounded-xl"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.5, delay: 0.3 }}
-            onSubmit={handleSubmit}
-          >
-            <div className="mb-6">
-              <label htmlFor="name" className="block mb-2">Full Name *</label>
-              <input
-                type="text"
-                id="name"
-                name="name"
-                value={formData.name}
-                onChange={handleInputChange}
-                className={`w-full px-3 py-2 bg-white bg-opacity-20 rounded text-white ${errors.name ? 'border-red-500' : ''}`}
-                required
-              />
-              {errors.name && <p className="text-red-500 text-sm mt-1">{errors.name}</p>}
-            </div>
+          <div>
+            <label htmlFor="email" className="block mb-2 font-semibold">Email Address *</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              value={formData.email}
+              onChange={handleInputChange}
+              className="w-full px-3 py-2 bg-white bg-opacity-20 rounded-md text-white placeholder-gray-300"
+              placeholder="your.email@example.com"
+              required
+            />
+            {errors.email && <p className="text-red-400 text-sm mt-1">{errors.email}</p>}
+          </div>
 
-            <div className="mb-6">
-              <label htmlFor="email" className="block mb-2">Email Address *</label>
-              <input
-                type="email"
-                id="email"
-                name="email"
-                value={formData.email}
-                onChange={handleInputChange}
-                className={`w-full px-3 py-2 bg-white bg-opacity-20 rounded text-white ${errors.email ? 'border-red-500' : ''}`}
-                required
-              />
-              {errors.email && <p className="text-red-500 text-sm mt-1">{errors.email}</p>}
-            </div>
-
-            <div className="mb-6">
-              <label htmlFor="phone" className="block mb-2">Phone Number *</label>
+          <div>
+            <label htmlFor="phone" className="block mb-2 font-semibold">Phone Number *</label>
+            <div className="relative max-w-md">
               <PhoneInput
                 country={'in'}
                 value={formData.phone}
@@ -182,53 +166,57 @@ export default function ContactPage() {
                 inputProps={{
                   name: 'phone',
                   required: true,
-                  className: 'w-full px-3 py-2 bg-white bg-opacity-20 rounded text-white'
+                  className: 'w-full px-3 py-2 bg-white bg-opacity-20 rounded-md text-white placeholder-gray-300 pl-14'
                 }}
-                containerClass={`${errors.phone ? 'border-red-500' : ''}`}
-                buttonClass="bg-white bg-opacity-20"
-                dropdownClass="bg-white text-gray-800"
+                containerClass="!w-full"
+                buttonClass="!bg-white !bg-opacity-20 !border-r-0 !px-3 !pl-3"
+                dropdownClass="!bg-gray-800 !text-white"
               />
-              {errors.phone && <p className="text-red-500 text-sm mt-1">{errors.phone}</p>}
             </div>
+            {errors.phone && <p className="text-red-400 text-sm mt-1">{errors.phone}</p>}
+          </div>
 
-            <div className="mb-6">
-              <label htmlFor="subject" className="block mb-2">Subject *</label>
-              <input
-                type="text"
-                id="subject"
-                name="subject"
-                value={formData.subject}
-                onChange={handleInputChange}
-                className={`w-full px-3 py-2 bg-white bg-opacity-20 rounded text-white ${errors.subject ? 'border-red-500' : ''}`}
-                required
-              />
-              {errors.subject && <p className="text-red-500 text-sm mt-1">{errors.subject}</p>}
+          <div>
+            <label htmlFor="subject" className="block mb-2 font-semibold">Subject *</label>
+            <input
+              type="text"
+              id="subject"
+              name="subject"
+              value={formData.subject}
+              onChange={handleInputChange}
+              className="w-full px-3 py-2 bg-white bg-opacity-20 rounded-md text-white placeholder-gray-300"
+              placeholder="Enter the subject of your message"
+              required
+            />
+            {errors.subject && <p className="text-red-400 text-sm mt-1">{errors.subject}</p>}
+          </div>
+
+          <div>
+            <label htmlFor="message" className="block mb-2 font-semibold">Message *</label>
+            <textarea
+              id="message"
+              name="message"
+              value={formData.message}
+              onChange={handleInputChange}
+              className="w-full px-3 py-2 bg-white bg-opacity-20 rounded-md text-white placeholder-gray-300"
+              rows={6}
+              placeholder="Enter your message here"
+              required
+            ></textarea>
+            {errors.message && <p className="text-red-400 text-sm mt-1">{errors.message}</p>}
+          </div>
+
+          {errors.submit && (
+            <div className="bg-red-500 bg-opacity-20 p-3 rounded-md flex items-center">
+              <AlertCircle className="mr-2" />
+              <p>{errors.submit}</p>
             </div>
+          )}
 
-            <div className="mb-6">
-              <label htmlFor="message" className="block mb-2">Message *</label>
-              <textarea
-                id="message"
-                name="message"
-                value={formData.message}
-                onChange={handleInputChange}
-                className={`w-full px-3 py-2 bg-white bg-opacity-20 rounded text-white ${errors.message ? 'border-red-500' : ''}`}
-                rows={6}
-                required
-              ></textarea>
-              {errors.message && <p className="text-red-500 text-sm mt-1">{errors.message}</p>}
-            </div>
-
-            {errors.submit && (
-              <div className="mb-6 bg-red-500 bg-opacity-20 p-3 rounded flex items-center">
-                <AlertCircle className="mr-2" />
-                <p>{errors.submit}</p>
-              </div>
-            )}
-
+          <div className="flex justify-center">
             <button
               type="submit"
-              className="bg-orange-500 text-white px-6 py-3 rounded-full text-lg font-semibold hover:bg-orange-600 transition duration-300 flex items-center justify-center w-full disabled:opacity-50 disabled:cursor-not-allowed"
+              className="bg-gradient-to-r from-orange-500 to-pink-500 text-white px-6 py-3 rounded-full text-lg font-semibold hover:from-orange-600 hover:to-pink-600 transition duration-300 flex items-center justify-center max-w-md w-full"
               disabled={isSubmitting}
             >
               {isSubmitting ? (
@@ -246,9 +234,9 @@ export default function ContactPage() {
                 </>
               )}
             </button>
-          </motion.form>
-        )}
-      </div>
+          </div>
+        </form>
+      )}
     </div>
   );
 }
