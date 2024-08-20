@@ -117,6 +117,11 @@ async function deploy() {
 
     await executeCommand('npm install');
 
+    console.log('Setting environment variables for build...');
+    // Set the NEXT_PUBLIC_STRAPI_API_URL for the build
+    // envs starting with  NEXT_PUBLIC_* are replaced during the build:
+    process.env.NEXT_PUBLIC_STRAPI_API_URL = 'https://strapi.guruavatar.org/api';
+
     console.log('Building Next.js project...');
     await executeCommand('npm run build');
 
@@ -159,6 +164,14 @@ async function deploy() {
       console.log('Transferring package-lock.json...');
       await ssh.putFile('package-lock.json', `${remoteDir}/package-lock.json`);
       console.log('package-lock.json transferred successfully');
+
+      console.log('Transferring ecosystem.config.js...');
+      await ssh.putFile('ecosystem.config.js', `${remoteDir}/ecosystem.config.js`);
+      console.log('ecosystem.config.js transferred successfully');
+
+      console.log('Transferring next.config.mjs...');
+      await ssh.putFile('next.config.mjs', `${remoteDir}/next.config.mjs`);
+      console.log('next.config.mjs transferred successfully');
 
       if (fs.existsSync('./public')) {
         console.log('Zipping public directory...');
@@ -217,8 +230,9 @@ async function deploy() {
       export PATH=$PATH:/usr/local/bin:$(npm bin -g) &&
       pm2 stop next-app || true &&
       pm2 delete next-app || true &&
-      pm2 start npm --name "next-app" -- start
+      pm2 start ecosystem.config.js --env production
     `;
+    //  pm2 start npm --name "next-app" -- start
     const { stdout: startStdout, stderr: startStderr } = await ssh.execCommand(`${loadNvmCommand} && ${startCommands}`, { cwd: remoteDir });
     console.log('PM2 start output:', startStdout);
     if (startStderr) {
