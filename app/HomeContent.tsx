@@ -1,10 +1,8 @@
 'use client';
-
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
-import { link } from 'fs';
 
 interface BlogPost {
   id: number;
@@ -38,28 +36,28 @@ export default function HomeContent() {
 
   return (
     <div className="bg-gradient-to-b from-blue-900 to-teal-700 min-h-screen text-white">
-      <div className="container mx-auto px-4 py-16">
+      <div className="container mx-auto px-4 py-8 md:py-16">
         {/* Hero Section */}
-        <section className="flex flex-col lg:flex-row items-center mb-20">
+        <section className="flex flex-col lg:flex-row items-center mb-12 md:mb-20">
           <div className="lg:w-1/2 lg:pr-12">
-            <motion.h1 
-              className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-8 leading-tight"
+            <motion.h1
+              className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold mb-6 md:mb-8 leading-tight"
               initial={{ opacity: 0, y: -20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
             >
               Empowering Minds Through Non-Profit Education
             </motion.h1>
-            <motion.p 
-              className="text-xl mb-4 text-blue-100"
+            <motion.p
+              className="text-lg md:text-xl mb-4 text-blue-100"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.5, delay: 0.2 }}
             >
               GuruAvatar is a non-profit organization dedicated to revolutionizing education through:
             </motion.p>
-            <motion.ul 
-              className="text-xl mb-8 text-blue-100 list-none space-y-2"
+            <motion.ul
+              className="text-lg md:text-xl mb-6 md:mb-8 text-blue-100 list-none space-y-2"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.5, delay: 0.3 }}
@@ -73,77 +71,55 @@ export default function HomeContent() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.5, delay: 0.5 }}
+              className="mb-8 md:mb-0"
             >
-              <Link href="/our-approach" className="bg-orange-500 text-white px-8 py-4 rounded-full text-xl font-semibold hover:bg-orange-600 transition duration-300 inline-block shadow-lg">
+              <Link href="/our-approach" className="bg-orange-500 text-white px-6 py-3 md:px-8 md:py-4 rounded-full text-lg md:text-xl font-semibold hover:bg-orange-600 transition duration-300 inline-block shadow-lg">
                 Discover Our Approach
               </Link>
             </motion.div>
           </div>
-          <motion.div 
-            className="lg:w-1/2 mt-12 lg:mt-0"
+          <motion.div
+            className="lg:w-1/2 mt-8 lg:mt-0"
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
           >
-            <Image 
-              src="/guruavatar-hero.webp" 
-              alt="GuruAvatar Learning Environment" 
-              width={800} 
-              height={450} 
-              className="rounded-xl shadow-2xl"
+            <Image
+              src="/guruavatar-hero.webp"
+              alt="GuruAvatar Learning Environment"
+              width={800}
+              height={450}
+              className="rounded-xl shadow-2xl w-full h-auto"
               priority
             />
           </motion.div>
         </section>
 
-        {/* Our Approach Section */}
-        <section className="mb-20">
-          <motion.h2 
-            className="text-4xl font-bold text-center mb-12"
+        {/* Features Section */}
+        <section className="mb-16 md:mb-20">
+          <motion.h2
+            className="text-3xl md:text-4xl font-bold text-center mb-8 md:mb-12"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
           >
             Our Non-Profit Approach to Holistic Education
           </motion.h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {[              { 
-                title: "Habit Forging", 
-                icon: "🔨", 
-                description: "Develop success-driving habits with our scientifically-backed system, offered at no cost.", 
-                link: "/habit-forging", 
-                image: "/habit-forging.webp" 
-              },
-              { 
-                title: "Mindfulness Integration", 
-                icon: "🧘", 
-                description: "Enhance well-being through guided mindfulness practices, freely available to all our learners.", 
-                link: "/mindful-integration", 
-                image: "/mindfulness-integration.webp" 
-              },  { 
-                title: "Expert Mentorship", 
-                icon: "👥", 
-                description: "Connect with volunteer industry leaders for guidance and insights, bridging education and real-world experience.", 
-                link: "/expert-mentorship",
-                image: "/expert-mentorship.webp" 
-              },
-              { 
-                title: "AI-Powered Learning", 
-                icon: "🤖", 
-                description: "Personalized learning paths adapted to individual needs, made accessible through our non-profit model.",
-                link: "/ai-learning",  
-                image: "/ai-powered-learning.webp" 
-              },
-            
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {[
+              { title: "Habit Forging", icon: "🔨", description: "Develop success-driving habits with our scientifically-backed system, offered at no cost.", link: "/habit-forging", image: "/habit-forging.webp" },
+              { title: "Mindfulness Integration", icon: "🧘", description: "Enhance well-being through guided mindfulness practices, freely available to all our learners.", link: "/mindful-integration", image: "/mindfulness-integration.webp" },
+              { title: "Expert Mentorship", icon: "👥", description: "Connect with volunteer industry leaders for guidance and insights, bridging education and real-world experience.", link: "/expert-mentorship", image: "/expert-mentorship.webp" },
+              { title: "AI-Powered Learning", icon: "🤖", description: "Personalized learning paths adapted to individual needs, made accessible through our non-profit model.", link: "/ai-learning", image: "/ai-powered-learning.webp" },
             ].map((feature, index) => (
               <Link href={feature.link || '#'} key={index}>
-                <motion.div 
+                <motion.div
                   className="bg-white bg-opacity-10 p-6 rounded-xl shadow-xl hover:shadow-2xl transition duration-300 transform hover:-translate-y-1 cursor-pointer h-full flex flex-col"
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
                 >
-                  <Image 
+                  <Image
                     src={feature.image}
                     alt={feature.title}
                     width={400}
@@ -161,10 +137,10 @@ export default function HomeContent() {
           </div>
         </section>
 
-        {/* Recent Blog Posts Section */}
-        <section className="mb-20">
-          <motion.h2 
-            className="text-4xl font-bold text-center mb-12"
+        {/* Blog Section */}
+        <section className="mb-16 md:mb-20">
+          <motion.h2
+            className="text-3xl md:text-4xl font-bold text-center mb-8 md:mb-12"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
@@ -172,18 +148,18 @@ export default function HomeContent() {
             Latest from Our Blog
           </motion.h2>
           {posts.length > 0 ? (
-            <div className="grid md:grid-cols-3 gap-6">
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
               {posts.map((post, index) => (
-                <motion.div 
+                <motion.div
                   key={post.id}
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
                 >
                   <Link href={`/blog/${post.id}`}>
-                    <div className="bg-white bg-opacity-10 rounded-xl p-6 cursor-pointer transition-all duration-300 hover:bg-opacity-20">
-                    <h2 className="text-2xl font-semibold mb-4">{post.attributes.Title}</h2>
-                    <p className="text-gray-300 mb-4">{post.attributes.Excerpt}</p>
+                    <div className="bg-white bg-opacity-10 rounded-xl p-6 cursor-pointer transition-all duration-300 hover:bg-opacity-20 h-full flex flex-col">
+                      <h2 className="text-xl md:text-2xl font-semibold mb-4">{post.attributes.Title}</h2>
+                      <p className="text-gray-300 mb-4 flex-grow">{post.attributes.Excerpt}</p>
                       <span className="text-orange-400">Read more →</span>
                     </div>
                   </Link>
@@ -195,22 +171,22 @@ export default function HomeContent() {
           )}
         </section>
 
-        {/* Call to Action */}
-        <motion.section 
-          className="text-center bg-blue-800 bg-opacity-50 py-16 rounded-xl shadow-2xl"
+        {/* Call to Action Section */}
+        <motion.section
+          className="text-center bg-blue-800 bg-opacity-50 py-12 md:py-16 rounded-xl shadow-2xl"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
         >
-          <h2 className="text-4xl font-bold mb-6">Join Our Non-Profit Educational Revolution</h2>
-          <p className="text-xl mb-8 text-blue-100">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 md:mb-6">Join Our Non-Profit Educational Revolution</h2>
+          <p className="text-lg md:text-xl mb-6 md:mb-8 text-blue-100">
             Support GuruAvatar's mission to provide free, transformative education. Together, we can make quality learning accessible to all.
           </p>
-          <div className="space-x-4">
-            <Link href="/get-involved" className="bg-orange-500 text-white px-8 py-4 rounded-full text-xl font-semibold hover:bg-orange-600 transition duration-300 inline-block shadow-lg">
+          <div className="flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-4">
+            <Link href="/get-involved" className="bg-orange-500 text-white px-6 py-3 md:px-8 md:py-4 rounded-full text-lg md:text-xl font-semibold hover:bg-orange-600 transition duration-300 inline-block shadow-lg w-full sm:w-auto">
               Get Involved
             </Link>
-            <Link href="/donate" className="bg-teal-500 text-white px-8 py-4 rounded-full text-xl font-semibold hover:bg-teal-600 transition duration-300 inline-block shadow-lg">
+            <Link href="/donate" className="bg-teal-500 text-white px-6 py-3 md:px-8 md:py-4 rounded-full text-lg md:text-xl font-semibold hover:bg-teal-600 transition duration-300 inline-block shadow-lg w-full sm:w-auto">
               Donate
             </Link>
           </div>
