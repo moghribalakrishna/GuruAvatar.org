@@ -42,7 +42,7 @@ export default function DonatePage() {
 
   useEffect(() => {
     if (donationAmount) {
-      setImpactDescription(`Your donation of $${donationAmount} can make a real difference.`);
+      setImpactDescription(`Your donation of Rs${donationAmount} can make a real difference.`);
     } else {
       setImpactDescription('');
     }
@@ -90,7 +90,7 @@ export default function DonatePage() {
                     }`}
                     onClick={() => setDonationAmount(amount)}
                   >
-                    ${amount}
+                    Rs{amount}
                   </button>
                 ))}
                 <input
@@ -181,8 +181,12 @@ export default function DonatePage() {
           <h2 className="text-3xl font-semibold mb-6 text-center">Voices of Impact</h2>
           <div className="grid md:grid-cols-2 gap-8">
             {[
-              { name: "Priya S.", story: "GuruAvatar's AI-powered learning helped me achieve my dream of studying engineering at a top university.", image: "/priya.jpg" },
-              { name: "Michael T.", story: "As a donor, seeing the direct impact of my contributions on students' lives has been incredibly rewarding.", image: "/michael.jpg" }
+              { name: "Deepa K", story: "Being a Donor cum Mentor, There is nothing so deep & meanigful in this world than this, This Unique Way of Education is Really Super Transformative", image: "/priya.jpg" },
+              { name: "Kamakshi B", story: "GuruAvatar's Mentorship has helped me achieve my dream of studying MBA & getting placed in very good Software Company", image: "/priya.jpg" },
+              { name: "Malikarjun Gurumath.", story: "As a Rs 1,00,000 donor, seeing the direct impact of my contributions on students' lives has been incredibly rewarding.", image: "/michael.jpg" },
+              { name: "Shivaling M", story: "As a 1st donor to GuruAvatar's founder itself, its dream come true of creating such an Impact, Looking forward seeing it to scale to Helping Millions in Need", image: "/michael.jpg" },
+              { name: "Vittal M", story: "As a Mentor to GuruAvatar, It's Super exciting & fulfilling experince", image: "/michael.jpg" },
+              { name: "Raghvendra S", story: "As a Mentor to GuruAvatar, Supporting bit by bit, towards creating the Worlds 1st Mentorship Led Education System", image: "/michael.jpg" }
             ].map((testimonial, index) => (
               <div key={index} className="bg-white bg-opacity-10 p-6 rounded-xl flex items-start space-x-4">
                 <Image 
