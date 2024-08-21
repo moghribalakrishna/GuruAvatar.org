@@ -19,13 +19,13 @@ export default function Header() {
   };
 
   const menuItems = [
-    { href: '/about', label: 'About' },
     { href: '/our-approach', label: 'Our Approach' },
     { href: '/ai-masterclass', label: 'AI Masterclasses' },
     { href: '/programs-and-courses', label: 'Programs & Courses' },
     { href: '/success-stories', label: 'Success Stories' },
     { href: '/get-involved', label: 'Get Involved' },
     { href: '/get-started', label: 'Get Started' },
+    { href: '/about', label: 'About' },
     { href: '/blog', label: 'Blog' },
   ];
 

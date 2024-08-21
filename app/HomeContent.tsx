@@ -74,7 +74,7 @@ export default function HomeContent() {
               animate={{ opacity: 1 }}
               transition={{ duration: 0.5, delay: 0.5 }}
             >
-              <Link href="/about" className="bg-orange-500 text-white px-8 py-4 rounded-full text-xl font-semibold hover:bg-orange-600 transition duration-300 inline-block shadow-lg">
+              <Link href="/our-approach" className="bg-orange-500 text-white px-8 py-4 rounded-full text-xl font-semibold hover:bg-orange-600 transition duration-300 inline-block shadow-lg">
                 Discover Our Mission
               </Link>
             </motion.div>

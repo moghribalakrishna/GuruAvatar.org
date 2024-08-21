@@ -58,9 +58,9 @@ export default function ImpactAndFuture() {
         <div className="mb-20">
           <h3 className="text-3xl font-semibold text-center mb-8">Transforming Lives Through Education</h3>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <ImpactMetric icon={Users} value="100,000+" description="Students Reached" />
-            <ImpactMetric icon={Globe} value="50+" description="Countries Impacted" />
-            <ImpactMetric icon={ChartBar} value="35%" description="Avg. Performance Improvement" />
+            <ImpactMetric icon={Users} value="100,000+" description="Students to be Reached by 2025" />
+            <ImpactMetric icon={Globe} value="50+" description="Countries to make Impact by 2025" />
+            <ImpactMetric icon={ChartBar} value="35%" description="Expected Avg. Performance Improvement" />
           </div>
         </div>
 
