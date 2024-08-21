@@ -11,8 +11,8 @@ const Breadcrumb: React.FC = () => {
   return (
     <div className="fixed top-16 left-0 right-0 z-40 bg-gray-100 shadow-sm">
       <div className="container mx-auto px-4">
-        <nav aria-label="Breadcrumb" className="mb-1 bg-gradient-to-r from-teal-600 to-teal-700 p-1 md:p-2 rounded-md shadow-md">
-          <ol className="flex items-center space-x-1 text-xs md:text-sm text-white">
+        <nav aria-label="Breadcrumb" className="bg-gradient-to-r from-teal-600 to-teal-700 p-2 rounded-md shadow-md">
+          <ol className="flex items-center space-x-1 text-xs md:text-sm text-white overflow-x-auto whitespace-nowrap">
             <li>
               <Link href="/" className="hover:text-yellow-400 hover:underline transition duration-300">
                 Home
@@ -25,7 +25,7 @@ const Breadcrumb: React.FC = () => {
 
               return (
                 <React.Fragment key={href}>
-                  <ChevronRight className="w-3 h-3 text-yellow-400" />
+                  <ChevronRight className="w-3 h-3 text-yellow-400 flex-shrink-0" />
                   <li>
                     {isLast ? (
                       <span className="text-yellow-400 font-semibold">{title}</span>

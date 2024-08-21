@@ -1,14 +1,14 @@
 'use client';
 
-import React, { useState } from 'react'
-import Link from 'next/link'
+import React, { useState } from 'react';
+import Link from 'next/link';
 import { useAuth } from '../contexts/AuthContext';
 import { useRouter } from 'next/navigation';
 import { logout } from '../lib/auth';
 import { Menu, X } from 'lucide-react';
 
 export default function Header() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { state, dispatch } = useAuth();
   const router = useRouter();
 
@@ -30,48 +30,46 @@ export default function Header() {
   ];
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-white shadow-md">
-      <div className="container mx-auto px-4 py-3">
-        <div className="flex items-center justify-between">
-          <Link href="/" className="flex items-center">
-            <span className="text-2xl font-bold text-blue-600">GuruAvatar</span>
-            <span className="ml-2 text-xs bg-orange-500 text-white px-2 py-1 rounded-full">Non-Profit</span>
-          </Link>
-          <nav className="hidden lg:flex items-center space-x-4">
-            {menuItems.map((item) => (
-              <Link key={item.href} href={item.href} className="text-gray-600 hover:text-blue-600">
-                {item.label}
-              </Link>
-            ))}
-            <Link href="/donate" className="bg-orange-500 text-white px-4 py-2 rounded-full hover:bg-orange-600">
-              Donate
+    <header className="fixed top-0 left-0 right-0 z-50 bg-white shadow-md h-16">
+      <div className="container mx-auto px-4 h-full flex items-center justify-between">
+        <Link href="/" className="flex items-center space-x-2">
+          <span className="text-xl font-bold text-blue-600">GuruAvatar</span>
+          <span className="text-xs bg-orange-500 text-white px-2 py-1 rounded-full">Non-Profit</span>
+        </Link>
+        <nav className="hidden lg:flex items-center space-x-4">
+          {menuItems.map((item) => (
+            <Link key={item.href} href={item.href} className="text-gray-600 hover:text-blue-600">
+              {item.label}
             </Link>
-            {!state.loading && (
-              state.user ? (
-                <>
-                  <Link href="/profile" className="text-gray-600 hover:text-blue-600">Profile</Link>
-                  <button onClick={handleLogout} className="text-gray-600 hover:text-blue-600">Logout</button>
-                </>
-              ) : (
-                <>
-                  <Link href="/login" className="text-gray-600 hover:text-blue-600">Login</Link>
-                  <Link href="/signup" className="bg-blue-500 text-white px-4 py-2 rounded-full hover:bg-blue-600">
-                    Sign Up
-                  </Link>
-                </>
-              )
-            )}
-          </nav>
-          <button
-            className="lg:hidden text-gray-600 hover:text-blue-600 focus:outline-none"
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-          >
-            {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
-          </button>
-        </div>
+          ))}
+          <Link href="/donate" className="bg-orange-500 text-white px-4 py-2 rounded-full hover:bg-orange-600">
+            Donate
+          </Link>
+          {!state.loading && (
+            state.user ? (
+              <>
+                <Link href="/profile" className="text-gray-600 hover:text-blue-600">Profile</Link>
+                <button onClick={handleLogout} className="text-gray-600 hover:text-blue-600">Logout</button>
+              </>
+            ) : (
+              <>
+                <Link href="/login" className="text-gray-600 hover:text-blue-600">Login</Link>
+                <Link href="/signup" className="bg-blue-500 text-white px-4 py-2 rounded-full hover:bg-blue-600">
+                  Sign Up
+                </Link>
+              </>
+            )
+          )}
+        </nav>
+        <button
+          className="lg:hidden text-gray-600 hover:text-blue-600 focus:outline-none"
+          onClick={() => setIsMenuOpen(!isMenuOpen)}
+        >
+          {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+        </button>
       </div>
       {isMenuOpen && (
-        <nav className="lg:hidden bg-white border-t border-gray-200 mt-2">
+        <nav className="lg:hidden bg-white border-t border-gray-200 absolute top-16 left-0 right-0 shadow-md">
           <div className="container mx-auto px-4 py-2 space-y-2">
             {menuItems.map((item) => (
               <Link
@@ -133,5 +131,5 @@ export default function Header() {
         </nav>
       )}
     </header>
-  )
+  );
 }
