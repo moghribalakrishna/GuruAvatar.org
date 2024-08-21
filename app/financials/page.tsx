@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
 import * as Lucide from 'lucide-react';
 import { PieChart, Pie, Cell, ResponsiveContainer, BarChart, Bar, XAxis, YAxis, Tooltip, Legend } from 'recharts';
 
-const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042', '#8884d8'];
+const COLORS = ['#3B82F6', '#10B981', '#F59E0B', '#EF4444'];
 
 const expenseData = [
   { name: 'Program Development', value: 70 },
@@ -15,17 +15,21 @@ const expenseData = [
 ];
 
 const yearlyData = [
-  { year: '2024', revenue: 500000, expenses: 450000 },
-  { year: '2025', revenue: 750000, expenses: 650000 },
-  { year: '2026', revenue: 1000000, expenses: 850000 },
+  { year: '2024', revenue: 5000000, expenses: 4500000 },
+  { year: '2025', revenue: 30000000, expenses: 25000000 },
+  { year: '2026', revenue: 100000000, expenses: 85000000 },
 ];
+
+const formatCurrency = (value: number) => {
+  return new Intl.NumberFormat('en-IN', { style: 'currency', currency: 'INR', maximumFractionDigits: 0 }).format(value);
+};
 
 export default function FinancialTransparencyPage() {
   return (
     <div className="bg-gradient-to-b from-blue-900 via-blue-800 to-teal-900 min-h-screen text-white">
-      <div className="container mx-auto px-4 py-16">
+      <div className="container mx-auto px-4 py-8 sm:py-16">
         <motion.h1 
-          className="text-5xl font-bold mb-8 text-center"
+          className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 sm:mb-8 text-center"
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
@@ -34,7 +38,7 @@ export default function FinancialTransparencyPage() {
         </motion.h1>
         
         <motion.p 
-          className="text-xl mb-12 text-center max-w-3xl mx-auto"
+          className="text-lg sm:text-xl mb-8 sm:mb-12 text-center max-w-3xl mx-auto"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.2 }}
@@ -42,110 +46,89 @@ export default function FinancialTransparencyPage() {
           At GuruAvatar, we believe in full transparency. Here's a detailed breakdown of how we allocate funds and our financial performance over the years.
         </motion.p>
 
-        <section className="mb-16">
-          <h2 className="text-3xl font-semibold mb-8 text-center">Expense Allocation</h2>
-          <motion.div
-            className="bg-white bg-opacity-10 p-6 rounded-xl"
+        <div className="grid md:grid-cols-2 gap-8 mb-12">
+          <motion.section
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.3 }}
           >
-            <ResponsiveContainer width="100%" height={300}>
-              <PieChart>
-                <Pie
-                  data={expenseData}
-                  cx="50%"
-                  cy="50%"
-                  labelLine={false}
-                  outerRadius={80}
-                  fill="#8884d8"
-                  dataKey="value"
-                  label={({ name, percent }) => `${name} ${(percent * 100).toFixed(0)}%`}
-                >
-                  {expenseData.map((entry, index) => (
-                    <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
-                  ))}
-                </Pie>
-                <Tooltip />
-              </PieChart>
-            </ResponsiveContainer>
-          </motion.div>
-        </section>
+            <h2 className="text-2xl sm:text-3xl font-semibold mb-6 text-center">Expense Allocation</h2>
+            <div className="bg-white bg-opacity-10 p-4 sm:p-6 rounded-xl h-[300px] sm:h-[400px]">
+              <ResponsiveContainer width="100%" height="100%">
+                <PieChart>
+                  <Pie
+                    data={expenseData}
+                    cx="50%"
+                    cy="50%"
+                    labelLine={false}
+                    outerRadius="80%"
+                    fill="#8884d8"
+                    dataKey="value"
+                    label={({ name, percent }) => `${name} ${(percent * 100).toFixed(0)}%`}
+                  >
+                    {expenseData.map((entry, index) => (
+                      <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
+                    ))}
+                  </Pie>
+                  <Tooltip formatter={(value) => `${value}%`} />
+                </PieChart>
+              </ResponsiveContainer>
+            </div>
+          </motion.section>
 
-        <section className="mb-16">
-          <h2 className="text-3xl font-semibold mb-8 text-center">Yearly Financial Overview</h2>
-          <motion.div
-            className="bg-white bg-opacity-10 p-6 rounded-xl"
+          <motion.section
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.4 }}
           >
-            <ResponsiveContainer width="100%" height={300}>
-              <BarChart data={yearlyData}>
-                <XAxis dataKey="year" stroke="#fff" />
-                <YAxis stroke="#fff" />
-                <Tooltip 
-                  contentStyle={{ backgroundColor: 'rgba(0, 0, 0, 0.8)', border: 'none' }}
-                  itemStyle={{ color: '#fff' }}
-                />
-                <Legend />
-                <Bar dataKey="revenue" fill="#0088FE" name="Revenue" />
-                <Bar dataKey="expenses" fill="#00C49F" name="Expenses" />
-              </BarChart>
-            </ResponsiveContainer>
-          </motion.div>
-        </section>
+            <h2 className="text-2xl sm:text-3xl font-semibold mb-6 text-center">Expected Yearly Financial Overview</h2>
+            <div className="bg-white bg-opacity-10 p-4 sm:p-6 rounded-xl h-[300px] sm:h-[400px]">
+              <ResponsiveContainer width="100%" height="100%">
+                <BarChart data={yearlyData}>
+                  <XAxis dataKey="year" stroke="#fff" />
+                  <YAxis stroke="#fff" tickFormatter={(value) => `${value / 1000000}M`} />
+                  <Tooltip 
+                    contentStyle={{ backgroundColor: 'rgba(0, 0, 0, 0.8)', border: 'none' }}
+                    itemStyle={{ color: '#fff' }}
+                    formatter={(value) => formatCurrency(value as number)}
+                  />
+                  <Legend />
+                  <Bar dataKey="revenue" fill="#3B82F6" name="Expected Revenue" />
+                  <Bar dataKey="expenses" fill="#10B981" name="Expected Expenses" />
+                </BarChart>
+              </ResponsiveContainer>
+            </div>
+          </motion.section>
+        </div>
 
-        <section className="mb-16">
-          <h2 className="text-3xl font-semibold mb-8 text-center">Our Financial Principles</h2>
-          <div className="grid md:grid-cols-2 gap-8">
+        <motion.section 
+          className="mb-12 sm:mb-16"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.5 }}
+        >
+          <h2 className="text-2xl sm:text-3xl font-semibold mb-6 sm:mb-8 text-center">Our Financial Principles</h2>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
-              { icon: Lucide.Maximize2, title: "Maximizing Impact", description: "We strive to allocate the maximum possible resources directly to educational programs and technology development." },
-              { icon: Lucide.TrendingUp, title: "Sustainable Growth", description: "We balance our growth with financial sustainability to ensure long-term impact." },
-              { icon: Lucide.Search, title: "Transparency", description: "We provide clear, detailed financial reports and welcome inquiries about our financial practices." },
-              { icon: Lucide.Shield, title: "Ethical Fundraising", description: "We adhere to the highest ethical standards in our fundraising efforts and donor relationships." }
+              { icon: Lucide.Maximize2, title: "Maximizing Impact", description: "We allocate maximum resources to educational programs and technology development." },
+              { icon: Lucide.TrendingUp, title: "Sustainable Growth", description: "We balance growth with financial sustainability for long-term impact." },
+              { icon: Lucide.Search, title: "Transparency", description: "We provide clear financial reports and welcome inquiries about our practices." },
+              { icon: Lucide.Shield, title: "Ethical Fundraising", description: "We adhere to the highest ethical standards in fundraising and donor relationships." }
             ].map((principle, index) => (
               <motion.div
                 key={index}
-                className="bg-white bg-opacity-10 p-6 rounded-xl"
+                className="bg-white bg-opacity-10 p-4 sm:p-6 rounded-xl"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.5 + index * 0.1 }}
+                transition={{ duration: 0.5, delay: 0.6 + index * 0.1 }}
               >
-                <principle.icon className="w-12 h-12 text-orange-400 mb-4" />
-                <h3 className="text-xl font-semibold mb-2">{principle.title}</h3>
-                <p className="text-gray-300">{principle.description}</p>
+                <principle.icon className="w-10 h-10 sm:w-12 sm:h-12 text-orange-400 mb-3 sm:mb-4" />
+                <h3 className="text-lg sm:text-xl font-semibold mb-2">{principle.title}</h3>
+                <p className="text-sm sm:text-base text-gray-300">{principle.description}</p>
               </motion.div>
             ))}
           </div>
-        </section>
-
-        <section className="mb-16">
-          <h2 className="text-3xl font-semibold mb-8 text-center">Financial Reports</h2>
-          <motion.div
-            className="bg-white bg-opacity-10 p-6 rounded-xl"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.9 }}
-          >
-            <p className="text-lg mb-4">
-              For a more detailed look at our finances, you can download our annual reports:
-            </p>
-            <ul className="space-y-4">
-              {[2026, 2025, 2024].map((year) => (
-                <li key={year}>
-                  <a 
-                    href={`/financial-reports/${year}-annual-report.pdf`}
-                    className="flex items-center text-orange-400 hover:text-orange-300 transition duration-300"
-                  >
-                    <Lucide.FileText className="mr-2" />
-                    {year} Annual Financial Report
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </motion.div>
-        </section>
+        </motion.section>
 
         <motion.section 
           className="text-center"
@@ -153,17 +136,19 @@ export default function FinancialTransparencyPage() {
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 1 }}
         >
-          <h2 className="text-3xl font-semibold mb-6">Questions About Our Finances?</h2>
-          <p className="text-xl mb-8">
+          <h2 className="text-2xl sm:text-3xl font-semibold mb-4 sm:mb-6">Questions About Our Finances?</h2>
+          <p className="text-lg sm:text-xl mb-6 sm:mb-8">
             We're committed to transparency. If you have any questions about our financial practices or reports, we're here to help.
           </p>
-          <a 
+          <motion.a 
             href="/forms/contact" 
-            className="bg-orange-500 text-white px-8 py-3 rounded-full text-lg font-semibold hover:bg-orange-600 transition duration-300 inline-flex items-center"
+            className="bg-orange-500 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-full text-lg sm:text-xl font-semibold hover:bg-orange-600 transition duration-300 inline-flex items-center"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
           >
             <Lucide.Mail className="mr-2" />
             Contact Us
-          </a>
+          </motion.a>
         </motion.section>
       </div>
     </div>

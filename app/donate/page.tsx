@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
+import Link from 'next/link';
 import { Users, BookOpen, Globe, Zap, DollarSign, Sparkles } from 'lucide-react';
 
 const impactItems = [
@@ -42,7 +43,7 @@ export default function DonatePage() {
 
   useEffect(() => {
     if (donationAmount) {
-      setImpactDescription(`Your donation of Rs${donationAmount} can make a real difference.`);
+      setImpactDescription(`Your donation of ₹${donationAmount} can make a real difference.`);
     } else {
       setImpactDescription('');
     }
@@ -90,7 +91,7 @@ export default function DonatePage() {
                     }`}
                     onClick={() => setDonationAmount(amount)}
                   >
-                    Rs{amount}
+                    ₹{amount}
                   </button>
                 ))}
                 <input
@@ -113,9 +114,9 @@ export default function DonatePage() {
                 <span>Make this a monthly donation</span>
               </label>
             </div>
-            <button className="w-full bg-orange-500 text-white px-6 py-3 rounded-full text-lg font-semibold hover:bg-orange-600 transition duration-300">
-              {isMonthly ? 'Donate Monthly' : 'Donate Now'}
-            </button>
+            <Link href={`/donate/contact-4-donation?amount=${donationAmount}`} className="bg-orange-500 text-white px-6 py-3 rounded-full text-lg font-semibold hover:bg-orange-600 transition duration-300">
+            Proceed with Donation
+          </Link>
             {impactDescription && <DonationImpact amount={Number(donationAmount)} />}
           </motion.div>
 
@@ -181,12 +182,38 @@ export default function DonatePage() {
           <h2 className="text-3xl font-semibold mb-6 text-center">Voices of Impact</h2>
           <div className="grid md:grid-cols-2 gap-8">
             {[
-              { name: "Deepa K", story: "Being a Donor cum Mentor, There is nothing so deep & meanigful in this world than this, This Unique Way of Education is Really Super Transformative", image: "/priya.jpg" },
-              { name: "Kamakshi B", story: "GuruAvatar's Mentorship has helped me achieve my dream of studying MBA & getting placed in very good Software Company", image: "/priya.jpg" },
-              { name: "Malikarjun Gurumath.", story: "As a Rs 1,00,000 donor, seeing the direct impact of my contributions on students' lives has been incredibly rewarding.", image: "/michael.jpg" },
-              { name: "Shivaling M", story: "As a 1st donor to GuruAvatar's founder itself, its dream come true of creating such an Impact, Looking forward seeing it to scale to Helping Millions in Need", image: "/michael.jpg" },
-              { name: "Vittal M", story: "As a Mentor to GuruAvatar, It's Super exciting & fulfilling experince", image: "/michael.jpg" },
-              { name: "Raghvendra S", story: "As a Mentor to GuruAvatar, Supporting bit by bit, towards creating the Worlds 1st Mentorship Led Education System", image: "/michael.jpg" }
+              
+                { 
+                  name: "Anonymous", 
+                  story: "As a Donor and Mentor, I've discovered life's deepest meaning. GuruAvatar's unique educational approach is truly transformative, touching lives in ways I never imagined possible.", 
+                  image: "/anonymous_donor.jpg" 
+                },
+                { 
+                  name: "Kamakshi B", 
+                  story: "GuruAvatar's mentorship didn't just help me achieve my MBA dream; it catapulted me into a prestigious software company. This platform doesn't just educate; it builds futures.", 
+                  image: "/kamakshi_b.jpg" 
+                },
+                { 
+                  name: "Malikarjun Gurumath", 
+                  story: "Donating ₹1,00,000 was more than a financial decision; it was an investment in human potential. Witnessing the direct impact on students' lives has been profoundly rewarding and humbling.", 
+                  image: "/malikarjun_gurumath.jpg" 
+                },
+                { 
+                  name: "Shivaling M", 
+                  story: "As GuruAvatar's first donor, I've watched a dream blossom into a life-changing reality. The impact we've created is just the beginning; I'm thrilled to see this scaling to help millions in need.", 
+                  image: "/shivaling_m.jpg" 
+                },
+                { 
+                  name: "Vittal M", 
+                  story: "Mentoring with GuruAvatar isn't just exciting; it's a fulfilling journey that redefines the essence of education. Every interaction reminds me why I chose this path.", 
+                  image: "/vittal_m.jpg" 
+                },
+                { 
+                  name: "Raghvendra S", 
+                  story: "As a GuruAvatar mentor, I'm not just supporting an initiative; I'm helping build the world's first mentorship-led education system. It's a revolution in learning, and I'm proud to be part of it.", 
+                  image: "/raghvendra_s.jpg" 
+                }
+            
             ].map((testimonial, index) => (
               <div key={index} className="bg-white bg-opacity-10 p-6 rounded-xl flex items-start space-x-4">
                 <Image 
