@@ -21,7 +21,7 @@ export default function Footer() {
             <ul className="space-y-2">
               <li><Link href="/our-approach" className="text-gray-600 hover:text-blue-600 transition duration-300">Our Approach</Link></li>
               <li><Link href="/impact-report" className="text-gray-600 hover:text-blue-600 transition duration-300">Our Impact</Link></li>
-              <li><Link href="/success-stories" className="text-gray-600 hover:text-blue-600 transition duration-300">Success Stories</Link></li>
+              {/* <li><Link href="/success-stories" className="text-gray-600 hover:text-blue-600 transition duration-300">Success Stories</Link></li> */}
               <li><Link href="/get-involved" className="text-gray-600 hover:text-blue-600 transition duration-300">Get Involved</Link></li>
               <li><Link href="/forms/contact" className="text-gray-600 hover:text-blue-600 transition duration-300">Contact Us</Link></li>
               <li><Link href="/faq" className="text-gray-600 hover:text-blue-600 transition duration-300">FAQ</Link></li>
