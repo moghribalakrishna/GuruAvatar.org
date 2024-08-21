@@ -75,7 +75,7 @@ export default function HomeContent() {
               transition={{ duration: 0.5, delay: 0.5 }}
             >
               <Link href="/our-approach" className="bg-orange-500 text-white px-8 py-4 rounded-full text-xl font-semibold hover:bg-orange-600 transition duration-300 inline-block shadow-lg">
-                Discover Our Mission
+                Discover Our Approach
               </Link>
             </motion.div>
           </div>
