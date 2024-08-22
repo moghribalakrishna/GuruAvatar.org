@@ -1,4 +1,3 @@
-// File: app/components/Header.tsx
 'use client';
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
@@ -47,7 +46,8 @@ export default function Header() {
       <div className="container mx-auto px-4 py-4 flex items-center justify-between">
         <Link href="/" className="flex items-center space-x-2" onClick={() => setIsMenuOpen(false)}>
           <span className="text-2xl font-bold text-blue-600">GuruAvatar</span>
-          <span className="text-xs bg-orange-500 text-white px-2 py-1 rounded-full">Non-Profit</span>
+          <span className="text-xs bg-green-500 text-white px-2 py-1 rounded">Non-Profit</span>
+          <span className="text-xs text-gray-500">Birth. @2012</span>
         </Link>
         <nav className="hidden lg:flex items-center space-x-4">
           {menuItems.map((item) => (
