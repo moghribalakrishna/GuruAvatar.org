@@ -38,27 +38,27 @@ const AIMasterclassPage = () => {
 
         {/* Hero Slider */}
         <div className="relative h-[400px] md:h-[500px] mb-16 overflow-hidden rounded-2xl">
-        {slides.map((slide, index) => (
-          <motion.div
-            key={index}
-            className="absolute inset-0"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: index === currentSlide ? 1 : 0 }}
-            transition={{ duration: 1 }}
-          >
-            <Image 
-              src={slide.image} 
-              alt={slide.title} 
-              layout="fill" 
-              objectFit="cover"
-              quality={100}
-              priority={index === 0}
-            />
-            <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
-              <h2 className="text-3xl md:text-5xl font-bold text-center px-4">{slide.title}</h2>
-            </div>
-          </motion.div>
-        ))}
+          {slides.map((slide, index) => (
+            <motion.div
+              key={index}
+              className="absolute inset-0"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: index === currentSlide ? 1 : 0 }}
+              transition={{ duration: 1 }}
+            >
+              <Image 
+                src={slide.image} 
+                alt={slide.title} 
+                layout="fill" 
+                objectFit="cover"
+                quality={100}
+                priority={index === 0}
+              />
+              <div className="absolute inset-x-0 bottom-0 bg-black bg-opacity-50 p-4">
+                <h2 className="text-2xl md:text-4xl font-bold text-center">{slide.title}</h2>
+              </div>
+            </motion.div>
+          ))}
           <button onClick={prevSlide} className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 p-2 rounded-full">
             <ChevronLeft className="w-6 h-6" />
           </button>
@@ -119,7 +119,7 @@ const AIMasterclassPage = () => {
                   whileTap={{ scale: 0.98 }}
                 >
                   <div className="relative h-48 mb-4 rounded-lg overflow-hidden">
-                    <Image src={module.image} alt={module.title} layout="fill" objectFit="cover" />
+                    <Image src={module.image} alt={module.title} layout="fill" objectFit="cover" quality={100} />
                   </div>
                   <h3 className="text-xl font-semibold mb-2 flex-grow">{module.title}</h3>
                   <ChevronRight className="ml-auto" />
@@ -133,7 +133,7 @@ const AIMasterclassPage = () => {
         <section className="mb-16">
           <h2 className="text-4xl font-bold mb-8 text-center">Meet Your Instructor</h2>
           <div className="bg-white bg-opacity-10 p-8 rounded-xl flex flex-col md:flex-row items-center">
-            <Image src="/founder-image.jpeg" alt="AI Instructor" width={300} height={300} className="rounded-full mb-6 md:mb-0 md:mr-8 shadow-lg" />
+            <Image src="/founder-image.jpeg" alt="AI Instructor" width={300} height={300} className="rounded-full mb-6 md:mb-0 md:mr-8 shadow-lg" quality={100} />
             <div>
               <h3 className="text-3xl font-bold mb-4">Balakrishna Moghri</h3>
               <p className="text-xl mb-4">Founder & CTO of 2 Startups & Worked for Multiple Startups</p>
