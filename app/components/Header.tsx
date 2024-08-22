@@ -24,7 +24,7 @@ export default function Header() {
     { href: '/our-approach', label: 'Our Approach' },
     { href: '/ai-masterclass', label: 'AI Masterclasses' },
     { href: '/programs-and-courses', label: 'Programs & Courses' },
-    { href: '/Jobs-Internships', label: 'Jobs & Internships' },
+    { href: '/jobs-internships', label: 'Jobs & Internships' },
     { href: '/about', label: 'About' },
   ];
 
