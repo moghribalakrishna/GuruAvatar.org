@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Briefcase, CheckCircle, Star, DollarSign, TrendingUp } from 'lucide-react';
+import { Briefcase, CheckCircle, Star, DollarSign, TrendingUp, Book, Users, ArrowRight, FileText } from 'lucide-react';
 
 export default function FullTimeJobsPage() {
   const [formData, setFormData] = useState({
@@ -14,6 +14,10 @@ export default function FullTimeJobsPage() {
     experience: '',
     preferredLocation: '',
     salaryExpectation: '',
+    resumeLink: '',
+    linkedinProfile: '',
+    portfolioLink: '',
+    availabilityDate: '',
   });
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
@@ -29,6 +33,20 @@ export default function FullTimeJobsPage() {
     console.log('Full-Time Job Application:', formData);
     // Here you would send the form data to your backend
   };
+
+  const features = [
+    { icon: Star, title: "Personalized Job Matching", description: "AI-powered job recommendations based on your skills and interests" },
+    { icon: Briefcase, title: "Application Guidance", description: "Expert tips on crafting standout resumes and cover letters" },
+    { icon: DollarSign, title: "Salary Insights", description: "Access to industry salary data to help you negotiate confidently" },
+    { icon: TrendingUp, title: "Career Path Planning", description: "Tools to map out your long-term career goals and progression" },
+  ];
+
+  const careerResources = [
+    { icon: FileText, title: "Resume Building Workshop", description: "Learn to create a compelling resume that stands out" },
+    { icon: Users, title: "Interview Preparation", description: "Practice common interview questions and techniques" },
+    { icon: Book, title: "Industry Insights", description: "Stay updated with the latest trends in your field" },
+    { icon: Briefcase, title: "Job Search Strategies", description: "Effective methods to find and apply for the right jobs" },
+  ];
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-blue-900 to-teal-700 text-white p-4 sm:p-8">
@@ -49,16 +67,11 @@ export default function FullTimeJobsPage() {
           transition={{ duration: 0.5, delay: 0.2 }}
         >
           <h2 className="text-2xl font-semibold mb-4">Launch Your Career with GuruAvatar</h2>
-          <p className="mb-6">Transitioning from student life to a full-time career is a significant milestone. GuruAvatar is here to guide you through every step of the process, from finding the right opportunities to negotiating your first salary.</p>
+          <p className="mb-6 text-lg">Transitioning from student life to a full-time career is a significant milestone. GuruAvatar is here to guide you through every step of the process, from finding the right opportunities to negotiating your first salary.</p>
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {[
-              { icon: Star, title: "Personalized Job Matching", description: "AI-powered job recommendations based on your skills and interests" },
-              { icon: Briefcase, title: "Application Guidance", description: "Expert tips on crafting standout resumes and cover letters" },
-              { icon: DollarSign, title: "Salary Insights", description: "Access to industry salary data to help you negotiate confidently" },
-              { icon: TrendingUp, title: "Career Path Planning", description: "Tools to map out your long-term career goals and progression" },
-            ].map((feature, index) => (
-              <div key={index} className="flex items-start space-x-3">
+            {features.map((feature, index) => (
+              <div key={index} className="flex items-start space-x-3 bg-white bg-opacity-10 p-4 rounded-lg">
                 <feature.icon className="w-6 h-6 text-orange-400 flex-shrink-0" />
                 <div>
                   <h3 className="font-semibold mb-1">{feature.title}</h3>
@@ -71,7 +84,7 @@ export default function FullTimeJobsPage() {
 
         <motion.form
           onSubmit={handleSubmit}
-          className="bg-white bg-opacity-10 p-6 rounded-xl"
+          className="bg-white bg-opacity-10 p-6 rounded-xl shadow-lg"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.4 }}
@@ -144,14 +157,106 @@ export default function FullTimeJobsPage() {
               onChange={handleInputChange}
               className="w-full px-4 py-2 bg-white bg-opacity-20 rounded-md text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-300"
             />
+            <input
+              type="url"
+              name="resumeLink"
+              placeholder="Link to Your Resume"
+              value={formData.resumeLink}
+              onChange={handleInputChange}
+              className="w-full px-4 py-2 bg-white bg-opacity-20 rounded-md text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-300"
+            />
+            <input
+              type="url"
+              name="linkedinProfile"
+              placeholder="LinkedIn Profile URL"
+              value={formData.linkedinProfile}
+              onChange={handleInputChange}
+              className="w-full px-4 py-2 bg-white bg-opacity-20 rounded-md text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-300"
+            />
+            <input
+              type="url"
+              name="portfolioLink"
+              placeholder="Portfolio Website (if applicable)"
+              value={formData.portfolioLink}
+              onChange={handleInputChange}
+              className="w-full px-4 py-2 bg-white bg-opacity-20 rounded-md text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-300"
+            />
+            <input
+              type="date"
+              name="availabilityDate"
+              placeholder="Available to Start Work"
+              value={formData.availabilityDate}
+              onChange={handleInputChange}
+              className="w-full px-4 py-2 bg-white bg-opacity-20 rounded-md text-white focus:outline-none focus:ring-2 focus:ring-blue-300"
+            />
           </div>
           <button
             type="submit"
-            className="mt-6 w-full bg-orange-500 text-white px-4 py-2 rounded-md hover:bg-orange-600 transition duration-300"
+            className="mt-6 w-full bg-orange-500 text-white px-4 py-2 rounded-md hover:bg-orange-600 transition duration-300 font-semibold"
           >
             Submit Career Profile
           </button>
         </motion.form>
+
+        <motion.section
+          className="mt-12"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5, delay: 0.5 }}
+        >
+          <h2 className="text-2xl font-semibold mb-4">Career Resources</h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            {careerResources.map((resource, index) => (
+              <div key={index} className="bg-white bg-opacity-10 p-4 rounded-lg flex items-start space-x-3">
+                <resource.icon className="w-6 h-6 text-orange-400 flex-shrink-0" />
+                <div>
+                  <h3 className="font-semibold mb-1">{resource.title}</h3>
+                  <p className="text-sm text-blue-200">{resource.description}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </motion.section>
+
+        <motion.section
+          className="mt-12"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5, delay: 0.6 }}
+        >
+          <h2 className="text-2xl font-semibold mb-4">Prepare for Success</h2>
+          <div className="bg-white bg-opacity-10 p-6 rounded-xl">
+            <ul className="space-y-2">
+              {[
+                "Research companies in your desired industry",
+                "Tailor your resume and cover letter for each application",
+                "Practice common interview questions",
+                "Develop a compelling personal brand",
+                "Network with professionals in your field",
+                "Stay updated on industry trends and news",
+              ].map((tip, index) => (
+                <li key={index} className="flex items-center">
+                  <CheckCircle className="w-5 h-5 mr-2 text-green-400" />
+                  <span>{tip}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </motion.section>
+
+        <motion.section
+          className="mt-12 text-center"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5, delay: 0.7 }}
+        >
+          <h2 className="text-2xl font-semibold mb-4">Ready to Explore Full-Time Opportunities?</h2>
+          <p className="mb-6">Browse our curated list of job openings and find your perfect career match.</p>
+          <button className="bg-teal-500 text-white px-6 py-2 rounded-full hover:bg-teal-600 transition duration-300 font-semibold flex items-center mx-auto">
+            Browse Job Listings
+            <ArrowRight className="ml-2 w-4 h-4" />
+          </button>
+        </motion.section>
       </div>
     </div>
   );
