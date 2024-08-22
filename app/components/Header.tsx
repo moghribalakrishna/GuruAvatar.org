@@ -24,7 +24,6 @@ export default function Header() {
     { href: '/our-approach', label: 'Our Approach' },
     { href: '/ai-masterclass', label: 'AI Masterclasses' },
     { href: '/programs-and-courses', label: 'Programs & Courses' },
-    // { href: '/success-stories', label: 'Success Stories' },
     { href: '/Jobs-Internships', label: 'Jobs & Internships' },
     { href: '/about', label: 'About' },
   ];
@@ -48,6 +47,15 @@ export default function Header() {
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-white shadow-md">
+      <style jsx global>{`
+        @keyframes blink {
+          0%, 100% { opacity: 1; }
+          50% { opacity: 0; }
+        }
+        .blink {
+          animation: blink 1s linear infinite;
+        }
+      `}</style>
       <div className="container mx-auto px-4 py-4 flex items-center justify-between">
         <Link href="/" className="flex items-center space-x-2" onClick={() => setIsMenuOpen(false)}>
           <span className="text-2xl font-bold text-blue-600">GuruAvatar</span>
@@ -56,8 +64,17 @@ export default function Header() {
         </Link>
         <nav className="hidden lg:flex items-center space-x-4">
           {menuItems.map((item) => (
-            <Link key={item.href} href={item.href} className="text-gray-600 hover:text-blue-600">
+            <Link 
+              key={item.href} 
+              href={item.href} 
+              className={`text-gray-600 hover:text-blue-600 ${item.href === '/ai-masterclass' ? 'relative' : ''}`}
+            >
               {item.label}
+              {item.href === '/ai-masterclass' && (
+                <span className="absolute -top-1 -right-1 flex h-3 w-3">
+                  <span className="blink absolute inline-flex h-full w-full rounded-full bg-green-500 opacity-75"></span>
+                </span>
+              )}
             </Link>
           ))}
           <Link href="/donate" className="bg-orange-500 text-white px-4 py-2 rounded-full hover:bg-orange-600">
@@ -107,13 +124,13 @@ export default function Header() {
       <AnimatePresence>
         {isMenuOpen && (
           <motion.div
-            className="lg:hidden fixed inset-y-0 right-0 w-3/4 bg-blue-600 z-50 flex flex-col shadow-xl"
+            className="lg:hidden fixed inset-y-0 right-0 w-3/4 bg-white z-50 flex flex-col shadow-xl"
             initial={{ x: '100%' }}
             animate={{ x: 0 }}
             exit={{ x: '100%' }}
             transition={{ type: 'tween', duration: 0.3 }}
           >
-            <div className="flex justify-between items-center p-4 bg-blue-700">
+            <div className="flex justify-between items-center p-4 bg-blue-600">
               <span className="text-2xl font-bold text-white">Menu</span>
               <button
                 className="text-white focus:outline-none"
@@ -128,10 +145,17 @@ export default function Header() {
                   <Link
                     key={item.href}
                     href={item.href}
-                    className="flex items-center justify-between text-white hover:bg-blue-700 px-4 py-3 transition-colors duration-200"
+                    className="flex items-center justify-between text-gray-600 hover:bg-blue-50 hover:text-blue-600 px-4 py-3 transition-colors duration-200"
                     onClick={() => setIsMenuOpen(false)}
                   >
-                    <span>{item.label}</span>
+                    <span className="flex items-center">
+                      {item.label}
+                      {item.href === '/ai-masterclass' && (
+                        <span className="ml-2 inline-flex items-center justify-center">
+                          <span className="blink flex h-3 w-3 rounded-full bg-green-500"></span>
+                        </span>
+                      )}
+                    </span>
                     <ChevronRight size={20} />
                   </Link>
                 ))}
