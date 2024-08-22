@@ -4,11 +4,12 @@ import Link from 'next/link';
 import { useAuth } from '../contexts/AuthContext';
 import { useRouter } from 'next/navigation';
 import { logout } from '../lib/auth';
-import { Menu, X, ChevronRight } from 'lucide-react';
+import { Menu, X, ChevronRight, ChevronDown } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isMoreOpen, setIsMoreOpen] = useState(false);
   const { state, dispatch } = useAuth();
   const router = useRouter();
 
@@ -24,9 +25,13 @@ export default function Header() {
     { href: '/ai-masterclass', label: 'AI Masterclasses' },
     { href: '/programs-and-courses', label: 'Programs & Courses' },
     // { href: '/success-stories', label: 'Success Stories' },
+    { href: '/Jobs-Internships', label: 'Jobs & Internships' },
+    { href: '/about', label: 'About' },
+  ];
+
+  const moreMenuItems = [
     { href: '/get-involved', label: 'Get Involved' },
     { href: '/get-started', label: 'Get Started' },
-    { href: '/about', label: 'About' },
     { href: '/blog', label: 'Blog' },
   ];
 
@@ -58,20 +63,38 @@ export default function Header() {
           <Link href="/donate" className="bg-orange-500 text-white px-4 py-2 rounded-full hover:bg-orange-600">
             Donate
           </Link>
-          {!state.loading && (
-            state.user ? (
-              <>
-                <Link href="/profile" className="text-gray-600 hover:text-blue-600">Profile</Link>
-                <button onClick={handleLogout} className="text-gray-600 hover:text-blue-600">Logout</button>
-              </>
-            ) : (
-              <>
-                <Link href="/login" className="text-gray-600 hover:text-blue-600">Login</Link>
-                <Link href="/signup" className="bg-blue-500 text-white px-4 py-2 rounded-full hover:bg-blue-600">
-                  Sign Up
-                </Link>
-              </>
-            )
+          <div className="relative">
+            <button
+              onClick={() => setIsMoreOpen(!isMoreOpen)}
+              className="text-gray-600 hover:text-blue-600 flex items-center"
+            >
+              More <ChevronDown className="ml-1" size={16} />
+            </button>
+            {isMoreOpen && (
+              <div className="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-10">
+                {moreMenuItems.map((item) => (
+                  <Link key={item.href} href={item.href} className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-500 hover:text-white">
+                    {item.label}
+                  </Link>
+                ))}
+                {!state.loading && !state.user && (
+                  <>
+                    <Link href="/login" className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-500 hover:text-white">
+                      Login
+                    </Link>
+                    <Link href="/signup" className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-500 hover:text-white">
+                      Sign Up
+                    </Link>
+                  </>
+                )}
+              </div>
+            )}
+          </div>
+          {!state.loading && state.user && (
+            <>
+              <Link href="/profile" className="text-gray-600 hover:text-blue-600">Profile</Link>
+              <button onClick={handleLogout} className="text-gray-600 hover:text-blue-600">Logout</button>
+            </>
           )}
         </nav>
         <button
@@ -101,7 +124,7 @@ export default function Header() {
             </div>
             <nav className="flex-grow overflow-y-auto">
               <div className="py-4">
-                {menuItems.map((item) => (
+                {[...menuItems, ...moreMenuItems].map((item) => (
                   <Link
                     key={item.href}
                     href={item.href}
