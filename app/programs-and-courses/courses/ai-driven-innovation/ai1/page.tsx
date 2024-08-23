@@ -65,7 +65,7 @@ export default function PromptEngineeringCoursePage() {
         {
           type: "video",
           title: "Prompt Engineering for Conversational AI",
-          url: "https://www.youtube.com/watch?v=Q8jn_JmxnLg",
+          url: "https://www.youtube.com/live/f32dc5M2Mn0?si=vtWSEeet784-gtXj",
           creator: "DeepLearning.AI",
           thumbnail: "/thumbnails/deeplearning-ai-thumb.jpg"
         },
@@ -112,7 +112,33 @@ export default function PromptEngineeringCoursePage() {
         }
       ]
     },
-    // Add more sections here...
+    {
+      title: "Practical Applications",
+      description: "Apply your knowledge of prompt engineering to real-world scenarios. This section includes practical examples and projects to help you gain hands-on experience.",
+      resources: [
+        {
+          type: "video",
+          title: "Real-World Applications of Prompt Engineering",
+          url: "https://www.youtube.com/watch?v=example",
+          creator: "AI Expert",
+          thumbnail: "/thumbnails/ai-expert-thumb.jpg"
+        },
+        {
+          type: "article",
+          title: "Case Studies in Prompt Engineering",
+          url: "https://www.example.com/case-studies",
+          creator: "AI Researcher",
+          thumbnail: "/thumbnails/ai-researcher-thumb.jpg"
+        },
+        {
+          type: "github",
+          title: "Prompt Engineering Projects",
+          url: "https://github.com/example/prompt-engineering-projects",
+          creator: "AI Developer",
+          thumbnail: "/thumbnails/ai-developer-thumb.jpg"
+        }
+      ]
+    }
   ];
 
   const communities = [
@@ -135,12 +161,25 @@ export default function PromptEngineeringCoursePage() {
           Master the art and science of crafting effective prompts for AI systems and generate high-quality content using cutting-edge AI technologies.
         </p>
 
+        <section className="mb-12 bg-white bg-opacity-90 rounded-lg shadow-lg p-6">
+          <h2 className="text-2xl font-semibold mb-4 text-gray-800">Course Overview</h2>
+          <p className="mb-6 text-gray-600">
+            This course is designed to equip you with the skills and knowledge needed to excel in the field of AI content generation. By mastering prompt engineering, you will be able to create effective prompts that guide AI systems to produce high-quality content. Whether you are a beginner or an experienced professional, this course will provide you with valuable insights and practical skills that are highly sought after in the job market.
+          </p>
+          <p className="mb-6 text-gray-600">
+            The best part? The resources provided in this course are freely available online. We believe that the best education is accessible for free, and we have curated a selection of world-class educational materials to help you achieve your learning goals.
+          </p>
+        </section>
+
         {courseContent.map((section, index) => (
           <CourseSection key={index} {...section} />
         ))}
 
         <section className="mb-12 bg-white bg-opacity-90 rounded-lg shadow-lg p-6">
           <h2 className="text-2xl font-semibold mb-4 text-gray-800">Learning Communities</h2>
+          <p className="mb-6 text-gray-600">
+            Join these communities to engage with other learners, ask questions, and share your knowledge. Being part of a community can greatly enhance your learning experience and provide you with valuable networking opportunities.
+          </p>
           <ul className="space-y-2">
             {communities.map((community, index) => (
               <li key={index}>
@@ -160,6 +199,9 @@ export default function PromptEngineeringCoursePage() {
 
         <section className="mb-12 bg-white bg-opacity-90 rounded-lg shadow-lg p-6">
           <h2 className="text-2xl font-semibold mb-4 text-gray-800">Experts to Follow</h2>
+          <p className="mb-6 text-gray-600">
+            Follow these experts on Twitter to stay updated with the latest trends and insights in the field of AI and prompt engineering. Learning from industry leaders can provide you with valuable perspectives and inspiration.
+          </p>
           <ul className="space-y-2">
             {twitterExperts.map((expert, index) => (
               <li key={index}>
@@ -179,7 +221,7 @@ export default function PromptEngineeringCoursePage() {
 
         <div className="text-center mt-12">
           <Link href="/mentor-connect">
-            <button className="bg-blue-600 text-white px-8 py-3 rounded-full text-lg font-semibold hover:bg-blue-700 transition-colors duration-200 shadow-lg">
+            <button className="bg-orange-500 text-white px-8 py-3 rounded-full text-lg font-semibold hover:bg-orange-600 transition-colors duration-200 shadow-lg">
               Connect with a Mentor
             </button>
           </Link>
