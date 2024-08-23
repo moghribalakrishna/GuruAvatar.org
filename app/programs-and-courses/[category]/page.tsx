@@ -8,8 +8,9 @@ import CourseCard from '../course-card';
 
 export default function CategoryPage() {
   const params = useParams();
-  const category = decodeURIComponent(params.category);
-  const categoryData = courseCategories.find(cat => cat.name.toLowerCase().replace(/\s+/g, '-') === category);
+  const category = Array.isArray(params.category) ? params.category[0] : params.category;
+  const decodedCategory = decodeURIComponent(category);
+  const categoryData = courseCategories.find(cat => cat.name.toLowerCase().replace(/\s+/g, '-') === decodedCategory);
 
   if (!categoryData) {
     return <div>Category not found</div>;
