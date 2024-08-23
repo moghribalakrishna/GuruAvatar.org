@@ -43,7 +43,7 @@ export default function CourseCategory({ category }: CourseCategoryProps) {
             >
               <div className="mt-4 space-y-4">
                 {category.courses.slice(0, showAll ? undefined : initialCoursesToShow).map((course) => (
-                  <CourseCard key={course.id} course={course} />
+                  <CourseCard key={course.id} course={course} categorySlug={category.name.toLowerCase().replace(/\s+/g, '-')} />
                 ))}
               </div>
               {category.courses.length > initialCoursesToShow && (
