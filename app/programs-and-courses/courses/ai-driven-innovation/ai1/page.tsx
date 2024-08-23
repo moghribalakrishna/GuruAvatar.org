@@ -64,78 +64,117 @@ export default function PromptEngineeringCoursePage() {
       resources: [
         {
           type: "video",
-          title: "Prompt Engineering for Conversational AI",
-          url: "https://www.youtube.com/live/f32dc5M2Mn0?si=vtWSEeet784-gtXj",
-          creator: "DeepLearning.AI",
-          thumbnail: "/thumbnails/deeplearning-ai-thumb.jpg"
+          title: "What is Prompt Engineering?",
+          url: "https://www.youtube.com/watch?v=5ef83Wljm-M",
+          creator: "DeepSeek Coder",
+          thumbnail: "/thumbnails/deepseek-coder-thumb.jpg"
         },
         {
           type: "article",
-          title: "A Beginner's Guide to Prompt Engineering",
-          url: "https://www.promptingguide.ai/",
-          creator: "DAIR.AI",
-          thumbnail: "/thumbnails/dair-ai-thumb.jpg"
+          title: "The Art and Science of Prompt Engineering",
+          url: "https://towardsdatascience.com/the-art-and-science-of-prompt-engineering-a4621580d6f4",
+          creator: "Towards Data Science",
+          thumbnail: "/thumbnails/towards-data-science-thumb.jpg"
+        }
+      ]
+    },
+    {
+      title: "Understanding AI Models for Content Generation",
+      description: "Explore the capabilities of AI models like GPT-3 and learn how they can be leveraged for content generation.",
+      resources: [
+        {
+          type: "video",
+          title: "GPT-3 and Beyond: The Future of AI Content Generation",
+          url: "https://www.youtube.com/watch?v=SY5PvZrJhLE",
+          creator: "AI Journal",
+          thumbnail: "/thumbnails/ai-journal-thumb.jpg"
         },
         {
           type: "github",
-          title: "Awesome Prompt Engineering",
-          url: "https://github.com/promptslab/Awesome-Prompt-Engineering",
-          creator: "PromptsLab",
+          title: "Awesome GPT-3",
+          url: "https://github.com/elyase/awesome-gpt3",
+          creator: "elyase",
           thumbnail: "/thumbnails/github-thumb.jpg"
         }
       ]
     },
     {
-      title: "Advanced Prompt Techniques",
-      description: "Explore cutting-edge techniques in prompt engineering, including chain-of-thought prompting and advanced strategies for complex tasks. Learn how to craft prompts that yield more accurate and nuanced AI-generated content.",
+      title: "Crafting Effective Prompts",
+      description: "Learn the techniques to write effective prompts that guide AI models to generate desired outputs.",
       resources: [
         {
           type: "video",
-          title: "Advanced Prompt Engineering Techniques",
-          url: "https://www.youtube.com/watch?v=bBiTR_1sEmI",
-          creator: "AI Coffee Break with Letitia",
-          thumbnail: "/thumbnails/ai-coffee-break-thumb.jpg"
+          title: "How to Write Effective Prompts for AI",
+          url: "https://www.youtube.com/watch?v=f8PGV3T9w3A",
+          creator: "AI Explained",
+          thumbnail: "/thumbnails/ai-explained-thumb.jpg"
         },
         {
           type: "article",
-          title: "Chain-of-Thought Prompting Elicits Reasoning in Large Language Models",
-          url: "https://arxiv.org/abs/2201.11903",
-          creator: "arXiv",
-          thumbnail: "/thumbnails/arxiv-thumb.jpg"
-        },
-        {
-          type: "github",
-          title: "GPT Best Practices",
-          url: "https://github.com/openai/openai-cookbook/blob/main/articles/gpt-best-practices.md",
-          creator: "OpenAI",
-          thumbnail: "/thumbnails/openai-thumb.jpg"
+          title: "Prompt Engineering 101: Tips and Tricks",
+          url: "https://mlq.ai/prompt-engineering-101-tips-and-tricks/",
+          creator: "MLQ.ai",
+          thumbnail: "/thumbnails/mlq-ai-thumb.jpg"
         }
       ]
     },
     {
-      title: "Practical Applications",
-      description: "Apply your knowledge of prompt engineering to real-world scenarios. This section includes practical examples and projects to help you gain hands-on experience.",
+      title: "Advanced Techniques in Prompt Engineering",
+      description: "Delve into advanced prompt engineering techniques to enhance the quality of AI-generated content.",
       resources: [
         {
           type: "video",
-          title: "Real-World Applications of Prompt Engineering",
-          url: "https://www.youtube.com/watch?v=example",
-          creator: "AI Expert",
-          thumbnail: "/thumbnails/ai-expert-thumb.jpg"
-        },
-        {
-          type: "article",
-          title: "Case Studies in Prompt Engineering",
-          url: "https://www.example.com/case-studies",
-          creator: "AI Researcher",
-          thumbnail: "/thumbnails/ai-researcher-thumb.jpg"
+          title: "Advanced Prompt Engineering Techniques",
+          url: "https://www.youtube.com/watch?v=Q6-Z1hYz0No",
+          creator: "DeepSeek Coder",
+          thumbnail: "/thumbnails/deepseek-coder-thumb.jpg"
         },
         {
           type: "github",
-          title: "Prompt Engineering Projects",
-          url: "https://github.com/example/prompt-engineering-projects",
-          creator: "AI Developer",
-          thumbnail: "/thumbnails/ai-developer-thumb.jpg"
+          title: "Prompt Engineering Techniques",
+          url: "https://github.com/prompt-engineering/techniques",
+          creator: "prompt-engineering",
+          thumbnail: "/thumbnails/github-thumb.jpg"
+        }
+      ]
+    },
+    {
+      title: "Real-World Applications of AI Content Generation",
+      description: "See how prompt engineering is applied in real-world scenarios across various industries.",
+      resources: [
+        {
+          type: "video",
+          title: "AI Content Generation in Marketing and Journalism",
+          url: "https://www.youtube.com/watch?v=7QlKtLn9qdY",
+          creator: "AI Journal",
+          thumbnail: "/thumbnails/ai-journal-thumb.jpg"
+        },
+        {
+          type: "article",
+          title: "Case Studies: AI Content Generation in Action",
+          url: "https://towardsai.net/p/case-studies-ai-content-generation-in-action",
+          creator: "Towards AI",
+          thumbnail: "/thumbnails/towards-ai-thumb.jpg"
+        }
+      ]
+    },
+    {
+      title: "Ethical Considerations and Future Trends",
+      description: "Understand the ethical implications of AI content generation and explore future trends in the field.",
+      resources: [
+        {
+          type: "video",
+          title: "Ethics in AI Content Generation",
+          url: "https://www.youtube.com/watch?v=J4WYwD5cZgI",
+          creator: "AI Ethics Lab",
+          thumbnail: "/thumbnails/ai-ethics-lab-thumb.jpg"
+        },
+        {
+          type: "article",
+          title: "The Future of AI Content Generation",
+          url: "https://towardsdatascience.com/the-future-of-ai-content-generation-9f3e67b7e9a9",
+          creator: "Towards Data Science",
+          thumbnail: "/thumbnails/towards-data-science-thumb.jpg"
         }
       ]
     }
