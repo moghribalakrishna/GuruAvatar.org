@@ -20,12 +20,12 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${inter.className} min-h-screen flex flex-col bg-gray-50`}>
+      <body className={`${inter.className} min-h-screen flex flex-col bg-white text-gray-800`}>
         <AuthProvider>
           <Header />
           <Breadcrumb />
           <main className="flex-grow pt-16 md:pt-32">
-            <div className="container mx-auto px-4 py-6 sm:py-8 md:py-12 bg-white rounded-lg shadow-md bg-opacity-90">
+            <div className="container mx-auto px-4 py-6 sm:py-8 md:py-12 bg-gray-50 rounded-lg shadow-md">
               {children}
             </div>
           </main>

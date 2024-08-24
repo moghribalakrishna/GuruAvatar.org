@@ -38,7 +38,7 @@ const approachSections = [
 
 export default function OurApproachPage() {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-blue-900 to-teal-700 text-white p-8">
+    <div className="bg-white min-h-screen text-gray-800 p-8">
       <div className="max-w-4xl mx-auto">
         <motion.h1 
           className="text-4xl font-bold mb-6 text-center"
@@ -75,7 +75,7 @@ export default function OurApproachPage() {
             {approachSections.map((section, index) => (
               <Link href={section.link} key={index}>
                 <motion.div 
-                  className="bg-white bg-opacity-10 p-6 rounded-xl cursor-pointer transition-all duration-300 hover:bg-opacity-20 hover:shadow-lg"
+                  className="bg-gray-100 p-6 rounded-xl cursor-pointer transition-all duration-300 hover:bg-gray-200 hover:shadow-lg"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                   initial={{ opacity: 0, y: 20 }}
@@ -91,7 +91,7 @@ export default function OurApproachPage() {
                   />
                   <section.icon className="w-12 h-12 text-blue-300 mb-4" />
                   <h3 className="text-2xl font-semibold mb-2">{section.title}</h3>
-                  <p className="text-gray-300">{section.description}</p>
+                  <p className="text-gray-600">{section.description}</p>
                 </motion.div>
               </Link>
             ))}
@@ -101,7 +101,7 @@ export default function OurApproachPage() {
         <section className="mb-16">
           <h2 className="text-3xl font-semibold mb-8 text-center">The GuruAvatar Difference</h2>
           <motion.div 
-            className="bg-white bg-opacity-10 p-8 rounded-xl"
+            className="bg-gray-100 p-8 rounded-xl"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.6 }}
@@ -109,11 +109,11 @@ export default function OurApproachPage() {
             <p className="text-lg mb-4">
               What sets GuruAvatar apart is our commitment to providing a 360-degree educational experience. We don't just focus on academic knowledge; we nurture the whole individual:
             </p>
-            <ul className="list-disc list-inside space-y-2 text-gray-300">
-              <li><strong className="text-white">Personalized Learning:</strong> Our AI adapts to each student's unique needs and learning style.</li>
-              <li><strong className="text-white">Real-World Relevance:</strong> Expert mentors bridge the gap between theory and practice.</li>
-              <li><strong className="text-white">Emotional Intelligence:</strong> Mindfulness practices foster self-awareness and emotional regulation.</li>
-              <li><strong className="text-white">Lifelong Skills:</strong> We instill habits that support continuous growth and adaptability.</li>
+            <ul className="list-disc list-inside space-y-2 text-gray-600">
+              <li><strong className="text-gray-800">Personalized Learning:</strong> Our AI adapts to each student's unique needs and learning style.</li>
+              <li><strong className="text-gray-800">Real-World Relevance:</strong> Expert mentors bridge the gap between theory and practice.</li>
+              <li><strong className="text-gray-800">Emotional Intelligence:</strong> Mindfulness practices foster self-awareness and emotional regulation.</li>
+              <li><strong className="text-gray-800">Lifelong Skills:</strong> We instill habits that support continuous growth and adaptability.</li>
             </ul>
           </motion.div>
         </section>
@@ -129,7 +129,7 @@ export default function OurApproachPage() {
             At GuruAvatar, we envision a world where quality education is accessible to all, regardless of geographical or economic barriers. Our approach is designed to:
           </motion.p>
           <motion.ul 
-            className="list-disc list-inside space-y-2 text-gray-300"
+            className="list-disc list-inside space-y-2 text-gray-600"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5, delay: 0.8 }}

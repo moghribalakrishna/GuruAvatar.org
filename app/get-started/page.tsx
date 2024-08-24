@@ -52,7 +52,7 @@ const steps = [
 
 export default function GetStartedPage() {
   return (
-    <div className="bg-gradient-to-b from-blue-900 via-blue-800 to-teal-900 min-h-screen text-white">
+    <div className="bg-white min-h-screen text-gray-800">
       <div className="container mx-auto px-4 py-16">
         <motion.h1 
           className="text-5xl font-bold mb-8 text-center"
@@ -76,7 +76,7 @@ export default function GetStartedPage() {
           {steps.map((step, index) => (
             <motion.div
               key={index}
-              className="bg-white bg-opacity-10 p-6 rounded-xl"
+              className="bg-gray-100 p-6 rounded-xl shadow-2xl"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
@@ -88,7 +88,7 @@ export default function GetStartedPage() {
                 <h2 className="text-2xl font-semibold">Step {index + 1}</h2>
               </div>
               <h3 className="text-xl font-semibold mb-2">{step.title}</h3>
-              <p className="text-gray-300 mb-4">{step.description}</p>
+              <p className="text-gray-600 mb-4">{step.description}</p>
               {step.link === "#" ? (
                 <button 
                   onClick={() => alert("This feature is coming soon!")}
@@ -109,13 +109,13 @@ export default function GetStartedPage() {
         </div>
 
         <motion.section 
-          className="text-center mt-16"
+          className="text-center mt-16 bg-gray-100 py-12 rounded-xl shadow-2xl"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.8 }}
         >
           <h2 className="text-3xl font-semibold mb-6">Ready to Transform Your Learning Experience?</h2>
-          <p className="text-xl mb-8">
+          <p className="text-xl mb-8 text-gray-600">
             Join thousands of learners who are already benefiting from GuruAvatar's innovative approach to education.
           </p>
           <Link 
@@ -128,13 +128,13 @@ export default function GetStartedPage() {
         </motion.section>
 
         <motion.section 
-          className="mt-16 bg-white bg-opacity-10 p-8 rounded-xl"
+          className="mt-16 bg-gray-100 p-8 rounded-xl shadow-2xl"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 1 }}
         >
           <h2 className="text-3xl font-semibold mb-6 text-center">Need Help Getting Started?</h2>
-          <p className="text-xl mb-8 text-center">
+          <p className="text-xl mb-8 text-gray-600 text-center">
             Our support team is here to assist you every step of the way. Don't hesitate to reach out if you have any questions.
           </p>
           <div className="flex justify-center space-x-4">

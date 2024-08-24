@@ -35,7 +35,7 @@ export default function HomeContent() {
   }, []);
 
   return (
-    <div className="bg-gradient-to-b from-blue-900 to-teal-700 min-h-screen text-white">
+    <div className="bg-white min-h-screen text-gray-800">
       <div className="container mx-auto px-4 py-8 md:py-16">
         {/* Hero Section */}
         <section className="flex flex-col lg:flex-row items-center mb-12 md:mb-20">
@@ -49,7 +49,7 @@ export default function HomeContent() {
               Empowering Minds Through Non-Profit Education
             </motion.h1>
             <motion.p
-              className="text-lg md:text-xl mb-4 text-blue-100"
+              className="text-lg md:text-xl mb-4 text-gray-600"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.5, delay: 0.2 }}
@@ -57,7 +57,7 @@ export default function HomeContent() {
               GuruAvatar is a non-profit organization dedicated to revolutionizing education through:
             </motion.p>
             <motion.ul
-              className="text-lg md:text-xl mb-6 md:mb-8 text-blue-100 list-none space-y-2"
+              className="text-lg md:text-xl mb-6 md:mb-8 text-gray-600 list-none space-y-2"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.5, delay: 0.3 }}
@@ -114,7 +114,7 @@ export default function HomeContent() {
             ].map((feature, index) => (
               <Link href={feature.link || '#'} key={index}>
                 <motion.div
-                  className="bg-white bg-opacity-10 p-6 rounded-xl shadow-xl hover:shadow-2xl transition duration-300 transform hover:-translate-y-1 cursor-pointer h-full flex flex-col"
+                  className="bg-gray-100 p-6 rounded-xl shadow-xl hover:shadow-2xl transition duration-300 transform hover:-translate-y-1 cursor-pointer h-full flex flex-col"
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
@@ -127,7 +127,7 @@ export default function HomeContent() {
                     className="rounded-lg mb-4 w-full h-40 object-cover"
                   />
                   <h3 className="text-xl font-semibold mb-2">{feature.title}</h3>
-                  <p className="text-blue-100 text-sm flex-grow">{feature.description}</p>
+                  <p className="text-gray-600 text-sm flex-grow">{feature.description}</p>
                   <span className="text-orange-400 hover:text-orange-300 font-semibold text-sm mt-4 inline-block">
                     Learn More →
                   </span>
@@ -157,9 +157,9 @@ export default function HomeContent() {
                   transition={{ duration: 0.5, delay: index * 0.1 }}
                 >
                   <Link href={`/blog/${post.id}`}>
-                    <div className="bg-white bg-opacity-10 rounded-xl p-6 cursor-pointer transition-all duration-300 hover:bg-opacity-20 h-full flex flex-col">
+                    <div className="bg-gray-100 rounded-xl p-6 cursor-pointer transition-all duration-300 hover:bg-gray-200 h-full flex flex-col">
                       <h2 className="text-xl md:text-2xl font-semibold mb-4">{post.attributes.Title}</h2>
-                      <p className="text-gray-300 mb-4 flex-grow">{post.attributes.Excerpt}</p>
+                      <p className="text-gray-600 mb-4 flex-grow">{post.attributes.Excerpt}</p>
                       <span className="text-orange-400">Read more →</span>
                     </div>
                   </Link>
@@ -173,13 +173,13 @@ export default function HomeContent() {
 
         {/* Call to Action Section */}
         <motion.section
-          className="text-center bg-blue-800 bg-opacity-50 py-12 md:py-16 rounded-xl shadow-2xl"
+          className="text-center bg-gray-100 py-12 md:py-16 rounded-xl shadow-2xl"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
         >
           <h2 className="text-3xl md:text-4xl font-bold mb-4 md:mb-6">Join Our Non-Profit Educational Revolution</h2>
-          <p className="text-lg md:text-xl mb-6 md:mb-8 text-blue-100">
+          <p className="text-lg md:text-xl mb-6 md:mb-8 text-gray-600">
             Support GuruAvatar's mission to provide free, transformative education. Together, we can make quality learning accessible to all.
           </p>
           <div className="flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-4">
