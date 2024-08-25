@@ -9,7 +9,7 @@ import { MessageSquare, Globe, Book, Pencil } from 'lucide-react';
 
 const NLPPage = () => {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-blue-900 to-teal-700 text-white p-8">
+    <div className="min-h-screen bg-white text-gray-800 p-8">
       <div className="max-w-4xl mx-auto">
         <motion.h1 
           className="text-4xl font-bold mb-6 flex items-center"
