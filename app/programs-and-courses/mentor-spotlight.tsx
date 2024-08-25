@@ -10,33 +10,33 @@ const mentors = [
 
 export default function MentorSpotlight() {
   return (
-    <motion.div 
-      className="bg-white bg-opacity-10 rounded-lg p-8 backdrop-blur-md"
+    <motion.div
+      className="bg-gray-100 rounded-lg p-8 shadow-md"
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
     >
-      <h2 className="text-3xl font-bold mb-6 text-center">Learn from Industry Experts</h2>
-      <p className="text-center mb-8 text-blue-200">
+      <h2 className="text-3xl font-bold mb-6 text-center text-blue-600">Learn from Industry Experts</h2>
+      <p className="text-center mb-8 text-gray-600">
         Connect with experienced mentors who are leaders in their fields.
       </p>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
         {mentors.map((mentor, index) => (
-          <motion.div 
+          <motion.div
             key={index}
-            className="text-center"
+            className="text-center bg-white p-6 rounded-lg shadow-md"
             whileHover={{ scale: 1.05 }}
             transition={{ duration: 0.2 }}
           >
-            <Image 
-              src={mentor.image} 
-              alt={mentor.name} 
-              width={150} 
-              height={150} 
+            <Image
+              src={mentor.image}
+              alt={mentor.name}
+              width={150}
+              height={150}
               className="rounded-full mx-auto mb-4"
             />
-            <h3 className="font-semibold mb-2">{mentor.name}</h3>
-            <p className="text-blue-200">{mentor.expertise}</p>
+            <h3 className="font-semibold mb-2 text-gray-800">{mentor.name}</h3>
+            <p className="text-blue-600">{mentor.expertise}</p>
           </motion.div>
         ))}
       </div>

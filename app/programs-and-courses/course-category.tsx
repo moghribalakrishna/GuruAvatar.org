@@ -1,4 +1,3 @@
-// app/programs-and-courses/CourseCategory/page.tsx
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronDown, ChevronUp, BookOpen } from 'lucide-react';
@@ -18,19 +17,20 @@ export default function CourseCategory({ category }: CourseCategoryProps) {
   return (
     <Link href={`/programs-and-courses/${category.name.toLowerCase().replace(/\s+/g, '-')}`} className="block">
       <motion.div 
-        className="bg-white bg-opacity-10 rounded-lg p-6 backdrop-blur-md"
+        className="bg-gray-100 rounded-lg p-6 shadow-md"
         whileHover={{ scale: 1.02 }}
         transition={{ duration: 0.2 }}
       >
-        <h2 className="text-2xl font-bold mb-4">{category.name}</h2>
-        <p className="mb-4 text-blue-200">{category.description}</p>
-        <div className="flex items-center justify-between text-yellow-300">
+        <h2 className="text-2xl font-bold mb-4 text-blue-600">{category.name}</h2>
+        <p className="mb-4 text-gray-600">{category.description}</p>
+        <div className="flex items-center justify-between text-orange-500">
           <span className="flex items-center">
             <BookOpen className="mr-2" />
             View Courses
           </span>
           <span className="flex items-center">
-            {category.courses.length} <ChevronDown className="ml-2" />
+            {category.courses.length}
+            <ChevronDown className="ml-2" />
           </span>
         </div>
         <AnimatePresence>
@@ -47,8 +47,8 @@ export default function CourseCategory({ category }: CourseCategoryProps) {
                 ))}
               </div>
               {category.courses.length > initialCoursesToShow && (
-                <button 
-                  className="mt-4 text-blue-300 hover:text-blue-100 transition-colors duration-200"
+                <button
+                  className="mt-4 text-blue-600 hover:text-blue-800 transition-colors duration-200"
                   onClick={(e) => {
                     e.preventDefault();
                     setShowAll(!showAll);
