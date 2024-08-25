@@ -8,7 +8,7 @@ import { Award, BookOpen, Users } from 'lucide-react';
 
 const InstructorPage = () => {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-blue-900 to-teal-700 text-white p-8">
+    <div className="min-h-screen bg-white text-gray-800 p-8"> // Changed background to white and text color to gray-800
       <div className="max-w-4xl mx-auto">
         <motion.h1 
           className="text-4xl font-bold mb-8 text-center"
@@ -20,7 +20,7 @@ const InstructorPage = () => {
         </motion.h1>
 
         <motion.div 
-          className="bg-white bg-opacity-10 p-8 rounded-xl flex flex-col md:flex-row items-center mb-12"
+          className="bg-gray-100 p-8 rounded-xl flex flex-col md:flex-row items-center mb-12"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.2 }}
@@ -29,7 +29,7 @@ const InstructorPage = () => {
           <div>
             <h2 className="text-3xl font-bold mb-4">Mr Balakrishna Moghri</h2>
             <p className="text-xl mb-4">Founder & CTO of 2 Startups GuruAvatar & AlienHu, Worked for $300M funded startups @Leadership Positions</p>
-            <p className="text-gray-300 mb-4">
+            <p className="text-gray-600 mb-4"> // Changed text color to gray-600
               Mr Balakrishna Moghri brings years of industry and academic experience to the AI Masterclass. 
             </p>
           </div>
@@ -44,14 +44,13 @@ const InstructorPage = () => {
           <h2 className="text-3xl font-semibold mb-6">Expertise & Achievements</h2>
           <ul className="space-y-4">
             {[
-                "Developed 10+ Software Products from Scratch",
-                "Built 2 Startups from Scratch to 100K+ Users",
-                "Worked for 3 Startups in Leadership Positions",
-                "Raised $1M+ Funding for 2 Startups",
-                "Led 20+ Teams in Software Development",
-                "Mentored 500+ Students & Professionals",
-                "Trained 1000+ Students in AI & ML",
-
+              "Developed 10+ Software Products from Scratch",
+              "Built 2 Startups from Scratch to 100K+ Users",
+              "Worked for 3 Startups in Leadership Positions",
+              "Raised $1M+ Funding for 2 Startups",
+              "Led 20+ Teams in Software Development",
+              "Mentored 500+ Students & Professionals",
+              "Trained 1000+ Students in AI & ML",
             ].map((achievement, index) => (
               <motion.li 
                 key={index}

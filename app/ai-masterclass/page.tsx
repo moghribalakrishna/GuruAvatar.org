@@ -25,7 +25,7 @@ const AIMasterclassPage = () => {
   const prevSlide = () => setCurrentSlide((prevSlide) => (prevSlide - 1 + slides.length) % slides.length);
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-blue-900 via-purple-900 to-teal-900 text-white">
+    <div className="min-h-screen bg-white text-gray-800">
       <div className="container mx-auto px-4 py-16">
         <motion.h1 
           className="text-5xl md:text-6xl font-bold mb-8 text-center"
@@ -55,7 +55,7 @@ const AIMasterclassPage = () => {
                 priority={index === 0}
               />
               <div className="absolute inset-x-0 bottom-0 bg-black bg-opacity-50 p-4">
-                <h2 className="text-2xl md:text-4xl font-bold text-center">{slide.title}</h2>
+                <h2 className="text-2xl md:text-4xl font-bold text-center text-white">{slide.title}</h2>
               </div>
             </motion.div>
           ))}
@@ -70,7 +70,7 @@ const AIMasterclassPage = () => {
               <button
                 key={index}
                 onClick={() => setCurrentSlide(index)}
-                className={`w-3 h-3 rounded-full ${index === currentSlide ? 'bg-white' : 'bg-gray-400'}`}
+                className={`w-3 h-3 rounded-full ${index === currentSlide ? 'bg-black' : 'bg-gray-400'}`}
               />
             ))}
           </div>
@@ -87,7 +87,7 @@ const AIMasterclassPage = () => {
             ].map((highlight, index) => (
               <motion.div
                 key={index}
-                className="bg-white bg-opacity-10 p-6 rounded-xl transition-all duration-300 hover:bg-opacity-20 hover:shadow-lg"
+                className="bg-gray-100 p-6 rounded-xl transition-all duration-300 hover:bg-gray-200 hover:shadow-lg"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
@@ -95,7 +95,7 @@ const AIMasterclassPage = () => {
               >
                 <highlight.icon className="w-12 h-12 text-teal-400 mb-4" />
                 <h3 className="text-xl font-semibold mb-2">{highlight.title}</h3>
-                <p className="text-gray-300">{highlight.description}</p>
+                <p className="text-gray-600">{highlight.description}</p>
               </motion.div>
             ))}
           </div>
@@ -114,7 +114,7 @@ const AIMasterclassPage = () => {
             ].map((module, index) => (
               <Link href={module.link} key={index}>
                 <motion.div
-                  className="bg-white bg-opacity-10 p-6 rounded-xl hover:bg-opacity-20 transition-all duration-300 cursor-pointer h-full flex flex-col"
+                  className="bg-gray-100 p-6 rounded-xl hover:bg-gray-200 transition-all duration-300 cursor-pointer h-full flex flex-col"
                   whileHover={{ scale: 1.03 }}
                   whileTap={{ scale: 0.98 }}
                 >
@@ -132,12 +132,12 @@ const AIMasterclassPage = () => {
         {/* Instructor Spotlight */}
         <section className="mb-16">
           <h2 className="text-4xl font-bold mb-8 text-center">Meet Your Instructor</h2>
-          <div className="bg-white bg-opacity-10 p-8 rounded-xl flex flex-col md:flex-row items-center">
+          <div className="bg-gray-100 p-8 rounded-xl flex flex-col md:flex-row items-center">
             <Image src="/founder-image.jpeg" alt="AI Instructor" width={300} height={300} className="rounded-full mb-6 md:mb-0 md:mr-8 shadow-lg" quality={100} />
             <div>
               <h3 className="text-3xl font-bold mb-4">Balakrishna Moghri</h3>
               <p className="text-xl mb-4">Founder & CTO of 2 Startups & Worked for Multiple Startups</p>
-              <p className="text-gray-300 mb-4">
+              <p className="text-gray-600 mb-4">
                 Mr Balakrishna Moghri brings years of industry and academic experience to the AI Masterclass. 
                 His 1st Hand experince of Using AI @GuruAvatar & @AlienHu in Real World Projects will help you to understand the real world problems and solutions.
               </p>
@@ -150,7 +150,7 @@ const AIMasterclassPage = () => {
 
         {/* Call to Action */}
         <motion.section 
-          className="text-center bg-gradient-to-r from-teal-500 to-blue-500 p-12 rounded-xl shadow-2xl"
+          className="text-center bg-gray-100 p-12 rounded-xl shadow-2xl"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.5 }}
@@ -160,7 +160,7 @@ const AIMasterclassPage = () => {
             Join our comprehensive AI Masterclass and transform your career. 
             Limited spots available for the upcoming cohort.
           </p>
-          <Link href="/ai-masterclass/register" className="bg-white text-blue-900 px-8 py-4 rounded-full text-xl font-semibold hover:bg-gray-100 transition duration-300 inline-block shadow-lg">
+          <Link href="/ai-masterclass/register" className="bg-teal-500 text-white px-8 py-4 rounded-full text-xl font-semibold hover:bg-teal-600 transition duration-300 inline-block shadow-lg">
             Enroll Now
           </Link>
         </motion.section>

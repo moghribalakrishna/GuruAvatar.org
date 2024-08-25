@@ -1,4 +1,3 @@
-// File: app/ai-masterclass/computer-vision/page.tsx
 'use client';
 
 import React from 'react';
@@ -9,7 +8,7 @@ import { Eye, Camera, Video, Maximize } from 'lucide-react';
 
 const ComputerVisionPage = () => {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-blue-900 to-teal-700 text-white p-8">
+    <div className="min-h-screen bg-white text-gray-800 p-8">
       <div className="max-w-4xl mx-auto">
         <motion.h1 
           className="text-4xl font-bold mb-6 flex items-center"
@@ -74,14 +73,14 @@ const ComputerVisionPage = () => {
             ].map((application, index) => (
               <motion.div
                 key={index}
-                className="bg-white bg-opacity-10 p-6 rounded-xl"
+                className="bg-gray-100 p-6 rounded-xl"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.5 + index * 0.1 }}
               >
                 <application.icon className="w-12 h-12 text-teal-400 mb-4" />
                 <h3 className="text-xl font-semibold mb-2">{application.title}</h3>
-                <p className="text-gray-300">{application.description}</p>
+                <p className="text-gray-600">{application.description}</p>
               </motion.div>
             ))}
           </div>
