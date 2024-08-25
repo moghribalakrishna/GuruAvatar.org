@@ -8,7 +8,7 @@ import Link from 'next/link';
 
 export default function HabitFormationPage() {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-blue-900 to-teal-700 text-white p-8">
+    <div className="bg-white min-h-screen text-gray-800 p-8">
       <div className="max-w-4xl mx-auto">
         <motion.h1 
           className="text-4xl font-bold mb-6 flex items-center"
@@ -16,7 +16,7 @@ export default function HabitFormationPage() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
         >
-          <Repeat className="w-12 h-12 mr-4 text-green-300" />
+          <Repeat className="w-12 h-12 mr-4 text-green-500" />
           Habit Formation: The Foundation of Lifelong Learning
         </motion.h1>
 
@@ -40,7 +40,7 @@ export default function HabitFormationPage() {
             alt="Habit Formation Illustration" 
             width={800} 
             height={400} 
-            className="rounded-xl shadow-2xl"
+            className="rounded-xl shadow-lg"
           />
         </motion.div>
 
@@ -56,8 +56,8 @@ export default function HabitFormationPage() {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5, delay: 0.4 }}
             >
-              <Target className="w-6 h-6 text-yellow-400 mr-2 flex-shrink-0 mt-1" />
-              <span><strong className="text-yellow-400">Consistency:</strong> Good habits ensure regular engagement with learning materials, leading to steady progress.</span>
+              <Target className="w-6 h-6 text-yellow-500 mr-2 flex-shrink-0 mt-1" />
+              <span><strong className="text-yellow-600">Consistency:</strong> Good habits ensure regular engagement with learning materials, leading to steady progress.</span>
             </motion.li>
             <motion.li 
               className="flex items-start"
@@ -65,8 +65,8 @@ export default function HabitFormationPage() {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5, delay: 0.5 }}
             >
-              <Zap className="w-6 h-6 text-green-400 mr-2 flex-shrink-0 mt-1" />
-              <span><strong className="text-green-400">Efficiency:</strong> Well-formed habits reduce decision fatigue, allowing you to focus your mental energy on learning.</span>
+              <Zap className="w-6 h-6 text-green-500 mr-2 flex-shrink-0 mt-1" />
+              <span><strong className="text-green-600">Efficiency:</strong> Well-formed habits reduce decision fatigue, allowing you to focus your mental energy on learning.</span>
             </motion.li>
             <motion.li 
               className="flex items-start"
@@ -74,8 +74,8 @@ export default function HabitFormationPage() {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5, delay: 0.6 }}
             >
-              <Clock className="w-6 h-6 text-pink-400 mr-2 flex-shrink-0 mt-1" />
-              <span><strong className="text-pink-400">Long-term Success:</strong> By building sustainable habits, you're setting yourself up for lifelong learning and growth.</span>
+              <Clock className="w-6 h-6 text-pink-500 mr-2 flex-shrink-0 mt-1" />
+              <span><strong className="text-pink-600">Long-term Success:</strong> By building sustainable habits, you're setting yourself up for lifelong learning and growth.</span>
             </motion.li>
             <motion.li 
               className="flex items-start"
@@ -83,8 +83,8 @@ export default function HabitFormationPage() {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5, delay: 0.7 }}
             >
-              <TrendingUp className="w-6 h-6 text-purple-400 mr-2 flex-shrink-0 mt-1" />
-              <span><strong className="text-purple-400">Compounding Effects:</strong> Small, consistent habits lead to significant improvements over time.</span>
+              <TrendingUp className="w-6 h-6 text-purple-500 mr-2 flex-shrink-0 mt-1" />
+              <span><strong className="text-purple-600">Compounding Effects:</strong> Small, consistent habits lead to significant improvements over time.</span>
             </motion.li>
           </ul>
         </section>
@@ -101,7 +101,7 @@ export default function HabitFormationPage() {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5, delay: 0.8 }}
             >
-              <span><strong className="text-blue-300">Personalized Habit Analysis:</strong> We use AI to analyze your current habits and identify areas for improvement.</span>
+              <span><strong className="text-blue-600">Personalized Habit Analysis:</strong> We use AI to analyze your current habits and identify areas for improvement.</span>
             </motion.li>
             <motion.li 
               className="flex items-start"
@@ -109,7 +109,7 @@ export default function HabitFormationPage() {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5, delay: 0.9 }}
             >
-              <span><strong className="text-green-300">Micro-Habit Design:</strong> We help you break down large goals into small, achievable daily actions.</span>
+              <span><strong className="text-green-600">Micro-Habit Design:</strong> We help you break down large goals into small, achievable daily actions.</span>
             </motion.li>
             <motion.li 
               className="flex items-start"
@@ -117,7 +117,7 @@ export default function HabitFormationPage() {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5, delay: 1.0 }}
             >
-              <span><strong className="text-yellow-300">Habit Stacking:</strong> Learn to build new habits by attaching them to existing routines.</span>
+              <span><strong className="text-yellow-600">Habit Stacking:</strong> Learn to build new habits by attaching them to existing routines.</span>
             </motion.li>
             <motion.li 
               className="flex items-start"
@@ -125,7 +125,7 @@ export default function HabitFormationPage() {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5, delay: 1.1 }}
             >
-              <span><strong className="text-pink-300">Adaptive Reminders:</strong> Our AI system provides timely, context-aware prompts to reinforce your habits.</span>
+              <span><strong className="text-pink-600">Adaptive Reminders:</strong> Our AI system provides timely, context-aware prompts to reinforce your habits.</span>
             </motion.li>
             <motion.li 
               className="flex items-start"
@@ -133,7 +133,7 @@ export default function HabitFormationPage() {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5, delay: 1.2 }}
             >
-              <span><strong className="text-purple-300">Progress Tracking:</strong> Visualize your habit formation journey with detailed analytics and insights.</span>
+              <span><strong className="text-purple-600">Progress Tracking:</strong> Visualize your habit formation journey with detailed analytics and insights.</span>
             </motion.li>
           </ol>
         </section>
@@ -150,8 +150,8 @@ export default function HabitFormationPage() {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5, delay: 1.3 }}
             >
-              <CheckCircle className="w-6 h-6 text-blue-400 mr-2 flex-shrink-0 mt-1" />
-              <span><strong className="text-blue-400">Daily Learning:</strong> Consistent engagement with educational content, even if just for a short period each day.</span>
+              <CheckCircle className="w-6 h-6 text-blue-500 mr-2 flex-shrink-0 mt-1" />
+              <span><strong className="text-blue-600">Daily Learning:</strong> Consistent engagement with educational content, even if just for a short period each day.</span>
             </motion.li>
             <motion.li 
               className="flex items-start"
@@ -159,8 +159,8 @@ export default function HabitFormationPage() {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5, delay: 1.4 }}
             >
-              <Brain className="w-6 h-6 text-green-400 mr-2 flex-shrink-0 mt-1" />
-              <span><strong className="text-green-400">Reflective Practice:</strong> Regular self-assessment and reflection on learning progress and strategies.</span>
+              <Brain className="w-6 h-6 text-green-500 mr-2 flex-shrink-0 mt-1" />
+              <span><strong className="text-green-600">Reflective Practice:</strong> Regular self-assessment and reflection on learning progress and strategies.</span>
             </motion.li>
             <motion.li 
               className="flex items-start"
@@ -168,8 +168,8 @@ export default function HabitFormationPage() {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5, delay: 1.5 }}
             >
-              <Book className="w-6 h-6 text-yellow-400 mr-2 flex-shrink-0 mt-1" />
-              <span><strong className="text-yellow-400">Active Reading:</strong> Engaging deeply with texts through note-taking, summarizing, and questioning.</span>
+              <Book className="w-6 h-6 text-yellow-500 mr-2 flex-shrink-0 mt-1" />
+              <span><strong className="text-yellow-600">Active Reading:</strong> Engaging deeply with texts through note-taking, summarizing, and questioning.</span>
             </motion.li>
             <motion.li 
               className="flex items-start"
@@ -177,8 +177,8 @@ export default function HabitFormationPage() {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5, delay: 1.6 }}
             >
-              <Users className="w-6 h-6 text-pink-400 mr-2 flex-shrink-0 mt-1" />
-              <span><strong className="text-pink-400">Collaborative Learning:</strong> Regular participation in study groups or peer discussions.</span>
+              <Users className="w-6 h-6 text-pink-500 mr-2 flex-shrink-0 mt-1" />
+              <span><strong className="text-pink-600">Collaborative Learning:</strong> Regular participation in study groups or peer discussions.</span>
             </motion.li>
           </ul>
         </section>
@@ -195,8 +195,8 @@ export default function HabitFormationPage() {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5, delay: 1.7 }}
             >
-              <Brain className="w-6 h-6 text-blue-400 mr-2 flex-shrink-0 mt-1" />
-              <span><strong className="text-blue-400">Neuroplasticity:</strong> Repeated behaviors create stronger neural pathways, making habits easier to maintain over time.</span>
+              <Brain className="w-6 h-6 text-blue-500 mr-2 flex-shrink-0 mt-1" />
+              <span><strong className="text-blue-600">Neuroplasticity:</strong> Repeated behaviors create stronger neural pathways, making habits easier to maintain over time.</span>
             </motion.li>
             <motion.li 
               className="flex items-start"
@@ -204,8 +204,8 @@ export default function HabitFormationPage() {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5, delay: 1.8 }}
             >
-              <Repeat className="w-6 h-6 text-green-400 mr-2 flex-shrink-0 mt-1" />
-              <span><strong className="text-green-400">Habit Loop:</strong> We leverage the cue-routine-reward cycle to reinforce positive learning habits.</span>
+              <Repeat className="w-6 h-6 text-green-500 mr-2 flex-shrink-0 mt-1" />
+              <span><strong className="text-green-600">Habit Loop:</strong> We leverage the cue-routine-reward cycle to reinforce positive learning habits.</span>
             </motion.li>
             <motion.li 
               className="flex items-start"
@@ -213,21 +213,21 @@ export default function HabitFormationPage() {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5, delay: 1.9 }}
             >
-              <Target className="w-6 h-6 text-yellow-400 mr-2 flex-shrink-0 mt-1" />
-              <span><strong className="text-yellow-400">Implementation Intentions:</strong> We help you create specific plans for when, where, and how you'll perform your learning habits.</span>
+              <Target className="w-6 h-6 text-yellow-500 mr-2 flex-shrink-0 mt-1" />
+              <span><strong className="text-yellow-600">Implementation Intentions:</strong> We help you create specific plans for when, where, and how you'll perform your learning habits.</span>
             </motion.li>
           </ul>
         </section>
 
         <section className="mb-12">
           <h2 className="text-3xl font-semibold mb-6">Success Stories</h2>
-          <div className="bg-white bg-opacity-10 p-6 rounded-xl mb-6">
+          <div className="bg-gray-100 p-6 rounded-xl mb-6">
             <blockquote className="text-lg italic mb-4">
               "GuruAvatar's habit formation program transformed my approach to learning. I went from struggling to study consistently to having a rock-solid daily learning routine. My grades have improved significantly, and I feel much more confident in my abilities."
             </blockquote>
             <p className="text-right">- Sarah K., High School Student</p>
           </div>
-          <div className="bg-white bg-opacity-10 p-6 rounded-xl">
+          <div className="bg-gray-100 p-6 rounded-xl">
             <blockquote className="text-lg italic mb-4">
               "As a working professional, finding time for continuous learning was always a challenge. GuruAvatar helped me build sustainable habits that fit into my busy schedule. I'm now making steady progress towards my career goals without feeling overwhelmed."
             </blockquote>

@@ -6,7 +6,7 @@ import Image from 'next/image';
 
 export default function MindfulnessIntegrationPage() {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-blue-900 to-teal-700 text-white p-8">
+    <div className="bg-white min-h-screen text-gray-800 p-8">
       <div className="max-w-4xl mx-auto">
         <motion.h1 
           className="text-4xl font-bold mb-6 flex items-center"
@@ -14,7 +14,7 @@ export default function MindfulnessIntegrationPage() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
         >
-          <Heart className="w-12 h-12 mr-4 text-pink-300" />
+          <Heart className="w-12 h-12 mr-4 text-pink-500" />
           Mindfulness Integration: Nurturing the Whole Learner
         </motion.h1>
 
@@ -38,7 +38,7 @@ export default function MindfulnessIntegrationPage() {
             alt="Mindfulness Integration Illustration" 
             width={800} 
             height={400} 
-            className="rounded-xl shadow-2xl"
+            className="rounded-xl shadow-lg"
           />
         </motion.div>
 
@@ -54,8 +54,8 @@ export default function MindfulnessIntegrationPage() {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5, delay: 0.4 }}
             >
-              <Focus className="w-6 h-6 text-yellow-400 mr-2 flex-shrink-0 mt-1" />
-              <span><strong className="text-yellow-400">Enhanced Focus and Concentration:</strong> Mindfulness practices improve attention span and the ability to concentrate on tasks, leading to more effective learning.</span>
+              <Focus className="w-6 h-6 text-yellow-500 mr-2 flex-shrink-0 mt-1" />
+              <span><strong className="text-yellow-600">Enhanced Focus and Concentration:</strong> Mindfulness practices improve attention span and the ability to concentrate on tasks, leading to more effective learning.</span>
             </motion.li>
             <motion.li 
               className="flex items-start"
@@ -63,8 +63,8 @@ export default function MindfulnessIntegrationPage() {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5, delay: 0.5 }}
             >
-              <Zap className="w-6 h-6 text-green-400 mr-2 flex-shrink-0 mt-1" />
-              <span><strong className="text-green-400">Stress Reduction:</strong> By teaching stress management techniques, we help students navigate academic pressures more effectively.</span>
+              <Zap className="w-6 h-6 text-green-500 mr-2 flex-shrink-0 mt-1" />
+              <span><strong className="text-green-600">Stress Reduction:</strong> By teaching stress management techniques, we help students navigate academic pressures more effectively.</span>
             </motion.li>
             <motion.li 
               className="flex items-start"
@@ -72,8 +72,8 @@ export default function MindfulnessIntegrationPage() {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5, delay: 0.6 }}
             >
-              <Brain className="w-6 h-6 text-pink-400 mr-2 flex-shrink-0 mt-1" />
-              <span><strong className="text-pink-400">Improved Emotional Regulation:</strong> Mindfulness helps students recognize and manage their emotions, leading to better decision-making and interpersonal skills.</span>
+              <Brain className="w-6 h-6 text-pink-500 mr-2 flex-shrink-0 mt-1" />
+              <span><strong className="text-pink-600">Improved Emotional Regulation:</strong> Mindfulness helps students recognize and manage their emotions, leading to better decision-making and interpersonal skills.</span>
             </motion.li>
             <motion.li 
               className="flex items-start"
@@ -81,8 +81,8 @@ export default function MindfulnessIntegrationPage() {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5, delay: 0.7 }}
             >
-              <Battery className="w-6 h-6 text-purple-400 mr-2 flex-shrink-0 mt-1" />
-              <span><strong className="text-purple-400">Increased Resilience:</strong> By fostering a growth mindset, mindfulness practices help students bounce back from setbacks and persevere through challenges.</span>
+              <Battery className="w-6 h-6 text-purple-500 mr-2 flex-shrink-0 mt-1" />
+              <span><strong className="text-purple-600">Increased Resilience:</strong> By fostering a growth mindset, mindfulness practices help students bounce back from setbacks and persevere through challenges.</span>
             </motion.li>
           </ul>
         </section>
@@ -99,7 +99,7 @@ export default function MindfulnessIntegrationPage() {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5, delay: 0.8 }}
             >
-              <span><strong className="text-blue-300">Daily Mindfulness Exercises:</strong> Short, guided practices integrated into the learning routine to start and end each session mindfully.</span>
+              <span><strong className="text-blue-600">Daily Mindfulness Exercises:</strong> Short, guided practices integrated into the learning routine to start and end each session mindfully.</span>
             </motion.li>
             <motion.li 
               className="flex items-start"
@@ -107,7 +107,7 @@ export default function MindfulnessIntegrationPage() {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5, delay: 0.9 }}
             >
-              <span><strong className="text-green-300">Mindful Learning Techniques:</strong> Teaching students how to approach their studies with mindfulness, enhancing retention and understanding.</span>
+              <span><strong className="text-green-600">Mindful Learning Techniques:</strong> Teaching students how to approach their studies with mindfulness, enhancing retention and understanding.</span>
             </motion.li>
             <motion.li 
               className="flex items-start"
@@ -115,7 +115,7 @@ export default function MindfulnessIntegrationPage() {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5, delay: 1.0 }}
             >
-              <span><strong className="text-yellow-300">Stress Management Tools:</strong> Providing students with a toolkit of mindfulness-based stress reduction techniques to use during challenging times.</span>
+              <span><strong className="text-yellow-600">Stress Management Tools:</strong> Providing students with a toolkit of mindfulness-based stress reduction techniques to use during challenging times.</span>
             </motion.li>
             <motion.li 
               className="flex items-start"
@@ -123,7 +123,7 @@ export default function MindfulnessIntegrationPage() {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5, delay: 1.1 }}
             >
-              <span><strong className="text-pink-300">Mindfulness-Based Emotional Intelligence Training:</strong> Helping students develop self-awareness, empathy, and interpersonal skills.</span>
+              <span><strong className="text-pink-600">Mindfulness-Based Emotional Intelligence Training:</strong> Helping students develop self-awareness, empathy, and interpersonal skills.</span>
             </motion.li>
           </ol>
         </section>
@@ -140,8 +140,8 @@ export default function MindfulnessIntegrationPage() {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5, delay: 1.2 }}
             >
-              <Brain className="w-6 h-6 text-blue-400 mr-2 flex-shrink-0 mt-1" />
-              <span><strong className="text-blue-400">Neuroplasticity:</strong> Studies show that regular mindfulness practice can physically change the brain, enhancing areas responsible for learning, memory, and emotional regulation.</span>
+              <Brain className="w-6 h-6 text-blue-500 mr-2 flex-shrink-0 mt-1" />
+              <span><strong className="text-blue-600">Neuroplasticity:</strong> Studies show that regular mindfulness practice can physically change the brain, enhancing areas responsible for learning, memory, and emotional regulation.</span>
             </motion.li>
             <motion.li 
               className="flex items-start"
@@ -149,8 +149,8 @@ export default function MindfulnessIntegrationPage() {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5, delay: 1.3 }}
             >
-              <Focus className="w-6 h-6 text-green-400 mr-2 flex-shrink-0 mt-1" />
-              <span><strong className="text-green-400">Attention Control:</strong> Research demonstrates that mindfulness improves both sustained attention and attention switching, crucial skills for effective learning.</span>
+              <Focus className="w-6 h-6 text-green-500 mr-2 flex-shrink-0 mt-1" />
+              <span><strong className="text-green-600">Attention Control:</strong> Research demonstrates that mindfulness improves both sustained attention and attention switching, crucial skills for effective learning.</span>
             </motion.li>
             <motion.li 
               className="flex items-start"
@@ -158,21 +158,21 @@ export default function MindfulnessIntegrationPage() {
               animate={{ opacity: 1, x: 0 }}
               transition={{duration: 0.5, delay: 1.4 }}
             >
-              <Heart className="w-6 h-6 text-pink-400 mr-2 flex-shrink-0 mt-1" />
-              <span><strong className="text-pink-400">Stress Reduction:</strong> Multiple studies have shown that mindfulness-based interventions significantly reduce stress and anxiety in students, leading to improved academic performance.</span>
+              <Heart className="w-6 h-6 text-pink-500 mr-2 flex-shrink-0 mt-1" />
+              <span><strong className="text-pink-600">Stress Reduction:</strong> Multiple studies have shown that mindfulness-based interventions significantly reduce stress and anxiety in students, leading to improved academic performance.</span>
             </motion.li>
           </ul>
         </section>
 
         <section className="mb-12">
           <h2 className="text-3xl font-semibold mb-6">Mindfulness in Action: Student Experiences</h2>
-          <div className="bg-white bg-opacity-10 p-6 rounded-xl mb-6">
+          <div className="bg-gray-100 p-6 rounded-xl mb-6">
             <blockquote className="text-lg italic mb-4">
               "The mindfulness practices I learned through GuruAvatar have been life-changing. Not only has my ability to focus during study sessions improved dramatically, but I've also noticed a significant decrease in test anxiety. I feel more balanced and confident in my academic journey."
             </blockquote>
             <p className="text-right">- Emily R., High School Senior</p>
           </div>
-          <div className="bg-white bg-opacity-10 p-6 rounded-xl">
+          <div className="bg-gray-100 p-6 rounded-xl">
             <blockquote className="text-lg italic mb-4">
               "As a computer science major, I was skeptical about mindfulness at first. But the techniques I've learned have helped me manage the stress of complex coding projects and improved my problem-solving skills. It's become an essential part of my daily routine."
             </blockquote>
@@ -192,7 +192,7 @@ export default function MindfulnessIntegrationPage() {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5, delay: 1.5 }}
             >
-              <span><strong className="text-blue-300">Initial Assessment:</strong> Take our mindfulness readiness quiz to determine your starting point.</span>
+              <span><strong className="text-blue-600">Initial Assessment:</strong> Take our mindfulness readiness quiz to determine your starting point.</span>
             </motion.li>
             <motion.li 
               className="flex items-start"
@@ -200,7 +200,7 @@ export default function MindfulnessIntegrationPage() {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5, delay: 1.6 }}
             >
-              <span><strong className="text-green-300">Personalized Program:</strong> Receive a tailored mindfulness curriculum based on your needs and learning style.</span>
+              <span><strong className="text-green-600">Personalized Program:</strong> Receive a tailored mindfulness curriculum based on your needs and learning style.</span>
             </motion.li>
             <motion.li 
               className="flex items-start"
@@ -208,7 +208,7 @@ export default function MindfulnessIntegrationPage() {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5, delay: 1.7 }}
             >
-              <span><strong className="text-yellow-300">Daily Practices:</strong> Engage in short, guided mindfulness exercises integrated into your learning sessions.</span>
+              <span><strong className="text-yellow-600">Daily Practices:</strong> Engage in short, guided mindfulness exercises integrated into your learning sessions.</span>
             </motion.li>
             <motion.li 
               className="flex items-start"
@@ -216,7 +216,7 @@ export default function MindfulnessIntegrationPage() {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5, delay: 1.8 }}
             >
-              <span><strong className="text-pink-300">Progress Tracking:</strong> Monitor your mindfulness journey with our AI-powered analytics, seeing how it impacts your learning outcomes.</span>
+              <span><strong className="text-pink-600">Progress Tracking:</strong> Monitor your mindfulness journey with our AI-powered analytics, seeing how it impacts your learning outcomes.</span>
             </motion.li>
           </ol>
         </section>
@@ -233,8 +233,8 @@ export default function MindfulnessIntegrationPage() {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5, delay: 1.9 }}
             >
-              <Smile className="w-6 h-6 text-yellow-400 mr-2 flex-shrink-0 mt-1" />
-              <span><strong className="text-yellow-400">Improved Relationships:</strong> Enhanced emotional intelligence leads to better communication and deeper connections.</span>
+              <Smile className="w-6 h-6 text-yellow-500 mr-2 flex-shrink-0 mt-1" />
+              <span><strong className="text-yellow-600">Improved Relationships:</strong> Enhanced emotional intelligence leads to better communication and deeper connections.</span>
             </motion.li>
             <motion.li 
               className="flex items-start"
@@ -242,8 +242,8 @@ export default function MindfulnessIntegrationPage() {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5, delay: 2.0 }}
             >
-              <Zap className="w-6 h-6 text-green-400 mr-2 flex-shrink-0 mt-1" />
-              <span><strong className="text-green-400">Career Readiness:</strong> Develop crucial soft skills like adaptability, creativity, and resilience that employers value.</span>
+              <Zap className="w-6 h-6 text-green-500 mr-2 flex-shrink-0 mt-1" />
+              <span><strong className="text-green-600">Career Readiness:</strong> Develop crucial soft skills like adaptability, creativity, and resilience that employers value.</span>
             </motion.li>
             <motion.li 
               className="flex items-start"
@@ -251,8 +251,8 @@ export default function MindfulnessIntegrationPage() {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5, delay: 2.1 }}
             >
-              <Heart className="w-6 h-6 text-pink-400 mr-2 flex-shrink-0 mt-1" />
-              <span><strong className="text-pink-400">Overall Well-being:</strong> Cultivate a sense of inner peace and balance that enhances all aspects of your life.</span>
+              <Heart className="w-6 h-6 text-pink-500 mr-2 flex-shrink-0 mt-1" />
+              <span><strong className="text-pink-600">Overall Well-being:</strong> Cultivate a sense of inner peace and balance that enhances all aspects of your life.</span>
             </motion.li>
           </ul>
         </section>
