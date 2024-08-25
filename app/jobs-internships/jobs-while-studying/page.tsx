@@ -66,10 +66,10 @@ export default function JobsWhileStudyingPage() {
   );
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-blue-900 to-teal-700 text-white p-4 sm:p-8">
-      <div className="max-w-6xl mx-auto">
+    <div className="bg-white min-h-screen text-gray-800">
+      <div className="max-w-4xl mx-auto px-4 py-8">
         <motion.h1
-          className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 sm:mb-6 text-center"
+          className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 sm:mb-6 text-center text-gray-800"
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
@@ -83,8 +83,8 @@ export default function JobsWhileStudyingPage() {
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.2 }}
         >
-          <h2 className="text-2xl font-semibold mb-4">Balance Work and Studies with GuruAvatar</h2>
-          <p className="mb-6">Gain valuable work experience while pursuing your education. GuruAvatar helps you find flexible job opportunities that complement your studies and boost your career prospects.</p>
+          <h2 className="text-2xl font-semibold mb-4 text-gray-800">Balance Work and Studies with GuruAvatar</h2>
+          <p className="mb-6 text-gray-600">Gain valuable work experience while pursuing your education. GuruAvatar helps you find flexible job opportunities that complement your studies and boost your career prospects.</p>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
@@ -95,14 +95,14 @@ export default function JobsWhileStudyingPage() {
             ].map((feature, index) => (
               <motion.div
                 key={index}
-                className="bg-white bg-opacity-10 p-4 rounded-lg flex flex-col items-center text-center"
+                className="bg-gray-100 p-4 rounded-lg flex flex-col items-center text-center"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
               >
-                <feature.icon className="w-12 h-12 text-orange-400 mb-4" />
-                <h3 className="font-semibold mb-2">{feature.title}</h3>
-                <p className="text-sm text-blue-200">{feature.description}</p>
+                <feature.icon className="w-12 h-12 text-blue-600 mb-4" />
+                <h3 className="font-semibold mb-2 text-gray-800">{feature.title}</h3>
+                <p className="text-sm text-gray-600">{feature.description}</p>
               </motion.div>
             ))}
           </div>
@@ -114,7 +114,7 @@ export default function JobsWhileStudyingPage() {
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.4 }}
         >
-          <h2 className="text-2xl font-semibold mb-4">Featured Job Listings</h2>
+          <h2 className="text-2xl font-semibold mb-4 text-gray-800">Featured Job Listings</h2>
           <div className="flex flex-wrap gap-4 mb-6">
             <div className="flex-grow">
               <div className="relative">
@@ -123,15 +123,15 @@ export default function JobsWhileStudyingPage() {
                   placeholder="Search jobs..."
                   value={searchTerm}
                   onChange={(e) => setSearchTerm(e.target.value)}
-                  className="w-full px-4 py-2 bg-white bg-opacity-20 rounded-md text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-300 pl-10"
+                  className="w-full px-4 py-2 bg-gray-100 rounded-md text-gray-800 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-300 pl-10"
                 />
-                <Search className="absolute left-3 top-2.5 text-gray-300" size={20} />
+                <Search className="absolute left-3 top-2.5 text-gray-400" size={20} />
               </div>
             </div>
             <select
               value={selectedJobType}
               onChange={(e) => setSelectedJobType(e.target.value)}
-              className="px-4 py-2 bg-white bg-opacity-20 rounded-md text-white focus:outline-none focus:ring-2 focus:ring-blue-300"
+              className="px-4 py-2 bg-gray-100 rounded-md text-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-300"
             >
               <option value="">All Job Types</option>
               <option value="Part-time">Part-time</option>
@@ -144,15 +144,15 @@ export default function JobsWhileStudyingPage() {
             {filteredJobs.map((job, index) => (
               <motion.div
                 key={index}
-                className="bg-white bg-opacity-10 p-4 rounded-lg"
+                className="bg-gray-100 p-4 rounded-lg"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
               >
-                <h3 className="font-semibold mb-1">{job.title}</h3>
-                <p className="text-sm text-blue-200">{job.company}</p>
-                <p className="text-sm text-orange-300 mb-2">{job.type}</p>
-                <button className="w-full mt-2 px-4 py-2 bg-teal-500 text-white rounded-md text-sm hover:bg-teal-600 transition duration-300">
+                <h3 className="font-semibold mb-1 text-gray-800">{job.title}</h3>
+                <p className="text-sm text-gray-600">{job.company}</p>
+                <p className="text-sm text-blue-600 mb-2">{job.type}</p>
+                <button className="w-full mt-2 px-4 py-2 bg-blue-600 text-white rounded-md text-sm hover:bg-blue-700 transition duration-300">
                   Apply Now
                 </button>
               </motion.div>
@@ -162,12 +162,12 @@ export default function JobsWhileStudyingPage() {
 
         <motion.form
           onSubmit={handleSubmit}
-          className="bg-white bg-opacity-10 p-6 rounded-xl"
+          className="bg-gray-100 p-6 rounded-xl"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.6 }}
         >
-          <h2 className="text-2xl font-semibold mb-4">Find Your Perfect Student Job</h2>
+          <h2 className="text-2xl font-semibold mb-4 text-gray-800">Submit Your Job Preferences</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <input
               type="text"
@@ -175,7 +175,7 @@ export default function JobsWhileStudyingPage() {
               placeholder="Full Name"
               value={formData.name}
               onChange={handleInputChange}
-              className="w-full px-4 py-2 bg-white bg-opacity-20 rounded-md text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-300"
+              className="w-full px-4 py-2 bg-white rounded-md text-gray-800 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-300"
               required
             />
             <input
@@ -184,7 +184,7 @@ export default function JobsWhileStudyingPage() {
               placeholder="Email Address"
               value={formData.email}
               onChange={handleInputChange}
-              className="w-full px-4 py-2 bg-white bg-opacity-20 rounded-md text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-300"
+              className="w-full px-4 py-2 bg-white rounded-md text-gray-800 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-300"
               required
             />
             <input
@@ -193,7 +193,7 @@ export default function JobsWhileStudyingPage() {
               placeholder="Educational Institution"
               value={formData.institution}
               onChange={handleInputChange}
-              className="w-full px-4 py-2 bg-white bg-opacity-20 rounded-md text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-300"
+              className="w-full px-4 py-2 bg-white rounded-md text-gray-800 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-300"
             />
             <input
               type="text"
@@ -201,7 +201,7 @@ export default function JobsWhileStudyingPage() {
               placeholder="Course of Study"
               value={formData.courseOfStudy}
               onChange={handleInputChange}
-              className="w-full px-4 py-2 bg-white bg-opacity-20 rounded-md text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-300"
+              className="w-full px-4 py-2 bg-white rounded-md text-gray-800 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-300"
             />
             <input
               type="text"
@@ -209,13 +209,13 @@ export default function JobsWhileStudyingPage() {
               placeholder="Available Hours per Week"
               value={formData.availableHours}
               onChange={handleInputChange}
-              className="w-full px-4 py-2 bg-white bg-opacity-20 rounded-md text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-300"
+              className="w-full px-4 py-2 bg-white rounded-md text-gray-800 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-300"
             />
             <select
               name="preferredJobType"
               value={formData.preferredJobType}
               onChange={handleInputChange}
-              className="w-full px-4 py-2 bg-white bg-opacity-20 rounded-md text-white focus:outline-none focus:ring-2 focus:ring-blue-300"
+              className="w-full px-4 py-2 bg-white rounded-md text-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-300"
             >
               <option value="">Preferred Job Type</option>
               <option value="part-time">Part-Time</option>
@@ -228,7 +228,7 @@ export default function JobsWhileStudyingPage() {
               placeholder="Relevant Skills"
               value={formData.relevantSkills}
               onChange={handleInputChange}
-              className="w-full px-4 py-2 bg-white bg-opacity-20 rounded-md text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-300"
+              className="w-full px-4 py-2 bg-white rounded-md text-gray-800 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-300"
               rows={3}
             />
             <textarea
@@ -236,13 +236,13 @@ export default function JobsWhileStudyingPage() {
               placeholder="Previous Work Experience (if any)"
               value={formData.workExperience}
               onChange={handleInputChange}
-              className="w-full px-4 py-2 bg-white bg-opacity-20 rounded-md text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-300"
+              className="w-full px-4 py-2 bg-white rounded-md text-gray-800 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-300"
               rows={3}
             />
           </div>
           <button
             type="submit"
-            className="mt-6 w-full bg-orange-500 text-white px-4 py-2 rounded-md hover:bg-orange-600 transition duration-300"
+            className="mt-6 w-full bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition duration-300"
           >
             Submit Job Preferences
           </button>
