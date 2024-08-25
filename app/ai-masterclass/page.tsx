@@ -136,7 +136,7 @@ const AIMasterclassPage = () => {
             <Image src="/founder-image.jpeg" alt="AI Instructor" width={300} height={300} className="rounded-full mb-6 md:mb-0 md:mr-8 shadow-lg" quality={100} />
             <div>
               <h3 className="text-3xl font-bold mb-4">Balakrishna Moghri</h3>
-              <p className="text-xl mb-4">Founder & CTO of 2 Startups & Worked for Multiple Startups</p>
+              <p className="text-xl mb-4">Founder & CTO of 2 Startups & Worked for $500M+ Funded Startups</p>
               <p className="text-gray-600 mb-4">
                 Mr Balakrishna Moghri brings years of industry and academic experience to the AI Masterclass. 
                 His 1st Hand experince of Using AI @GuruAvatar & @AlienHu in Real World Projects will help you to understand the real world problems and solutions.

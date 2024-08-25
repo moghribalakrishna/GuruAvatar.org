@@ -8,7 +8,7 @@ import { Award, BookOpen, Users } from 'lucide-react';
 
 const InstructorPage = () => {
   return (
-    <div className="min-h-screen bg-white text-gray-800 p-8"> // Changed background to white and text color to gray-800
+    <div className="min-h-screen bg-white text-gray-800 p-8"> 
       <div className="max-w-4xl mx-auto">
         <motion.h1 
           className="text-4xl font-bold mb-8 text-center"
