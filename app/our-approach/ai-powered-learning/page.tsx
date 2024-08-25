@@ -6,7 +6,7 @@ import Image from 'next/image';
 
 export default function AIPoweredLearningPage() {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-blue-900 to-teal-700 text-white p-8">
+    <div className="bg-white min-h-screen text-gray-800 p-8">
       <div className="max-w-4xl mx-auto">
         <motion.h1 
           className="text-4xl font-bold mb-6 flex items-center"
@@ -14,7 +14,7 @@ export default function AIPoweredLearningPage() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
         >
-          <Brain className="w-12 h-12 mr-4 text-blue-300" />
+          <Brain className="w-12 h-12 mr-4 text-blue-500" />
           AI-Powered Learning: The Future of Education
         </motion.h1>
 
@@ -38,7 +38,7 @@ export default function AIPoweredLearningPage() {
             alt="AI-Powered Learning Illustration" 
             width={800} 
             height={400} 
-            className="rounded-xl shadow-2xl"
+            className="rounded-xl shadow-lg"
           />
         </motion.div>
 
@@ -54,8 +54,8 @@ export default function AIPoweredLearningPage() {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5, delay: 0.4 }}
             >
-              <Zap className="w-6 h-6 text-yellow-400 mr-2 flex-shrink-0 mt-1" />
-              <span><strong className="text-yellow-400">Adaptive Learning Paths:</strong> Our AI algorithms analyze your learning style, pace, and performance to create a tailored learning journey. No two students will have the same experience, ensuring everyone learns in the way that suits them best.</span>
+              <Zap className="w-6 h-6 text-yellow-500 mr-2 flex-shrink-0 mt-1" />
+              <span><strong className="text-yellow-600">Adaptive Learning Paths:</strong> Our AI algorithms analyze your learning style, pace, and performance to create a tailored learning journey. No two students will have the same experience, ensuring everyone learns in the way that suits them best.</span>
             </motion.li>
             <motion.li 
               className="flex items-start"
@@ -63,8 +63,8 @@ export default function AIPoweredLearningPage() {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5, delay: 0.5 }}
             >
-              <Target className="w-6 h-6 text-green-400 mr-2 flex-shrink-0 mt-1" />
-              <span><strong className="text-green-400">Personalized Content:</strong> Receive customized lessons, exercises, and resources that match your current knowledge level and learning goals. Our AI ensures you're always challenged, but never overwhelmed.</span>
+              <Target className="w-6 h-6 text-green-500 mr-2 flex-shrink-0 mt-1" />
+              <span><strong className="text-green-600">Personalized Content:</strong> Receive customized lessons, exercises, and resources that match your current knowledge level and learning goals. Our AI ensures you're always challenged, but never overwhelmed.</span>
             </motion.li>
             <motion.li 
               className="flex items-start"
@@ -72,8 +72,8 @@ export default function AIPoweredLearningPage() {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5, delay: 0.6 }}
             >
-              <TrendingUp className="w-6 h-6 text-pink-400 mr-2 flex-shrink-0 mt-1" />
-              <span><strong className="text-pink-400">Real-time Progress Tracking:</strong> Our AI continuously monitors your progress, providing instant feedback and adjusting your learning path in real-time. You'll always know where you stand and what to focus on next.</span>
+              <TrendingUp className="w-6 h-6 text-pink-500 mr-2 flex-shrink-0 mt-1" />
+              <span><strong className="text-pink-600">Real-time Progress Tracking:</strong> Our AI continuously monitors your progress, providing instant feedback and adjusting your learning path in real-time. You'll always know where you stand and what to focus on next.</span>
             </motion.li>
             <motion.li 
               className="flex items-start"
@@ -81,8 +81,8 @@ export default function AIPoweredLearningPage() {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5, delay: 0.7 }}
             >
-              <Layers className="w-6 h-6 text-purple-400 mr-2 flex-shrink-0 mt-1" />
-              <span><strong className="text-purple-400">Smart Content Recommendations:</strong> Based on your interests, goals, and learning history, our AI suggests additional resources and topics to explore, fostering a love for lifelong learning.</span>
+              <Layers className="w-6 h-6 text-purple-500 mr-2 flex-shrink-0 mt-1" />
+              <span><strong className="text-purple-600">Smart Content Recommendations:</strong> Based on your interests, goals, and learning history, our AI suggests additional resources and topics to explore, fostering a love for lifelong learning.</span>
             </motion.li>
           </ul>
         </section>
@@ -99,8 +99,8 @@ export default function AIPoweredLearningPage() {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5, delay: 0.8 }}
             >
-              <Brain className="w-6 h-6 text-blue-400 mr-2 flex-shrink-0 mt-1" />
-              <span><strong className="text-blue-400">Neural Networks:</strong> We use advanced neural networks to model and predict student learning patterns, allowing for highly accurate personalization.</span>
+              <Brain className="w-6 h-6 text-blue-500 mr-2 flex-shrink-0 mt-1" />
+              <span><strong className="text-blue-600">Neural Networks:</strong> We use advanced neural networks to model and predict student learning patterns, allowing for highly accurate personalization.</span>
             </motion.li>
             <motion.li 
               className="flex items-start"
@@ -108,8 +108,8 @@ export default function AIPoweredLearningPage() {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5, delay: 0.9 }}
             >
-              <ChartBar className="w-6 h-6 text-green-400 mr-2 flex-shrink-0 mt-1" />
-              <span><strong className="text-green-400">Natural Language Processing:</strong> Our AI understands and analyzes text, allowing for intelligent content recommendations and even automated essay grading.</span>
+              <ChartBar className="w-6 h-6 text-green-500 mr-2 flex-shrink-0 mt-1" />
+              <span><strong className="text-green-600">Natural Language Processing:</strong> Our AI understands and analyzes text, allowing for intelligent content recommendations and even automated essay grading.</span>
             </motion.li>
             <motion.li 
               className="flex items-start"
@@ -117,19 +117,19 @@ export default function AIPoweredLearningPage() {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5, delay: 1.0 }}
             >
-              <Sparkles className="w-6 h-6 text-yellow-400 mr-2 flex-shrink-0 mt-1" />
-              <span><strong className="text-yellow-400">Reinforcement Learning:</strong> Our AI continually improves its teaching strategies based on student outcomes, ensuring it gets better over time.</span>
+              <Sparkles className="w-6 h-6 text-yellow-500 mr-2 flex-shrink-0 mt-1" />
+              <span><strong className="text-yellow-600">Reinforcement Learning:</strong> Our AI continually improves its teaching strategies based on student outcomes, ensuring it gets better over time.</span>
             </motion.li>
           </ul>
         </section>
 
         <section className="mb-12">
           <h2 className="text-3xl font-semibold mb-6">Real Stories, Real Impact</h2>
-          <div className="bg-white bg-opacity-10 p-6 rounded-xl">
+          <div className="bg-gray-100 p-6 rounded-xl">
             <blockquote className="text-lg italic mb-4">
               "GuruAvatar's AI-powered learning completely transformed my study habits. It's like having a personal tutor who knows exactly what I need, available 24/7. I've improved my grades significantly and actually enjoy learning now!"
             </blockquote>
-            <p className="text-right">- Sarah K., High School Student</p>
+            <p className="text-right text-gray-600">- Sarah K., High School Student</p>
           </div>
         </section>
 
@@ -138,7 +138,7 @@ export default function AIPoweredLearningPage() {
           <p className="text-lg mb-4">
             At GuruAvatar, we're constantly pushing the boundaries of what's possible with AI in education. Here's a glimpse into what we're working on:
           </p>
-          <ul className="list-disc list-inside space-y-2">
+          <ul className="list-disc list-inside space-y-2 text-gray-700">
             <li>AI-powered virtual reality learning environments</li>
             <li>Emotional intelligence AI that can detect and respond to student emotions</li>
             <li>Collaborative AI that facilitates group learning and projects</li>
