@@ -93,10 +93,10 @@ export default function CourseRegistrationPage({ params, searchParams }: { param
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-blue-900 via-purple-900 to-teal-900 text-white p-8">
+    <div className="min-h-screen bg-white text-gray-800 p-8">
       <div className="max-w-4xl mx-auto">
         <motion.h1 
-          className="text-4xl md:text-5xl font-bold mb-6 text-center"
+          className="text-4xl md:text-5xl font-bold mb-6 text-center text-blue-600"
           initial={{ opacity: 0, y: -50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
@@ -106,7 +106,7 @@ export default function CourseRegistrationPage({ params, searchParams }: { param
 
         {submitSuccess ? (
           <motion.div
-            className="bg-green-500 bg-opacity-20 p-8 rounded-xl text-center"
+            className="bg-green-100 p-8 rounded-xl text-center text-green-800"
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.5 }}
@@ -115,7 +115,7 @@ export default function CourseRegistrationPage({ params, searchParams }: { param
             <p className="text-lg">Thank you for registering for {formData.courseName}. We'll contact you via email or phone once we reach the minimum registration for the course.</p>
           </motion.div>
         ) : (
-          <form onSubmit={handleSubmit} className="space-y-6 bg-white bg-opacity-10 p-8 rounded-xl">
+          <form onSubmit={handleSubmit} className="space-y-6 bg-gray-100 p-8 rounded-xl shadow-md">
             <div>
               <label htmlFor="name" className="block mb-2 font-semibold">Full Name *</label>
               <input
@@ -124,7 +124,7 @@ export default function CourseRegistrationPage({ params, searchParams }: { param
                 name="name"
                 value={formData.name}
                 onChange={handleInputChange}
-                className={`w-full px-3 py-2 bg-white bg-opacity-20 rounded-md text-white placeholder-gray-300 ${errors.name ? 'border border-red-400' : ''}`}
+                className={`w-full px-3 py-2 bg-white rounded-md text-gray-800 placeholder-gray-400 ${errors.name ? 'border border-red-400' : 'border border-gray-300'}`}
                 placeholder="Enter your full name"
                 required
               />
@@ -139,7 +139,7 @@ export default function CourseRegistrationPage({ params, searchParams }: { param
                 name="email"
                 value={formData.email}
                 onChange={handleInputChange}
-                className={`w-full px-3 py-2 bg-white bg-opacity-20 rounded-md text-white placeholder-gray-300 ${errors.email ? 'border border-red-400' : ''}`}
+                className={`w-full px-3 py-2 bg-white rounded-md text-gray-800 placeholder-gray-400 ${errors.email ? 'border border-red-400' : 'border border-gray-300'}`}
                 placeholder="abc@example.com"
                 required
               />
@@ -156,11 +156,11 @@ export default function CourseRegistrationPage({ params, searchParams }: { param
                   inputProps={{
                     name: 'phone',
                     required: true,
-                    className: 'w-full px-3 py-2 bg-white bg-opacity-20 rounded-md text-white placeholder-gray-300 pl-14'
+                    className: 'w-full px-3 py-2 bg-white rounded-md text-gray-800 placeholder-gray-400 pl-14'
                   }}
                   containerClass="!w-full"
-                  buttonClass="!bg-white !bg-opacity-20 !border-r-0 !px-3 !pl-3"
-                  dropdownClass="!bg-gray-800 !text-white"
+                  buttonClass="!bg-gray-100 !border-gray-300 !px-3 !pl-3"
+                  dropdownClass="!bg-white !text-gray-800"
                 />
               </div>
               {errors.phone && <p className="text-red-400 text-sm mt-1">{errors.phone}</p>}
@@ -174,7 +174,7 @@ export default function CourseRegistrationPage({ params, searchParams }: { param
                 name="occupation"
                 value={formData.occupation}
                 onChange={handleInputChange}
-                className={`w-full px-3 py-2 bg-white bg-opacity-20 rounded-md text-white placeholder-gray-300 ${errors.occupation ? 'border border-red-400' : ''}`}
+                className={`w-full px-3 py-2 bg-white rounded-md text-gray-800 placeholder-gray-400 ${errors.occupation ? 'border border-red-400' : 'border border-gray-300'}`}
                 placeholder="Software Engineer"
                 required
               />
@@ -188,7 +188,7 @@ export default function CourseRegistrationPage({ params, searchParams }: { param
                 name="experience"
                 value={formData.experience}
                 onChange={handleInputChange}
-                className={`w-full px-3 py-2 bg-white bg-opacity-20 rounded-md text-white ${errors.experience ? 'border border-red-400' : ''}`}
+                className={`w-full px-3 py-2 bg-white rounded-md text-gray-800 ${errors.experience ? 'border border-red-400' : 'border border-gray-300'}`}
                 required
               >
                 <option value="">Select your experience level</option>
@@ -206,14 +206,14 @@ export default function CourseRegistrationPage({ params, searchParams }: { param
                 name="expectations"
                 value={formData.expectations}
                 onChange={handleInputChange}
-                className="w-full px-3 py-2 bg-white bg-opacity-20 rounded-md text-white placeholder-gray-300"
+                className="w-full px-3 py-2 bg-white rounded-md text-gray-800 placeholder-gray-400 border border-gray-300"
                 rows={4}
                 placeholder="Describe your expectations"
               ></textarea>
             </div>
 
             {errors.submit && (
-              <div className="bg-red-500 bg-opacity-20 p-3 rounded-md flex items-center">
+              <div className="bg-red-100 p-3 rounded-md flex items-center text-red-800">
                 <AlertCircle className="mr-2" />
                 <p>{errors.submit}</p>
               </div>
