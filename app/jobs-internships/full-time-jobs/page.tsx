@@ -49,10 +49,10 @@ export default function FullTimeJobsPage() {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-blue-900 to-teal-700 text-white p-4 sm:p-8">
-      <div className="max-w-4xl mx-auto">
+    <div className="bg-white min-h-screen text-gray-800">
+      <div className="max-w-4xl mx-auto px-4 py-8">
         <motion.h1
-          className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 sm:mb-6 text-center"
+          className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 sm:mb-6 text-center text-gray-800"
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
@@ -66,16 +66,16 @@ export default function FullTimeJobsPage() {
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.2 }}
         >
-          <h2 className="text-2xl font-semibold mb-4">Launch Your Career with GuruAvatar</h2>
-          <p className="mb-6 text-lg">Transitioning from student life to a full-time career is a significant milestone. GuruAvatar is here to guide you through every step of the process, from finding the right opportunities to negotiating your first salary.</p>
+          <h2 className="text-2xl font-semibold mb-4 text-gray-800">Launch Your Career with GuruAvatar</h2>
+          <p className="mb-6 text-gray-600">Transitioning from student life to a full-time career is a significant milestone. GuruAvatar is here to guide you through every step of the process, from finding the right opportunities to negotiating your first salary.</p>
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {features.map((feature, index) => (
-              <div key={index} className="flex items-start space-x-3 bg-white bg-opacity-10 p-4 rounded-lg">
-                <feature.icon className="w-6 h-6 text-orange-400 flex-shrink-0" />
+              <div key={index} className="flex items-start space-x-3 bg-gray-100 p-4 rounded-lg">
+                <feature.icon className="w-6 h-6 text-blue-600 flex-shrink-0" />
                 <div>
-                  <h3 className="font-semibold mb-1">{feature.title}</h3>
-                  <p className="text-sm text-blue-200">{feature.description}</p>
+                  <h3 className="font-semibold mb-1 text-gray-800">{feature.title}</h3>
+                  <p className="text-sm text-gray-600">{feature.description}</p>
                 </div>
               </div>
             ))}
@@ -84,12 +84,12 @@ export default function FullTimeJobsPage() {
 
         <motion.form
           onSubmit={handleSubmit}
-          className="bg-white bg-opacity-10 p-6 rounded-xl shadow-lg"
+          className="bg-gray-100 p-6 rounded-xl shadow-lg"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.4 }}
         >
-          <h2 className="text-2xl font-semibold mb-4">Tell Us About Your Career Goals</h2>
+          <h2 className="text-2xl font-semibold mb-4 text-gray-800">Tell Us About Your Career Goals</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <input
               type="text"
@@ -97,7 +97,7 @@ export default function FullTimeJobsPage() {
               placeholder="Full Name"
               value={formData.name}
               onChange={handleInputChange}
-              className="w-full px-4 py-2 bg-white bg-opacity-20 rounded-md text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-300"
+              className="w-full px-4 py-2 bg-white rounded-md text-gray-800 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-300"
               required
             />
             <input
@@ -106,7 +106,7 @@ export default function FullTimeJobsPage() {
               placeholder="Email Address"
               value={formData.email}
               onChange={handleInputChange}
-              className="w-full px-4 py-2 bg-white bg-opacity-20 rounded-md text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-300"
+              className="w-full px-4 py-2 bg-white rounded-md text-gray-800 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-300"
               required
             />
             <input
@@ -115,7 +115,7 @@ export default function FullTimeJobsPage() {
               placeholder="Graduation Date"
               value={formData.graduationDate}
               onChange={handleInputChange}
-              className="w-full px-4 py-2 bg-white bg-opacity-20 rounded-md text-white focus:outline-none focus:ring-2 focus:ring-blue-300"
+              className="w-full px-4 py-2 bg-white rounded-md text-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-300"
             />
             <input
               type="text"
@@ -123,14 +123,14 @@ export default function FullTimeJobsPage() {
               placeholder="Desired Industry"
               value={formData.desiredIndustry}
               onChange={handleInputChange}
-              className="w-full px-4 py-2 bg-white bg-opacity-20 rounded-md text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-300"
+              className="w-full px-4 py-2 bg-white rounded-md text-gray-800 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-300"
             />
             <textarea
               name="skills"
               placeholder="Key Skills"
               value={formData.skills}
               onChange={handleInputChange}
-              className="w-full px-4 py-2 bg-white bg-opacity-20 rounded-md text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-300"
+              className="w-full px-4 py-2 bg-white rounded-md text-gray-800 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-300"
               rows={3}
             />
             <textarea
@@ -138,7 +138,7 @@ export default function FullTimeJobsPage() {
               placeholder="Relevant Experience"
               value={formData.experience}
               onChange={handleInputChange}
-              className="w-full px-4 py-2 bg-white bg-opacity-20 rounded-md text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-300"
+              className="w-full px-4 py-2 bg-white rounded-md text-gray-800 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-300"
               rows={3}
             />
             <input
@@ -147,7 +147,7 @@ export default function FullTimeJobsPage() {
               placeholder="Preferred Job Location"
               value={formData.preferredLocation}
               onChange={handleInputChange}
-              className="w-full px-4 py-2 bg-white bg-opacity-20 rounded-md text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-300"
+              className="w-full px-4 py-2 bg-white rounded-md text-gray-800 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-300"
             />
             <input
               type="text"
@@ -155,7 +155,7 @@ export default function FullTimeJobsPage() {
               placeholder="Salary Expectation"
               value={formData.salaryExpectation}
               onChange={handleInputChange}
-              className="w-full px-4 py-2 bg-white bg-opacity-20 rounded-md text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-300"
+              className="w-full px-4 py-2 bg-white rounded-md text-gray-800 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-300"
             />
             <input
               type="url"
@@ -163,7 +163,7 @@ export default function FullTimeJobsPage() {
               placeholder="Link to Your Resume"
               value={formData.resumeLink}
               onChange={handleInputChange}
-              className="w-full px-4 py-2 bg-white bg-opacity-20 rounded-md text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-300"
+              className="w-full px-4 py-2 bg-white rounded-md text-gray-800 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-300"
             />
             <input
               type="url"
@@ -171,7 +171,7 @@ export default function FullTimeJobsPage() {
               placeholder="LinkedIn Profile URL"
               value={formData.linkedinProfile}
               onChange={handleInputChange}
-              className="w-full px-4 py-2 bg-white bg-opacity-20 rounded-md text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-300"
+              className="w-full px-4 py-2 bg-white rounded-md text-gray-800 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-300"
             />
             <input
               type="url"
@@ -179,7 +179,7 @@ export default function FullTimeJobsPage() {
               placeholder="Portfolio Website (if applicable)"
               value={formData.portfolioLink}
               onChange={handleInputChange}
-              className="w-full px-4 py-2 bg-white bg-opacity-20 rounded-md text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-300"
+              className="w-full px-4 py-2 bg-white rounded-md text-gray-800 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-300"
             />
             <input
               type="date"
@@ -187,12 +187,12 @@ export default function FullTimeJobsPage() {
               placeholder="Available to Start Work"
               value={formData.availabilityDate}
               onChange={handleInputChange}
-              className="w-full px-4 py-2 bg-white bg-opacity-20 rounded-md text-white focus:outline-none focus:ring-2 focus:ring-blue-300"
+              className="w-full px-4 py-2 bg-white rounded-md text-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-300"
             />
           </div>
           <button
             type="submit"
-            className="mt-6 w-full bg-orange-500 text-white px-4 py-2 rounded-md hover:bg-orange-600 transition duration-300 font-semibold"
+            className="mt-6 w-full bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition duration-300"
           >
             Submit Career Profile
           </button>
@@ -204,14 +204,14 @@ export default function FullTimeJobsPage() {
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.5 }}
         >
-          <h2 className="text-2xl font-semibold mb-4">Career Resources</h2>
+          <h2 className="text-2xl font-semibold mb-4 text-gray-800">Career Resources</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             {careerResources.map((resource, index) => (
-              <div key={index} className="bg-white bg-opacity-10 p-4 rounded-lg flex items-start space-x-3">
-                <resource.icon className="w-6 h-6 text-orange-400 flex-shrink-0" />
+              <div key={index} className="bg-gray-100 p-4 rounded-lg flex items-start space-x-3">
+                <resource.icon className="w-6 h-6 text-blue-600 flex-shrink-0" />
                 <div>
-                  <h3 className="font-semibold mb-1">{resource.title}</h3>
-                  <p className="text-sm text-blue-200">{resource.description}</p>
+                  <h3 className="font-semibold mb-1 text-gray-800">{resource.title}</h3>
+                  <p className="text-sm text-gray-600">{resource.description}</p>
                 </div>
               </div>
             ))}
@@ -224,8 +224,8 @@ export default function FullTimeJobsPage() {
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.6 }}
         >
-          <h2 className="text-2xl font-semibold mb-4">Prepare for Success</h2>
-          <div className="bg-white bg-opacity-10 p-6 rounded-xl">
+          <h2 className="text-2xl font-semibold mb-4 text-gray-800">Prepare for Success</h2>
+          <div className="bg-gray-100 p-6 rounded-xl">
             <ul className="space-y-2">
               {[
                 "Research companies in your desired industry",
@@ -237,7 +237,7 @@ export default function FullTimeJobsPage() {
               ].map((tip, index) => (
                 <li key={index} className="flex items-center">
                   <CheckCircle className="w-5 h-5 mr-2 text-green-400" />
-                  <span>{tip}</span>
+                  <span className="text-gray-800">{tip}</span>
                 </li>
               ))}
             </ul>
@@ -250,9 +250,9 @@ export default function FullTimeJobsPage() {
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.7 }}
         >
-          <h2 className="text-2xl font-semibold mb-4">Ready to Explore Full-Time Opportunities?</h2>
-          <p className="mb-6">Browse our curated list of job openings and find your perfect career match.</p>
-          <button className="bg-teal-500 text-white px-6 py-2 rounded-full hover:bg-teal-600 transition duration-300 font-semibold flex items-center mx-auto">
+          <h2 className="text-2xl font-semibold mb-4 text-gray-800">Ready to Explore Full-Time Opportunities?</h2>
+          <p className="mb-6 text-gray-600">Browse our curated list of job openings and find your perfect career match.</p>
+          <button className="bg-blue-600 text-white px-6 py-2 rounded-full hover:bg-blue-700 transition duration-300 font-semibold flex items-center mx-auto">
             Browse Job Listings
             <ArrowRight className="ml-2 w-4 h-4" />
           </button>

@@ -58,10 +58,10 @@ export default function InternshipsPage() {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-blue-900 to-teal-700 text-white p-4 sm:p-8">
-      <div className="max-w-4xl mx-auto">
+    <div className="bg-white min-h-screen text-gray-800">
+      <div className="max-w-4xl mx-auto px-4 py-8">
         <motion.h1
-          className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 sm:mb-6 text-center"
+          className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 sm:mb-6 text-center text-gray-800"
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
@@ -75,16 +75,16 @@ export default function InternshipsPage() {
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.2 }}
         >
-          <h2 className="text-2xl font-semibold mb-4">Kickstart Your Career with Meaningful Internships</h2>
-          <p className="mb-6 text-lg">Gain invaluable industry experience, build your professional network, and apply your academic knowledge in real-world settings. GuruAvatar connects you with internship opportunities that align with your career goals.</p>
+          <h2 className="text-2xl font-semibold mb-4 text-gray-800">Kickstart Your Career with Meaningful Internships</h2>
+          <p className="mb-6 text-gray-600">Gain invaluable industry experience, build your professional network, and apply your academic knowledge in real-world settings. GuruAvatar connects you with internship opportunities that align with your career goals.</p>
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {internshipBenefits.map((benefit, index) => (
-              <div key={index} className="flex items-start space-x-3 bg-white bg-opacity-10 p-4 rounded-lg">
-                <benefit.icon className="w-6 h-6 text-orange-400 flex-shrink-0" />
+              <div key={index} className="flex items-start space-x-3 bg-gray-100 p-4 rounded-lg">
+                <benefit.icon className="w-6 h-6 text-blue-600 flex-shrink-0" />
                 <div>
-                  <h3 className="font-semibold mb-1">{benefit.title}</h3>
-                  <p className="text-sm text-blue-200">{benefit.description}</p>
+                  <h3 className="font-semibold mb-1 text-gray-800">{benefit.title}</h3>
+                  <p className="text-sm text-gray-600">{benefit.description}</p>
                 </div>
               </div>
             ))}
@@ -97,12 +97,12 @@ export default function InternshipsPage() {
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.3 }}
         >
-          <h2 className="text-2xl font-semibold mb-4">Types of Internships</h2>
+          <h2 className="text-2xl font-semibold mb-4 text-gray-800">Types of Internships</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             {internshipTypes.map((type, index) => (
-              <div key={index} className="bg-white bg-opacity-10 p-4 rounded-lg">
-                <h3 className="font-semibold mb-2">{type.title}</h3>
-                <p className="text-sm text-blue-200">{type.description}</p>
+              <div key={index} className="bg-gray-100 p-4 rounded-lg">
+                <h3 className="font-semibold mb-2 text-gray-800">{type.title}</h3>
+                <p className="text-sm text-gray-600">{type.description}</p>
               </div>
             ))}
           </div>
@@ -110,12 +110,12 @@ export default function InternshipsPage() {
 
         <motion.form
           onSubmit={handleSubmit}
-          className="bg-white bg-opacity-10 p-6 rounded-xl shadow-lg"
+          className="bg-gray-100 p-6 rounded-xl shadow-lg"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.4 }}
         >
-          <h2 className="text-2xl font-semibold mb-4">Apply for Internship Matching</h2>
+          <h2 className="text-2xl font-semibold mb-4 text-gray-800">Apply for Internship Matching</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <input
               type="text"
@@ -123,7 +123,7 @@ export default function InternshipsPage() {
               placeholder="Full Name"
               value={formData.name}
               onChange={handleInputChange}
-              className="w-full px-4 py-2 bg-white bg-opacity-20 rounded-md text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-300"
+              className="w-full px-4 py-2 bg-white rounded-md text-gray-800 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-300"
               required
             />
             <input
@@ -132,7 +132,7 @@ export default function InternshipsPage() {
               placeholder="Email Address"
               value={formData.email}
               onChange={handleInputChange}
-              className="w-full px-4 py-2 bg-white bg-opacity-20 rounded-md text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-300"
+              className="w-full px-4 py-2 bg-white rounded-md text-gray-800 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-300"
               required
             />
             <input
@@ -141,7 +141,7 @@ export default function InternshipsPage() {
               placeholder="University/College"
               value={formData.university}
               onChange={handleInputChange}
-              className="w-full px-4 py-2 bg-white bg-opacity-20 rounded-md text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-300"
+              className="w-full px-4 py-2 bg-white rounded-md text-gray-800 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-300"
             />
             <input
               type="text"
@@ -149,13 +149,13 @@ export default function InternshipsPage() {
               placeholder="Major/Field of Study"
               value={formData.major}
               onChange={handleInputChange}
-              className="w-full px-4 py-2 bg-white bg-opacity-20 rounded-md text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-300"
+              className="w-full px-4 py-2 bg-white rounded-md text-gray-800 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-300"
             />
             <select
               name="graduationYear"
               value={formData.graduationYear}
               onChange={handleInputChange}
-              className="w-full px-4 py-2 bg-white bg-opacity-20 rounded-md text-white focus:outline-none focus:ring-2 focus:ring-blue-300"
+              className="w-full px-4 py-2 bg-white rounded-md text-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-300"
             >
               <option value="">Expected Graduation Year</option>
               {[...Array(6)].map((_, i) => {
@@ -169,7 +169,7 @@ export default function InternshipsPage() {
               placeholder="Desired Industry for Internship"
               value={formData.desiredIndustry}
               onChange={handleInputChange}
-              className="w-full px-4 py-2 bg-white bg-opacity-20 rounded-md text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-300"
+              className="w-full px-4 py-2 bg-white rounded-md text-gray-800 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-300"
             />
             <input
               type="text"
@@ -177,7 +177,7 @@ export default function InternshipsPage() {
               placeholder="Preferred Internship Location"
               value={formData.preferredLocation}
               onChange={handleInputChange}
-              className="w-full px-4 py-2 bg-white bg-opacity-20 rounded-md text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-300"
+              className="w-full px-4 py-2 bg-white rounded-md text-gray-800 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-300"
             />
             <input
               type="text"
@@ -185,7 +185,7 @@ export default function InternshipsPage() {
               placeholder="Link to Your Resume (Google Drive, Dropbox, etc.)"
               value={formData.resumeLink}
               onChange={handleInputChange}
-              className="w-full px-4 py-2 bg-white bg-opacity-20 rounded-md text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-300"
+              className="w-full px-4 py-2 bg-white rounded-md text-gray-800 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-300"
             />
             <input
               type="text"
@@ -193,14 +193,14 @@ export default function InternshipsPage() {
               placeholder="LinkedIn Profile URL"
               value={formData.linkedinProfile}
               onChange={handleInputChange}
-              className="w-full px-4 py-2 bg-white bg-opacity-20 rounded-md text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-300"
+              className="w-full px-4 py-2 bg-white rounded-md text-gray-800 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-300"
             />
             <textarea
               name="skills"
               placeholder="Relevant Skills (e.g., Programming Languages, Tools, Soft Skills)"
               value={formData.skills}
               onChange={handleInputChange}
-              className="w-full px-4 py-2 bg-white bg-opacity-20 rounded-md text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-300"
+              className="w-full px-4 py-2 bg-white rounded-md text-gray-800 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-300"
               rows={3}
             />
             <textarea
@@ -208,7 +208,7 @@ export default function InternshipsPage() {
               placeholder="Availability (e.g., Summer 2024, Fall 2024, Part-time during semester)"
               value={formData.availability}
               onChange={handleInputChange}
-              className="w-full px-4 py-2 bg-white bg-opacity-20 rounded-md text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-300"
+              className="w-full px-4 py-2 bg-white rounded-md text-gray-800 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-300"
               rows={3}
             />
             <textarea
@@ -216,13 +216,13 @@ export default function InternshipsPage() {
               placeholder="Any specific project ideas or areas of interest?"
               value={formData.projectIdeas}
               onChange={handleInputChange}
-              className="w-full px-4 py-2 bg-white bg-opacity-20 rounded-md text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-300 md:col-span-2"
+              className="w-full px-4 py-2 bg-white rounded-md text-gray-800 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-300 md:col-span-2"
               rows={3}
             />
           </div>
           <button
             type="submit"
-            className="mt-6 w-full bg-orange-500 text-white px-4 py-2 rounded-md hover:bg-orange-600 transition duration-300 font-semibold"
+            className="mt-6 w-full bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition duration-300"
           >
             Submit Internship Application
           </button>
@@ -234,13 +234,13 @@ export default function InternshipsPage() {
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.5 }}
         >
-          <h2 className="text-2xl font-semibold mb-4">Prepare for Success</h2>
-          <div className="bg-white bg-opacity-10 p-6 rounded-xl">
+          <h2 className="text-2xl font-semibold mb-4 text-gray-800">Prepare for Success</h2>
+          <div className="bg-gray-100 p-6 rounded-xl">
             <ul className="space-y-2">
               {preparationTips.map((tip, index) => (
                 <li key={index} className="flex items-center">
                   <CheckCircle className="w-5 h-5 mr-2 text-green-400" />
-                  <span>{tip}</span>
+                  <span className="text-gray-800">{tip}</span>
                 </li>
               ))}
             </ul>
@@ -253,9 +253,9 @@ export default function InternshipsPage() {
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.6 }}
         >
-          <h2 className="text-2xl font-semibold mb-4">Ready to Explore Internship Opportunities?</h2>
-          <p className="mb-6">Browse our curated list of internships and find the perfect match for your skills and interests.</p>
-          <button className="bg-teal-500 text-white px-6 py-2 rounded-full hover:bg-teal-600 transition duration-300 font-semibold flex items-center mx-auto">
+          <h2 className="text-2xl font-semibold mb-4 text-gray-800">Ready to Explore Internship Opportunities?</h2>
+          <p className="mb-6 text-gray-600">Browse our curated list of internships and find the perfect match for your skills and interests.</p>
+          <button className="bg-blue-600 text-white px-6 py-2 rounded-full hover:bg-blue-700 transition duration-300 font-semibold flex items-center mx-auto">
             Browse Internships
             <ArrowRight className="ml-2 w-4 h-4" />
           </button>
