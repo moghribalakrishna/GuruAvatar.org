@@ -9,11 +9,13 @@ export interface CourseCategory {
   name: string;
   description: string;
   courses: Course[];
+  image: string; // Add this line
 }
 
 export const courseCategories: CourseCategory[] = [
   {
     name: "AI-Driven Innovation",
+    image: "/images/programs-and-courses/ai-driven-innovation.webp",
     description: "Cutting-edge courses in artificial intelligence applications",
     courses: [
       { id: "ai1", title: "Prompt Engineering and AI Content Generation", description: "Learn how to engineer prompts for AI content generation.", slug: "prompt-engineering-ai-content-generation" },
@@ -36,6 +38,7 @@ export const courseCategories: CourseCategory[] = [
   },
   {
     name: "Interview Preparation",
+    image: "/images/programs-and-courses/interview-preparation.webp",
     description: "Courses designed to help freshers prepare for job interviews and excel in the hiring process.",
     courses: [
       { id: "ip1", title: "Aptitude Test Preparation", description: "Master the skills needed to ace aptitude tests during campus placements.", slug: "aptitude-test-preparation" },
@@ -48,7 +51,30 @@ export const courseCategories: CourseCategory[] = [
     ]
   },
   {
+    name: "Entrepreneurship & Startup Essentials",
+    image: "/images/programs-and-courses/entrepreneurship-startup-essentials.webp",
+    description: "Equip aspiring entrepreneurs with the knowledge and skills to start and run successful businesses.",
+    courses: [
+      { id: "es1", title: "Startup Fundamentals", description: "Learn the basics of launching and scaling a startup.", slug: "startup-fundamentals" },
+      { id: "es2", title: "Business Plan Development", description: "Create effective business plans to attract investors.", slug: "business-plan-development" },
+      { id: "es3", title: "Fundraising and Venture Capital", description: "Understand the process of raising funds and working with VCs.", slug: "fundraising-venture-capital" },
+      { id: "es4", title: "Entrepreneurial Mindset", description: "Cultivate the mindset necessary for entrepreneurial success.", slug: "entrepreneurial-mindset" }
+    ]
+  },
+  {
+    name: "Web & Mobile Development",
+    image: "/images/programs-and-courses/web-mobile-development.webp",
+    description: "Build powerful, responsive applications for the modern web",
+    courses: [
+      { id: "wd1", title: "Full Stack Web Development", description: "Comprehensive course on both front-end and back-end development.", slug: "full-stack-web-development" },
+      { id: "wd2", title: "React and React Native", description: "Build web and mobile applications using React.", slug: "react-react-native" },
+      { id: "wd3", title: "Node.js and Express", description: "Create scalable server-side applications with Node.js.", slug: "nodejs-express" },
+      { id: "wd4", title: "Progressive Web Apps", description: "Develop web apps with native-like capabilities.", slug: "progressive-web-apps" },
+      { id: "wd5", title: "Mobile App Development (iOS and Android)", description: "Create native mobile apps for both major platforms.", slug: "mobile-app-development-ios-android" }
+    ]
+  },  {
     name: "Data Science & Analytics",
+    image: "/images/programs-and-courses/data-science-analytics.webp",
     description: "Master the art of extracting insights from data",
     courses: [
       { id: "ds1", title: "Data Science Fundamentals", description: "Introduction to core concepts of data science.", slug: "data-science-fundamentals" },
@@ -59,18 +85,8 @@ export const courseCategories: CourseCategory[] = [
     ]
   },
   {
-    name: "Web & Mobile Development",
-    description: "Build powerful, responsive applications for the modern web",
-    courses: [
-      { id: "wd1", title: "Full Stack Web Development", description: "Comprehensive course on both front-end and back-end development.", slug: "full-stack-web-development" },
-      { id: "wd2", title: "React and React Native", description: "Build web and mobile applications using React.", slug: "react-react-native" },
-      { id: "wd3", title: "Node.js and Express", description: "Create scalable server-side applications with Node.js.", slug: "nodejs-express" },
-      { id: "wd4", title: "Progressive Web Apps", description: "Develop web apps with native-like capabilities.", slug: "progressive-web-apps" },
-      { id: "wd5", title: "Mobile App Development (iOS and Android)", description: "Create native mobile apps for both major platforms.", slug: "mobile-app-development-ios-android" }
-    ]
-  },
-  {
     name: "Cloud & DevOps",
+    image: "/images/programs-and-courses/cloud-devops.webp",
     description: "Master cloud technologies and DevOps practices",
     courses: [
       { id: "cd1", title: "Cloud Computing (AWS, Azure, Google Cloud)", description: "Comprehensive overview of major cloud platforms.", slug: "cloud-computing-aws-azure-google-cloud" },
@@ -81,6 +97,7 @@ export const courseCategories: CourseCategory[] = [
   },
   {
     name: "Cybersecurity",
+    image: "/images/programs-and-courses/cybersecurity.webp",
     description: "Protect digital assets and mitigate security risks",
     courses: [
       { id: "cs1", title: "Network Security", description: "Understand and implement network security measures.", slug: "network-security" },
@@ -90,6 +107,7 @@ export const courseCategories: CourseCategory[] = [
   },
   {
     name: "Business & Management",
+    image: "/images/programs-and-courses/business-management.webp",
     description: "Develop essential skills for business success",
     courses: [
       { id: "bm1", title: "Project Management (PMP, Agile, Scrum)", description: "Master various project management methodologies.", slug: "project-management-pmp-agile-scrum" },
@@ -100,6 +118,7 @@ export const courseCategories: CourseCategory[] = [
   },
   {
     name: "Soft Skills & Professional Development",
+    image: "/images/programs-and-courses/soft-skills-professional-development.webp",
     description: "Courses focused on improving interpersonal skills, communication, and other essential soft skills.",
     courses: [
       { id: "ss1", title: "Effective Communication Skills", description: "Learn the art of clear and impactful communication in a professional setting.", slug: "effective-communication-skills" },
@@ -109,17 +128,8 @@ export const courseCategories: CourseCategory[] = [
     ]
   },
   {
-    name: "Entrepreneurship & Startup Essentials",
-    description: "Equip aspiring entrepreneurs with the knowledge and skills to start and run successful businesses.",
-    courses: [
-      { id: "es1", title: "Startup Fundamentals", description: "Learn the basics of launching and scaling a startup.", slug: "startup-fundamentals" },
-      { id: "es2", title: "Business Plan Development", description: "Create effective business plans to attract investors.", slug: "business-plan-development" },
-      { id: "es3", title: "Fundraising and Venture Capital", description: "Understand the process of raising funds and working with VCs.", slug: "fundraising-venture-capital" },
-      { id: "es4", title: "Entrepreneurial Mindset", description: "Cultivate the mindset necessary for entrepreneurial success.", slug: "entrepreneurial-mindset" }
-    ]
-  },
-  {
     name: "Digital Literacy & IT Skills",
+    image: "/images/programs-and-courses/digital-literacy-it-skills.webp",
     description: "Courses aimed at improving digital literacy and foundational IT skills.",
     courses: [
       { id: "dl1", title: "Basic Computer Skills", description: "Introduction to essential computer operations and software.", slug: "basic-computer-skills" },
@@ -130,6 +140,7 @@ export const courseCategories: CourseCategory[] = [
   },
   {
     name: "Creative Design & Multimedia",
+    image: "/images/programs-and-courses/creative-design-multimedia.webp",
     description: "Develop creative skills for design, media production, and digital art.",
     courses: [
       { id: "cdm1", title: "Graphic Design Basics", description: "Learn the fundamentals of graphic design and visual communication.", slug: "graphic-design-basics" },

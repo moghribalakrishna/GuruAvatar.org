@@ -26,7 +26,7 @@ export default function CourseCategory({ category, index }: CourseCategoryProps)
     >
       <Link href={`/programs-and-courses/${category.name.toLowerCase().replace(/\s+/g, '-')}`}>
         <Image 
-          src={`/images/programs-and-courses/${category.name.toLowerCase().replace(/\s+/g, '-')}.webp`}
+          src={category.image}
           alt={category.name}
           width={400}
           height={225}

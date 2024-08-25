@@ -39,7 +39,7 @@ export default function CategoryPage() {
 
         <div className="text-center mb-12">
           <Image 
-            src={`/images/programs-and-courses/${categoryData.name.toLowerCase().replace(/\s+/g, '-')}.webp`}
+            src={categoryData.image}
             alt={categoryData.name}
             width={1200} 
             height={600} 
