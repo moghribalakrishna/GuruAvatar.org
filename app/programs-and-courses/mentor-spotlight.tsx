@@ -16,7 +16,7 @@ export default function MentorSpotlight() {
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
     >
-      <h2 className="text-3xl font-bold mb-6 text-center text-blue-600">Learn from Industry Experts</h2>
+      <h2 className="text-3xl font-bold mb-6 text-center text-gray-800">Learn from Industry Experts</h2>
       <p className="text-center mb-8 text-gray-600">
         Connect with experienced mentors who are leaders in their fields.
       </p>
@@ -27,6 +27,9 @@ export default function MentorSpotlight() {
             className="text-center bg-white p-6 rounded-lg shadow-md"
             whileHover={{ scale: 1.05 }}
             transition={{ duration: 0.2 }}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: index * 0.1 }}
           >
             <Image
               src={mentor.image}

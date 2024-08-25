@@ -17,22 +17,25 @@ export default function ResourceHub() {
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
     >
-      <h2 className="text-3xl font-bold mb-6 text-center text-blue-600">Extensive Resource Hub</h2>
+      <h2 className="text-3xl font-bold mb-6 text-center text-gray-800">Extensive Resource Hub</h2>
       <p className="text-center mb-8 text-gray-600">
         Access a wealth of curated, free learning materials across various formats.
       </p>
       <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
         {resourceTypes.map((type, index) => (
-          <div key={index} className="text-center">
-            <motion.div
-              className="bg-white rounded-full p-4 inline-block mb-4 shadow-md"
-              whileHover={{ scale: 1.1, rotate: 5 }}
-            >
+          <motion.div
+            key={index}
+            className="text-center"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: index * 0.1 }}
+          >
+            <div className="bg-white rounded-full p-4 inline-block mb-4 shadow-md">
               <type.icon size={32} className="text-blue-600" />
-            </motion.div>
+            </div>
             <h3 className="font-semibold mb-2 text-gray-800">{type.name}</h3>
             <p className="text-orange-500">{type.count}+</p>
-          </div>
+          </motion.div>
         ))}
       </div>
     </motion.div>

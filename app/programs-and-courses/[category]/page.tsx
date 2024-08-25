@@ -1,9 +1,11 @@
 'use client';
+
 import React from 'react';
 import { useParams } from 'next/navigation';
 import { motion } from 'framer-motion';
 import { courseCategories } from '../../data/courseData';
 import CourseCard from '../course-card';
+import Image from 'next/image';
 
 export default function CategoryPage() {
   const params = useParams();
@@ -12,22 +14,46 @@ export default function CategoryPage() {
   const categoryData = courseCategories.find(cat => cat.name.toLowerCase().replace(/\s+/g, '-') === decodedCategory);
 
   if (!categoryData) {
-    return <div>Category not found</div>;
+    return <div className="text-center text-2xl mt-16">Category not found</div>;
   }
 
   return (
-    <div className="min-h-screen bg-white text-gray-800">
-      <motion.div
-        className="max-w-7xl mx-auto px-4 py-16"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.5 }}
-      >
-        <h1 className="text-5xl font-bold text-center mb-8 text-blue-600">{categoryData.name}</h1>
-        <p className="text-xl text-center mb-16 max-w-3xl mx-auto text-gray-600">{categoryData.description}</p>
-        
-        <div className="mb-16">
-          <h2 className="text-3xl font-semibold mb-4 text-blue-600">Value Proposition</h2>
+    <div className="min-h-screen bg-white text-gray-800 p-8">
+      <div className="max-w-6xl mx-auto">
+        <motion.h1 
+          className="text-4xl font-bold mb-6 text-center text-gray-900"
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+        >
+          {categoryData.name}
+        </motion.h1>
+        <motion.p 
+          className="text-xl mb-12 text-center text-gray-600"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+        >
+          {categoryData.description}
+        </motion.p>
+
+        <div className="text-center mb-12">
+          <Image 
+            src={`/images/programs-and-courses/${categoryData.name.toLowerCase().replace(/\s+/g, '-')}.webp`}
+            alt={categoryData.name}
+            width={1200} 
+            height={600} 
+            className="rounded-lg mx-auto"
+          />
+        </div>
+
+        <motion.section 
+          className="mb-16"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.3 }}
+        >
+          <h2 className="text-3xl font-semibold mb-4 text-gray-900">Value Proposition</h2>
           <p className="text-lg mb-8 text-gray-700">
             Our {categoryData.name} courses are designed to provide you with cutting-edge skills and knowledge in the field.
             By enrolling in these courses, you'll gain:
@@ -39,15 +65,28 @@ export default function CategoryPage() {
             <li>The ability to apply your learning to real-world projects and scenarios</li>
             <li>A competitive edge in the job market with in-demand skills</li>
           </ul>
-        </div>
-        
-        <h2 className="text-3xl font-semibold mb-8 text-blue-600">Available Courses</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {categoryData.courses.map(course => (
-            <CourseCard key={course.id} course={course} categorySlug={decodedCategory} />
-          ))}
-        </div>
-      </motion.div>
+        </motion.section>
+
+        <motion.section
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.4 }}
+        >
+          <h2 className="text-3xl font-semibold mb-8 text-gray-900">Available Courses</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {categoryData.courses.map((course, index) => (
+              <motion.div
+                key={course.id}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.5 + index * 0.1 }}
+              >
+                <CourseCard course={course} categorySlug={decodedCategory} />
+              </motion.div>
+            ))}
+          </div>
+        </motion.section>
+      </div>
     </div>
   );
 }
