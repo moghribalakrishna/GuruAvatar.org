@@ -50,7 +50,7 @@ export default function ProgramsAndCoursesPage() {
         </section>
 
         <ResourceHub />
-        <MentorSpotlight />
+        {/* <MentorSpotlight /> */}
       </div>
     </div>
   );
