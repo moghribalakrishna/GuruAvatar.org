@@ -103,9 +103,9 @@ export default function HabitForgingRegistration() {
   };
 
   return (
-    <div className="bg-gradient-to-br from-blue-900 via-purple-800 to-teal-700 text-white p-8 rounded-xl shadow-lg max-w-4xl mx-auto">
+    <div className="bg-white text-black p-8 rounded-xl shadow-lg max-w-4xl mx-auto">
       <h2 className="text-4xl font-bold mb-6 text-center">Transform Your Life with Habit Forging</h2>
-      <p className="text-xl mb-8 text-center text-blue-200">
+      <p className="text-xl mb-8 text-center text-gray-700">
         Join our expert-guided classes and develop powerful habits for success. Start your journey today!
       </p>
 
@@ -121,7 +121,7 @@ export default function HabitForgingRegistration() {
           <p className="text-lg">Thank you for registering for our Habit Forging classes. We'll contact you soon with more details.</p>
         </motion.div>
       ) : (
-        <form onSubmit={handleSubmit} className="space-y-6 bg-white bg-opacity-10 p-8 rounded-xl">
+        <form onSubmit={handleSubmit} className="space-y-6 bg-gray-100 p-8 rounded-xl">
           <div className="grid md:grid-cols-2 gap-6">
             <div>
               <label htmlFor="name" className="block mb-2 font-semibold">Full Name *</label>
@@ -131,7 +131,7 @@ export default function HabitForgingRegistration() {
                 name="name"
                 value={formData.name}
                 onChange={handleInputChange}
-                className="w-full px-3 py-2 bg-white bg-opacity-20 rounded-md text-white placeholder-gray-300"
+                className="w-full px-3 py-2 bg-gray-200 rounded-md text-black placeholder-gray-500"
                 placeholder="type your name"
                 required
               />
@@ -145,7 +145,7 @@ export default function HabitForgingRegistration() {
                 name="email"
                 value={formData.email}
                 onChange={handleInputChange}
-                className="w-full px-3 py-2 bg-white bg-opacity-20 rounded-md text-white placeholder-gray-300"
+                className="w-full px-3 py-2 bg-gray-200 rounded-md text-black placeholder-gray-500"
                 placeholder="abc@example.com"
                 required
               />
@@ -163,10 +163,10 @@ export default function HabitForgingRegistration() {
                 inputProps={{
                   name: 'phone',
                   required: true,
-                  className: 'w-full px-3 py-2 bg-white bg-opacity-20 rounded-md text-white placeholder-gray-300 pl-14' // Added padding-left for spacing
+                  className: 'w-full px-3 py-2 bg-gray-200 rounded-md text-black placeholder-gray-500 pl-14' // Added padding-left for spacing
                 }}
                 containerClass="!w-full"
-                buttonClass="!bg-white !bg-opacity-20 !border-r-0 !px-3 !pl-3"
+                buttonClass="!bg-gray-200 !border-r-0 !px-3 !pl-3"
                 dropdownClass="!bg-gray-800 !text-white"
               />
             </div>
@@ -201,7 +201,7 @@ export default function HabitForgingRegistration() {
               name="preferredStartDate"
               value={formData.preferredStartDate}
               onChange={handleInputChange}
-              className="w-full px-3 py-2 bg-white bg-opacity-20 rounded-md text-white"
+              className="w-full px-3 py-2 bg-gray-200 rounded-md text-black"
               required
             />
             {errors.preferredStartDate && <p className="text-red-400 text-sm mt-1">{errors.preferredStartDate}</p>}
@@ -214,7 +214,7 @@ export default function HabitForgingRegistration() {
               name="goals"
               value={formData.goals}
               onChange={handleInputChange}
-              className="w-full px-3 py-2 bg-white bg-opacity-20 rounded-md text-white placeholder-gray-300"
+              className="w-full px-3 py-2 bg-gray-200 rounded-md text-black placeholder-gray-500"
               rows={4}
               placeholder="What do you hope to achieve through these habit forging classes?"
               ></textarea>

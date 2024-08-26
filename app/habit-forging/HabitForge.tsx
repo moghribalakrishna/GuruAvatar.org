@@ -43,7 +43,7 @@ const HabitCard: React.FC<HabitCardProps> = ({ habit }) => {
   return (
     <Link href={`/habit-forging/${habit.id}`} passHref>
       <motion.div
-        className="bg-white bg-opacity-10 rounded-lg cursor-pointer transition-all duration-300 hover:bg-opacity-20 hover:shadow-lg overflow-hidden relative"
+        className="bg-gray-100 rounded-lg cursor-pointer transition-all duration-300 hover:bg-gray-200 hover:shadow-lg overflow-hidden relative"
         whileHover={{ scale: 1.03 }}
         whileTap={{ scale: 0.98 }}
       >
@@ -56,8 +56,8 @@ const HabitCard: React.FC<HabitCardProps> = ({ habit }) => {
           playsInline
         />
         <div className="p-4 flex justify-between items-center">
-          <span className="text-lg font-semibold">{habit.title}</span>
-          <ChevronRight size={20} />
+          <span className="text-lg font-semibold text-gray-800">{habit.title}</span>
+          <ChevronRight size={20} className="text-gray-800" />
         </div>
       </motion.div>
     </Link>
@@ -89,7 +89,7 @@ const HabitForge = () => {
       <div className="mt-16 text-center">
         <Link href="/get-started" passHref>
           <motion.button
-            className="bg-orange-500 text-white px-8 py-4 rounded-full text-xl font-semibold hover:bg-orange-600 transition duration-300 flex items-center justify-center mx-auto"
+            className="bg-orange-500 text-white px-8 py-4 rounded-full text-xl font-semibold hover:bg-orange-600 transition duration-300 inline-flex items-center"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >

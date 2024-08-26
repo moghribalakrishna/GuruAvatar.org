@@ -15,9 +15,9 @@ export default function HabitPage({ habitId }: HabitPageProps) {
   const habit = habitsData[habitId];
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-blue-900 to-teal-700 text-white p-8">
+    <div className="min-h-screen bg-white text-black p-8">
       <div className="max-w-6xl mx-auto">
-        <Link href="/habit-forging" className="inline-flex items-center text-blue-300 hover:text-blue-200 mb-8 transition duration-300">
+        <Link href="/habit-forging" className="inline-flex items-center text-gray-700 hover:text-gray-600 mb-8 transition duration-300">
           <ArrowLeft className="mr-2" /> Back to Habit Forge
         </Link>
         
@@ -44,7 +44,7 @@ export default function HabitPage({ habitId }: HabitPageProps) {
               />
             </div>
             <div className="lg:w-1/2">
-              <p className="text-xl text-blue-100 mb-6">
+              <p className="text-xl text-gray-700 mb-6">
                 {habit.description}
               </p>
               <ul className="space-y-4">
@@ -57,7 +57,7 @@ export default function HabitPage({ habitId }: HabitPageProps) {
                     transition={{ duration: 0.5, delay: index * 0.1 }}
                   >
                     <CheckCircle className="text-green-400 mr-3 flex-shrink-0 mt-1" />
-                    <span className="text-lg">{item}</span>
+                    <span className="text-lg text-gray-800">{item}</span>
                   </motion.li>
                 ))}
               </ul>
@@ -71,15 +71,15 @@ export default function HabitPage({ habitId }: HabitPageProps) {
             {habit.keyPoints.map((item, index) => (
               <motion.div 
                 key={index} 
-                className="bg-white bg-opacity-10 p-6 rounded-xl shadow-lg hover:shadow-xl transition duration-300"
+                className="bg-gray-100 p-6 rounded-xl shadow-lg hover:shadow-xl transition duration-300"
                 whileHover={{ scale: 1.03 }}
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
               >
                 <item.icon className="text-orange-400 mb-4" size={40} />
-                <h3 className="text-2xl font-semibold mb-3">{item.title}</h3>
-                <p className="text-blue-100">{item.description}</p>
+                <h3 className="text-2xl font-semibold mb-3 text-gray-800">{item.title}</h3>
+                <p className="text-gray-700">{item.description}</p>
               </motion.div>
             ))}
           </div>
@@ -94,10 +94,10 @@ export default function HabitPage({ habitId }: HabitPageProps) {
             height={600}
             className="rounded-xl shadow-2xl mb-8"
           />
-          <p className="text-xl text-blue-100 mb-6">
+          <p className="text-xl text-gray-700 mb-6">
             Our comprehensive {habit.title.toLowerCase()} course will guide you through:
           </p>
-          <ol className="list-decimal list-inside space-y-4 text-lg text-blue-100">
+          <ol className="list-decimal list-inside space-y-4 text-lg text-gray-700">
             {habit.journeySteps.map((step, index) => (
               <li key={index}>{step}</li>
             ))}
@@ -107,17 +107,16 @@ export default function HabitPage({ habitId }: HabitPageProps) {
         {habit.successStory && (
           <section className="mb-16">
             <h2 className="text-4xl font-semibold mb-6">Success Stories</h2>
-            <div className="bg-white bg-opacity-10 p-8 rounded-xl shadow-xl">
-              <blockquote className="text-xl text-blue-100 italic mb-4">
+            <div className="bg-gray-100 p-8 rounded-xl shadow-xl">
+              <blockquote className="text-xl text-gray-700 italic mb-4">
                 {habit.successStory.quote}
               </blockquote>
-              <p className="text-right text-lg text-blue-300">- {habit.successStory.author}</p>
+              <p className="text-right text-lg text-gray-800">- {habit.successStory.author}</p>
             </div>
           </section>
         )}
 
         <div className="mt-12 text-center">
-          {/* <Link href={`/courses/${habit.title.toLowerCase().replace(' ', '-')}`}> */}
           <Link href="/habit-forging/registration">
             <motion.button 
               className="bg-orange-500 text-white px-10 py-4 rounded-full text-xl font-semibold hover:bg-orange-600 transition duration-300 shadow-lg"
