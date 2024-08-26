@@ -18,6 +18,15 @@ export default function JobsInternshipsPage() {
   return (
     <div className="bg-white min-h-screen text-gray-800">
       <div className="container mx-auto px-4 py-8 md:py-16">
+        <div className="text-center mb-12">
+          <Image 
+            src="/images/jobs-internships/main_jobs-internships.webp" 
+            alt="Jobs and Internships" 
+            width={1200} 
+            height={600} 
+            className="rounded-lg mx-auto"
+          />
+        </div>
         <motion.h1
           className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6 text-center"
           initial={{ opacity: 0, y: -20 }}

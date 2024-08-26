@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Users, Calendar, CheckCircle, Clock, Star, BookOpen, Video } from 'lucide-react';
+import Image from 'next/image';
 
 export default function MockInterviewPage() {
   const [formData, setFormData] = useState({
@@ -46,6 +47,15 @@ export default function MockInterviewPage() {
   return (
     <div className="bg-white min-h-screen text-gray-800">
       <div className="max-w-4xl mx-auto px-4 py-8">
+        <div className="text-center mb-12">
+          <Image 
+            src="/images/jobs-internships/mock-interview.webp" 
+            alt="Mock Interview Hub" 
+            width={1200} 
+            height={600} 
+            className="rounded-lg mx-auto"
+          />
+        </div>
         <motion.h1
           className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 sm:mb-6 text-center text-gray-800"
           initial={{ opacity: 0, y: -20 }}

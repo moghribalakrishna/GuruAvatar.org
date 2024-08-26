@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
+import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { Book, CheckCircle, Users, Lightbulb, Video, FileText, Star, ArrowRight } from 'lucide-react';
 
@@ -48,15 +49,32 @@ export default function InterviewPreparationPage() {
 
   return (
     <div className="bg-white min-h-screen text-gray-800">
-      <div className="max-w-4xl mx-auto px-4 py-8">
+      <div className="container mx-auto px-4 py-8 md:py-16">
+        <div className="text-center mb-12">
+          <Image 
+            src="/images/jobs-internships/interview-prep.webp" 
+            alt="Interview Preparation Hub" 
+            width={1200} 
+            height={600} 
+            className="rounded-lg mx-auto"
+          />
+        </div>
         <motion.h1
-          className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 sm:mb-6 text-center text-gray-800"
+          className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6 text-center"
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
         >
           Interview Preparation Hub
         </motion.h1>
+        <motion.p
+          className="text-lg sm:text-xl mb-12 text-center text-gray-600"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+        >
+          Our Interview Preparation Hub equips you with the tools, knowledge, and confidence to excel in any interview. From entry-level positions to executive roles, we've got you covered.
+        </motion.p>
         
         <motion.section
           className="mb-12"
@@ -65,8 +83,6 @@ export default function InterviewPreparationPage() {
           transition={{ duration: 0.5, delay: 0.2 }}
         >
           <h2 className="text-2xl font-semibold mb-4 text-gray-800">Ace Your Interviews with GuruAvatar</h2>
-          <p className="mb-6 text-gray-600">Our Interview Preparation Hub equips you with the tools, knowledge, and confidence to excel in any interview. From entry-level positions to executive roles, we've got you covered.</p>
-          
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {features.map((feature, index) => (
               <div key={index} className="flex items-start space-x-3 bg-gray-100 p-4 rounded-lg">
