@@ -30,7 +30,7 @@ export default function FoundersJourney() {
               className="rounded-xl shadow-2xl"
             />
             <motion.p 
-              className="text-sm text-center mt-2 text-gray-300 italic"
+              className="text-sm text-center mt-2 text-black-300 italic"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.5 }}
@@ -68,7 +68,7 @@ export default function FoundersJourney() {
               className="rounded-xl shadow-2xl"
             />
             <motion.p 
-              className="text-sm text-center mt-2 text-gray-300 italic"
+              className="text-sm text-center mt-2 text-black-300 italic"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.7 }}
