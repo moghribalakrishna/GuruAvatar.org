@@ -1,10 +1,9 @@
 'use client';
 
-
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import AIFeatureCard from '../components/AIFeatureCard';
+import AIFeatureCard from './AIFeatureCard';
 import { aiFeatures, aiLearningJourney, testimonials } from '../data/aiLearningData';
 import { LucideIcon } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -15,56 +14,55 @@ interface AiLearningJourneyStep {
   title: string;
   description: string;
 }
+
+
 const InteractiveAIDemo = () => {
-    const [question, setQuestion] = useState("What is the capital of France?");
-    const [userAnswer, setUserAnswer] = useState("");
-    const [feedback, setFeedback] = useState("");
-  
-    const handleSubmit = (e: React.FormEvent) => {
-      e.preventDefault();
-      // Simulate AI analysis (replace with actual AI integration later)
-      if (userAnswer.toLowerCase().includes("paris")) {
-        setFeedback("Correct! The AI has detected that you have a good grasp of European capitals. Would you like to explore more challenging geography questions?");
-      } else {
-        setFeedback("That's not quite right. The AI suggests reviewing basic European geography. Would you like a quick lesson on French cities?");
-      }
-    };
-  
-    return (
-      <div className="bg-white bg-opacity-10 p-6 rounded-xl">
-        <h3 className="text-2xl font-semibold mb-4">Interactive AI Tutor Demo</h3>
-        <p className="mb-4">{question}</p>
-        <form onSubmit={handleSubmit} className="mb-4">
-          <input
-            type="text"
-            value={userAnswer}
-            onChange={(e) => setUserAnswer(e.target.value)}
-            className="w-full p-2 rounded bg-white bg-opacity-20 text-white"
-            placeholder="Type your answer here"
-          />
-          <button type="submit" className="mt-2 bg-blue-500 text-white px-4 py-2 rounded">Submit</button>
-        </form>
-        {feedback && (
-          <motion.div 
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            className="bg-blue-500 bg-opacity-20 p-4 rounded"
-          >
-            {feedback}
-          </motion.div>
-        )}
-      </div>
-    );
+  const [question, setQuestion] = useState("What is the capital of France?");
+  const [userAnswer, setUserAnswer] = useState("");
+  const [feedback, setFeedback] = useState("");
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (userAnswer.toLowerCase().includes("paris")) {
+      setFeedback("Correct! The AI has detected that you have a good grasp of European capitals. Would you like to explore more challenging geography questions?");
+    } else {
+      setFeedback("That's not quite right. The AI suggests reviewing basic European geography. Would you like a quick lesson on French cities?");
+    }
   };
 
-
+  return (
+    <div className="bg-gray-100 p-6 rounded-xl shadow-md">
+      <h3 className="text-2xl font-semibold mb-4 text-gray-800">Interactive AI Tutor Demo</h3>
+      <p className="mb-4 text-gray-700">{question}</p>
+      <form onSubmit={handleSubmit} className="mb-4">
+        <input
+          type="text"
+          value={userAnswer}
+          onChange={(e) => setUserAnswer(e.target.value)}
+          className="w-full p-2 rounded border border-gray-300 text-gray-800"
+          placeholder="Type your answer here"
+        />
+        <button type="submit" className="mt-2 bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition duration-300">Submit</button>
+      </form>
+      {feedback && (
+        <motion.div 
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          className="bg-blue-100 p-4 rounded text-blue-800"
+        >
+          {feedback}
+        </motion.div>
+      )}
+    </div>
+  );
+};
 
 export default function AILearningContent() {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-blue-900 to-teal-700 text-white overflow-hidden relative p-8">
+    <div className="min-h-screen bg-white text-gray-800 overflow-hidden relative p-8">
       <div className="max-w-6xl mx-auto">
         <motion.h1 
-          className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 text-center text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-teal-400 to-orange-400"
+          className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 text-center text-gray-800"
           initial={{ opacity: 0, y: -50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
@@ -72,7 +70,7 @@ export default function AILearningContent() {
           AI-Powered Learning Revolution
         </motion.h1>
         <motion.p 
-          className="text-xl md:text-2xl mb-12 text-center max-w-4xl mx-auto text-blue-100"
+          className="text-xl md:text-2xl mb-12 text-center max-w-4xl mx-auto text-gray-600"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.2 }}
@@ -83,7 +81,7 @@ export default function AILearningContent() {
 
         {/* AI Features Section */}
         <section className="mb-20">
-          <h2 className="text-3xl font-bold mb-8 text-center">Key AI Features</h2>
+          <h2 className="text-3xl font-bold mb-8 text-center text-gray-800">Key AI Features</h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {aiFeatures.map((feature, index) => (
               <AIFeatureCard key={index} feature={feature} />
@@ -93,7 +91,7 @@ export default function AILearningContent() {
 
         {/* AI Learning Journey Section */}
         <section className="mb-20">
-          <h2 className="text-3xl font-bold mb-8 text-center">Your AI Learning Journey</h2>
+          <h2 className="text-3xl font-bold mb-8 text-center text-gray-800">Your AI Learning Journey</h2>
           <div className="relative">
             {aiLearningJourney.map((step: AiLearningJourneyStep, index: number) => (
               <motion.div 
@@ -103,12 +101,12 @@ export default function AILearningContent() {
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
               >
-                <div className="bg-white bg-opacity-20 p-4 rounded-full mr-4">
-                  {React.createElement(step.icon, { className: "w-8 h-8 text-teal-300" })}
+                <div className="bg-blue-100 p-4 rounded-full mr-4">
+                  {React.createElement(step.icon, { className: "w-8 h-8 text-blue-600" })}
                 </div>
                 <div>
-                  <h3 className="text-xl font-semibold">{step.title}</h3>
-                  <p className="text-blue-100">{step.description}</p>
+                  <h3 className="text-xl font-semibold text-gray-800">{step.title}</h3>
+                  <p className="text-gray-600">{step.description}</p>
                 </div>
               </motion.div>
             ))}
@@ -116,16 +114,16 @@ export default function AILearningContent() {
         </section>
 
         <section className="mb-20">
-        <h2 className="text-3xl font-bold mb-8 text-center">Experience AI-Powered Learning</h2>
+        <h2 className="text-3xl font-bold mb-8 text-center text-gray-800">Experience AI-Powered Learning</h2>
         <InteractiveAIDemo />
         </section>
      
         {/* AI in Action Section */}
         <section className="mb-20">
-          <h2 className="text-3xl font-bold mb-8 text-center">AI in Action</h2>
-          <div className="bg-white bg-opacity-10 p-8 rounded-xl">
-            <h3 className="text-2xl font-semibold mb-4">Real-time Adaptive Learning</h3>
-            <p className="text-lg mb-4">Watch as our AI adapts to your learning style and pace in real-time:</p>
+          <h2 className="text-3xl font-bold mb-8 text-center text-gray-800">AI in Action</h2>
+          <div className="bg-gray-100 p-8 rounded-xl shadow-md">
+            <h3 className="text-2xl font-semibold mb-4 text-gray-800">Real-time Adaptive Learning</h3>
+            <p className="text-lg mb-4 text-gray-700">Watch as our AI adapts to your learning style and pace in real-time:</p>
             <div className="aspect-w-16 aspect-h-9">
               <Image 
                 src="/ai-learning-demo.gif" 
@@ -140,17 +138,17 @@ export default function AILearningContent() {
 
         {/* Testimonials Section */}
         <section className="mb-20">
-          <h2 className="text-3xl font-bold mb-8 text-center">Success Stories</h2>
+          <h2 className="text-3xl font-bold mb-8 text-center text-gray-800">Success Stories</h2>
           <div className="grid md:grid-cols-2 gap-8">
             {testimonials.map((testimonial, index) => (
               <motion.div 
                 key={index}
-                className="bg-white bg-opacity-10 p-6 rounded-xl"
+                className="bg-gray-100 p-6 rounded-xl shadow-md"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
               >
-                <p className="text-lg mb-4 italic">"{testimonial.quote}"</p>
+                <p className="text-lg mb-4 italic text-gray-700">"{testimonial.quote}"</p>
                 <div className="flex items-center">
                   <Image 
                     src={testimonial.avatar} 
@@ -160,8 +158,8 @@ export default function AILearningContent() {
                     className="rounded-full mr-4"
                   />
                   <div>
-                    <p className="font-semibold">{testimonial.name}</p>
-                    <p className="text-sm text-blue-300">{testimonial.title}</p>
+                    <p className="font-semibold text-gray-800">{testimonial.name}</p>
+                    <p className="text-sm text-gray-600">{testimonial.title}</p>
                   </div>
                 </div>
               </motion.div>
@@ -176,8 +174,8 @@ export default function AILearningContent() {
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.5 }}
         >
-          <h2 className="text-3xl font-semibold mb-6">Ready to Transform Your Learning?</h2>
-          <p className="text-xl mb-8">
+          <h2 className="text-3xl font-semibold mb-6 text-gray-800">Ready to Transform Your Learning?</h2>
+          <p className="text-xl mb-8 text-gray-600">
             Join thousands of learners benefiting from our AI-powered education platform.
           </p>
           <Link href="/get-started" className="bg-orange-500 text-white px-8 py-4 rounded-full text-xl font-semibold hover:bg-orange-600 transition duration-300 inline-block">

@@ -14,14 +14,14 @@ interface AIFeatureCardProps {
 
 const AIFeatureCard: React.FC<AIFeatureCardProps> = ({ feature }) => {
   return (
-    <motion.div 
-      className="bg-white bg-opacity-10 p-6 rounded-xl"
-      whileHover={{ scale: 1.05 }}
+    <motion.div
+      className="bg-gray-100 p-6 rounded-xl shadow-md"
+      whileHover={{ scale: 1.05, boxShadow: "0 10px 20px rgba(0,0,0,0.1)" }}
       transition={{ duration: 0.3 }}
     >
-      {React.createElement(feature.icon, { className: "w-12 h-12 text-teal-300 mb-4" })}
-      <h3 className="text-xl font-semibold mb-2">{feature.title}</h3>
-      <p className="text-blue-100">{feature.description}</p>
+      {React.createElement(feature.icon, { className: "w-12 h-12 text-blue-600 mb-4" })}
+      <h3 className="text-xl font-semibold mb-2 text-gray-800">{feature.title}</h3>
+      <p className="text-gray-600">{feature.description}</p>
     </motion.div>
   );
 };
