@@ -33,7 +33,7 @@ export default function ObservingThoughtsPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-blue-900 to-teal-700 text-white p-8">
+    <div className="min-h-screen bg-white text-gray-800 p-8">
       <div className="max-w-4xl mx-auto">
         <motion.h1 
           className="text-4xl font-bold mb-6 flex items-center"
@@ -63,11 +63,11 @@ export default function ObservingThoughtsPage() {
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.2 }}
         >
-          <h2 className="text-2xl font-semibold mb-4">What is Observing Thoughts?</h2>
-          <p className="text-lg mb-4">
+          <h2 className="text-2xl font-semibold mb-4 text-gray-700">What is Observing Thoughts?</h2>
+          <p className="text-lg mb-4 text-gray-600">
             Observing thoughts is a fundamental mindfulness practice that involves noticing your thoughts as they arise, without getting caught up in them or trying to change them. This practice helps you develop a sense of detachment from your thoughts, allowing you to see them as mental events rather than absolute truths or commands that must be acted upon.
           </p>
-          <p className="text-lg">
+          <p className="text-lg text-gray-600">
             By learning to observe your thoughts, you can gain insight into your mental patterns, reduce reactivity, and cultivate a greater sense of inner peace and clarity. This practice is sometimes described as "watching your thoughts pass by like clouds in the sky" or "sitting on the bank of a stream, watching your thoughts float by like leaves on the water."
           </p>
         </motion.section>
@@ -78,8 +78,8 @@ export default function ObservingThoughtsPage() {
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.3 }}
         >
-          <h2 className="text-2xl font-semibold mb-4">Benefits of Observing Thoughts</h2>
-          <ul className="list-disc list-inside space-y-2">
+          <h2 className="text-2xl font-semibold mb-4 text-gray-700">Benefits of Observing Thoughts</h2>
+          <ul className="list-disc list-inside space-y-2 text-gray-600">
             <li>Reduced stress and anxiety</li>
             <li>Improved emotional regulation</li>
             <li>Enhanced self-awareness</li>
@@ -98,8 +98,8 @@ export default function ObservingThoughtsPage() {
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.4 }}
         >
-          <h2 className="text-2xl font-semibold mb-4">How to Practice Observing Thoughts</h2>
-          <ol className="list-decimal list-inside space-y-4">
+          <h2 className="text-2xl font-semibold mb-4 text-gray-700">How to Practice Observing Thoughts</h2>
+          <ol className="list-decimal list-inside space-y-4 text-gray-600">
             <li>Find a comfortable seated position in a quiet place.</li>
             <li>Close your eyes or maintain a soft gaze.</li>
             <li>Take a few deep breaths to center yourself.</li>
@@ -119,8 +119,8 @@ export default function ObservingThoughtsPage() {
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.5 }}
         >
-          <h2 className="text-2xl font-semibold mb-4">Tips for Effective Thought Observation</h2>
-          <ul className="list-disc list-inside space-y-2">
+          <h2 className="text-2xl font-semibold mb-4 text-gray-700">Tips for Effective Thought Observation</h2>
+          <ul className="list-disc list-inside space-y-2 text-gray-600">
             <li>Start with short sessions and gradually increase the duration</li>
             <li>Use visualization techniques, like imagining thoughts as clouds or leaves on a stream</li>
             <li>Label thoughts as they arise (e.g., "planning," "worrying," "remembering")</li>
@@ -150,8 +150,8 @@ export default function ObservingThoughtsPage() {
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.6 }}
         >
-          <h2 className="text-2xl font-semibold mb-4">Guided Thought Observation Exercise</h2>
-          <p className="text-lg mb-4">
+          <h2 className="text-2xl font-semibold mb-4 text-gray-700">Guided Thought Observation Exercise</h2>
+          <p className="text-lg mb-4 text-gray-600">
             Try this simple thought observation exercise. Use our timer for a 5-minute practice session:
           </p>
           {!showTimer ? (
@@ -164,7 +164,7 @@ export default function ObservingThoughtsPage() {
           ) : (
             <div className="text-center">
               <p className="text-4xl font-bold mb-4">{Math.floor(time / 60)}:{(time % 60).toString().padStart(2, '0')}</p>
-              <p className="text-lg">Notice your thoughts as they arise. Imagine them as clouds passing through the sky of your mind. Observe without judgment.</p>
+              <p className="text-lg text-gray-600">Notice your thoughts as they arise. Imagine them as clouds passing through the sky of your mind. Observe without judgment.</p>
             </div>
           )}
         </motion.section>
@@ -175,11 +175,11 @@ export default function ObservingThoughtsPage() {
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.7 }}
         >
-          <h2 className="text-2xl font-semibold mb-4">Incorporating Thought Observation into Daily Life</h2>
-          <p className="text-lg mb-4">
+          <h2 className="text-2xl font-semibold mb-4 text-gray-700">Incorporating Thought Observation into Daily Life</h2>
+          <p className="text-lg mb-4 text-gray-600">
             You can practice observing thoughts throughout your day:
           </p>
-          <ul className="list-disc list-inside space-y-2">
+          <ul className="list-disc list-inside space-y-2 text-gray-600">
             <li>Take brief "thought breaks" during your day to check in with your mind</li>
             <li>Practice observing thoughts while waiting in line or during your commute</li>
             <li>Notice your thought patterns during stressful situations</li>
@@ -195,8 +195,8 @@ export default function ObservingThoughtsPage() {
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.8 }}
         >
-          <h2 className="text-2xl font-semibold mb-4">Overcoming Common Challenges</h2>
-          <ul className="list-disc list-inside space-y-2">
+          <h2 className="text-2xl font-semibold mb-4 text-gray-700">Overcoming Common Challenges</h2>
+          <ul className="list-disc list-inside space-y-2 text-gray-600">
             <li><strong>Getting caught up in thoughts:</strong> Gently redirect your attention to observing when you notice this happening.</li>
             <li><strong>Judging your thoughts:</strong> Practice acknowledging judgments as just another type of thought to observe.</li>
             <li><strong>Difficulty identifying thoughts:</strong> Start by simply noticing when your mind is active versus quiet. Gradually, you'll become more aware of specific thoughts.</li>
@@ -212,11 +212,11 @@ export default function ObservingThoughtsPage() {
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.9 }}
         >
-          <h2 className="text-2xl font-semibold mb-4">Advanced Thought Observation Techniques</h2>
-          <p className="text-lg mb-4">
+          <h2 className="text-2xl font-semibold mb-4 text-gray-700">Advanced Thought Observation Techniques</h2>
+          <p className="text-lg mb-4 text-gray-600">
             As you become more comfortable with basic thought observation, you can explore these advanced techniques:
           </p>
-          <ul className="list-disc list-inside space-y-2">
+          <ul className="list-disc list-inside space-y-2 text-gray-600">
             <li><strong>Thought Patterns Analysis:</strong> After your practice, reflect on any recurring themes or patterns in your thoughts.</li>
             <li><strong>Emotion-Thought Connection:</strong> Notice how different types of thoughts are connected to specific emotions.</li>
             <li><strong>Body-Thought Awareness:</strong> Observe how different thoughts affect sensations in your body.</li>
@@ -232,18 +232,18 @@ export default function ObservingThoughtsPage() {
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 1.0 }}
         >
-          <h2 className="text-2xl font-semibold mb-4">The Science Behind Observing Thoughts</h2>
-          <p className="text-lg mb-4">
+          <h2 className="text-2xl font-semibold mb-4 text-gray-700">The Science Behind Observing Thoughts</h2>
+          <p className="text-lg mb-4 text-gray-600">
             Research has shown numerous benefits of practicing thought observation:
           </p>
-          <ul className="list-disc list-inside space-y-2">
+          <ul className="list-disc list-inside space-y-2 text-gray-600">
             <li>Reduced activity in the Default Mode Network, associated with mind-wandering and rumination (Brewer et al., 2011)</li>
             <li>Increased meta-awareness and ability to disengage from negative thought patterns (Bernstein et al., 2015)</li>
             <li>Enhanced emotional regulation and reduced symptoms of anxiety and depression (Farb et al., 2010)</li>
             <li>Improved working memory and cognitive flexibility (Jha et al., 2010)</li>
             <li>Increased gray matter density in brain regions associated with learning, memory, and emotional regulation (Hölzel et al., 2011)</li>
           </ul>
-          <p className="text-lg mt-4">
+          <p className="text-lg mt-4 text-gray-600">
             These studies demonstrate that regular practice of observing thoughts can lead to significant improvements in cognitive function and emotional well-being.
           </p>
         </motion.section>
@@ -254,11 +254,11 @@ export default function ObservingThoughtsPage() {
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 1.1 }}
         >
-          <h2 className="text-2xl font-semibold mb-4">Thought Observation for Specific Challenges</h2>
-          <p className="text-lg mb-4">
+          <h2 className="text-2xl font-semibold mb-4 text-gray-700">Thought Observation for Specific Challenges</h2>
+          <p className="text-lg mb-4 text-gray-600">
             Thought observation can be particularly helpful for addressing specific mental health challenges:
           </p>
-          <ul className="list-disc list-inside space-y-2">
+          <ul className="list-disc list-inside space-y-2 text-gray-600">
             <li><strong>Anxiety:</strong> Observe anxious thoughts without getting caught up in them, reducing their power over you.</li>
             <li><strong>Depression:</strong> Notice negative thought patterns without judging them, creating space for more balanced perspectives.</li>
             <li><strong>Obsessive-Compulsive Disorder:</strong> Observe obsessive thoughts without feeling compelled to act on them.</li>
@@ -274,11 +274,11 @@ export default function ObservingThoughtsPage() {
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 1.2 }}
         >
-          <h2 className="text-2xl font-semibold mb-4">Integrating Thought Observation with Other Practices</h2>
-          <p className="text-lg mb-4">
+          <h2 className="text-2xl font-semibold mb-4 text-gray-700">Integrating Thought Observation with Other Practices</h2>
+          <p className="text-lg mb-4 text-gray-600">
             Thought observation can be combined with other mindfulness and cognitive practices for enhanced benefits:
           </p>
-          <ul className="list-disc list-inside space-y-2">
+          <ul className="list-disc list-inside space-y-2 text-gray-600">
             <li><strong>Cognitive Behavioral Therapy (CBT):</strong> Use thought observation to identify cognitive distortions more easily.</li>
             <li><strong>Loving-Kindness Meditation:</strong> Observe thoughts that arise during loving-kindness practice, noticing any resistance or judgments.</li>
             <li><strong>Body Scan:</strong> Notice thoughts that come up as you scan different parts of your body.</li>
@@ -287,7 +287,7 @@ export default function ObservingThoughtsPage() {
             <li><strong>Breath Awareness:</strong> Use the breath as an anchor while observing thoughts, alternating your focus between breath and thoughts.</li>
           </ul>
         </motion.section>
-
+        
         <motion.section 
           className="text-center"
           initial={{ opacity: 0 }}
@@ -306,8 +306,8 @@ export default function ObservingThoughtsPage() {
             Schedule a Free Consultation
           </Link>
         </div>
-        </motion.section>
-      </div>
+        </motion.section>      
+        </div>
     </div>
   );
 }

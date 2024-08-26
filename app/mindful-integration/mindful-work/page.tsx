@@ -34,10 +34,10 @@ export default function MindfulWorkStudyPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-blue-900 to-teal-700 text-white p-8">
+    <div className="min-h-screen bg-white text-gray-800 p-8">
       <div className="max-w-4xl mx-auto">
         <motion.h1 
-          className="text-4xl font-bold mb-6 flex items-center"
+          className="text-4xl md:text-5xl font-bold mb-6 text-center"
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
@@ -45,7 +45,8 @@ export default function MindfulWorkStudyPage() {
           <Laptop className="w-12 h-12 mr-4 text-yellow-300" />
           Mindful Work and Study
         </motion.h1>
-     <div className="mb-8 rounded-xl overflow-hidden">
+
+        <div className="mb-8 rounded-xl overflow-hidden">
           <video 
             ref={videoRef}
             className="w-full"
@@ -57,17 +58,18 @@ export default function MindfulWorkStudyPage() {
             Your browser does not support the video tag.
           </video>
         </div>
+
         <motion.section 
           className="mb-8"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.2 }}
         >
-          <h2 className="text-2xl font-semibold mb-4">What is Mindful Work and Study?</h2>
-          <p className="text-lg mb-4">
+          <h2 className="text-2xl font-semibold mb-4 text-gray-700">What is Mindful Work and Study?</h2>
+          <p className="text-lg mb-4 text-gray-600">
             Mindful work and study is the practice of bringing full attention and awareness to your academic or professional tasks. It involves staying present and focused on the task at hand, managing distractions effectively, and cultivating a sense of purpose and intention in your work.
           </p>
-          <p className="text-lg">
+          <p className="text-lg text-gray-600">
             By applying mindfulness to your work and study habits, you can enhance your productivity, improve the quality of your work, reduce stress, and find greater satisfaction in your tasks. This approach helps you engage more deeply with your studies or work, leading to better understanding, retention, and performance.
           </p>
         </motion.section>
@@ -78,8 +80,8 @@ export default function MindfulWorkStudyPage() {
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.3 }}
         >
-          <h2 className="text-2xl font-semibold mb-4">Benefits of Mindful Work and Study</h2>
-          <ul className="list-disc list-inside space-y-2">
+          <h2 className="text-2xl font-semibold mb-4 text-gray-700">Benefits of Mindful Work and Study</h2>
+          <ul className="list-disc list-inside space-y-2 text-gray-600">
             <li>Improved focus and concentration</li>
             <li>Enhanced productivity and efficiency</li>
             <li>Better time management</li>
@@ -98,8 +100,8 @@ export default function MindfulWorkStudyPage() {
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.4 }}
         >
-          <h2 className="text-2xl font-semibold mb-4">Key Principles of Mindful Work and Study</h2>
-          <ul className="list-disc list-inside space-y-4">
+          <h2 className="text-2xl font-semibold mb-4 text-gray-700">Key Principles of Mindful Work and Study</h2>
+          <ul className="list-disc list-inside space-y-4 text-gray-600">
             <li><strong>Single-tasking:</strong> Focus on one task at a time, avoiding multitasking.</li>
             <li><strong>Present moment awareness:</strong> Stay fully engaged in the current task or study session.</li>
             <li><strong>Intentionality:</strong> Set clear intentions for each work or study period.</li>
@@ -116,8 +118,8 @@ export default function MindfulWorkStudyPage() {
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.5 }}
         >
-          <h2 className="text-2xl font-semibold mb-4">Practicing Mindful Work and Study</h2>
-          <ol className="list-decimal list-inside space-y-4">
+          <h2 className="text-2xl font-semibold mb-4 text-gray-700">Practicing Mindful Work and Study</h2>
+          <ol className="list-decimal list-inside space-y-4 text-gray-600">
             <li>Begin each work or study session with a few mindful breaths.</li>
             <li>Set a clear intention for your work period.</li>
             <li>Use the Pomodoro Technique: 25 minutes of focused work followed by a 5-minute break.</li>
@@ -128,6 +130,7 @@ export default function MindfulWorkStudyPage() {
             <li>End your work or study session with a brief reflection on what you've accomplished.</li>
           </ol>
         </motion.section>
+
         <motion.section 
           className="mb-8"
           initial={{ opacity: 0 }}
@@ -142,14 +145,15 @@ export default function MindfulWorkStudyPage() {
             className="rounded-xl shadow-2xl"
           />
         </motion.section>
+
         <motion.section 
           className="mb-8"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.6 }}
         >
-          <h2 className="text-2xl font-semibold mb-4">Mindful Pomodoro Technique</h2>
-          <p className="text-lg mb-4">
+          <h2 className="text-2xl font-semibold mb-4 text-gray-700">Mindful Pomodoro Technique</h2>
+          <p className="text-lg mb-4 text-gray-600">
             Try this mindful version of the Pomodoro Technique. Focus on your work for 25 minutes, then take a 5-minute mindful break. Use our timer to guide you:
           </p>
           {!showTimer ? (
@@ -161,8 +165,8 @@ export default function MindfulWorkStudyPage() {
             </button>
           ) : (
             <div className="text-center">
-              <p className="text-4xl font-bold mb-4">{Math.floor(time / 60)}:{(time % 60).toString().padStart(2, '0')}</p>
-              <p className="text-lg">Focus mindfully on your task. Notice any distractions and gently return your attention to your work.</p>
+              <p className="text-4xl font-bold mb-4 text-gray-700">{Math.floor(time / 60)}:{(time % 60).toString().padStart(2, '0')}</p>
+              <p className="text-lg text-gray-600">Focus mindfully on your task. Notice any distractions and gently return your attention to your work.</p>
             </div>
           )}
         </motion.section>
@@ -173,8 +177,8 @@ export default function MindfulWorkStudyPage() {
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.7 }}
         >
-          <h2 className="text-2xl font-semibold mb-4">Tips for Incorporating Mindfulness into Work and Study</h2>
-          <ul className="list-disc list-inside space-y-2">
+          <h2 className="text-2xl font-semibold mb-4 text-gray-700">Tips for Incorporating Mindfulness into Work and Study</h2>
+          <ul className="list-disc list-inside space-y-2 text-gray-600">
             <li>Create a dedicated, clutter-free workspace that promotes focus.</li>
             <li>Start your day with a brief mindfulness practice to set your intention.</li>
             <li>Use mindful breathing techniques when you feel stressed or overwhelmed.</li>
@@ -192,8 +196,8 @@ export default function MindfulWorkStudyPage() {
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.8 }}
         >
-       <h2 className="text-2xl font-semibold mb-4">Overcoming Common Work and Study Challenges</h2>
-          <ul className="list-disc list-inside space-y-2">
+          <h2 className="text-2xl font-semibold mb-4 text-gray-700">Overcoming Common Work and Study Challenges</h2>
+          <ul className="list-disc list-inside space-y-2 text-gray-600">
             <li><strong>Procrastination:</strong> Break tasks into smaller, manageable steps and focus on starting rather than finishing.</li>
             <li><strong>Distractions:</strong> Create a distraction-free environment and practice gently returning focus when your mind wanders.</li>
             <li><strong>Overwhelm:</strong> Use mindful prioritization techniques to focus on the most important tasks first.</li>
@@ -210,8 +214,8 @@ export default function MindfulWorkStudyPage() {
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.9 }}
         >
-          <h2 className="text-2xl font-semibold mb-4">Mindful Techniques for Specific Work and Study Tasks</h2>
-          <ul className="list-disc list-inside space-y-4">
+          <h2 className="text-2xl font-semibold mb-4 text-gray-700">Mindful Techniques for Specific Work and Study Tasks</h2>
+          <ul className="list-disc list-inside space-y-4 text-gray-600">
             <li><strong>Reading:</strong> Practice mindful reading by fully engaging with the text, periodically pausing to reflect on what you've read.</li>
             <li><strong>Writing:</strong> Use freewriting techniques to overcome writer's block, and mindfully edit your work with focused attention.</li>
             <li><strong>Problem-solving:</strong> Apply mindful observation to complex problems, allowing insights to arise without forcing solutions.</li>
@@ -227,11 +231,11 @@ export default function MindfulWorkStudyPage() {
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 1.0 }}
         >
-          <h2 className="text-2xl font-semibold mb-4">Creating a Mindful Work or Study Environment</h2>
-          <p className="text-lg mb-4">
+          <h2 className="text-2xl font-semibold mb-4 text-gray-700">Creating a Mindful Work or Study Environment</h2>
+          <p className="text-lg mb-4 text-gray-600">
             Your physical environment can significantly impact your ability to work or study mindfully. Consider these tips:
           </p>
-          <ul className="list-disc list-inside space-y-2">
+          <ul className="list-disc list-inside space-y-2 text-gray-600">
             <li>Declutter your workspace to minimize visual distractions.</li>
             <li>Incorporate plants or natural elements to promote calm and focus.</li>
             <li>Ensure proper lighting to reduce eye strain and maintain alertness.</li>
@@ -248,11 +252,11 @@ export default function MindfulWorkStudyPage() {
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 1.1 }}
         >
-          <h2 className="text-2xl font-semibold mb-4">Mindful Technology Use</h2>
-          <p className="text-lg mb-4">
+          <h2 className="text-2xl font-semibold mb-4 text-gray-700">Mindful Technology Use</h2>
+          <p className="text-lg mb-4 text-gray-600">
             In today's digital world, mindful technology use is crucial for effective work and study. Try these strategies:
           </p>
-          <ul className="list-disc list-inside space-y-2">
+          <ul className="list-disc list-inside space-y-2 text-gray-600">
             <li>Use website blockers or app timers to limit distractions during focused work periods.</li>
             <li>Practice "tech-free" time blocks to reduce digital overwhelm.</li>
             <li>Set up mindful notifications that remind you to take breaks or check in with your breath.</li>
@@ -268,18 +272,18 @@ export default function MindfulWorkStudyPage() {
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 1.2 }}
         >
-          <h2 className="text-2xl font-semibold mb-4">Enhance Your Mindful Work and Study Skills</h2>
-          <p className="text-lg mb-6">
+          <h2 className="text-2xl font-semibold mb-4 text-gray-700">Enhance Your Mindful Work and Study Skills</h2>
+          <p className="text-lg mb-6 text-gray-600">
             Explore our additional resources to further develop your mindful work and study practices.
           </p>
           <div className="mt-8 flex justify-center space-x-4">
-          <Link href="/mindful-integration/mindfulness-community" className="bg-blue-500 text-white px-6 py-3 rounded-full text-lg font-semibold hover:bg-blue-600 transition duration-300">
-            Join Our Community
-          </Link>
-          <Link href="/forms/free-consultation" className="bg-green-500 text-white px-6 py-3 rounded-full text-lg font-semibold hover:bg-green-600 transition duration-300">
-            Schedule a Free Consultation
-          </Link>
-        </div>
+            <Link href="/mindful-integration/mindfulness-community" className="bg-blue-600 text-white px-6 py-3 rounded-full text-lg font-semibold hover:bg-blue-700 transition duration-300">
+              Join Our Community
+            </Link>
+            <Link href="/forms/free-consultation" className="bg-green-600 text-white px-6 py-3 rounded-full text-lg font-semibold hover:bg-green-700 transition duration-300">
+              Schedule a Free Consultation
+            </Link>
+          </div>
         </motion.section>
       </div>
     </div>

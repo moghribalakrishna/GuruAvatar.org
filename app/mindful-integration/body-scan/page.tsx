@@ -5,6 +5,7 @@ import { motion } from 'framer-motion';
 import { Eye, Brain, Heart, Battery, Moon } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
+
 export default function BodyScanPage() {
   const [showTimer, setShowTimer] = useState(false);
   const [time, setTime] = useState(300); // 5 minutes in seconds
@@ -32,7 +33,7 @@ export default function BodyScanPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-blue-900 to-teal-700 text-white p-8">
+    <div className="min-h-screen bg-white text-gray-800 p-8">
       <div className="max-w-4xl mx-auto">
         <motion.h1 
           className="text-4xl font-bold mb-6 flex items-center"
@@ -63,11 +64,11 @@ export default function BodyScanPage() {
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.2 }}
         >
-          <h2 className="text-2xl font-semibold mb-4">What is Body Scan Meditation?</h2>
-          <p className="text-lg mb-4">
+          <h2 className="text-2xl font-semibold mb-4 text-gray-700">What is Body Scan Meditation?</h2>
+          <p className="text-lg mb-4 text-gray-600">
             Body scan meditation is a powerful mindfulness technique that involves systematically focusing your attention on different parts of your body, from your toes to the top of your head. This practice helps cultivate a deep awareness of bodily sensations, promoting relaxation, reducing tension, and enhancing the mind-body connection.
           </p>
-          <p className="text-lg">
+          <p className="text-lg text-gray-600">
             During a body scan, you'll typically lie down or sit comfortably, then mentally scan through your body, paying attention to sensations, tensions, or areas of comfort in each part. This practice helps you develop a non-judgmental awareness of your physical self and can lead to profound insights about how you carry stress and emotion in your body.
           </p>
         </motion.section>
@@ -78,8 +79,8 @@ export default function BodyScanPage() {
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.3 }}
         >
-          <h2 className="text-2xl font-semibold mb-4">Benefits of Body Scan Meditation</h2>
-          <ul className="list-disc list-inside space-y-2">
+          <h2 className="text-2xl font-semibold mb-4 text-gray-700">Benefits of Body Scan Meditation</h2>
+          <ul className="list-disc list-inside space-y-2 text-gray-600">
             <li>Increased body awareness and mind-body connection</li>
             <li>Reduced physical tension and stress</li>
             <li>Improved sleep quality</li>
@@ -97,8 +98,8 @@ export default function BodyScanPage() {
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.4 }}
         >
-          <h2 className="text-2xl font-semibold mb-4">How to Practice Body Scan Meditation</h2>
-          <ol className="list-decimal list-inside space-y-4">
+          <h2 className="text-2xl font-semibold mb-4 text-gray-700">How to Practice Body Scan Meditation</h2>
+          <ol className="list-decimal list-inside space-y-4 text-gray-600">
             <li>Find a comfortable position, either lying down or seated. If lying down, you may want to use a yoga mat or blanket.</li>
             <li>Close your eyes and take a few deep breaths to center yourself.</li>
             <li>Begin by bringing your attention to your feet. Notice any sensations: warmth, coolness, tingling, pressure, or perhaps no sensation at all.</li>
@@ -116,8 +117,8 @@ export default function BodyScanPage() {
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.5 }}
         >
-          <h2 className="text-2xl font-semibold mb-4">Tips for a Effective Body Scan Practice</h2>
-          <ul className="list-disc list-inside space-y-2">
+          <h2 className="text-2xl font-semibold mb-4 text-gray-700">Tips for a Effective Body Scan Practice</h2>
+          <ul className="list-disc list-inside space-y-2 text-gray-600">
             <li>Start with shorter sessions (5-10 minutes) and gradually increase the duration</li>
             <li>Practice at different times of day to see when it's most effective for you</li>
             <li>If you fall asleep during the practice, don't worry – this is common and can be beneficial for those with sleep issues</li>
@@ -148,8 +149,8 @@ export default function BodyScanPage() {
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.6 }}
         >
-          <h2 className="text-2xl font-semibold mb-4">Guided Body Scan Meditation</h2>
-          <p className="text-lg mb-4">
+          <h2 className="text-2xl font-semibold mb-4 text-gray-700">Guided Body Scan Meditation</h2>
+          <p className="text-lg mb-4 text-gray-600">
             Ready to experience a body scan meditation? Use our built-in timer for a 15-minute practice session:
           </p>
           {!showTimer ? (
@@ -162,7 +163,7 @@ export default function BodyScanPage() {
           ) : (
             <div className="text-center">
               <p className="text-4xl font-bold mb-4">{Math.floor(time / 60)}:{(time % 60).toString().padStart(2, '0')}</p>
-              <p className="text-lg">Slowly scan through your body, observing sensations without judgment. Gently return your focus when your mind wanders.</p>
+              <p className="text-lg text-gray-600">Slowly scan through your body, observing sensations without judgment. Gently return your focus when your mind wanders.</p>
             </div>
           )}
         </motion.section>
@@ -173,11 +174,11 @@ export default function BodyScanPage() {
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.7 }}
         >
-          <h2 className="text-2xl font-semibold mb-4">Incorporating Body Scan into Daily Life</h2>
-          <p className="text-lg mb-4">
+          <h2 className="text-2xl font-semibold mb-4 text-gray-700">Incorporating Body Scan into Daily Life</h2>
+          <p className="text-lg mb-4 text-gray-600">
             While a formal body scan meditation can be deeply beneficial, you can also incorporate elements of this practice into your daily routine:
           </p>
-          <ul className="list-disc list-inside space-y-2">
+          <ul className="list-disc list-inside space-y-2 text-gray-600">
             <li>Do a quick body scan while waiting in line or during your commute</li>
             <li>Practice a short scan before important meetings or exams to center yourself</li>
             <li>Use a body scan to wind down before sleep, promoting relaxation and better rest</li>
@@ -193,11 +194,11 @@ export default function BodyScanPage() {
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.8 }}
         >
-          <h2 className="text-2xl font-semibold mb-4">Body Scan for Specific Purposes</h2>
-          <p className="text-lg mb-4">
+          <h2 className="text-2xl font-semibold mb-4 text-gray-700">Body Scan for Specific Purposes</h2>
+          <p className="text-lg mb-4 text-gray-600">
             The body scan technique can be adapted for various specific purposes:
           </p>
-          <ul className="list-disc list-inside space-y-2">
+          <ul className="list-disc list-inside space-y-2 text-gray-600">
             <li><strong>For Sleep:</strong> Perform a body scan while lying in bed, focusing on relaxation and letting go of the day's tensions.</li>
             <li><strong>For Pain Management:</strong> Use the body scan to explore sensations around areas of chronic pain, potentially reducing discomfort.</li>
             <li><strong>For Emotional Awareness:</strong> Notice how emotions manifest physically in your body during a scan, enhancing emotional intelligence.</li>
@@ -212,8 +213,8 @@ export default function BodyScanPage() {
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.9 }}
         >
-          <h2 className="text-2xl font-semibold mb-4">Enhance Your Body Scan Practice</h2>
-          <p className="text-lg mb-6">
+          <h2 className="text-2xl font-semibold mb-4 text-gray-700">Enhance Your Body Scan Practice</h2>
+          <p className="text-lg mb-6 text-gray-600">
             Deepen your understanding and experience of body scan meditation with our additional resources and personalized guidance.
           </p>
           <div className="mt-8 flex justify-center space-x-4">

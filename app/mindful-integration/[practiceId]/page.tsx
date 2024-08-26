@@ -16,7 +16,7 @@ export default function MindfulnessPracticePage() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-blue-900 to-teal-700 text-white p-8">
+    <div className="min-h-screen bg-white text-gray-800 p-8">
       <div className="max-w-4xl mx-auto">
         
         <motion.h1 
@@ -25,12 +25,12 @@ export default function MindfulnessPracticePage() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
         >
-          <practice.icon className="w-12 h-12 mr-4 text-purple-400" />
+          <practice.icon className="w-12 h-12 mr-4 text-blue-600" />
           {practice.title}
         </motion.h1>
 
         <motion.p 
-          className="text-xl mb-8 text-blue-100"
+          className="text-xl mb-8 text-gray-600"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.2 }}
@@ -39,7 +39,7 @@ export default function MindfulnessPracticePage() {
         </motion.p>
 
         <section className="mb-12">
-          <h2 className="text-2xl font-semibold mb-4">Benefits</h2>
+          <h2 className="text-2xl font-semibold mb-4 text-gray-700">Benefits</h2>
           <ul className="list-disc list-inside space-y-2">
             {practice.benefits.map((benefit, index) => (
               <motion.li 
@@ -47,6 +47,7 @@ export default function MindfulnessPracticePage() {
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.5, delay: 0.3 + index * 0.1 }}
+                className="text-gray-600"
               >
                 {benefit}
               </motion.li>
@@ -55,7 +56,7 @@ export default function MindfulnessPracticePage() {
         </section>
 
         <section className="mb-12">
-          <h2 className="text-2xl font-semibold mb-4">How to Practice</h2>
+          <h2 className="text-2xl font-semibold mb-4 text-gray-700">How to Practice</h2>
           <ol className="list-decimal list-inside space-y-2">
             {practice.steps.map((step, index) => (
               <motion.li 
@@ -63,6 +64,7 @@ export default function MindfulnessPracticePage() {
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.5, delay: 0.3 + index * 0.1 }}
+                className="text-gray-600"
               >
                 {step}
               </motion.li>
@@ -71,7 +73,7 @@ export default function MindfulnessPracticePage() {
         </section>
 
         <section className="mb-12">
-          <h2 className="text-2xl font-semibold mb-4">Tips for Success</h2>
+          <h2 className="text-2xl font-semibold mb-4 text-gray-700">Tips for Success</h2>
           <ul className="list-disc list-inside space-y-2">
             {practice.tips.map((tip, index) => (
               <motion.li 
@@ -79,6 +81,7 @@ export default function MindfulnessPracticePage() {
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.5, delay: 0.3 + index * 0.1 }}
+                className="text-gray-600"
               >
                 {tip}
               </motion.li>
@@ -92,7 +95,7 @@ export default function MindfulnessPracticePage() {
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.5 }}
         >
-          <Link href="/get-started" className="bg-purple-500 text-white px-8 py-4 rounded-full text-xl font-semibold hover:bg-purple-600 transition duration-300 inline-block">
+          <Link href="/get-started" className="bg-blue-600 text-white px-8 py-4 rounded-full text-xl font-semibold hover:bg-blue-700 transition duration-300 inline-block">
             Start Practicing Now
           </Link>
         </motion.div>

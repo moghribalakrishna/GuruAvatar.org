@@ -35,7 +35,7 @@ export default function ImprovingFocusPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-blue-900 to-teal-700 text-white p-8">
+    <div className="min-h-screen bg-white text-gray-800 p-8">
       <div className="max-w-4xl mx-auto">
         <motion.h1 
           className="text-4xl font-bold mb-6 flex items-center"
@@ -43,7 +43,7 @@ export default function ImprovingFocusPage() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
         >
-          <Brain className="w-12 h-12 mr-4 text-yellow-300" />
+          <Brain className="w-12 h-12 mr-4 text-yellow-500" />
           Improving Focus and Concentration
         </motion.h1>
         <div className="mb-8 rounded-xl overflow-hidden">
@@ -64,11 +64,11 @@ export default function ImprovingFocusPage() {
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.2 }}
         >
-          <h2 className="text-2xl font-semibold mb-4">Why Focus Matters in Academics</h2>
-          <p className="text-lg mb-4">
+          <h2 className="text-2xl font-semibold mb-4 text-gray-700">Why Focus Matters in Academics</h2>
+          <p className="text-lg mb-4 text-gray-600">
             In the world of academia, the ability to focus and concentrate is crucial for success. Strong focus allows you to absorb information more effectively, complete tasks efficiently, and perform better on exams. It's the foundation for deep learning and critical thinking.
           </p>
-          <p className="text-lg">
+          <p className="text-lg text-gray-600">
             By improving your focus and concentration, you can enhance your overall academic performance, reduce study time, and experience less stress and frustration in your learning journey.
           </p>
         </motion.section>
@@ -79,8 +79,8 @@ export default function ImprovingFocusPage() {
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.3 }}
         >
-          <h2 className="text-2xl font-semibold mb-4">Benefits of Improved Focus and Concentration</h2>
-          <ul className="list-disc list-inside space-y-2">
+          <h2 className="text-2xl font-semibold mb-4 text-gray-700">Benefits of Improved Focus and Concentration</h2>
+          <ul className="list-disc list-inside space-y-2 text-gray-600">
             <li>Enhanced learning and information retention</li>
             <li>Improved academic performance and grades</li>
             <li>Increased productivity and efficiency in studying</li>
@@ -98,8 +98,8 @@ export default function ImprovingFocusPage() {
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.4 }}
         >
-          <h2 className="text-2xl font-semibold mb-4">Techniques for Improving Focus and Concentration</h2>
-          <ol className="list-decimal list-inside space-y-4">
+          <h2 className="text-2xl font-semibold mb-4 text-gray-700">Techniques for Improving Focus and Concentration</h2>
+          <ol className="list-decimal list-inside space-y-4 text-gray-600">
             <li><strong>Pomodoro Technique:</strong> Work in focused 25-minute intervals, followed by short breaks.</li>
             <li><strong>Mindfulness Meditation:</strong> Practice daily to train your mind to stay present and focused.</li>
             <li><strong>Environment Optimization:</strong> Create a distraction-free study space.</li>
@@ -132,8 +132,8 @@ export default function ImprovingFocusPage() {
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.5 }}
         >
-          <h2 className="text-2xl font-semibold mb-4">Mindful Pomodoro Technique</h2>
-          <p className="text-lg mb-4">
+          <h2 className="text-2xl font-semibold mb-4 text-gray-700">Mindful Pomodoro Technique</h2>
+          <p className="text-lg mb-4 text-gray-600">
             Try this mindful version of the Pomodoro Technique. Focus intensely on your task for 25 minutes, then take a 5-minute mindful break. Use our timer to guide you:
           </p>
           {!showTimer ? (
@@ -146,7 +146,7 @@ export default function ImprovingFocusPage() {
           ) : (
             <div className="text-center">
               <p className="text-4xl font-bold mb-4">{Math.floor(time / 60)}:{(time % 60).toString().padStart(2, '0')}</p>
-              <p className="text-lg">Focus intently on your task. If your mind wanders, gently bring it back to your work.</p>
+              <p className="text-lg text-gray-600">Focus intently on your task. If your mind wanders, gently bring it back to your work.</p>
             </div>
           )}
         </motion.section>
@@ -157,8 +157,8 @@ export default function ImprovingFocusPage() {
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.6 }}
         >
-          <h2 className="text-2xl font-semibold mb-4">Practical Exercises to Improve Focus</h2>
-          <ul className="list-disc list-inside space-y-2">
+          <h2 className="text-2xl font-semibold mb-4 text-gray-700">Practical Exercises to Improve Focus</h2>
+          <ul className="list-disc list-inside space-y-2 text-gray-600">
             <li><strong>Mindful Breathing:</strong> Take 5 minutes to focus solely on your breath, bringing your attention back whenever it wanders.</li>
             <li><strong>Single-Tasking Challenge:</strong> Choose one task and focus on it exclusively for 30 minutes, resisting any urge to multitask.</li>
             <li><strong>Observation Exercise:</strong> Spend 5 minutes observing an object in detail, noticing its colors, textures, and features.</li>
@@ -175,8 +175,8 @@ export default function ImprovingFocusPage() {
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.7 }}
         >
-          <h2 className="text-2xl font-semibold mb-4">Overcoming Common Focus Challenges</h2>
-          <ul className="list-disc list-inside space-y-2">
+          <h2 className="text-2xl font-semibold mb-4 text-gray-700">Overcoming Common Focus Challenges</h2>
+          <ul className="list-disc list-inside space-y-2 text-gray-600">
             <li><strong>Digital Distractions:</strong> Use website blockers and put your phone on "Do Not Disturb" mode during study sessions.</li>
             <li><strong>Mental Fatigue:</strong> Take regular breaks and practice stress-reduction techniques like deep breathing or short meditations.</li>
             <li><strong>Lack of Interest:</strong> Find ways to make the material more engaging, such as relating it to your interests or real-world applications.</li>
@@ -193,8 +193,8 @@ export default function ImprovingFocusPage() {
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.8 }}
         >
-          <h2 className="text-2xl font-semibold mb-4">Long-term Strategies for Sustained Focus</h2>
-          <ul className="list-disc list-inside space-y-2">
+          <h2 className="text-2xl font-semibold mb-4 text-gray-700">Long-term Strategies for Sustained Focus</h2>
+          <ul className="list-disc list-inside space-y-2 text-gray-600">
             <li>Develop a consistent daily meditation practice to train your attention.</li>
             <li>Regularly challenge your brain with puzzles, new skills, or complex problems.</li>
             <li>Maintain a balanced lifestyle with regular exercise, healthy nutrition, and adequate sleep.</li>
@@ -211,18 +211,18 @@ export default function ImprovingFocusPage() {
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.9 }}
         >
-          <h2 className="text-2xl font-semibold mb-4">Enhance Your Focus and Concentration</h2>
-          <p className="text-lg mb-6">
+          <h2 className="text-2xl font-semibold mb-4 text-gray-700">Enhance Your Focus and Concentration</h2>
+          <p className="text-lg mb-6 text-gray-600">
             Explore our additional resources to further develop your focus and concentration skills.
           </p>
           <div className="mt-8 flex justify-center space-x-4">
-          <Link href="/mindful-integration/mindfulness-community" className="bg-blue-500 text-white px-6 py-3 rounded-full text-lg font-semibold hover:bg-blue-600 transition duration-300">
-            Join Our Community
-          </Link>
-          <Link href="/forms/free-consultation" className="bg-green-500 text-white px-6 py-3 rounded-full text-lg font-semibold hover:bg-green-600 transition duration-300">
-            Schedule a Free Consultation
-          </Link>
-        </div>
+            <Link href="/mindful-integration/mindfulness-community" className="bg-blue-500 text-white px-6 py-3 rounded-full text-lg font-semibold hover:bg-blue-600 transition duration-300">
+              Join Our Community
+            </Link>
+            <Link href="/forms/free-consultation" className="bg-green-500 text-white px-6 py-3 rounded-full text-lg font-semibold hover:bg-green-600 transition duration-300">
+              Schedule a Free Consultation
+            </Link>
+          </div>
         </motion.section>
       </div>
     </div>

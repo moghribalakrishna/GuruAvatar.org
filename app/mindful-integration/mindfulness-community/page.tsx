@@ -103,126 +103,128 @@ export default function MindfulnessCommunitySignup() {
   ];
 
   return (
-    <div className="bg-gradient-to-br from-blue-900 via-purple-800 to-teal-700 text-white p-8 rounded-xl shadow-lg max-w-4xl mx-auto">
-      <h2 className="text-4xl font-bold mb-6 text-center">Join Our Mindfulness Community</h2>
-      <p className="text-xl mb-8 text-center text-blue-200">
-        Sign up to receive updates, tips, and access to exclusive mindfulness resources.
-      </p>
+    <div className="min-h-screen bg-white text-gray-800 p-8">
+      <div className="max-w-4xl mx-auto">
+        <h2 className="text-4xl font-bold mb-6 text-center text-gray-800">Join Our Mindfulness Community</h2>
+        <p className="text-xl mb-8 text-center text-gray-600">
+          Sign up to receive updates, tips, and access to exclusive mindfulness resources.
+        </p>
 
-      {submitSuccess ? (
-        <motion.div
-          className="bg-green-500 bg-opacity-20 p-8 rounded-xl text-center"
-          initial={{ opacity: 0, scale: 0.9 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.5 }}
-        >
-          <Check className="w-16 h-16 mx-auto mb-4 text-green-400" />
-          <h3 className="text-2xl font-bold mb-4">Thank You for Joining!</h3>
-          <p className="text-lg">Welcome to our mindfulness community. You'll receive our welcome email shortly.</p>
-        </motion.div>
-      ) : (
-        <form onSubmit={handleSubmit} className="space-y-6 bg-white bg-opacity-10 p-8 rounded-xl">
-          <div>
-            <label htmlFor="name" className="block mb-2 font-semibold">Full Name *</label>
-            <input
-              type="text"
-              id="name"
-              name="name"
-              value={formData.name}
-              onChange={handleInputChange}
-              className="w-full px-3 py-2 bg-white bg-opacity-20 rounded-md text-white placeholder-gray-300"
-              placeholder="Enter your full name"
-              required
-            />
-            {errors.name && <p className="text-red-400 text-sm mt-1">{errors.name}</p>}
-          </div>
-
-          <div>
-            <label htmlFor="email" className="block mb-2 font-semibold">Email Address *</label>
-            <input
-              type="email"
-              id="email"
-              name="email"
-              value={formData.email}
-              onChange={handleInputChange}
-              className="w-full px-3 py-2 bg-white bg-opacity-20 rounded-md text-white placeholder-gray-300"
-              placeholder="your.email@example.com"
-              required
-            />
-            {errors.email && <p className="text-red-400 text-sm mt-1">{errors.email}</p>}
-          </div>
-
-          <div>
-            <label htmlFor="phone" className="block mb-2 font-semibold">Phone Number *</label>
-            <div className="relative max-w-md">
-              <PhoneInput
-                country={'in'}
-                value={formData.phone}
-                onChange={handlePhoneChange}
-                inputProps={{
-                  name: 'phone',
-                  required: true,
-                  className: 'w-full px-3 py-2 bg-white bg-opacity-20 rounded-md text-white placeholder-gray-300 pl-14'
-                }}
-                containerClass="!w-full"
-                buttonClass="!bg-white !bg-opacity-20 !border-r-0 !px-3 !pl-3"
-                dropdownClass="!bg-gray-800 !text-white"
+        {submitSuccess ? (
+          <motion.div
+            className="bg-green-100 p-8 rounded-xl text-center"
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.5 }}
+          >
+            <Check className="w-16 h-16 mx-auto mb-4 text-green-500" />
+            <h3 className="text-2xl font-bold mb-4 text-gray-800">Thank You for Joining!</h3>
+            <p className="text-lg text-gray-600">Welcome to our mindfulness community. You'll receive our welcome email shortly.</p>
+          </motion.div>
+        ) : (
+          <form onSubmit={handleSubmit} className="space-y-6 bg-gray-50 p-8 rounded-xl">
+            <div>
+              <label htmlFor="name" className="block mb-2 font-semibold text-gray-700">Full Name *</label>
+              <input
+                type="text"
+                id="name"
+                name="name"
+                value={formData.name}
+                onChange={handleInputChange}
+                className="w-full px-3 py-2 bg-white rounded-md text-gray-800 placeholder-gray-400 border border-gray-300"
+                placeholder="Enter your full name"
+                required
               />
+              {errors.name && <p className="text-red-500 text-sm mt-1">{errors.name}</p>}
             </div>
-            {errors.phone && <p className="text-red-400 text-sm mt-1">{errors.phone}</p>}
-          </div>
 
-          <div>
-            <p className="mb-2 font-semibold">Mindfulness Interests (select all that apply) *</p>
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-2">
-              {mindfulnessPractices.map((practice) => (
-                <label key={practice} className="flex items-center space-x-2 cursor-pointer">
-                  <input
-                    type="checkbox"
-                    name="interests"
-                    value={practice}
-                    checked={formData.interests.includes(practice)}
-                    onChange={handleCheckboxChange}
-                    className="form-checkbox text-orange-500 rounded"
-                  />
-                  <span>{practice}</span>
-                </label>
-              ))}
+            <div>
+              <label htmlFor="email" className="block mb-2 font-semibold text-gray-700">Email Address *</label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                value={formData.email}
+                onChange={handleInputChange}
+                className="w-full px-3 py-2 bg-white rounded-md text-gray-800 placeholder-gray-400 border border-gray-300"
+                placeholder="your.email@example.com"
+                required
+              />
+              {errors.email && <p className="text-red-500 text-sm mt-1">{errors.email}</p>}
             </div>
-            {errors.interests && <p className="text-red-400 text-sm mt-1">{errors.interests}</p>}
-          </div>
 
-          {errors.submit && (
-            <div className="bg-red-500 bg-opacity-20 p-3 rounded-md flex items-center">
-              <AlertCircle className="mr-2" />
-              <p>{errors.submit}</p>
+            <div>
+              <label htmlFor="phone" className="block mb-2 font-semibold text-gray-700">Phone Number *</label>
+              <div className="relative max-w-md">
+                <PhoneInput
+                  country={'in'}
+                  value={formData.phone}
+                  onChange={handlePhoneChange}
+                  inputProps={{
+                    name: 'phone',
+                    required: true,
+                    className: 'w-full px-3 py-2 bg-white rounded-md text-gray-800 placeholder-gray-400 pl-14 border border-gray-300'
+                  }}
+                  containerClass="!w-full"
+                  buttonClass="!bg-white !border-r-0 !px-3 !pl-3 !border-gray-300"
+                  dropdownClass="!bg-gray-800 !text-white"
+                />
+              </div>
+              {errors.phone && <p className="text-red-500 text-sm mt-1">{errors.phone}</p>}
             </div>
-          )}
 
-          <div className="flex justify-center">
-            <button
-              type="submit"
-              className="bg-gradient-to-r from-orange-500 to-pink-500 text-white px-6 py-3 rounded-full text-lg font-semibold hover:from-orange-600 hover:to-pink-600 transition duration-300 flex items-center justify-center max-w-md w-full"
-              disabled={isSubmitting}
-            >
-              {isSubmitting ? (
-                <>
-                  <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                    <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
-                    <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-                  </svg>
-                  Joining...
-                </>
-              ) : (
-                <>
-                  <Send className="mr-2" />
-                  Join Community
-                </>
-              )}
-            </button>
-          </div>
-        </form>
-      )}
+            <div>
+              <p className="mb-2 font-semibold text-gray-700">Mindfulness Interests (select all that apply) *</p>
+              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-2">
+                {mindfulnessPractices.map((practice) => (
+                  <label key={practice} className="flex items-center space-x-2 cursor-pointer">
+                    <input
+                      type="checkbox"
+                      name="interests"
+                      value={practice}
+                      checked={formData.interests.includes(practice)}
+                      onChange={handleCheckboxChange}
+                      className="form-checkbox text-orange-500 rounded"
+                    />
+                    <span>{practice}</span>
+                  </label>
+                ))}
+              </div>
+              {errors.interests && <p className="text-red-500 text-sm mt-1">{errors.interests}</p>}
+            </div>
+
+            {errors.submit && (
+              <div className="bg-red-500 bg-opacity-20 p-3 rounded-md flex items-center">
+                <AlertCircle className="mr-2" />
+                <p>{errors.submit}</p>
+              </div>
+            )}
+
+            <div className="flex justify-center">
+              <button
+                type="submit"
+                className="bg-gradient-to-r from-orange-500 to-pink-500 text-white px-6 py-3 rounded-full text-lg font-semibold hover:from-orange-600 hover:to-pink-600 transition duration-300 flex items-center justify-center max-w-md w-full"
+                disabled={isSubmitting}
+              >
+                {isSubmitting ? (
+                  <>
+                    <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                      <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                      <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                    </svg>
+                    Joining...
+                  </>
+                ) : (
+                  <>
+                    <Send className="mr-2" />
+                    Join Community
+                  </>
+                )}
+              </button>
+            </div>
+          </form>
+        )}
+      </div>
     </div>
   );
 }

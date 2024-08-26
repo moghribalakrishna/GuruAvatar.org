@@ -28,7 +28,7 @@ export default function BoostingCreativityPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-blue-900 to-teal-700 text-white p-8">
+    <div className="min-h-screen bg-white text-gray-800 p-8">
       <div className="max-w-4xl mx-auto">
         <motion.h1 
           className="text-4xl font-bold mb-6 flex items-center"
@@ -59,11 +59,11 @@ export default function BoostingCreativityPage() {
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.2 }}
         >
-          <h2 className="text-2xl font-semibold mb-4">The Importance of Creativity in Academics</h2>
-          <p className="text-lg mb-4">
+          <h2 className="text-2xl font-semibold mb-4 text-gray-700">The Importance of Creativity in Academics</h2>
+          <p className="text-lg mb-4 text-gray-600">
             Creativity is not just for artists and musicians – it's a crucial skill in all academic disciplines. Creative thinking allows you to approach problems from new angles, make unique connections between ideas, and develop innovative solutions. In today's rapidly changing world, the ability to think creatively is increasingly valued in education and the workplace.
           </p>
-          <p className="text-lg">
+          <p className="text-lg text-gray-600">
             By enhancing your creative skills, you can improve your academic performance, enrich your learning experience, and prepare yourself for future challenges in your studies and career.
           </p>
         </motion.section>
@@ -74,8 +74,8 @@ export default function BoostingCreativityPage() {
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.3 }}
         >
-          <h2 className="text-2xl font-semibold mb-4">Benefits of Boosting Creativity</h2>
-          <ul className="list-disc list-inside space-y-2">
+          <h2 className="text-2xl font-semibold mb-4 text-gray-700">Benefits of Boosting Creativity</h2>
+          <ul className="list-disc list-inside space-y-2 text-gray-600">
             <li>Enhanced problem-solving abilities</li>
             <li>Improved ability to make connections between different concepts</li>
             <li>Increased originality in academic work</li>
@@ -93,8 +93,8 @@ export default function BoostingCreativityPage() {
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.4 }}
         >
-          <h2 className="text-2xl font-semibold mb-4">Techniques for Enhancing Creative Thinking</h2>
-          <ol className="list-decimal list-inside space-y-4">
+          <h2 className="text-2xl font-semibold mb-4 text-gray-700">Techniques for Enhancing Creative Thinking</h2>
+          <ol className="list-decimal list-inside space-y-4 text-gray-600">
             <li><strong>Brainstorming:</strong> Generate a large quantity of ideas without judgment.</li>
             <li><strong>Mind Mapping:</strong> Visually organize information and explore connections.</li>
             <li><strong>Lateral Thinking:</strong> Approach problems from unexpected angles.</li>
@@ -128,8 +128,8 @@ export default function BoostingCreativityPage() {
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.5 }}
         >
-          <h2 className="text-2xl font-semibold mb-4">Creative Thinking Exercise</h2>
-          <p className="text-lg mb-4">
+          <h2 className="text-2xl font-semibold mb-4 text-gray-700">Creative Thinking Exercise</h2>
+          <p className="text-lg mb-4 text-gray-600">
             Try this random word association exercise to spark your creativity. You'll be given three random words. Your task is to create a short story or scenario that incorporates all three words.
           </p>
           {!showExercise ? (
@@ -141,9 +141,9 @@ export default function BoostingCreativityPage() {
             </button>
           ) : (
             <div className="text-center">
-              <p className="text-2xl font-bold mb-4">Your random words are:</p>
-              <p className="text-xl mb-4">{randomWords.join(', ')}</p>
-              <p className="text-lg">Create a short story or scenario that includes all three words. Let your imagination flow!</p>
+              <p className="text-2xl font-bold mb-4 text-gray-700">Your random words are:</p>
+              <p className="text-xl mb-4 text-gray-600">{randomWords.join(', ')}</p>
+              <p className="text-lg text-gray-600">Create a short story or scenario that includes all three words. Let your imagination flow!</p>
             </div>
           )}
         </motion.section>
@@ -154,8 +154,8 @@ export default function BoostingCreativityPage() {
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.6 }}
         >
-          <h2 className="text-2xl font-semibold mb-4">Applying Creativity in Different Subjects</h2>
-          <ul className="list-disc list-inside space-y-2">
+          <h2 className="text-2xl font-semibold mb-4 text-gray-700">Applying Creativity in Different Subjects</h2>
+          <ul className="list-disc list-inside space-y-2 text-gray-600">
             <li><strong>Mathematics:</strong> Visualize problems in new ways, explore multiple solution paths.</li>
             <li><strong>Science:</strong> Design innovative experiments, develop unique hypotheses.</li>
             <li><strong>Literature:</strong> Create original interpretations, write creative responses to texts.</li>
@@ -173,8 +173,8 @@ export default function BoostingCreativityPage() {
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.7 }}
         >
-          <h2 className="text-2xl font-semibold mb-4">Overcoming Creative Blocks</h2>
-          <ul className="list-disc list-inside space-y-2">
+          <h2 className="text-2xl font-semibold mb-4 text-gray-700">Overcoming Creative Blocks</h2>
+          <ul className="list-disc list-inside space-y-2 text-gray-600">
             <li><strong>Change Your Environment:</strong> Work in a new location to stimulate fresh thinking.</li>
             <li><strong>Take Breaks:</strong> Allow your mind to rest and recharge.</li>
             <li><strong>Engage in Physical Activity:</strong> Exercise can help stimulate creative thinking.</li>
@@ -193,11 +193,11 @@ export default function BoostingCreativityPage() {
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.8 }}
         >
-          <h2 className="text-2xl font-semibold mb-4">Mindfulness and Creativity</h2>
-          <p className="text-lg mb-4">
+          <h2 className="text-2xl font-semibold mb-4 text-gray-700">Mindfulness and Creativity</h2>
+          <p className="text-lg mb-4 text-gray-600">
             Mindfulness practices can significantly enhance your creative abilities:
           </p>
-          <ul className="list-disc list-inside space-y-2">
+          <ul className="list-disc list-inside space-y-2 text-gray-600">
             <li><strong>Open Monitoring Meditation:</strong> Increases divergent thinking and idea generation.</li>
             <li><strong>Mindful Observation:</strong> Enhances your ability to notice details and make unique connections.</li>
             <li><strong>Body Scan:</strong> Reduces physical tension that can block creative flow.</li>
@@ -213,8 +213,8 @@ export default function BoostingCreativityPage() {
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.9 }}
         >
-          <h2 className="text-2xl font-semibold mb-4">Cultivating a Creative Mindset</h2>
-          <ul className="list-disc list-inside space-y-2">
+          <h2 className="text-2xl font-semibold mb-4 text-gray-700">Cultivating a Creative Mindset</h2>
+          <ul className="list-disc list-inside space-y-2 text-gray-600">
             <li>Embrace curiosity and ask "what if" questions.</li>
             <li>Practice looking at things from multiple perspectives.</li>
             <li>Allow yourself to make mistakes and learn from them.</li>
@@ -233,8 +233,8 @@ export default function BoostingCreativityPage() {
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 1.0 }}
         >
-          <h2 className="text-2xl font-semibold mb-4">Creativity-Boosting Habits</h2>
-          <ol className="list-decimal list-inside space-y-2">
+          <h2 className="text-2xl font-semibold mb-4 text-gray-700">Creativity-Boosting Habits</h2>
+          <ol className="list-decimal list-inside space-y-2 text-gray-600">
             <li>Read widely across different genres and subjects.</li>
             <li>Practice daily freewriting or sketching.</li>
             <li>Engage in regular brainstorming sessions.</li>
@@ -254,11 +254,11 @@ export default function BoostingCreativityPage() {
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 1.1 }}
         >
-          <h2 className="text-2xl font-semibold mb-4">Evaluating and Refining Creative Ideas</h2>
-          <p className="text-lg mb-4">
+          <h2 className="text-2xl font-semibold mb-4 text-gray-700">Evaluating and Refining Creative Ideas</h2>
+          <p className="text-lg mb-4 text-gray-600">
             Once you've generated creative ideas, it's important to evaluate and refine them:
           </p>
-          <ul className="list-disc list-inside space-y-2">
+          <ul className="list-disc list-inside space-y-2 text-gray-600">
             <li>Use the PMI technique: consider Plus, Minus, and Interesting aspects of each idea.</li>
             <li>Seek feedback from others, but don't let criticism stifle your creativity.</li>
             <li>Test and prototype your ideas when possible.</li>
@@ -275,8 +275,8 @@ export default function BoostingCreativityPage() {
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 1.2 }}
         >
-          <h2 className="text-2xl font-semibold mb-4">Unlock Your Creative Potential</h2>
-          <p className="text-lg mb-6">
+          <h2 className="text-2xl font-semibold mb-4 text-gray-700">Unlock Your Creative Potential</h2>
+          <p className="text-lg mb-6 text-gray-600">
             Explore our additional resources to further develop your creative thinking skills.
           </p>
           <div className="mt-8 flex justify-center space-x-4">

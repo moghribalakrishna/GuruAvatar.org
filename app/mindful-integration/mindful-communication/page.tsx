@@ -7,16 +7,15 @@ import { MessageCircle, Ear, Mic, ThumbsUp, Users, Heart } from 'lucide-react';
 import Link from 'next/link';
 
 export default function MindfulCommunicationPage() {
+  const videoRef = useRef<HTMLVideoElement>(null);
 
- const videoRef = useRef<HTMLVideoElement>(null);
-
- useEffect(() => {
-   if (videoRef.current) {
-     videoRef.current.play().catch(error => {
-       console.error("Auto-play was prevented:", error);
-     });
-   }
- }, []);
+  useEffect(() => {
+    if (videoRef.current) {
+      videoRef.current.play().catch(error => {
+        console.error("Auto-play was prevented:", error);
+      });
+    }
+  }, []);
 
   const [showTimer, setShowTimer] = useState(false);
   const [time, setTime] = useState(300); // 5 minutes in seconds
@@ -35,7 +34,7 @@ export default function MindfulCommunicationPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-blue-900 to-teal-700 text-white p-8">
+    <div className="min-h-screen bg-white text-gray-800 p-8">
       <div className="max-w-4xl mx-auto">
         <motion.h1 
           className="text-4xl font-bold mb-6 flex items-center"
@@ -46,7 +45,7 @@ export default function MindfulCommunicationPage() {
           <MessageCircle className="w-12 h-12 mr-4 text-blue-300" />
           Mindful Communication
         </motion.h1>
-      <div className="mb-8 rounded-xl overflow-hidden">
+        <div className="mb-8 rounded-xl overflow-hidden">
           <video 
             ref={videoRef}
             className="w-full"
@@ -65,11 +64,11 @@ export default function MindfulCommunicationPage() {
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.2 }}
         >
-          <h2 className="text-2xl font-semibold mb-4">What is Mindful Communication?</h2>
-          <p className="text-lg mb-4">
+          <h2 className="text-2xl font-semibold mb-4 text-gray-700">What is Mindful Communication?</h2>
+          <p className="text-lg mb-4 text-gray-600">
             Mindful communication is the practice of bringing full attention and awareness to our interactions with others. It involves being present, listening actively, speaking thoughtfully, and responding with empathy and understanding. This approach to communication can significantly improve our relationships, reduce conflicts, and enhance our overall well-being.
           </p>
-          <p className="text-lg">
+          <p className="text-lg text-gray-600">
             By communicating mindfully, we become more aware of our own thoughts and emotions, as well as those of others. This awareness allows us to respond more effectively and compassionately in our interactions, leading to more meaningful and authentic connections.
           </p>
         </motion.section>
@@ -80,8 +79,8 @@ export default function MindfulCommunicationPage() {
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.3 }}
         >
-          <h2 className="text-2xl font-semibold mb-4">Benefits of Mindful Communication</h2>
-          <ul className="list-disc list-inside space-y-2">
+          <h2 className="text-2xl font-semibold mb-4 text-gray-700">Benefits of Mindful Communication</h2>
+          <ul className="list-disc list-inside space-y-2 text-gray-600">
             <li>Improved relationships and deeper connections</li>
             <li>Reduced misunderstandings and conflicts</li>
             <li>Enhanced empathy and emotional intelligence</li>
@@ -99,8 +98,8 @@ export default function MindfulCommunicationPage() {
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.4 }}
         >
-          <h2 className="text-2xl font-semibold mb-4">Key Principles of Mindful Communication</h2>
-          <ul className="list-disc list-inside space-y-4">
+          <h2 className="text-2xl font-semibold mb-4 text-gray-700">Key Principles of Mindful Communication</h2>
+          <ul className="list-disc list-inside space-y-4 text-gray-600">
             <li><strong>Present Moment Awareness:</strong> Stay fully engaged in the conversation, avoiding distractions.</li>
             <li><strong>Active Listening:</strong> Focus on truly understanding the other person, rather than just waiting to speak.</li>
             <li><strong>Non-Judgmental Attitude:</strong> Approach conversations with openness and curiosity, suspending judgment.</li>
@@ -117,8 +116,8 @@ export default function MindfulCommunicationPage() {
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.5 }}
         >
-          <h2 className="text-2xl font-semibold mb-4">Practicing Mindful Communication</h2>
-          <ol className="list-decimal list-inside space-y-4">
+          <h2 className="text-2xl font-semibold mb-4 text-gray-700">Practicing Mindful Communication</h2>
+          <ol className="list-decimal list-inside space-y-4 text-gray-600">
             <li>Before a conversation, take a few deep breaths to center yourself.</li>
             <li>Pay attention to your body language and tone of voice.</li>
             <li>Listen attentively, avoiding the urge to interrupt or formulate responses while others are speaking.</li>
@@ -151,8 +150,8 @@ export default function MindfulCommunicationPage() {
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.6 }}
         >
-          <h2 className="text-2xl font-semibold mb-4">Guided Mindful Communication Exercise</h2>
-          <p className="text-lg mb-4">
+          <h2 className="text-2xl font-semibold mb-4 text-gray-700">Guided Mindful Communication Exercise</h2>
+          <p className="text-lg mb-4 text-gray-600">
             Try this mindful listening exercise with a partner. Take turns speaking and listening mindfully for 5 minutes each. Use our timer to guide you:
           </p>
           {!showTimer ? (
@@ -165,7 +164,7 @@ export default function MindfulCommunicationPage() {
           ) : (
             <div className="text-center">
               <p className="text-4xl font-bold mb-4">{Math.floor(time / 60)}:{(time % 60).toString().padStart(2, '0')}</p>
-              <p className="text-lg">Listen attentively to your partner without interrupting. Notice your thoughts and emotions as you listen.</p>
+              <p className="text-lg text-gray-600">Listen attentively to your partner without interrupting. Notice your thoughts and emotions as you listen.</p>
             </div>
           )}
         </motion.section>
@@ -176,8 +175,8 @@ export default function MindfulCommunicationPage() {
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.7 }}
         >
-          <h2 className="text-2xl font-semibold mb-4">Tips for Incorporating Mindful Communication into Daily Life</h2>
-          <ul className="list-disc list-inside space-y-2">
+          <h2 className="text-2xl font-semibold mb-4 text-gray-700">Tips for Incorporating Mindful Communication into Daily Life</h2>
+          <ul className="list-disc list-inside space-y-2 text-gray-600">
             <li>Start your day with a brief mindfulness practice to set an intention for mindful communication.</li>
             <li>Take a few deep breaths before important conversations or meetings.</li>
             <li>Practice active listening in everyday interactions, giving your full attention to the speaker.</li>
@@ -195,8 +194,8 @@ export default function MindfulCommunicationPage() {
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.8 }}
         >
-          <h2 className="text-2xl font-semibold mb-4">Overcoming Common Communication Challenges</h2>
-          <ul className="list-disc list-inside space-y-2">
+          <h2 className="text-2xl font-semibold mb-4 text-gray-700">Overcoming Common Communication Challenges</h2>
+          <ul className="list-disc list-inside space-y-2 text-gray-600">
             <li><strong>Reactive emotions:</strong> Practice STOP (Stop, Take a breath, Observe, Proceed) when feeling triggered.</li>
             <li><strong>Distractions:</strong> Create a distraction-free environment for important conversations.</li>
             <li><strong>Assumptions:</strong> Ask clarifying questions instead of making assumptions about others' intentions.</li>
@@ -213,8 +212,8 @@ export default function MindfulCommunicationPage() {
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.9 }}
         >
-          <h2 className="text-2xl font-semibold mb-4">Mindful Communication in Different Contexts</h2>
-          <ul className="list-disc list-inside space-y-4">
+          <h2 className="text-2xl font-semibold mb-4 text-gray-700">Mindful Communication in Different Contexts</h2>
+          <ul className="list-disc list-inside space-y-4 text-gray-600">
             <li><strong>Academic Settings:</strong> Practice active listening in lectures and discussions. Contribute thoughtfully to class discussions.</li>
             <li><strong>Personal Relationships:</strong> Use mindful communication to deepen connections and resolve conflicts with friends and family.</li>
             <li><strong>Professional Environment:</strong> Enhance teamwork and leadership skills through clear, empathetic communication.</li>
@@ -229,18 +228,18 @@ export default function MindfulCommunicationPage() {
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 1.0 }}
         >
-          <h2 className="text-2xl font-semibold mb-4">Enhance Your Communication Skills</h2>
-          <p className="text-lg mb-6">
+          <h2 className="text-2xl font-semibold mb-4 text-gray-700">Enhance Your Communication Skills</h2>
+          <p className="text-lg mb-6 text-gray-600">
             Explore our additional resources to further develop your mindful communication practice.
           </p>
           <div className="mt-8 flex justify-center space-x-4">
-          <Link href="/mindful-integration/mindfulness-community" className="bg-blue-500 text-white px-6 py-3 rounded-full text-lg font-semibold hover:bg-blue-600 transition duration-300">
-            Join Our Community
-          </Link>
-          <Link href="/forms/free-consultation" className="bg-green-500 text-white px-6 py-3 rounded-full text-lg font-semibold hover:bg-green-600 transition duration-300">
-            Schedule a Free Consultation
-          </Link>
-        </div>
+            <Link href="/mindful-integration/mindfulness-community" className="bg-blue-500 text-white px-6 py-3 rounded-full text-lg font-semibold hover:bg-blue-600 transition duration-300">
+              Join Our Community
+            </Link>
+            <Link href="/forms/free-consultation" className="bg-green-500 text-white px-6 py-3 rounded-full text-lg font-semibold hover:bg-green-600 transition duration-300">
+              Schedule a Free Consultation
+            </Link>
+          </div>
         </motion.section>
       </div>
     </div>

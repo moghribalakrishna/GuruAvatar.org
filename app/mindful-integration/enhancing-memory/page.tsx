@@ -2,22 +2,20 @@
 
 import React, { useState, useEffect, useRef } from 'react';
 import Image from 'next/image';
- 
 import { motion } from 'framer-motion';
 import { Brain, Book, Repeat, Zap, Sun } from 'lucide-react';
 import Link from 'next/link';
 
 export default function EnhancingMemoryPage() {
+  const videoRef = useRef<HTMLVideoElement>(null);
 
- const videoRef = useRef<HTMLVideoElement>(null);
-
- useEffect(() => {
-   if (videoRef.current) {
-     videoRef.current.play().catch(error => {
-       console.error("Auto-play was prevented:", error);
-     });
-   }
- }, []);
+  useEffect(() => {
+    if (videoRef.current) {
+      videoRef.current.play().catch(error => {
+        console.error("Auto-play was prevented:", error);
+      });
+    }
+  }, []);
 
   const [showExercise, setShowExercise] = useState(false);
   const [memoryList, setMemoryList] = useState<string[]>([]);
@@ -37,7 +35,7 @@ export default function EnhancingMemoryPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-blue-900 to-teal-700 text-white p-8">
+    <div className="min-h-screen bg-white text-gray-800 p-8">
       <div className="max-w-4xl mx-auto">
         <motion.h1 
           className="text-4xl font-bold mb-6 flex items-center"
@@ -66,11 +64,11 @@ export default function EnhancingMemoryPage() {
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.2 }}
         >
-          <h2 className="text-2xl font-semibold mb-4">The Importance of Memory in Learning</h2>
-          <p className="text-lg mb-4">
+          <h2 className="text-2xl font-semibold mb-4 text-gray-700">The Importance of Memory in Learning</h2>
+          <p className="text-lg mb-4 text-gray-600">
             Memory plays a crucial role in the learning process. It's not just about memorizing facts; it's about retaining information, connecting ideas, and applying knowledge in various contexts. Enhancing your memory and retention skills can significantly improve your academic performance and make your learning more efficient and effective.
           </p>
-          <p className="text-lg">
+          <p className="text-lg text-gray-600">
             By developing strong memory techniques, you can reduce study time, perform better on exams, and retain information for longer periods, leading to deeper understanding and more successful application of your knowledge.
           </p>
         </motion.section>
@@ -81,8 +79,8 @@ export default function EnhancingMemoryPage() {
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.3 }}
         >
-          <h2 className="text-2xl font-semibold mb-4">Benefits of Enhanced Memory and Retention</h2>
-          <ul className="list-disc list-inside space-y-2">
+          <h2 className="text-2xl font-semibold mb-4 text-gray-700">Benefits of Enhanced Memory and Retention</h2>
+          <ul className="list-disc list-inside space-y-2 text-gray-600">
             <li>Improved academic performance and grades</li>
             <li>More efficient studying and reduced cramming</li>
             <li>Better long-term retention of information</li>
@@ -100,8 +98,8 @@ export default function EnhancingMemoryPage() {
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.4 }}
         >
-          <h2 className="text-2xl font-semibold mb-4">Effective Memory Techniques</h2>
-          <ol className="list-decimal list-inside space-y-4">
+          <h2 className="text-2xl font-semibold mb-4 text-gray-700">Effective Memory Techniques</h2>
+          <ol className="list-decimal list-inside space-y-4 text-gray-600">
             <li><strong>Spaced Repetition:</strong> Review information at increasing intervals over time.</li>
             <li><strong>Mnemonics:</strong> Create acronyms, rhymes, or phrases to remember complex information.</li>
             <li><strong>Mind Mapping:</strong> Visually organize information to see connections and hierarchies.</li>
@@ -134,8 +132,8 @@ export default function EnhancingMemoryPage() {
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.5 }}
         >
-          <h2 className="text-2xl font-semibold mb-4">Memory Enhancement Exercise</h2>
-          <p className="text-lg mb-4">
+          <h2 className="text-2xl font-semibold mb-4 text-gray-700">Memory Enhancement Exercise</h2>
+          <p className="text-lg mb-4 text-gray-600">
             Try this simple memory exercise. You'll be shown a list of 10 words for 30 seconds. After that, try to recall as many words as you can.
           </p>
           {!showExercise ? (
@@ -149,7 +147,7 @@ export default function EnhancingMemoryPage() {
             <div className="text-center">
               <p className="text-2xl font-bold mb-4">Remember these words:</p>
               <p className="text-xl mb-4">{memoryList.join(', ')}</p>
-              <p className="text-lg mb-4">You have 30 seconds to memorize these words.</p>
+              <p className="text-lg mb-4 text-gray-600">You have 30 seconds to memorize these words.</p>
               <form onSubmit={handleSubmit} className="mt-8">
                 <input
                   type="text"
@@ -172,8 +170,8 @@ export default function EnhancingMemoryPage() {
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.6 }}
         >
-          <h2 className="text-2xl font-semibold mb-4">Strategies for Effective Information Retention</h2>
-          <ul className="list-disc list-inside space-y-2">
+          <h2 className="text-2xl font-semibold mb-4 text-gray-700">Strategies for Effective Information Retention</h2>
+          <ul className="list-disc list-inside space-y-2 text-gray-600">
             <li><strong>Create Meaningful Associations:</strong> Link new information to concepts you already understand.</li>
             <li><strong>Use Multiple Senses:</strong> Engage various senses while studying (e.g., read aloud, write notes, draw diagrams).</li>
             <li><strong>Practice Retrieval:</strong> Regularly test yourself on the material you're learning.</li>
@@ -193,8 +191,8 @@ export default function EnhancingMemoryPage() {
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.7 }}
         >
-          <h2 className="text-2xl font-semibold mb-4">Overcoming Common Memory Challenges</h2>
-          <ul className="list-disc list-inside space-y-2">
+          <h2 className="text-2xl font-semibold mb-4 text-gray-700">Overcoming Common Memory Challenges</h2>
+          <ul className="list-disc list-inside space-y-2 text-gray-600">
             <li><strong>Information Overload:</strong> Break study sessions into smaller, focused periods.</li>
             <li><strong>Lack of Sleep:</strong> Prioritize a consistent sleep schedule to support memory consolidation.</li>
             <li><strong>Stress and Anxiety:</strong> Practice relaxation techniques and mindfulness to reduce mental tension.</li>
@@ -211,8 +209,8 @@ export default function EnhancingMemoryPage() {
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.8 }}
         >
-          <h2 className="text-2xl font-semibold mb-4">Long-term Strategies for Memory Enhancement</h2>
-          <ul className="list-disc list-inside space-y-2">
+          <h2 className="text-2xl font-semibold mb-4 text-gray-700">Long-term Strategies for Memory Enhancement</h2>
+          <ul className="list-disc list-inside space-y-2 text-gray-600">
             <li>Develop a regular meditation practice to improve focus and memory.</li>
             <li>Engage in mentally stimulating activities like puzzles, learning new skills, or playing instruments.</li>
             <li>Maintain a balanced diet rich in omega-3 fatty acids, antioxidants, and vitamins.</li>
@@ -229,18 +227,18 @@ export default function EnhancingMemoryPage() {
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.9 }}
         >
-          <h2 className="text-2xl font-semibold mb-4">Boost Your Memory and Retention</h2>
-          <p className="text-lg mb-6">
+          <h2 className="text-2xl font-semibold mb-4 text-gray-700">Boost Your Memory and Retention</h2>
+          <p className="text-lg mb-6 text-gray-600">
             Explore our additional resources to further enhance your memory and retention skills.
           </p>
           <div className="mt-8 flex justify-center space-x-4">
-          <Link href="/mindful-integration/mindfulness-community" className="bg-blue-500 text-white px-6 py-3 rounded-full text-lg font-semibold hover:bg-blue-600 transition duration-300">
-            Join Our Community
-          </Link>
-          <Link href="/forms/free-consultation" className="bg-green-500 text-white px-6 py-3 rounded-full text-lg font-semibold hover:bg-green-600 transition duration-300">
-            Schedule a Free Consultation
-          </Link>
-        </div>
+            <Link href="/mindful-integration/mindfulness-community" className="bg-blue-500 text-white px-6 py-3 rounded-full text-lg font-semibold hover:bg-blue-600 transition duration-300">
+              Join Our Community
+            </Link>
+            <Link href="/forms/free-consultation" className="bg-green-500 text-white px-6 py-3 rounded-full text-lg font-semibold hover:bg-green-600 transition duration-300">
+              Schedule a Free Consultation
+            </Link>
+          </div>
         </motion.section>
       </div>
     </div>

@@ -62,7 +62,7 @@ export default function MindfulIntegrationContent() {
       }}
     >
       <motion.div
-        className="bg-white bg-opacity-10 p-6 rounded-xl cursor-pointer transition-all duration-300 hover:bg-opacity-20 hover:shadow-lg overflow-hidden relative"
+        className="bg-white p-6 rounded-xl cursor-pointer transition-all duration-300 hover:shadow-lg overflow-hidden relative"
         whileHover={{ scale: 1.03 }}
         whileTap={{ scale: 0.98 }}
       >
@@ -73,18 +73,18 @@ export default function MindfulIntegrationContent() {
           height={300}
           className="w-full h-48 object-cover mb-4 rounded-lg"
         />
-        <practice.icon className="w-12 h-12 text-purple-400 mb-4" />
-        <h3 className="text-xl font-semibold mb-2">{practice.title}</h3>
-        <p className="text-blue-100">{practice.description}</p>
+        <practice.icon className="w-12 h-12 text-blue-600 mb-4" />
+        <h3 className="text-xl font-semibold mb-2 text-gray-800">{practice.title}</h3>
+        <p className="text-gray-600">{practice.description}</p>
       </motion.div>
     </Link>
   );
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-blue-900 to-teal-700 text-white overflow-hidden relative p-8">
+    <div className="min-h-screen bg-white text-black overflow-hidden relative p-8">
       <div className="max-w-6xl mx-auto">
         <motion.h1 
-          className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 text-center text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400"
+          className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 text-center text-gray-800"
           initial={{ opacity: 0, y: -50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
@@ -92,7 +92,7 @@ export default function MindfulIntegrationContent() {
           Mindful Integration
         </motion.h1>
         <motion.p 
-          className="text-xl md:text-2xl mb-12 text-center max-w-4xl mx-auto text-blue-100"
+          className="text-xl md:text-2xl mb-12 text-center max-w-4xl mx-auto text-gray-600"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.2 }}
@@ -103,19 +103,19 @@ export default function MindfulIntegrationContent() {
 
         <div className="mb-8 flex justify-center">
           <button
-            className={`px-4 py-2 rounded-l-full ${activeTab === 'core-practices' ? 'bg-purple-600' : 'bg-purple-800'}`}
+            className={`px-4 py-2 rounded-l-full ${activeTab === 'core-practices' ? 'bg-blue-600 text-white' : 'bg-gray-200 text-gray-700'}`}
             onClick={() => handleTabChange('core-practices')}
           >
             Core Practices
           </button>
           <button
-            className={`px-4 py-2 ${activeTab === 'daily-life' ? 'bg-purple-600' : 'bg-purple-800'}`}
+            className={`px-4 py-2 ${activeTab === 'daily-life' ? 'bg-blue-600 text-white' : 'bg-gray-200 text-gray-700'}`}
             onClick={() => handleTabChange('daily-life')}
           >
             Daily Life
           </button>
           <button
-            className={`px-4 py-2 rounded-r-full ${activeTab === 'academic-performance' ? 'bg-purple-600' : 'bg-purple-800'}`}
+            className={`px-4 py-2 rounded-r-full ${activeTab === 'academic-performance' ? 'bg-blue-600 text-white' : 'bg-gray-200 text-gray-700'}`}
             onClick={() => handleTabChange('academic-performance')}
           >
             Academic Performance
@@ -146,11 +146,11 @@ export default function MindfulIntegrationContent() {
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.5 }}
         >
-          <h2 className="text-3xl font-semibold mb-6">Ready to Transform Your Learning Experience?</h2>
-          <p className="text-xl mb-8">
+          <h2 className="text-3xl font-semibold mb-6 text-gray-800">Ready to Transform Your Learning Experience?</h2>
+          <p className="text-xl mb-8 text-gray-600">
             Explore our mindfulness practices and elevate your learning potential with GuruAvatar.
           </p>
-          <Link href="/get-started" className="bg-gradient-to-r from-purple-500 to-pink-500 text-white px-8 py-4 rounded-full text-xl font-semibold hover:from-purple-600 hover:to-pink-600 transition duration-300 inline-block shadow-lg">
+          <Link href="/get-started" className="bg-blue-600 text-white px-8 py-4 rounded-full text-xl font-semibold hover:bg-blue-700 transition duration-300 inline-block shadow-lg">
             Start Your Mindful Learning Journey
           </Link>
         </motion.section>

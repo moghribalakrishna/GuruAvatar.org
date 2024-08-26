@@ -33,7 +33,7 @@ export default function LovingKindnessPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-blue-900 to-teal-700 text-white p-8">
+    <div className="min-h-screen bg-white text-gray-800 p-8">
       <div className="max-w-4xl mx-auto">
         <motion.h1 
           className="text-4xl font-bold mb-6 flex items-center"
@@ -64,11 +64,11 @@ export default function LovingKindnessPage() {
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.2 }}
         >
-          <h2 className="text-2xl font-semibold mb-4">What is Loving-Kindness Meditation?</h2>
-          <p className="text-lg mb-4">
+          <h2 className="text-2xl font-semibold mb-4 text-gray-700">What is Loving-Kindness Meditation?</h2>
+          <p className="text-lg mb-4 text-gray-600">
             Loving-Kindness Meditation, also known as Metta Bhavana in the Buddhist tradition, is a practice that cultivates unconditional love, compassion, and goodwill towards oneself and others. This powerful technique involves directing positive thoughts and wishes to yourself, loved ones, neutral individuals, difficult people, and eventually all beings.
           </p>
-          <p className="text-lg">
+          <p className="text-lg text-gray-600">
             The practice typically involves repeating phrases of well-wishing, such as "May you be happy, may you be healthy, may you be safe, may you live with ease." By regularly engaging in Loving-Kindness Meditation, practitioners can develop a more compassionate outlook, reduce negative emotions, and foster a sense of connection with others.
           </p>
         </motion.section>
@@ -79,8 +79,8 @@ export default function LovingKindnessPage() {
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.3 }}
         >
-          <h2 className="text-2xl font-semibold mb-4">Benefits of Loving-Kindness Meditation</h2>
-          <ul className="list-disc list-inside space-y-2">
+          <h2 className="text-2xl font-semibold mb-4 text-gray-700">Benefits of Loving-Kindness Meditation</h2>
+          <ul className="list-disc list-inside space-y-2 text-gray-600">
             <li>Increased positive emotions and life satisfaction</li>
             <li>Reduced symptoms of depression and anxiety</li>
             <li>Enhanced empathy and compassion for others</li>
@@ -98,8 +98,8 @@ export default function LovingKindnessPage() {
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.4 }}
         >
-          <h2 className="text-2xl font-semibold mb-4">How to Practice Loving-Kindness Meditation</h2>
-          <ol className="list-decimal list-inside space-y-4">
+          <h2 className="text-2xl font-semibold mb-4 text-gray-700">How to Practice Loving-Kindness Meditation</h2>
+          <ol className="list-decimal list-inside space-y-4 text-gray-600">
             <li>Find a comfortable seated position and take a few deep breaths to center yourself.</li>
             <li>Begin by directing loving-kindness towards yourself. Repeat phrases like:
               <ul className="list-disc list-inside ml-6 mt-2">
@@ -124,8 +124,8 @@ export default function LovingKindnessPage() {
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.5 }}
         >
-          <h2 className="text-2xl font-semibold mb-4">Tips for Effective Loving-Kindness Practice</h2>
-          <ul className="list-disc list-inside space-y-2">
+          <h2 className="text-2xl font-semibold mb-4 text-gray-700">Tips for Effective Loving-Kindness Practice</h2>
+          <ul className="list-disc list-inside space-y-2 text-gray-600">
             <li>Start with short sessions (5-10 minutes) and gradually increase the duration</li>
             <li>If you struggle with self-compassion, begin with a loved one and return to yourself later</li>
             <li>Personalize the phrases to make them more meaningful to you</li>
@@ -142,8 +142,8 @@ export default function LovingKindnessPage() {
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.6 }}
         >
-          <h2 className="text-2xl font-semibold mb-4">Guided Loving-Kindness Meditation</h2>
-          <p className="text-lg mb-4">
+          <h2 className="text-2xl font-semibold mb-4 text-gray-700">Guided Loving-Kindness Meditation</h2>
+          <p className="text-lg mb-4 text-gray-600">
             Ready to try a Loving-Kindness meditation? Use our built-in timer for a 10-minute practice session:
           </p>
           {!showTimer ? (
@@ -156,7 +156,7 @@ export default function LovingKindnessPage() {
           ) : (
             <div className="text-center">
               <p className="text-4xl font-bold mb-4">{Math.floor(time / 60)}:{(time % 60).toString().padStart(2, '0')}</p>
-              <p className="text-lg">Direct loving-kindness to yourself and others. Remember the phrases: "May you be happy, healthy, safe, and live with ease."</p>
+              <p className="text-lg text-gray-600">Direct loving-kindness to yourself and others. Remember the phrases: "May you be happy, healthy, safe, and live with ease."</p>
             </div>
           )}
         </motion.section>
@@ -167,11 +167,11 @@ export default function LovingKindnessPage() {
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.7 }}
         >
-          <h2 className="text-2xl font-semibold mb-4">Incorporating Loving-Kindness into Daily Life</h2>
-          <p className="text-lg mb-4">
+          <h2 className="text-2xl font-semibold mb-4 text-gray-700">Incorporating Loving-Kindness into Daily Life</h2>
+          <p className="text-lg mb-4 text-gray-600">
             While formal meditation sessions are valuable, you can also practice loving-kindness throughout your day:
           </p>
-          <ul className="list-disc list-inside space-y-2">
+          <ul className="list-disc list-inside space-y-2 text-gray-600">
             <li>Silently wish well to people you pass on the street or see in public</li>
             <li>Practice loving-kindness while waiting in line or during your commute</li>
             <li>Send kind thoughts to someone before a difficult conversation or meeting</li>
@@ -187,8 +187,8 @@ export default function LovingKindnessPage() {
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.8 }}
         >
-          <h2 className="text-2xl font-semibold mb-4">Overcoming Common Challenges</h2>
-          <ul className="list-disc list-inside space-y-2">
+          <h2 className="text-2xl font-semibold mb-4 text-gray-700">Overcoming Common Challenges</h2>
+          <ul className="list-disc list-inside space-y-2 text-gray-600">
             <li><strong>Difficulty feeling loving-kindness:</strong> Focus on the intention rather than the feeling. The emotions often develop with practice.</li>
             <li><strong>Resistance to self-compassion:</strong> Start with easier recipients and gradually work towards self-compassion. Remember that you are worthy of love and kindness.</li>
             <li><strong>Struggling with difficult people:</strong> Begin with neutral people and slowly expand to more challenging individuals. It's okay to take your time with this step.</li>
@@ -204,11 +204,11 @@ export default function LovingKindnessPage() {
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.9 }}
         >
-          <h2 className="text-2xl font-semibold mb-4">Variations of Loving-Kindness Meditation</h2>
-          <p className="text-lg mb-4">
+          <h2 className="text-2xl font-semibold mb-4 text-gray-700">Variations of Loving-Kindness Meditation</h2>
+          <p className="text-lg mb-4 text-gray-600">
             While the traditional practice is powerful, you can explore these variations to keep your practice fresh and aligned with your needs:
           </p>
-          <ul className="list-disc list-inside space-y-2">
+          <ul className="list-disc list-inside space-y-2 text-gray-600">
             <li><strong>Compassion Meditation:</strong> Focus on the wish to alleviate suffering, using phrases like "May you be free from suffering."</li>
             <li><strong>Gratitude-Infused Loving-Kindness:</strong> Combine gratitude with loving-kindness, acknowledging the good in your life while wishing well to others.</li>
             <li><strong>Walking Loving-Kindness:</strong> Practice while walking, directing kind wishes to people and places you pass.</li>
@@ -223,18 +223,18 @@ export default function LovingKindnessPage() {
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 1.0 }}
         >
-          <h2 className="text-2xl font-semibold mb-4">The Science Behind Loving-Kindness Meditation</h2>
-          <p className="text-lg mb-4">
+          <h2 className="text-2xl font-semibold mb-4 text-gray-700">The Science Behind Loving-Kindness Meditation</h2>
+          <p className="text-lg mb-4 text-gray-600">
             Research has shown numerous benefits of Loving-Kindness Meditation:
           </p>
-          <ul className="list-disc list-inside space-y-2">
+          <ul className="list-disc list-inside space-y-2 text-gray-600">
             <li>Increased positive emotions and decreased negative emotions (Fredrickson et al., 2008)</li>
             <li>Reduced symptoms of PTSD and depression (Kearney et al., 2013)</li>
             <li>Activation of empathy and emotional processing in the brain (Klimecki et al., 2013)</li>
             <li>Increased vagal tone, associated with better physical and emotional health (Kok et al., 2013)</li>
             <li>Reduced chronic pain and anger in patients with chronic low back pain (Carson et al., 2005)</li>
           </ul>
-          <p className="text-lg mt-4">
+          <p className="text-lg mt-4 text-gray-600">
             These studies demonstrate that regular practice of Loving-Kindness Meditation can lead to significant improvements in emotional well-being and interpersonal relationships.
           </p>
         </motion.section>
@@ -258,8 +258,8 @@ export default function LovingKindnessPage() {
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 1.1 }}
         >
-          <h2 className="text-2xl font-semibold mb-4">Deepen Your Loving-Kindness Practice</h2>
-          <p className="text-lg mb-6">
+          <h2 className="text-2xl font-semibold mb-4 text-gray-700">Deepen Your Loving-Kindness Practice</h2>
+          <p className="text-lg mb-6 text-gray-600">
             Explore our additional resources to enhance your understanding and experience of Loving-Kindness Meditation.
           </p>
           <div className="mt-8 flex justify-center space-x-4">

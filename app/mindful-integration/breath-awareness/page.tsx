@@ -33,7 +33,7 @@ export default function BreathAwarenessPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-blue-900 to-teal-700 text-white p-8">
+    <div className="min-h-screen bg-white text-gray-800 p-8">
       <div className="max-w-4xl mx-auto">
         <motion.h1 
           className="text-4xl font-bold mb-6 flex items-center"
@@ -64,11 +64,11 @@ export default function BreathAwarenessPage() {
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.2 }}
         >
-          <h2 className="text-2xl font-semibold mb-4">What is Breath Awareness Meditation?</h2>
-          <p className="text-lg mb-4">
+          <h2 className="text-2xl font-semibold mb-4 text-gray-700">What is Breath Awareness Meditation?</h2>
+          <p className="text-lg mb-4 text-gray-600">
             Breath awareness meditation, also known as mindful breathing, is a fundamental mindfulness practice that involves focusing your attention on the natural rhythm of your breath. This simple yet powerful technique serves as an anchor to the present moment, helping to calm the mind and body.
           </p>
-          <p className="text-lg">
+          <p className="text-lg text-gray-600">
             By observing the breath without trying to change it, practitioners cultivate a non-judgmental awareness of their present experience, leading to increased focus, reduced stress, and improved emotional regulation.
           </p>
         </motion.section>
@@ -79,8 +79,8 @@ export default function BreathAwarenessPage() {
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.3 }}
         >
-          <h2 className="text-2xl font-semibold mb-4">Benefits of Breath Awareness Meditation</h2>
-          <ul className="list-disc list-inside space-y-2">
+          <h2 className="text-2xl font-semibold mb-4 text-gray-700">Benefits of Breath Awareness Meditation</h2>
+          <ul className="list-disc list-inside space-y-2 text-gray-600">
             <li>Improved focus and concentration</li>
             <li>Reduced stress and anxiety</li>
             <li>Enhanced emotional regulation</li>
@@ -97,8 +97,8 @@ export default function BreathAwarenessPage() {
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.4 }}
         >
-          <h2 className="text-2xl font-semibold mb-4">How to Practice Breath Awareness Meditation</h2>
-          <ol className="list-decimal list-inside space-y-4">
+          <h2 className="text-2xl font-semibold mb-4 text-gray-700">How to Practice Breath Awareness Meditation</h2>
+          <ol className="list-decimal list-inside space-y-4 text-gray-600">
             <li>Find a comfortable seated position, either on a chair or cushion. Keep your back straight but not rigid.</li>
             <li>Gently close your eyes or maintain a soft gaze a few feet in front of you.</li>
             <li>Take a few deep breaths to settle into your body and the present moment.</li>
@@ -115,8 +115,8 @@ export default function BreathAwarenessPage() {
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.5 }}
         >
-          <h2 className="text-2xl font-semibold mb-4">Tips for Deepening Your Practice</h2>
-          <ul className="list-disc list-inside space-y-2">
+          <h2 className="text-2xl font-semibold mb-4 text-gray-700">Tips for Deepening Your Practice</h2>
+          <ul className="list-disc list-inside space-y-2 text-gray-600">
             <li>Practice consistently, even if it's just for a few minutes each day</li>
             <li>Be patient and kind to yourself when your mind wanders</li>
             <li>Experiment with different points of focus (nostrils, chest, belly) to see what works best for you</li>
@@ -145,8 +145,8 @@ export default function BreathAwarenessPage() {
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.6 }}
         >
-          <h2 className="text-2xl font-semibold mb-4">Guided Breath Awareness Meditation</h2>
-          <p className="text-lg mb-4">
+          <h2 className="text-2xl font-semibold mb-4 text-gray-700">Guided Breath Awareness Meditation</h2>
+          <p className="text-lg mb-4 text-gray-600">
             Ready to try a breath awareness meditation? Use our built-in timer for a 5-minute practice session:
           </p>
           {!showTimer ? (
@@ -159,7 +159,7 @@ export default function BreathAwarenessPage() {
           ) : (
             <div className="text-center">
               <p className="text-4xl font-bold mb-4">{Math.floor(time / 60)}:{(time % 60).toString().padStart(2, '0')}</p>
-              <p className="text-lg">Focus on your breath. Notice any distractions and gently return your attention to your breath.</p>
+              <p className="text-lg text-gray-600">Focus on your breath. Notice any distractions and gently return your attention to your breath.</p>
             </div>
           )}
         </motion.section>
@@ -170,11 +170,11 @@ export default function BreathAwarenessPage() {
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.7 }}
         >
-          <h2 className="text-2xl font-semibold mb-4">Incorporating Breath Awareness into Daily Life</h2>
-          <p className="text-lg mb-4">
+          <h2 className="text-2xl font-semibold mb-4 text-gray-700">Incorporating Breath Awareness into Daily Life</h2>
+          <p className="text-lg mb-4 text-gray-600">
             While formal meditation sessions are valuable, you can also practice breath awareness throughout your day:
           </p>
-          <ul className="list-disc list-inside space-y-2">
+          <ul className="list-disc list-inside space-y-2 text-gray-600">
             <li>Take three mindful breaths before starting a new task</li>
             <li>Use your breath as an anchor when feeling stressed or overwhelmed</li>
             <li>Practice breath awareness while waiting in line or during your commute</li>
@@ -183,16 +183,14 @@ export default function BreathAwarenessPage() {
           </ul>
         </motion.section>
 
-       
-
         <motion.section 
           className="text-center"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.9 }}
         >
-          <h2 className="text-2xl font-semibold mb-4">Ready to Deepen Your Practice?</h2>
-          <p className="text-lg mb-6">
+          <h2 className="text-2xl font-semibold mb-4 text-gray-700">Ready to Deepen Your Practice?</h2>
+          <p className="text-lg mb-6 text-gray-600">
             Explore our other mindfulness techniques or connect with a meditation coach for personalized guidance.
           </p>
 
