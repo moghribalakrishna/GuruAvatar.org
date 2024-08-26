@@ -45,17 +45,17 @@ const FAQItem: React.FC<FAQItemProps> = ({ question, answer }) => {
 
   return (
     <motion.div 
-      className="mb-4 bg-white bg-opacity-10 rounded-lg overflow-hidden"
+      className="mb-4 bg-gray-100 rounded-lg overflow-hidden shadow-md"
       initial={false}
-      animate={{ backgroundColor: isOpen ? 'rgba(255, 255, 255, 0.2)' : 'rgba(255, 255, 255, 0.1)' }}
+      animate={{ backgroundColor: isOpen ? '#f3f4f6' : '#f9fafb' }}
       transition={{ duration: 0.3 }}
     >
       <button
         className="w-full text-left p-4 focus:outline-none flex justify-between items-center"
         onClick={() => setIsOpen(!isOpen)}
       >
-        <span className="text-lg font-semibold">{question}</span>
-        {isOpen ? <ChevronUp /> : <ChevronDown />}
+        <span className="text-lg font-semibold text-gray-800">{question}</span>
+        {isOpen ? <ChevronUp className="text-blue-500" /> : <ChevronDown className="text-blue-500" />}
       </button>
       <AnimatePresence>
         {isOpen && (
@@ -65,7 +65,7 @@ const FAQItem: React.FC<FAQItemProps> = ({ question, answer }) => {
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.3 }}
           >
-            <p className="p-4 text-gray-200">{answer}</p>
+            <p className="p-4 text-gray-600">{answer}</p>
           </motion.div>
         )}
       </AnimatePresence>
@@ -75,10 +75,10 @@ const FAQItem: React.FC<FAQItemProps> = ({ question, answer }) => {
 
 export default function FAQPage() {
   return (
-    <div className="bg-gradient-to-b from-blue-900 via-blue-800 to-teal-900 min-h-screen text-white">
+    <div className="bg-white min-h-screen text-gray-800">
       <div className="container mx-auto px-4 py-16">
         <motion.h1 
-          className="text-5xl font-bold mb-8 text-center"
+          className="text-5xl font-bold mb-8 text-center text-blue-600"
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
@@ -87,7 +87,7 @@ export default function FAQPage() {
         </motion.h1>
         
         <motion.p 
-          className="text-xl mb-12 text-center max-w-3xl mx-auto"
+          className="text-xl mb-12 text-center max-w-3xl mx-auto text-gray-600"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.2 }}
@@ -114,13 +114,13 @@ export default function FAQPage() {
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.7 }}
         >
-          <h2 className="text-3xl font-semibold mb-6">Still have questions?</h2>
-          <p className="text-xl mb-8">
+          <h2 className="text-3xl font-semibold mb-6 text-gray-800">Still have questions?</h2>
+          <p className="text-xl mb-8 text-gray-600">
             If you couldn't find the answer you were looking for, please don't hesitate to reach out to us directly.
           </p>
           <a 
             href="/forms/contact" 
-            className="bg-orange-500 text-white px-8 py-3 rounded-full text-lg font-semibold hover:bg-orange-600 transition duration-300 inline-block"
+            className="bg-blue-500 text-white px-8 py-3 rounded-full text-lg font-semibold hover:bg-blue-600 transition duration-300 inline-block"
           >
             Contact Us
           </a>

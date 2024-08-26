@@ -61,27 +61,27 @@ export default function SuggestCoursePage() {
   };
 
   return (
-    <div className="bg-gradient-to-br from-blue-900 via-purple-800 to-teal-700 text-white p-8 rounded-xl shadow-lg max-w-4xl mx-auto">
-      <h2 className="text-4xl font-bold mb-6 text-center">Suggest a Course</h2>
-      <p className="text-xl mb-8 text-center text-blue-200">
+    <div className="bg-white text-gray-800 p-8 rounded-xl shadow-lg max-w-4xl mx-auto">
+     <h2 className="text-4xl font-bold mb-6 text-center text-blue-600">Suggest a Course</h2>
+      <p className="text-xl mb-8 text-center text-gray-600">
         Have an idea for a course? We'd love to hear it! Your suggestions help us create content that matters to you.
       </p>
 
       {isSuccess ? (
         <motion.div
-          className="bg-green-500 bg-opacity-20 p-8 rounded-xl text-center"
+          className="bg-green-100 p-8 rounded-xl text-center"
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.5 }}
         >
-          <Check className="w-16 h-16 mx-auto mb-4 text-green-400" />
-          <h3 className="text-2xl font-bold mb-4">Thank you for your suggestion!</h3>
-          <p className="text-lg">We'll review your course idea and get back to you soon.</p>
+          <Check className="w-16 h-16 mx-auto mb-4 text-green-500" />
+          <h3 className="text-2xl font-bold mb-4 text-green-700">Thank you for your suggestion!</h3>
+          <p className="text-lg text-green-600">We'll review your course idea and get back to you soon.</p>
         </motion.div>
       ) : (
-        <form onSubmit={handleSubmit} className="space-y-6 bg-white bg-opacity-10 p-8 rounded-xl">
+        <form onSubmit={handleSubmit} className="space-y-6 bg-gray-100 p-8 rounded-xl shadow-md">
           <div>
-            <label htmlFor="name" className="block mb-2 font-semibold">Your Name *</label>
+            <label htmlFor="name" className="block mb-2 font-semibold text-gray-700">Your Name *</label>
             <div className="relative">
               <User className="h-5 w-5 text-gray-400 absolute top-3 left-3" />
               <input
@@ -89,7 +89,7 @@ export default function SuggestCoursePage() {
                 name="name"
                 type="text"
                 required
-                className="w-full px-3 py-2 pl-10 bg-white bg-opacity-20 rounded-md text-white placeholder-gray-300"
+                className="w-full px-3 py-2 pl-10 bg-white border border-gray-300 rounded-md text-gray-800 placeholder-gray-400"
                 placeholder="Enter your name"
                 value={formData.name}
                 onChange={handleInputChange}
@@ -98,7 +98,7 @@ export default function SuggestCoursePage() {
           </div>
 
           <div>
-            <label htmlFor="email" className="block mb-2 font-semibold">Your Email *</label>
+            <label htmlFor="email" className="block mb-2 font-semibold text-gray-700">Your Email *</label>
             <div className="relative">
               <Mail className="h-5 w-5 text-gray-400 absolute top-3 left-3" />
               <input
@@ -106,7 +106,7 @@ export default function SuggestCoursePage() {
                 name="email"
                 type="email"
                 required
-                className="w-full px-3 py-2 pl-10 bg-white bg-opacity-20 rounded-md text-white placeholder-gray-300"
+                className="w-full px-3 py-2 pl-10 bg-white border border-gray-300 rounded-md text-gray-800 placeholder-gray-400"
                 placeholder="your.email@example.com"
                 value={formData.email}
                 onChange={handleInputChange}
@@ -115,7 +115,7 @@ export default function SuggestCoursePage() {
           </div>
 
           <div>
-            <label htmlFor="courseTitle" className="block mb-2 font-semibold">Suggested Course Title *</label>
+            <label htmlFor="courseTitle" className="block mb-2 font-semibold text-gray-700">Suggested Course Title *</label>
             <div className="relative">
               <BookOpen className="h-5 w-5 text-gray-400 absolute top-3 left-3" />
               <input
@@ -123,7 +123,7 @@ export default function SuggestCoursePage() {
                 name="courseTitle"
                 type="text"
                 required
-                className="w-full px-3 py-2 pl-10 bg-white bg-opacity-20 rounded-md text-white placeholder-gray-300"
+                className="w-full px-3 py-2 pl-10 bg-white border border-gray-300 rounded-md text-gray-800 placeholder-gray-400"
                 placeholder="Enter your suggested course title"
                 value={formData.courseTitle}
                 onChange={handleInputChange}
@@ -132,12 +132,12 @@ export default function SuggestCoursePage() {
           </div>
 
           <div>
-            <label htmlFor="courseDescription" className="block mb-2 font-semibold">Course Description *</label>
+            <label htmlFor="courseDescription" className="block mb-2 font-semibold text-gray-700">Course Description *</label>
             <textarea
               id="courseDescription"
               name="courseDescription"
               required
-              className="w-full px-3 py-2 bg-white bg-opacity-20 rounded-md text-white placeholder-gray-300"
+              className="w-full px-3 py-2 bg-white border border-gray-300 rounded-md text-gray-800 placeholder-gray-400"
               placeholder="Provide a brief description of the course"
               rows={4}
               value={formData.courseDescription}
@@ -146,13 +146,13 @@ export default function SuggestCoursePage() {
           </div>
 
           <div>
-            <label htmlFor="targetAudience" className="block mb-2 font-semibold">Target Audience *</label>
+            <label htmlFor="targetAudience" className="block mb-2 font-semibold text-gray-700">Target Audience *</label>
             <input
               id="targetAudience"
               name="targetAudience"
               type="text"
               required
-              className="w-full px-3 py-2 bg-white bg-opacity-20 rounded-md text-white placeholder-gray-300"
+              className="w-full px-3 py-2 bg-white border border-gray-300 rounded-md text-gray-800 placeholder-gray-400"
               placeholder="Who is this course for?"
               value={formData.targetAudience}
               onChange={handleInputChange}
@@ -160,15 +160,15 @@ export default function SuggestCoursePage() {
           </div>
 
           {error && (
-            <div className="bg-red-500 bg-opacity-20 p-3 rounded-md flex items-center">
-              <p className="text-red-200">{error}</p>
+            <div className="bg-red-100 p-3 rounded-md flex items-center">
+              <p className="text-red-700">{error}</p>
             </div>
           )}
 
           <div className="flex justify-center">
             <button
               type="submit"
-              className="bg-gradient-to-r from-orange-500 to-pink-500 text-white px-6 py-3 rounded-full text-lg font-semibold hover:from-orange-600 hover:to-pink-600 transition duration-300 flex items-center justify-center max-w-md w-full"
+              className="bg-blue-500 text-white px-6 py-3 rounded-full text-lg font-semibold hover:bg-blue-600 transition duration-300 flex items-center justify-center max-w-md w-full"
               disabled={isSubmitting}
             >
               {isSubmitting ? (

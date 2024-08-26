@@ -84,57 +84,57 @@ export default function FreeConsultationRequest() {
   };
 
   return (
-    <div className="bg-gradient-to-br from-blue-900 via-purple-800 to-teal-700 text-white p-8 rounded-xl shadow-lg max-w-4xl mx-auto">
-      <h2 className="text-4xl font-bold mb-6 text-center">Schedule a Free Consultation</h2>
-      <p className="text-xl mb-8 text-center text-blue-200">
+    <div className="bg-white text-gray-800 p-8 rounded-xl shadow-lg max-w-4xl mx-auto">
+      <h2 className="text-4xl font-bold mb-6 text-center text-blue-600">Schedule a Free Consultation</h2>
+      <p className="text-xl mb-8 text-center text-gray-600">
         Request a free consultation with one of our mindfulness experts to discuss your personal mindfulness journey.
       </p>
 
       {submitSuccess ? (
         <motion.div
-          className="bg-green-500 bg-opacity-20 p-8 rounded-xl text-center"
+          className="bg-green-100 p-8 rounded-xl text-center"
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.5 }}
         >
-          <Check className="w-16 h-16 mx-auto mb-4 text-green-400" />
-          <h3 className="text-2xl font-bold mb-4">Consultation Request Submitted!</h3>
-          <p className="text-lg">Thank you for requesting a consultation. We'll contact you soon to confirm your appointment.</p>
+          <Check className="w-16 h-16 mx-auto mb-4 text-green-500" />
+          <h3 className="text-2xl font-bold mb-4 text-green-700">Consultation Request Submitted!</h3>
+          <p className="text-lg text-green-600">Thank you for requesting a consultation. We'll contact you soon to confirm your appointment.</p>
         </motion.div>
       ) : (
-        <form onSubmit={handleSubmit} className="space-y-6 bg-white bg-opacity-10 p-8 rounded-xl">
+        <form onSubmit={handleSubmit} className="space-y-6 bg-gray-100 p-8 rounded-xl shadow-md">
           <div>
-            <label htmlFor="name" className="block mb-2 font-semibold">Full Name *</label>
+            <label htmlFor="name" className="block mb-2 font-semibold text-gray-700">Full Name *</label>
             <input
               type="text"
               id="name"
               name="name"
               value={formData.name}
               onChange={handleInputChange}
-              className="w-full px-3 py-2 bg-white bg-opacity-20 rounded-md text-white placeholder-gray-300"
+              className="w-full px-3 py-2 bg-white border border-gray-300 rounded-md text-gray-800 placeholder-gray-400"
               placeholder="Enter your full name"
               required
             />
-            {errors.name && <p className="text-red-400 text-sm mt-1">{errors.name}</p>}
+            {errors.name && <p className="text-red-500 text-sm mt-1">{errors.name}</p>}
           </div>
 
           <div>
-            <label htmlFor="email" className="block mb-2 font-semibold">Email Address *</label>
+            <label htmlFor="email" className="block mb-2 font-semibold text-gray-700">Email Address *</label>
             <input
               type="email"
               id="email"
               name="email"
               value={formData.email}
               onChange={handleInputChange}
-              className="w-full px-3 py-2 bg-white bg-opacity-20 rounded-md text-white placeholder-gray-300"
+              className="w-full px-3 py-2 bg-white border border-gray-300 rounded-md text-gray-800 placeholder-gray-400"
               placeholder="your.email@example.com"
               required
             />
-            {errors.email && <p className="text-red-400 text-sm mt-1">{errors.email}</p>}
+            {errors.email && <p className="text-red-500 text-sm mt-1">{errors.email}</p>}
           </div>
 
           <div>
-            <label htmlFor="phone" className="block mb-2 font-semibold">Phone Number *</label>
+            <label htmlFor="phone" className="block mb-2 font-semibold text-gray-700">Phone Number *</label>
             <div className="relative max-w-md">
               <PhoneInput
                 country={'in'}
@@ -143,45 +143,45 @@ export default function FreeConsultationRequest() {
                 inputProps={{
                   name: 'phone',
                   required: true,
-                  className: 'w-full px-3 py-2 bg-white bg-opacity-20 rounded-md text-white placeholder-gray-300 pl-14'
+                  className: 'w-full px-3 py-2 bg-white border border-gray-300 rounded-md text-gray-800 placeholder-gray-400'
                 }}
                 containerClass="!w-full"
-                buttonClass="!bg-white !bg-opacity-20 !border-r-0 !px-3 !pl-3"
-                dropdownClass="!bg-gray-800 !text-white"
+                buttonClass="!bg-gray-200"
+                dropdownClass="!bg-white !text-gray-800"
               />
             </div>
-            {errors.phone && <p className="text-red-400 text-sm mt-1">{errors.phone}</p>}
+            {errors.phone && <p className="text-red-500 text-sm mt-1">{errors.phone}</p>}
           </div>
 
           <div>
-            <label htmlFor="preferredDate" className="block mb-2 font-semibold">Preferred Consultation Date *</label>
+            <label htmlFor="preferredDate" className="block mb-2 font-semibold text-gray-700">Preferred Consultation Date *</label>
             <input
               type="date"
               id="preferredDate"
               name="preferredDate"
               value={formData.preferredDate}
               onChange={handleInputChange}
-              className="w-full px-3 py-2 bg-white bg-opacity-20 rounded-md text-white"
+              className="w-full px-3 py-2 bg-white border border-gray-300 rounded-md text-gray-800"
               required
             />
-            {errors.preferredDate && <p className="text-red-400 text-sm mt-1">{errors.preferredDate}</p>}
+            {errors.preferredDate && <p className="text-red-500 text-sm mt-1">{errors.preferredDate}</p>}
           </div>
 
           <div>
-            <label htmlFor="message" className="block mb-2 font-semibold">Additional Message (Optional)</label>
+            <label htmlFor="message" className="block mb-2 font-semibold text-gray-700">Additional Message (Optional)</label>
             <textarea
               id="message"
               name="message"
               value={formData.message}
               onChange={handleInputChange}
-              className="w-full px-3 py-2 bg-white bg-opacity-20 rounded-md text-white placeholder-gray-300"
+              className="w-full px-3 py-2 bg-white border border-gray-300 rounded-md text-gray-800 placeholder-gray-400"
               rows={4}
               placeholder="Any specific topics or concerns you'd like to discuss?"
             ></textarea>
           </div>
 
           {errors.submit && (
-            <div className="bg-red-500 bg-opacity-20 p-3 rounded-md flex items-center">
+            <div className="bg-red-100 p-3 rounded-md flex items-center text-red-700">
               <AlertCircle className="mr-2" />
               <p>{errors.submit}</p>
             </div>
@@ -190,7 +190,7 @@ export default function FreeConsultationRequest() {
           <div className="flex justify-center">
             <button
               type="submit"
-              className="bg-gradient-to-r from-orange-500 to-pink-500 text-white px-6 py-3 rounded-full text-lg font-semibold hover:from-orange-600 hover:to-pink-600 transition duration-300 flex items-center justify-center max-w-md w-full"
+              className="bg-blue-500 text-white px-6 py-3 rounded-full text-lg font-semibold hover:bg-blue-600 transition duration-300 flex items-center justify-center max-w-md w-full"
               disabled={isSubmitting}
             >
               {isSubmitting ? (

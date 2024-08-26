@@ -1,5 +1,4 @@
 'use client';
-
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Send, AlertCircle } from 'lucide-react';
@@ -30,7 +29,6 @@ export default function VolunteerApplicationPage() {
     experience: '',
     availability: '',
   });
-
   const [errors, setErrors] = useState<FormErrors>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitSuccess, setSubmitSuccess] = useState(false);
@@ -65,33 +63,13 @@ export default function VolunteerApplicationPage() {
 
   const validateForm = (): boolean => {
     const newErrors: FormErrors = {};
-
-    if (!formData.name.trim()) {
-      newErrors.name = 'Name is required';
-    }
-
-    if (!formData.email.trim()) {
-      newErrors.email = 'Email is required';
-    } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
-      newErrors.email = 'Email is invalid';
-    }
-
-    if (!formData.phone.trim()) {
-      newErrors.phone = 'Phone number is required';
-    }
-
-    if (formData.interests.length === 0) {
-      newErrors.interests = 'Please select at least one area of interest';
-    }
-
-    if (!formData.experience.trim()) {
-      newErrors.experience = 'Please describe your relevant experience';
-    }
-
-    if (!formData.availability.trim()) {
-      newErrors.availability = 'Please provide your availability';
-    }
-
+    if (!formData.name.trim()) { newErrors.name = 'Name is required'; }
+    if (!formData.email.trim()) { newErrors.email = 'Email is required'; }
+    else if (!/\S+@\S+\.\S+/.test(formData.email)) { newErrors.email = 'Email is invalid'; }
+    if (!formData.phone.trim()) { newErrors.phone = 'Phone number is required'; }
+    if (formData.interests.length === 0) { newErrors.interests = 'Please select at least one area of interest'; }
+    if (!formData.experience.trim()) { newErrors.experience = 'Please describe your relevant experience'; }
+    if (!formData.availability.trim()) { newErrors.availability = 'Please provide your availability'; }
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };
@@ -104,17 +82,9 @@ export default function VolunteerApplicationPage() {
         const response = await axios.post(`${process.env.NEXT_PUBLIC_STRAPI_API_URL}/volunteers`, {
           data: formData
         });
-
         if (response.status === 200) {
           setSubmitSuccess(true);
-          setFormData({
-            name: '',
-            email: '',
-            phone: '',
-            interests: [],
-            experience: '',
-            availability: '',
-          });
+          setFormData({ name: '', email: '', phone: '', interests: [], experience: '', availability: '' });
           setTimeout(() => {
             router.push('/volunteer/thank-you');
           }, 3000);
@@ -133,29 +103,27 @@ export default function VolunteerApplicationPage() {
   const interestAreas = ['Mentorship', 'Technical Support', 'Content Creation', 'Digital Media', 'Data Analysis', 'Community Outreach'];
 
   return (
-    <div className="bg-gradient-to-b from-blue-900 via-blue-800 to-teal-900 min-h-screen text-white">
+    <div className="bg-white min-h-screen text-gray-800">
       <div className="container mx-auto px-4 py-16">
-        <motion.h1 
-          className="text-5xl font-bold mb-8 text-center"
+        <motion.h1
+          className="text-5xl font-bold mb-8 text-center text-blue-600"
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
         >
           Volunteer Application
         </motion.h1>
-        
-        <motion.p 
-          className="text-xl mb-12 text-center max-w-3xl mx-auto"
+        <motion.p
+          className="text-xl mb-12 text-center max-w-3xl mx-auto text-gray-600"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.2 }}
         >
           Thank you for your interest in volunteering with GuruAvatar. Please fill out the form below, and we'll get back to you soon.
         </motion.p>
-
         {submitSuccess ? (
           <motion.div
-            className="max-w-2xl mx-auto bg-green-500 bg-opacity-20 p-8 rounded-xl text-center"
+            className="max-w-2xl mx-auto bg-green-100 p-8 rounded-xl text-center text-green-800"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5 }}
@@ -165,42 +133,40 @@ export default function VolunteerApplicationPage() {
           </motion.div>
         ) : (
           <motion.form
-            className="max-w-2xl mx-auto bg-white bg-opacity-10 p-8 rounded-xl"
+            className="max-w-2xl mx-auto bg-gray-100 p-8 rounded-xl shadow-md"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5, delay: 0.3 }}
             onSubmit={handleSubmit}
           >
             <div className="mb-6">
-              <label htmlFor="name" className="block mb-2">Full Name *</label>
+              <label htmlFor="name" className="block mb-2 text-gray-700">Full Name *</label>
               <input
                 type="text"
                 id="name"
                 name="name"
                 value={formData.name}
                 onChange={handleInputChange}
-                className={`w-full px-3 py-2 bg-white bg-opacity-20 rounded text-white ${errors.name ? 'border-red-500' : ''}`}
+                className={`w-full px-3 py-2 bg-white border rounded text-gray-800 ${errors.name ? 'border-red-500' : 'border-gray-300'}`}
                 required
               />
               {errors.name && <p className="text-red-500 text-sm mt-1">{errors.name}</p>}
             </div>
-
             <div className="mb-6">
-              <label htmlFor="email" className="block mb-2">Email Address *</label>
+              <label htmlFor="email" className="block mb-2 text-gray-700">Email Address *</label>
               <input
                 type="email"
                 id="email"
                 name="email"
                 value={formData.email}
                 onChange={handleInputChange}
-                className={`w-full px-3 py-2 bg-white bg-opacity-20 rounded text-white ${errors.email ? 'border-red-500' : ''}`}
+                className={`w-full px-3 py-2 bg-white border rounded text-gray-800 ${errors.email ? 'border-red-500' : 'border-gray-300'}`}
                 required
               />
               {errors.email && <p className="text-red-500 text-sm mt-1">{errors.email}</p>}
             </div>
-
             <div className="mb-6">
-              <label htmlFor="phone" className="block mb-2">Phone Number *</label>
+              <label htmlFor="phone" className="block mb-2 text-gray-700">Phone Number *</label>
               <PhoneInput
                 country={'in'}
                 value={formData.phone}
@@ -208,19 +174,18 @@ export default function VolunteerApplicationPage() {
                 inputProps={{
                   name: 'phone',
                   required: true,
-                  className: 'w-full px-3 py-2 bg-white bg-opacity-20 rounded text-white'
+                  className: 'w-full px-3 py-2 bg-white border rounded text-gray-800'
                 }}
                 containerClass={`${errors.phone ? 'border-red-500' : ''}`}
-                buttonClass="bg-white bg-opacity-20"
+                buttonClass="bg-gray-200"
                 dropdownClass="bg-white text-gray-800"
               />
               {errors.phone && <p className="text-red-500 text-sm mt-1">{errors.phone}</p>}
             </div>
-
             <div className="mb-6">
-              <p className="mb-2">Areas of Interest (select all that apply) *</p>
+              <p className="mb-2 text-gray-700">Areas of Interest (select all that apply) *</p>
               {interestAreas.map((interest) => (
-                <label key={interest} className="block mb-2">
+                <label key={interest} className="block mb-2 text-gray-600">
                   <input
                     type="checkbox"
                     name="interests"
@@ -234,46 +199,42 @@ export default function VolunteerApplicationPage() {
               ))}
               {errors.interests && <p className="text-red-500 text-sm mt-1">{errors.interests}</p>}
             </div>
-
             <div className="mb-6">
-              <label htmlFor="experience" className="block mb-2">Relevant Experience *</label>
+              <label htmlFor="experience" className="block mb-2 text-gray-700">Relevant Experience *</label>
               <textarea
                 id="experience"
                 name="experience"
                 value={formData.experience}
                 onChange={handleInputChange}
-                className={`w-full px-3 py-2 bg-white bg-opacity-20 rounded text-white ${errors.experience ? 'border-red-500' : ''}`}
+                className={`w-full px-3 py-2 bg-white border rounded text-gray-800 ${errors.experience ? 'border-red-500' : 'border-gray-300'}`}
                 rows={4}
                 required
               ></textarea>
               {errors.experience && <p className="text-red-500 text-sm mt-1">{errors.experience}</p>}
             </div>
-
             <div className="mb-6">
-              <label htmlFor="availability" className="block mb-2">Availability *</label>
+              <label htmlFor="availability" className="block mb-2 text-gray-700">Availability *</label>
               <input
                 type="text"
                 id="availability"
                 name="availability"
                 value={formData.availability}
                 onChange={handleInputChange}
-                className={`w-full px-3 py-2 bg-white bg-opacity-20 rounded text-white ${errors.availability ? 'border-red-500' : ''}`}
+                className={`w-full px-3 py-2 bg-white border rounded text-gray-800 ${errors.availability ? 'border-red-500' : 'border-gray-300'}`}
                 placeholder="E.g., Weekday evenings, Weekend mornings"
                 required
               />
               {errors.availability && <p className="text-red-500 text-sm mt-1">{errors.availability}</p>}
             </div>
-
             {errors.submit && (
-              <div className="mb-6 bg-red-500 bg-opacity-20 p-3 rounded flex items-center">
+              <div className="mb-6 bg-red-100 text-red-700 p-3 rounded flex items-center">
                 <AlertCircle className="mr-2" />
                 <p>{errors.submit}</p>
               </div>
             )}
-
             <button
               type="submit"
-              className="bg-orange-500 text-white px-6 py-3 rounded-full text-lg font-semibold hover:bg-orange-600 transition duration-300 flex items-center justify-center w-full disabled:opacity-50 disabled:cursor-not-allowed"
+              className="bg-blue-500 text-white px-6 py-3 rounded-full text-lg font-semibold hover:bg-blue-600 transition duration-300 flex items-center justify-center w-full disabled:opacity-50 disabled:cursor-not-allowed"
               disabled={isSubmitting}
             >
               {isSubmitting ? (

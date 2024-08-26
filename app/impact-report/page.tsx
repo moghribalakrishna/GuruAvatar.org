@@ -23,14 +23,14 @@ const impactDistribution = [
   { name: 'Rural Areas', value: 40 },
 ];
 
-const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042'];
+const COLORS = ['#3B82F6', '#10B981', '#F59E0B', '#EF4444'];
 
 export default function ImpactReportPage() {
   return (
-    <div className="bg-gradient-to-b from-blue-900 via-blue-800 to-teal-900 min-h-screen text-white">
+    <div className="bg-white min-h-screen text-gray-800">
       <div className="container mx-auto px-4 py-16">
         <motion.h1 
-          className="text-5xl font-bold mb-8 text-center"
+          className="text-5xl font-bold mb-8 text-center text-blue-600"
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
@@ -40,7 +40,7 @@ export default function ImpactReportPage() {
         
         <section className="mb-16">
           <motion.h2 
-            className="text-3xl font-semibold mb-4"
+            className="text-3xl font-semibold mb-4 text-gray-800"
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.1 }}
@@ -48,7 +48,7 @@ export default function ImpactReportPage() {
             Transforming Education: Our Journey So Far
           </motion.h2>
           <motion.p 
-            className="text-lg mb-4"
+            className="text-lg mb-4 text-gray-600"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5, delay: 0.2 }}
@@ -59,7 +59,7 @@ export default function ImpactReportPage() {
 
         <section className="mb-16">
           <motion.h2 
-            className="text-3xl font-semibold mb-6"
+            className="text-3xl font-semibold mb-6 text-gray-800"
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.3 }}
@@ -74,14 +74,14 @@ export default function ImpactReportPage() {
             ].map((item, index) => (
               <motion.div 
                 key={index}
-                className="bg-white bg-opacity-20 p-6 rounded-xl text-center"
+                className="bg-gray-100 p-6 rounded-xl text-center shadow-md"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.4 + index * 0.1 }}
               >
                 <div className="text-5xl mb-4">{item.icon}</div>
-                <h3 className="text-5xl font-bold mb-2 text-orange-400">{item.number}</h3>
-                <p className="text-xl text-blue-200">{item.description}</p>
+                <h3 className="text-5xl font-bold mb-2 text-blue-600">{item.number}</h3>
+                <p className="text-xl text-gray-600">{item.description}</p>
               </motion.div>
             ))}
           </div>
@@ -89,7 +89,7 @@ export default function ImpactReportPage() {
 
         <section className="mb-16">
           <motion.h2 
-            className="text-3xl font-semibold mb-6"
+            className="text-3xl font-semibold mb-6 text-gray-800"
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.7 }}
@@ -97,21 +97,21 @@ export default function ImpactReportPage() {
             Our Growth Journey
           </motion.h2>
           <motion.div
-            className="bg-white bg-opacity-10 p-6 rounded-xl"
+            className="bg-gray-100 p-6 rounded-xl shadow-md"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5, delay: 0.8 }}
           >
             <ResponsiveContainer width="100%" height={300}>
               <BarChart data={growthData}>
-                <CartesianGrid strokeDasharray="3 3" stroke="#ffffff30" />
-                <XAxis dataKey="year" stroke="#fff" />
-                <YAxis stroke="#fff" />
-                <Tooltip contentStyle={{ backgroundColor: '#1e3a8a', border: 'none' }} />
+                <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
+                <XAxis dataKey="year" stroke="#4B5563" />
+                <YAxis stroke="#4B5563" />
+                <Tooltip contentStyle={{ backgroundColor: '#ffffff', border: '1px solid #e5e7eb' }} />
                 <Legend />
-                <Bar dataKey="students" fill="#8884d8" name="Students Reached" />
-                <Bar dataKey="institutions" fill="#82ca9d" name="Partner Institutions" />
-                <Bar dataKey="mentorshipHours" fill="#ffc658" name="Mentorship Hours" />
+                <Bar dataKey="students" fill="#3B82F6" name="Students Reached" />
+                <Bar dataKey="institutions" fill="#10B981" name="Partner Institutions" />
+                <Bar dataKey="mentorshipHours" fill="#F59E0B" name="Mentorship Hours" />
               </BarChart>
             </ResponsiveContainer>
           </motion.div>
@@ -119,7 +119,7 @@ export default function ImpactReportPage() {
 
         <section className="mb-16">
           <motion.h2 
-            className="text-3xl font-semibold mb-6"
+            className="text-3xl font-semibold mb-6 text-gray-800"
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.9 }}
@@ -127,20 +127,20 @@ export default function ImpactReportPage() {
             Academic Performance Improvement
           </motion.h2>
           <motion.div
-            className="bg-white bg-opacity-10 p-6 rounded-xl"
+            className="bg-gray-100 p-6 rounded-xl shadow-md"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5, delay: 1 }}
           >
             <ResponsiveContainer width="100%" height={300}>
               <LineChart data={performanceData}>
-                <CartesianGrid strokeDasharray="3 3" stroke="#ffffff30" />
-                <XAxis dataKey="subject" stroke="#fff" />
-                <YAxis stroke="#fff" />
-                <Tooltip contentStyle={{ backgroundColor: '#1e3a8a', border: 'none' }} />
+                <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
+                <XAxis dataKey="subject" stroke="#4B5563" />
+                <YAxis stroke="#4B5563" />
+                <Tooltip contentStyle={{ backgroundColor: '#ffffff', border: '1px solid #e5e7eb' }} />
                 <Legend />
-                <Line type="monotone" dataKey="before" stroke="#ff9f43" strokeWidth={2} name="Before GuruAvatar" />
-                <Line type="monotone" dataKey="after" stroke="#0abde3" strokeWidth={2} name="After GuruAvatar" />
+                <Line type="monotone" dataKey="before" stroke="#F59E0B" strokeWidth={2} name="Before GuruAvatar" />
+                <Line type="monotone" dataKey="after" stroke="#3B82F6" strokeWidth={2} name="After GuruAvatar" />
               </LineChart>
             </ResponsiveContainer>
           </motion.div>
@@ -148,7 +148,7 @@ export default function ImpactReportPage() {
 
         <section className="mb-16">
           <motion.h2 
-            className="text-3xl font-semibold mb-6"
+            className="text-3xl font-semibold mb-6 text-gray-800"
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 1.1 }}
@@ -157,7 +157,7 @@ export default function ImpactReportPage() {
           </motion.h2>
           <div className="flex flex-col md:flex-row items-center justify-center">
             <motion.div
-              className="bg-white bg-opacity-10 p-6 rounded-xl md:w-1/2"
+              className="bg-gray-100 p-6 rounded-xl shadow-md md:w-1/2"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.5, delay: 1.2 }}
@@ -188,10 +188,10 @@ export default function ImpactReportPage() {
               animate={{ opacity: 1 }}
               transition={{ duration: 0.5, delay: 1.3 }}
             >
-              <p className="text-lg mb-4">
+              <p className="text-lg mb-4 text-gray-600">
                 GuruAvatar is committed to bridging the educational gap between urban and rural areas. Our impact reaches:
               </p>
-              <ul className="list-disc list-inside">
+              <ul className="list-disc list-inside text-gray-600">
                 <li>60% of students in urban areas</li>
                 <li>40% of students in rural and underserved regions</li>
               </ul>
@@ -201,7 +201,7 @@ export default function ImpactReportPage() {
 
         <section className="mb-16">
           <motion.h2 
-            className="text-3xl font-semibold mb-6"
+            className="text-3xl font-semibold mb-6 text-gray-800"
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 1.4 }}
@@ -223,7 +223,7 @@ export default function ImpactReportPage() {
             ].map((story, index) => (
               <motion.div 
                 key={index}
-                className="bg-white bg-opacity-10 p-6 rounded-xl flex items-start space-x-4"
+                className="bg-gray-100 p-6 rounded-xl shadow-md flex items-start space-x-4"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 1.5 + index * 0.1 }}
@@ -236,8 +236,8 @@ export default function ImpactReportPage() {
                   className="rounded-full"
                 />
                 <div>
-                  <h3 className="text-xl font-semibold mb-2">{story.name}</h3>
-                  <p>"{story.story}"</p>
+                  <h3 className="text-xl font-semibold mb-2 text-gray-800">{story.name}</h3>
+                  <p className="text-gray-600">"{story.story}"</p>
                 </div>
               </motion.div>
             ))}
@@ -246,7 +246,7 @@ export default function ImpactReportPage() {
 
         <section className="mb-16">
           <motion.h2 
-            className="text-3xl font-semibold mb-6"
+            className="text-3xl font-semibold mb-6 text-gray-800"
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 1.7 }}
@@ -254,7 +254,7 @@ export default function ImpactReportPage() {
             Our Global Reach
           </motion.h2>
           <motion.div
-            className="bg-white bg-opacity-10 p-6 rounded-xl"
+            className="bg-gray-100 p-6 rounded-xl shadow-md"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5, delay: 1.8 }}
@@ -271,7 +271,7 @@ export default function ImpactReportPage() {
 
         <section>
           <motion.h2 
-            className="text-3xl font-semibold mb-6"
+            className="text-3xl font-semibold mb-6 text-gray-800"
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 1.9 }}
@@ -279,7 +279,7 @@ export default function ImpactReportPage() {
             Looking Ahead: Our 2027 Goals
           </motion.h2>
           <motion.ul 
-            className="list-disc list-inside text-lg mb-6 space-y-2"
+            className="list-disc list-inside text-lg mb-6 space-y-2 text-gray-600"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5, delay: 2 }}
@@ -291,7 +291,7 @@ export default function ImpactReportPage() {
             <li>Establish partnerships with 500 educational institutions worldwide</li>
           </motion.ul>
           <motion.p 
-            className="text-lg"
+            className="text-lg text-gray-600"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5, delay: 2.1 }}
@@ -304,7 +304,7 @@ export default function ImpactReportPage() {
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5, delay: 2.2 }}
           >
-            <a href="/donate" className="bg-orange-500 text-white px-6 py-3 rounded-full text-lg font-semibold hover:bg-orange-600 transition duration-300">
+            <a href="/donate" className="bg-blue-500 text-white px-6 py-3 rounded-full text-lg font-semibold hover:bg-blue-600 transition duration-300">
               Support Our Mission
             </a>
           </motion.div>
