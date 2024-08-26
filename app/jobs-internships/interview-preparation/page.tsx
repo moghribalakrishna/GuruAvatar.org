@@ -73,7 +73,7 @@ export default function InterviewPreparationPage() {
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.2 }}
         >
-          Our Interview Preparation Hub equips you with the tools, knowledge, and confidence to excel in any interview. From entry-level positions to executive roles, we've got you covered.
+          Our Interview Preparation Hub equips you with the tools, knowledge, and confidence to excel in any interview.
         </motion.p>
         
         <motion.section
