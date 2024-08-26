@@ -17,7 +17,7 @@ const SingaporeEpiphany: React.FC<SingaporeEpiphanyProps> = ({ isActive }) => {
 
   return (
     <motion.div
-      className="max-w-4xl mx-auto"
+      className="max-w-4xl mx-auto bg-white"
       initial={{ opacity: 0 }}
       animate={{ opacity: isActive ? 1 : 0.3 }}
       transition={{ duration: 0.5 }}

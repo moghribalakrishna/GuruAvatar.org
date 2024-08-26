@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 
 export default function FoundersJourney() {
   return (
-    <section className="mb-16">
+    <section className="mb-16 bg-white">
       <motion.h2 
         className="text-3xl font-semibold mb-4"
         initial={{ opacity: 0, y: -20 }}
@@ -47,7 +47,7 @@ export default function FoundersJourney() {
         >
           <h3 className="text-2xl font-semibold mb-4">A Transformative Vision</h3>
           <p className="text-lg mb-4">
-            In 2012, during a visit to Singapore, Balakrishna Moghri realized the stark contrast between Singapore's development and India’s challenges. This inspired him to address these disparities by founding GuruAvatar, a platform that fosters curiosity, critical thinking, and empowers students.
+            In 2012, during a visit to Singapore, Balakrishna Moghri realized the stark contrast between Singapore's development and India's challenges. This inspired him to address these disparities by founding GuruAvatar, a platform that fosters curiosity, critical thinking, and empowers students.
           </p>
         </motion.div>
       </div>

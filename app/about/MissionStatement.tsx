@@ -5,7 +5,7 @@ import Image from 'next/image';
 
 export default function MissionStatement() {
     return (
-        <section className="my-16">
+        <section className="my-16 bg-white">
             <div className="flex flex-col md:flex-row items-center gap-8 mb-8">
                 <motion.div
                     className="md:w-1/2 bg-white bg-opacity-10 p-8 rounded-lg shadow-lg text-center"

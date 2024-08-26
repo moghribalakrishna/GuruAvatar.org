@@ -9,7 +9,7 @@ import ImpactAndFuture from './ImpactAndFuture';
 
 export default function About() {
   return (
-    <div className="bg-gradient-to-b from-blue-900 to-teal-700 min-h-screen text-white">
+    <div className="bg-white min-h-screen text-gray-900">
       <div className="container mx-auto px-4 py-16">
         <motion.h1
           className="text-5xl font-bold mb-8 text-center"

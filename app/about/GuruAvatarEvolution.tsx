@@ -58,7 +58,7 @@ const GuruAvatarEvolution: React.FC = () => {
   }, [currentPhase]);
 
   return (
-    <div className="bg-gradient-to-b from-blue-900 to-teal-700 min-h-screen text-white">
+    <div className="bg-white min-h-screen text-gray-900">
       <TimelineOverview currentPhase={currentPhase?.title} />
       <AnimatePresence>
         {showOverview && (

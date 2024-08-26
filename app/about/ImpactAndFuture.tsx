@@ -44,7 +44,7 @@ const VisionItem: React.FC<VisionItemProps> = ({ icon: Icon, title, description 
 
 export default function ImpactAndFuture() {
   return (
-    <section className="py-20 bg-gradient-to-b from-blue-900 to-teal-900">
+    <section className="py-20 bg-white">
       <div className="container mx-auto px-4">
         <motion.h2 
           className="text-4xl md:text-5xl font-bold text-center mb-12"
