@@ -20,9 +20,7 @@ export default function MentorProfilePage() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-blue-900 to-teal-700 text-white p-8">
       <div className="max-w-4xl mx-auto">
-        <Link href="/expert-mentorship" className="inline-flex items-center text-blue-300 hover:text-blue-200 mb-8 transition duration-300">
-          <ArrowLeft className="mr-2" /> Back to Expert Mentorship
-        </Link>
+    
         
         <div className="bg-white bg-opacity-10 rounded-xl p-8 mb-8">
           <div className="flex flex-col md:flex-row items-center md:items-start mb-8">

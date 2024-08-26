@@ -17,9 +17,6 @@ export default function HabitPage({ habitId }: HabitPageProps) {
   return (
     <div className="min-h-screen bg-white text-black p-8">
       <div className="max-w-6xl mx-auto">
-        <Link href="/habit-forging" className="inline-flex items-center text-gray-700 hover:text-gray-600 mb-8 transition duration-300">
-          <ArrowLeft className="mr-2" /> Back to Habit Forge
-        </Link>
         
         <motion.h1 
           className="text-5xl md:text-6xl font-bold mb-8 flex items-center"

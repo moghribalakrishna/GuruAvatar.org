@@ -18,9 +18,6 @@ export default function MindfulnessPracticePage() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-blue-900 to-teal-700 text-white p-8">
       <div className="max-w-4xl mx-auto">
-        <Link href="/mindful-integration" className="inline-flex items-center text-blue-300 hover:text-blue-200 mb-8 transition duration-300">
-          <ArrowLeft className="mr-2" /> Back to Mindful Integration
-        </Link>
         
         <motion.h1 
           className="text-4xl md:text-5xl font-bold mb-6 flex items-center"

@@ -9,9 +9,7 @@ export default function PersonalizedGuidancePage() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-blue-900 to-teal-700 text-white p-8">
       <div className="max-w-4xl mx-auto">
-        <Link href="/expert-mentorship/benefits" className="inline-flex items-center text-blue-300 hover:text-blue-200 mb-8 transition duration-300">
-          <ChevronRight className="mr-2 rotate-180" /> Back to Benefits
-        </Link>
+      
         
         <motion.h1 
           className="text-4xl font-bold mb-6 flex items-center"
