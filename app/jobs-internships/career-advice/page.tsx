@@ -1,36 +1,12 @@
 'use client';
 
-import React, { useState } from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
-import { Compass, BookOpen, Users, MessageCircle, Briefcase, TrendingUp, Calendar, Star, ArrowRight, CheckCircle } from 'lucide-react';
+import { Compass, BookOpen, Users, MessageCircle, Briefcase, TrendingUp, Calendar, Star, ArrowRight } from 'lucide-react';
 import Image from 'next/image';
+import UnifiedRegistrationForm from '../UnifiedRegistrationForm';
 
 export default function CareerAdvicePage() {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    careerStage: '',
-    industry: '',
-    specificQuestions: '',
-    preferredMentorshipArea: '',
-    currentRole: '',
-    yearsOfExperience: '',
-  });
-
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
-    const { name, value } = e.target;
-    setFormData(prevState => ({
-      ...prevState,
-      [name]: value
-    }));
-  };
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    console.log('Career Advice Request:', formData);
-    // Here you would send the form data to your backend
-  };
-
   const careerServices = [
     { icon: Compass, title: "Career Path Guidance", description: "Explore potential career trajectories and make informed decisions" },
     { icon: BookOpen, title: "Skill Development Resources", description: "Access curated learning materials to enhance your professional skills" },
@@ -58,15 +34,10 @@ export default function CareerAdvicePage() {
     <div className="bg-white min-h-screen text-gray-800">
       <div className="max-w-4xl mx-auto px-4 py-8">
         <div className="text-center mb-12">
-          <Image 
-            src="/images/jobs-internships/career-advice.webp" 
-            alt="Career Connect Advice Hub" 
-            width={1200} 
-            height={600} 
-            className="rounded-lg mx-auto"
-          />
+          <Image src="/images/jobs-internships/career-advice.webp" alt="Career Connect Advice Hub" width={1200} height={600} className="rounded-lg mx-auto" />
         </div>
-        <motion.h1
+
+        <motion.h1 
           className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 sm:mb-6 text-center text-gray-800"
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -74,8 +45,8 @@ export default function CareerAdvicePage() {
         >
           Career Connect Advice Hub
         </motion.h1>
-        
-        <motion.section
+
+        <motion.section 
           className="mb-12"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -83,7 +54,6 @@ export default function CareerAdvicePage() {
         >
           <h2 className="text-2xl font-semibold mb-4 text-gray-800">Navigate Your Career Journey with Expert Guidance</h2>
           <p className="mb-6 text-gray-600">Access personalized career advice, industry insights, and professional development resources to help you make informed decisions and advance your career.</p>
-          
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {careerServices.map((service, index) => (
               <motion.div 
@@ -103,7 +73,7 @@ export default function CareerAdvicePage() {
           </div>
         </motion.section>
 
-        <motion.section
+        <motion.section 
           className="mb-12"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -129,101 +99,10 @@ export default function CareerAdvicePage() {
           </div>
         </motion.section>
 
-        <motion.form
-          onSubmit={handleSubmit}
-          className="bg-gray-100 p-6 rounded-xl shadow-lg"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.4 }}
-        >
-          <h2 className="text-2xl font-semibold mb-4 text-gray-800">Request Personalized Career Advice</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <input
-              type="text"
-              name="name"
-              placeholder="Full Name"
-              value={formData.name}
-              onChange={handleInputChange}
-              className="w-full px-4 py-2 bg-white rounded-md text-gray-800 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-300"
-              required
-            />
-            <input
-              type="email"
-              name="email"
-              placeholder="Email Address"
-              value={formData.email}
-              onChange={handleInputChange}
-              className="w-full px-4 py-2 bg-white rounded-md text-gray-800 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-300"
-              required
-            />
-            <select
-              name="careerStage"
-              value={formData.careerStage}
-              onChange={handleInputChange}
-              className="w-full px-4 py-2 bg-white rounded-md text-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-300"
-            >
-              <option value="">Select Career Stage</option>
-              <option value="student">Student</option>
-              <option value="entry-level">Entry-Level Professional</option>
-              <option value="mid-career">Mid-Career Professional</option>
-              <option value="senior">Senior Professional</option>
-              <option value="career-change">Career Changer</option>
-            </select>
-            <input
-              type="text"
-              name="industry"
-              placeholder="Industry of Interest"
-              value={formData.industry}
-              onChange={handleInputChange}
-              className="w-full px-4 py-2 bg-white rounded-md text-gray-800 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-300"
-            />
-            <input
-              type="text"
-              name="currentRole"
-              placeholder="Current Role (if applicable)"
-              value={formData.currentRole}
-              onChange={handleInputChange}
-              className="w-full px-4 py-2 bg-white rounded-md text-gray-800 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-300"
-            />
-            <input
-              type="number"
-              name="yearsOfExperience"
-              placeholder="Years of Experience"
-              value={formData.yearsOfExperience}
-              onChange={handleInputChange}
-              className="w-full px-4 py-2 bg-white rounded-md text-gray-800 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-300"
-            />
-            <select
-              name="preferredMentorshipArea"
-              value={formData.preferredMentorshipArea}
-              onChange={handleInputChange}
-              className="w-full px-4 py-2 bg-white rounded-md text-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-300"
-            >
-              <option value="">Preferred Mentorship Area</option>
-              <option value="career-planning">Career Planning</option>
-              <option value="skill-development">Skill Development</option>
-              <option value="leadership">Leadership</option>
-              <option value="entrepreneurship">Entrepreneurship</option>
-              <option value="work-life-balance">Work-Life Balance</option>
-            </select>
-            <textarea
-              name="specificQuestions"
-              placeholder="Specific career questions or areas you need advice on"
-              value={formData.specificQuestions}
-              onChange={handleInputChange}
-              className="w-full px-4 py-2 bg-white rounded-md text-gray-800 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-300 md:col-span-2"
-              rows={4}
-            />
-          </div>
-          <button
-            type="submit"
-            className="mt-6 w-full bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition duration-300"
-          >
-            Request Career Advice
-          </button>
-        </motion.form>
+        {/* Unified Registration Form */}
+        <UnifiedRegistrationForm formType="career-advice" />
 
-        <motion.section
+        <motion.section 
           className="mt-12"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -249,7 +128,7 @@ export default function CareerAdvicePage() {
           </div>
         </motion.section>
 
-        <motion.section
+        <motion.section 
           className="mt-12 text-center"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}

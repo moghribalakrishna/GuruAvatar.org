@@ -1,36 +1,12 @@
 'use client';
 
-import React, { useState } from 'react';
+import React from 'react';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { Book, CheckCircle, Users, Lightbulb, Video, FileText, Star, ArrowRight } from 'lucide-react';
+import UnifiedRegistrationForm from '../UnifiedRegistrationForm';
 
 export default function InterviewPreparationPage() {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    education: '',
-    interests: '',
-    experience: '',
-    preferredIndustry: '',
-    targetRole: '',
-    interviewDate: '',
-  });
-
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
-    const { name, value } = e.target;
-    setFormData(prevState => ({
-      ...prevState,
-      [name]: value
-    }));
-  };
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    console.log('Form submitted:', formData);
-    // Here you would send the form data to your backend
-  };
-
   const features = [
     { icon: Book, title: "Comprehensive Resources", description: "Access a vast library of interview questions and best practices" },
     { icon: Users, title: "Expert Guidance", description: "Learn from industry professionals and seasoned interviewers" },
@@ -51,15 +27,10 @@ export default function InterviewPreparationPage() {
     <div className="bg-white min-h-screen text-gray-800">
       <div className="container mx-auto px-4 py-8 md:py-16">
         <div className="text-center mb-12">
-          <Image 
-            src="/images/jobs-internships/interview-prep.webp" 
-            alt="Interview Preparation Hub" 
-            width={1200} 
-            height={600} 
-            className="rounded-lg mx-auto"
-          />
+          <Image src="/images/jobs-internships/interview-prep.webp" alt="Interview Preparation Hub" width={1200} height={600} className="rounded-lg mx-auto" />
         </div>
-        <motion.h1
+
+        <motion.h1 
           className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6 text-center"
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -67,7 +38,8 @@ export default function InterviewPreparationPage() {
         >
           Interview Preparation Hub
         </motion.h1>
-        <motion.p
+
+        <motion.p 
           className="text-lg sm:text-xl mb-12 text-center text-gray-600"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -75,8 +47,8 @@ export default function InterviewPreparationPage() {
         >
           Our Interview Preparation Hub equips you with the tools, knowledge, and confidence to excel in any interview.
         </motion.p>
-        
-        <motion.section
+
+        <motion.section 
           className="mb-12"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -96,7 +68,7 @@ export default function InterviewPreparationPage() {
           </div>
         </motion.section>
 
-        <motion.section
+        <motion.section 
           className="mb-12"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -115,91 +87,10 @@ export default function InterviewPreparationPage() {
           </div>
         </motion.section>
 
-        <motion.form
-          onSubmit={handleSubmit}
-          className="bg-gray-100 p-6 rounded-xl shadow-lg"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.4 }}
-        >
-          <h2 className="text-2xl font-semibold mb-4 text-gray-800">Personalize Your Interview Prep</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <input
-              type="text"
-              name="name"
-              placeholder="Full Name"
-              value={formData.name}
-              onChange={handleInputChange}
-              className="w-full px-4 py-2 bg-white rounded-md text-gray-800 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-300"
-              required
-            />
-            <input
-              type="email"
-              name="email"
-              placeholder="Email Address"
-              value={formData.email}
-              onChange={handleInputChange}
-              className="w-full px-4 py-2 bg-white rounded-md text-gray-800 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-300"
-              required
-            />
-            <input
-              type="text"
-              name="education"
-              placeholder="Highest Education Level"
-              value={formData.education}
-              onChange={handleInputChange}
-              className="w-full px-4 py-2 bg-white rounded-md text-gray-800 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-300"
-            />
-            <input
-              type="text"
-              name="preferredIndustry"
-              placeholder="Preferred Industry"
-              value={formData.preferredIndustry}
-              onChange={handleInputChange}
-              className="w-full px-4 py-2 bg-white rounded-md text-gray-800 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-300"
-            />
-            <input
-              type="text"
-              name="targetRole"
-              placeholder="Target Role"
-              value={formData.targetRole}
-              onChange={handleInputChange}
-              className="w-full px-4 py-2 bg-white rounded-md text-gray-800 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-300"
-            />
-            <input
-              type="date"
-              name="interviewDate"
-              placeholder="Upcoming Interview Date (if any)"
-              value={formData.interviewDate}
-              onChange={handleInputChange}
-              className="w-full px-4 py-2 bg-white rounded-md text-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-300"
-            />
-            <textarea
-              name="interests"
-              placeholder="Career Interests and Goals"
-              value={formData.interests}
-              onChange={handleInputChange}
-              className="w-full px-4 py-2 bg-white rounded-md text-gray-800 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-300 md:col-span-2"
-              rows={3}
-            />
-            <textarea
-              name="experience"
-              placeholder="Relevant Experience"
-              value={formData.experience}
-              onChange={handleInputChange}
-              className="w-full px-4 py-2 bg-white rounded-md text-gray-800 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-300 md:col-span-2"
-              rows={3}
-            />
-          </div>
-          <button
-            type="submit"
-            className="mt-6 w-full bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition duration-300"
-          >
-            Start Your Personalized Prep
-          </button>
-        </motion.form>
+        {/* Unified Registration Form */}
+        <UnifiedRegistrationForm formType="interview-preparation" />
 
-        <motion.section
+        <motion.section 
           className="mt-12"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -224,7 +115,7 @@ export default function InterviewPreparationPage() {
           </div>
         </motion.section>
 
-        <motion.section
+        <motion.section 
           className="mt-12 text-center"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}

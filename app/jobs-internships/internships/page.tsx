@@ -1,40 +1,12 @@
 'use client';
 
-import React, { useState } from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
-import { Lightbulb, Users, Award, TrendingUp, Briefcase, Calendar, Star, ArrowRight, CheckCircle } from 'lucide-react';
+import { Lightbulb, Users, Award, TrendingUp, CheckCircle } from 'lucide-react';
 import Image from 'next/image';
+import UnifiedRegistrationForm from '../UnifiedRegistrationForm';
 
 export default function InternshipsPage() {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    university: '',
-    major: '',
-    graduationYear: '',
-    desiredIndustry: '',
-    skills: '',
-    availability: '',
-    projectIdeas: '',
-    resumeLink: '',
-    linkedinProfile: '',
-    preferredLocation: '',
-  });
-
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
-    const { name, value } = e.target;
-    setFormData(prevState => ({
-      ...prevState,
-      [name]: value
-    }));
-  };
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    console.log('Internship Application:', formData);
-    // Here you would send the form data to your backend
-  };
-
   const internshipBenefits = [
     { icon: Lightbulb, title: "Hands-on Experience", description: "Work on real projects and gain practical skills" },
     { icon: Users, title: "Networking Opportunities", description: "Connect with industry professionals and potential mentors" },
@@ -62,15 +34,10 @@ export default function InternshipsPage() {
     <div className="bg-white min-h-screen text-gray-800">
       <div className="max-w-4xl mx-auto px-4 py-8">
         <div className="text-center mb-12">
-          <Image 
-            src="/images/jobs-internships/internships.webp" 
-            alt="Internships" 
-            width={1200} 
-            height={600} 
-            className="rounded-lg mx-auto"
-          />
+          <Image src="/images/jobs-internships/internships.webp" alt="Internships" width={1200} height={600} className="rounded-lg mx-auto" />
         </div>
-        <motion.h1
+        
+        <motion.h1 
           className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 sm:mb-6 text-center text-gray-800"
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -78,8 +45,8 @@ export default function InternshipsPage() {
         >
           Internship Opportunities
         </motion.h1>
-        
-        <motion.section
+
+        <motion.section 
           className="mb-12"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -87,7 +54,6 @@ export default function InternshipsPage() {
         >
           <h2 className="text-2xl font-semibold mb-4 text-gray-800">Kickstart Your Career with Meaningful Internships</h2>
           <p className="mb-6 text-gray-600">Gain invaluable industry experience, build your professional network, and apply your academic knowledge in real-world settings. GuruAvatar connects you with internship opportunities that align with your career goals.</p>
-          
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {internshipBenefits.map((benefit, index) => (
               <div key={index} className="flex items-start space-x-3 bg-gray-100 p-4 rounded-lg">
@@ -101,7 +67,7 @@ export default function InternshipsPage() {
           </div>
         </motion.section>
 
-        <motion.section
+        <motion.section 
           className="mb-12"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -118,127 +84,10 @@ export default function InternshipsPage() {
           </div>
         </motion.section>
 
-        <motion.form
-          onSubmit={handleSubmit}
-          className="bg-gray-100 p-6 rounded-xl shadow-lg"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.4 }}
-        >
-          <h2 className="text-2xl font-semibold mb-4 text-gray-800">Apply for Internship Matching</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <input
-              type="text"
-              name="name"
-              placeholder="Full Name"
-              value={formData.name}
-              onChange={handleInputChange}
-              className="w-full px-4 py-2 bg-white rounded-md text-gray-800 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-300"
-              required
-            />
-            <input
-              type="email"
-              name="email"
-              placeholder="Email Address"
-              value={formData.email}
-              onChange={handleInputChange}
-              className="w-full px-4 py-2 bg-white rounded-md text-gray-800 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-300"
-              required
-            />
-            <input
-              type="text"
-              name="university"
-              placeholder="University/College"
-              value={formData.university}
-              onChange={handleInputChange}
-              className="w-full px-4 py-2 bg-white rounded-md text-gray-800 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-300"
-            />
-            <input
-              type="text"
-              name="major"
-              placeholder="Major/Field of Study"
-              value={formData.major}
-              onChange={handleInputChange}
-              className="w-full px-4 py-2 bg-white rounded-md text-gray-800 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-300"
-            />
-            <select
-              name="graduationYear"
-              value={formData.graduationYear}
-              onChange={handleInputChange}
-              className="w-full px-4 py-2 bg-white rounded-md text-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-300"
-            >
-              <option value="">Expected Graduation Year</option>
-              {[...Array(6)].map((_, i) => {
-                const year = new Date().getFullYear() + i;
-                return <option key={year} value={year}>{year}</option>;
-              })}
-            </select>
-            <input
-              type="text"
-              name="desiredIndustry"
-              placeholder="Desired Industry for Internship"
-              value={formData.desiredIndustry}
-              onChange={handleInputChange}
-              className="w-full px-4 py-2 bg-white rounded-md text-gray-800 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-300"
-            />
-            <input
-              type="text"
-              name="preferredLocation"
-              placeholder="Preferred Internship Location"
-              value={formData.preferredLocation}
-              onChange={handleInputChange}
-              className="w-full px-4 py-2 bg-white rounded-md text-gray-800 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-300"
-            />
-            <input
-              type="text"
-              name="resumeLink"
-              placeholder="Link to Your Resume (Google Drive, Dropbox, etc.)"
-              value={formData.resumeLink}
-              onChange={handleInputChange}
-              className="w-full px-4 py-2 bg-white rounded-md text-gray-800 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-300"
-            />
-            <input
-              type="text"
-              name="linkedinProfile"
-              placeholder="LinkedIn Profile URL"
-              value={formData.linkedinProfile}
-              onChange={handleInputChange}
-              className="w-full px-4 py-2 bg-white rounded-md text-gray-800 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-300"
-            />
-            <textarea
-              name="skills"
-              placeholder="Relevant Skills (e.g., Programming Languages, Tools, Soft Skills)"
-              value={formData.skills}
-              onChange={handleInputChange}
-              className="w-full px-4 py-2 bg-white rounded-md text-gray-800 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-300"
-              rows={3}
-            />
-            <textarea
-              name="availability"
-              placeholder="Availability (e.g., Summer 2024, Fall 2024, Part-time during semester)"
-              value={formData.availability}
-              onChange={handleInputChange}
-              className="w-full px-4 py-2 bg-white rounded-md text-gray-800 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-300"
-              rows={3}
-            />
-            <textarea
-              name="projectIdeas"
-              placeholder="Any specific project ideas or areas of interest?"
-              value={formData.projectIdeas}
-              onChange={handleInputChange}
-              className="w-full px-4 py-2 bg-white rounded-md text-gray-800 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-300 md:col-span-2"
-              rows={3}
-            />
-          </div>
-          <button
-            type="submit"
-            className="mt-6 w-full bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition duration-300"
-          >
-            Submit Internship Application
-          </button>
-        </motion.form>
+        {/* Unified Registration Form */}
+        <UnifiedRegistrationForm formType="internships" />
 
-        <motion.section
+        <motion.section 
           className="mt-12"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -257,7 +106,7 @@ export default function InternshipsPage() {
           </div>
         </motion.section>
 
-        <motion.section
+        <motion.section 
           className="mt-12 text-center"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -267,7 +116,7 @@ export default function InternshipsPage() {
           <p className="mb-6 text-gray-600">Browse our curated list of internships and find the perfect match for your skills and interests.</p>
           <button className="bg-blue-600 text-white px-6 py-2 rounded-full hover:bg-blue-700 transition duration-300 font-semibold flex items-center mx-auto">
             Browse Internships
-            <ArrowRight className="ml-2 w-4 h-4" />
+            <TrendingUp className="ml-2 w-4 h-4" />
           </button>
         </motion.section>
       </div>
