@@ -4,7 +4,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Clock, BookOpen, Briefcase, Zap, Search } from 'lucide-react';
 import Image from 'next/image';
-import UnifiedRegistrationForm from '../UnifiedRegistrationForm';
+import Link from 'next/link';
 
 export default function JobsWhileStudyingPage() {
   const [searchTerm, setSearchTerm] = React.useState('');
@@ -122,8 +122,21 @@ export default function JobsWhileStudyingPage() {
           </div>
         </motion.section>
 
-        {/* Unified Registration Form */}
-        <UnifiedRegistrationForm formType="jobs-while-studying" />
+        <motion.section 
+          className="mt-12"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5, delay: 0.4 }}
+        >
+          <h2 className="text-2xl font-semibold mb-4 text-gray-800">Find Jobs While Studying</h2>
+          <p className="mb-6 text-gray-600">Balance your studies with valuable work experience. Register now to access part-time and flexible job opportunities.</p>
+          <Link href="/register?type=jobs-while-studying" passHref>
+            <button className="bg-blue-600 text-white px-6 py-3 rounded-full hover:bg-blue-700 transition duration-300 font-semibold flex items-center mx-auto">
+              Register for Student Jobs
+              <ArrowRight className="ml-2 w-4 h-4" />
+            </button>
+          </Link>
+        </motion.section>
 
       </div>
     </div>

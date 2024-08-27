@@ -4,7 +4,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Lightbulb, Users, Award, TrendingUp, CheckCircle } from 'lucide-react';
 import Image from 'next/image';
-import UnifiedRegistrationForm from '../UnifiedRegistrationForm';
+import Link from 'next/link';
 
 export default function InternshipsPage() {
   const internshipBenefits = [
@@ -84,8 +84,21 @@ export default function InternshipsPage() {
           </div>
         </motion.section>
 
-        {/* Unified Registration Form */}
-        <UnifiedRegistrationForm formType="internships" />
+        <motion.section 
+          className="mt-12"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5, delay: 0.4 }}
+        >
+          <h2 className="text-2xl font-semibold mb-4 text-gray-800">Apply for Internship Opportunities</h2>
+          <p className="mb-6 text-gray-600">Kickstart your career with an internship. Register now to explore exciting opportunities.</p>
+          <Link href="/register?type=internships" passHref>
+            <button className="bg-blue-600 text-white px-6 py-3 rounded-full hover:bg-blue-700 transition duration-300 font-semibold flex items-center mx-auto">
+              Register for Internships
+              <ArrowRight className="ml-2 w-4 h-4" />
+            </button>
+          </Link>
+        </motion.section>
 
         <motion.section 
           className="mt-12"

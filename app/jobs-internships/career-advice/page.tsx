@@ -4,7 +4,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Compass, BookOpen, Users, MessageCircle, Briefcase, TrendingUp, Calendar, Star, ArrowRight } from 'lucide-react';
 import Image from 'next/image';
-import UnifiedRegistrationForm from '../UnifiedRegistrationForm';
+import Link from 'next/link';
 
 export default function CareerAdvicePage() {
   const careerServices = [
@@ -99,8 +99,21 @@ export default function CareerAdvicePage() {
           </div>
         </motion.section>
 
-        {/* Unified Registration Form */}
-        <UnifiedRegistrationForm formType="career-advice" />
+        <motion.section 
+          className="mt-12"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5, delay: 0.4 }}
+        >
+          <h2 className="text-2xl font-semibold mb-4 text-gray-800">Get Personalized Career Advice</h2>
+          <p className="mb-6 text-gray-600">Take the first step towards your dream career. Register now to receive tailored guidance from our experts.</p>
+          <Link href="/jobs-internships/register?type=career-advice" passHref>
+            <button className="bg-blue-600 text-white px-6 py-3 rounded-full hover:bg-blue-700 transition duration-300 font-semibold flex items-center mx-auto">
+              Register for Career Advice
+              <ArrowRight className="ml-2 w-4 h-4" />
+            </button>
+          </Link>
+        </motion.section>
 
         <motion.section 
           className="mt-12"

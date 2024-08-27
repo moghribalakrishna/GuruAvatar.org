@@ -4,7 +4,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Users, Calendar, CheckCircle, Clock, Star, BookOpen, Video } from 'lucide-react';
 import Image from 'next/image';
-import UnifiedRegistrationForm from '../UnifiedRegistrationForm';
+import Link from 'next/link';
 
 export default function MockInterviewPage() {
   const features = [
@@ -75,8 +75,21 @@ export default function MockInterviewPage() {
           </div>
         </motion.section>
 
-        {/* Unified Registration Form */}
-        <UnifiedRegistrationForm formType="mock-interview" />
+        <motion.section 
+          className="mt-12"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5, delay: 0.4 }}
+        >
+          <h2 className="text-2xl font-semibold mb-4 text-gray-800">Practice with Mock Interviews</h2>
+          <p className="mb-6 text-gray-600">Gain confidence and improve your interview skills. Register now to schedule a mock interview session.</p>
+          <Link href="/register?type=mock-interview" passHref>
+            <button className="bg-blue-600 text-white px-6 py-3 rounded-full hover:bg-blue-700 transition duration-300 font-semibold flex items-center mx-auto">
+              Register for Mock Interview
+              <ArrowRight className="ml-2 w-4 h-4" />
+            </button>
+          </Link>
+        </motion.section>
 
         <motion.section 
           className="mt-12"

@@ -4,7 +4,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Briefcase, CheckCircle, Star, DollarSign, TrendingUp, Book, Users, ArrowRight, FileText } from 'lucide-react';
 import Image from 'next/image';
-import UnifiedRegistrationForm from '../UnifiedRegistrationForm';
+import Link from 'next/link';
 
 export default function FullTimeJobsPage() {
   const features = [
@@ -58,8 +58,21 @@ export default function FullTimeJobsPage() {
           </div>
         </motion.section>
 
-        {/* Unified Registration Form */}
-        <UnifiedRegistrationForm formType="full-time-jobs" />
+        <motion.section 
+          className="mt-12"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5, delay: 0.4 }}
+        >
+          <h2 className="text-2xl font-semibold mb-4 text-gray-800">Apply for Full-Time Opportunities</h2>
+          <p className="mb-6 text-gray-600">Ready to start your career? Register now to access exclusive full-time job opportunities.</p>
+          <Link href="/register?type=full-time-jobs" passHref>
+            <button className="bg-blue-600 text-white px-6 py-3 rounded-full hover:bg-blue-700 transition duration-300 font-semibold flex items-center mx-auto">
+              Register for Full-Time Jobs
+              <ArrowRight className="ml-2 w-4 h-4" />
+            </button>
+          </Link>
+        </motion.section>
 
         <motion.section 
           className="mt-12"

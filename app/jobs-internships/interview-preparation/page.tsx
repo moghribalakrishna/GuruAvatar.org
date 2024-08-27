@@ -4,7 +4,7 @@ import React from 'react';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { Book, CheckCircle, Users, Lightbulb, Video, FileText, Star, ArrowRight } from 'lucide-react';
-import UnifiedRegistrationForm from '../UnifiedRegistrationForm';
+import Link from 'next/link';
 
 export default function InterviewPreparationPage() {
   const features = [
@@ -87,8 +87,21 @@ export default function InterviewPreparationPage() {
           </div>
         </motion.section>
 
-        {/* Unified Registration Form */}
-        <UnifiedRegistrationForm formType="interview-preparation" />
+        <motion.section 
+          className="mt-12"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5, delay: 0.4 }}
+        >
+          <h2 className="text-2xl font-semibold mb-4 text-gray-800">Prepare for Your Interviews</h2>
+          <p className="mb-6 text-gray-600">Get personalized interview preparation assistance. Register now to start your journey to interview success.</p>
+          <Link href="/register?type=interview-preparation" passHref>
+            <button className="bg-blue-600 text-white px-6 py-3 rounded-full hover:bg-blue-700 transition duration-300 font-semibold flex items-center mx-auto">
+              Register for Interview Preparation
+              <ArrowRight className="ml-2 w-4 h-4" />
+            </button>
+          </Link>
+        </motion.section>
 
         <motion.section 
           className="mt-12"
