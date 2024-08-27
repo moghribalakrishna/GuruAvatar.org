@@ -174,7 +174,7 @@ export default function AILearningContent() {
           <InteractiveAIDemo />
         </section>
 
-        <section className="mb-20">
+        {/* <section className="mb-20">
           <h2 className="text-3xl font-bold mb-8 text-center text-gray-800">AI in Action</h2>
           <div className="bg-gray-100 p-8 rounded-xl shadow-md">
             <h3 className="text-2xl font-semibold mb-4 text-gray-800">Real-time Adaptive Learning</h3>
@@ -183,9 +183,9 @@ export default function AILearningContent() {
               <Image src="/images/ai-learning/ai-learning-demo.gif" alt="AI Learning Demo" width={800} height={450} className="rounded-lg" />
             </div>
           </div>
-        </section>
+        </section> */}
 
-        <section className="mb-20">
+        {/* <section className="mb-20">
           <h2 className="text-3xl font-bold mb-8 text-center text-gray-800">Success Stories</h2>
           <div className="grid md:grid-cols-2 gap-8">
             {testimonials.map((testimonial, index) => (
@@ -207,7 +207,7 @@ export default function AILearningContent() {
               </motion.div>
             ))}
           </div>
-        </section>
+        </section> */}
 
         <motion.section
           className="text-center"
