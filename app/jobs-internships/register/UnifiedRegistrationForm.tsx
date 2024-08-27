@@ -5,7 +5,17 @@ import PhoneInput from 'react-phone-input-2';
 import 'react-phone-input-2/lib/style.css';
 import { Send, AlertCircle } from 'lucide-react';
 
-const formFields = {
+interface FormData {
+  phone: string;
+  country: string;
+  [key: string]: string; // Add this line to handle dynamic form fields
+}
+
+interface UnifiedRegistrationFormProps {
+  formType: keyof typeof formSections;
+}
+
+const formFields: Record<string, { name: string; type: string; label: string; required: boolean; options?: string[] }[]> = {
   common: [
     { name: 'name', type: 'text', label: 'Full Name', required: true },
     { name: 'email', type: 'email', label: 'Email Address', required: true },
@@ -19,8 +29,8 @@ const formFields = {
   ],
   experience: [
     { name: 'yearsOfExperience', type: 'select', label: 'Years of Experience', options: ['0-1', '1-3', '3-5', '5+'], required: true },
-    { name: 'currentRole', type: 'text', label: 'Current Role (if applicable)' },
-    { name: 'workExperience', type: 'textarea', label: 'Previous Work Experience' },
+    { name: 'currentRole', type: 'text', label: 'Current Role (if applicable)', required: false },
+    { name: 'workExperience', type: 'textarea', label: 'Previous Work Experience', required: false },
   ],
   skills: [
     { name: 'skills', type: 'textarea', label: 'Relevant Skills', required: true },
@@ -36,11 +46,11 @@ const formFields = {
     { name: 'preferredInterviewDate', type: 'date', label: 'Preferred Interview Date', required: true },
   ],
   additional: [
-    { name: 'additionalInfo', type: 'textarea', label: 'Additional Information or Questions' },
+    { name: 'additionalInfo', type: 'textarea', label: 'Additional Information or Questions', required: false },
   ],
 };
 
-const formSections = {
+const formSections: Record<string, string[]> = {
   'interview-preparation': ['common', 'education', 'experience', 'skills', 'interview', 'additional'],
   'mock-interview': ['common', 'education', 'experience', 'skills', 'interview', 'additional'],
   'full-time-jobs': ['common', 'education', 'experience', 'skills', 'availability', 'additional'],
@@ -50,14 +60,14 @@ const formSections = {
   'ai-masterclass': ['common', 'education', 'experience', 'skills', 'additional'],
 };
 
-export default function UnifiedRegistrationForm({ formType }) {
-  const [formData, setFormData] = useState({});
-  const [errors, setErrors] = useState({});
+export default function UnifiedRegistrationForm({ formType }: UnifiedRegistrationFormProps) {
+  const [formData, setFormData] = useState<FormData>({ phone: '', country: '' });
+  const [errors, setErrors] = useState<Record<string, string>>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitSuccess, setSubmitSuccess] = useState(false);
 
   useEffect(() => {
-    const initialData = {};
+    const initialData: Record<string, string> = {};
     formSections[formType].forEach(section => {
       formFields[section].forEach(field => {
         initialData[field.name] = '';
@@ -66,7 +76,7 @@ export default function UnifiedRegistrationForm({ formType }) {
     setFormData(initialData);
   }, [formType]);
 
-  const handleInputChange = (e) => {
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setFormData(prevState => ({ ...prevState, [name]: value }));
     if (errors[name]) {
@@ -74,17 +84,25 @@ export default function UnifiedRegistrationForm({ formType }) {
     }
   };
 
-  const handlePhoneChange = (value, country) => {
-    setFormData(prevState => ({ ...prevState, phone: value, country: country.name }));
+  const handlePhoneChange = (value: string, country: { name: string }) => {
+    setFormData((prevState) => ({ ...prevState, phone: value, country: country.name }));
     if (errors.phone) {
-      setErrors(prevErrors => ({ ...prevErrors, phone: '' }));
+      setErrors((prevErrors) => ({ ...prevErrors, phone: '' }));
+    }
+  };
+
+  const handleSelectChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    const { name, value } = e.target;
+    setFormData(prevState => ({ ...prevState, [name]: value }));
+    if (errors[name]) {
+      setErrors(prevErrors => ({ ...prevErrors, [name]: '' }));
     }
   };
 
   const validateForm = () => {
-    const newErrors = {};
-    formSections[formType].forEach(section => {
-      formFields[section].forEach(field => {
+    const newErrors: Record<string, string> = {};
+    formSections[formType].forEach((section: string) => {
+      formFields[section].forEach((field: any) => {
         if (field.required && !formData[field.name]) {
           newErrors[field.name] = `${field.label} is required`;
         }
@@ -94,7 +112,7 @@ export default function UnifiedRegistrationForm({ formType }) {
     return Object.keys(newErrors).length === 0;
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (validateForm()) {
       setIsSubmitting(true);
@@ -104,7 +122,7 @@ export default function UnifiedRegistrationForm({ formType }) {
         });
         if (response.status === 200) {
           setSubmitSuccess(true);
-          setFormData({});
+          setFormData(() => ({} as FormData));
         } else {
           throw new Error('Failed to submit registration');
         }
@@ -117,26 +135,25 @@ export default function UnifiedRegistrationForm({ formType }) {
     }
   };
 
-
-  const renderField = (field) => {
+  const renderField = (field: any) => {
     const baseInputClass = "w-full px-4 py-3 bg-white rounded-lg text-gray-800 placeholder-gray-400 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition duration-200";
     const errorInputClass = "border-red-400 focus:ring-red-500";
 
     switch (field.type) {
       case 'select':
         return (
-          <div className="mb-6">
+          <div className="mb-6" key={field.name}>
             <label htmlFor={field.name} className="block mb-2 font-semibold text-gray-700">{field.label}{field.required ? ' *' : ''}</label>
             <select
               id={field.name}
               name={field.name}
               value={formData[field.name] || ''}
-              onChange={handleInputChange}
+              onChange={handleSelectChange}
               className={`${baseInputClass} ${errors[field.name] ? errorInputClass : ''}`}
               required={field.required}
             >
               <option value="">{`Select ${field.label.toLowerCase()}`}</option>
-              {field.options?.map(option => (
+              {field.options?.map((option: string) => (
                 <option key={option} value={option}>{option}</option>
               ))}
             </select>
@@ -145,7 +162,7 @@ export default function UnifiedRegistrationForm({ formType }) {
         );
       case 'textarea':
         return (
-          <div className="mb-6">
+          <div className="mb-6" key={field.name}>
             <label htmlFor={field.name} className="block mb-2 font-semibold text-gray-700">{field.label}{field.required ? ' *' : ''}</label>
             <textarea
               id={field.name}
@@ -162,12 +179,12 @@ export default function UnifiedRegistrationForm({ formType }) {
         );
       case 'phone':
         return (
-          <div className="mb-6">
+          <div className="mb-6" key={field.name}>
             <label htmlFor={field.name} className="block mb-2 font-semibold text-gray-700">{field.label}{field.required ? ' *' : ''}</label>
             <PhoneInput
               country={'in'}
-              value={formData[field.name]}
-              onChange={(value, country) => handlePhoneChange(value, country)}
+              value={formData[field.name] || ''}
+              onChange={(value, country: { name: string }) => handlePhoneChange(value, country)}
               inputProps={{
                 name: field.name,
                 required: field.required,
@@ -182,7 +199,7 @@ export default function UnifiedRegistrationForm({ formType }) {
         );
       default:
         return (
-          <div className="mb-6">
+          <div className="mb-6" key={field.name}>
             <label htmlFor={field.name} className="block mb-2 font-semibold text-gray-700">{field.label}{field.required ? ' *' : ''}</label>
             <input
               type={field.type}
