@@ -2,14 +2,14 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
+import Image from 'next/image';
 import { Target, ChevronRight, Users, Zap, Award } from 'lucide-react';
 
 export default function PersonalizedGuidancePage() {
   return (
     <div className="min-h-screen bg-white text-gray-800 p-8">
       <div className="max-w-4xl mx-auto">
-        <motion.h1
-          className="text-4xl font-bold mb-6 flex items-center text-gray-800"
+        <motion.h1 className="text-4xl font-bold mb-6 flex items-center text-gray-800"
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
@@ -17,16 +17,20 @@ export default function PersonalizedGuidancePage() {
           <Target className="w-12 h-12 mr-4 text-green-500" />
           Personalized Guidance: Your Path to Success
         </motion.h1>
-        <motion.p
-          className="text-xl mb-8 text-gray-600"
+
+        <div className="mb-8 rounded-xl overflow-hidden">
+          <Image src="/images/expert-mentorship/personalized-guidance.webp" alt="Personalized Guidance" width={1200} height={600} className="w-full" />
+        </div>
+
+        <motion.p className="text-xl mb-8 text-gray-600"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.2 }}
         >
           At GuruAvatar, we believe that every learner is unique. Our personalized guidance approach ensures that you receive tailored advice and strategies specific to your goals, challenges, and learning style.
         </motion.p>
-        <motion.div
-          className="mb-12 bg-gray-50 rounded-xl p-6 shadow-md"
+
+        <motion.div className="mb-12 bg-gray-50 rounded-xl p-6 shadow-md"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.3 }}
@@ -51,8 +55,8 @@ export default function PersonalizedGuidancePage() {
             </li>
           </ul>
         </motion.div>
-        <motion.div
-          className="mb-12"
+
+        <motion.div className="mb-12"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.4 }}
@@ -76,8 +80,8 @@ export default function PersonalizedGuidancePage() {
             </div>
           </div>
         </motion.div>
-        <motion.div
-          className="mb-12"
+
+        <motion.div className="mb-12"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.5 }}
@@ -90,8 +94,8 @@ export default function PersonalizedGuidancePage() {
             <p className="text-right text-gray-700">- Sarah J., Software Engineer</p>
           </div>
         </motion.div>
-        <motion.div
-          className="text-center"
+
+        <motion.div className="text-center"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.6 }}
@@ -100,10 +104,7 @@ export default function PersonalizedGuidancePage() {
           <p className="text-xl mb-8 text-gray-600">
             Take the first step towards a tailored learning experience that will accelerate your growth and help you achieve your goals.
           </p>
-          <Link
-            href="/expert-mentorship/find-mentor"
-            className="bg-green-500 text-white px-8 py-4 rounded-full text-xl font-semibold hover:bg-green-600 transition duration-300 inline-block"
-          >
+          <Link href="/expert-mentorship/find-mentor" className="bg-green-500 text-white px-8 py-4 rounded-full text-xl font-semibold hover:bg-green-600 transition duration-300 inline-block">
             Find Your Perfect Mentor
           </Link>
         </motion.div>

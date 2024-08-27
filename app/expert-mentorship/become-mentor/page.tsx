@@ -5,6 +5,7 @@ import { Send, AlertCircle, Check } from 'lucide-react';
 import axios from 'axios';
 import PhoneInput from 'react-phone-input-2';
 import 'react-phone-input-2/lib/style.css';
+import Image from 'next/image';
 
 interface FormData {
   name: string;
@@ -61,9 +62,7 @@ export default function BecomeMentorPage() {
     if (validateForm()) {
       setIsSubmitting(true);
       try {
-        const response = await axios.post(`${process.env.NEXT_PUBLIC_STRAPI_API_URL}/mentor-applications`, {
-          data: formData
-        });
+        const response = await axios.post(`${process.env.NEXT_PUBLIC_STRAPI_API_URL}/mentor-applications`, { data: formData });
         if (response.status === 200) {
           setSubmitSuccess(true);
           setFormData({
@@ -92,8 +91,17 @@ export default function BecomeMentorPage() {
       <p className="text-xl mb-8 text-center text-gray-600">
         Share your expertise and make a lasting impact on the next generation of learners. Join our mentorship program and help shape the future of education.
       </p>
+
+      <div className="mb-8 rounded-xl overflow-hidden">
+        <Image src="/images/expert-mentorship/become-mentor-hero.jpg" alt="Become a Mentor" width={1200} height={600} className="w-full" />
+      </div>
+
       {submitSuccess ? (
-        <motion.div className="bg-green-100 p-8 rounded-xl text-center" initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.5 }}>
+        <motion.div className="bg-green-100 p-8 rounded-xl text-center"
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.5 }}
+        >
           <Check className="w-16 h-16 mx-auto mb-4 text-green-500" />
           <h3 className="text-2xl font-bold mb-4 text-green-800">Thank You for Applying!</h3>
           <p className="text-lg text-green-700">Your mentor application has been submitted successfully. We'll review your information and get back to you soon.</p>
@@ -102,30 +110,12 @@ export default function BecomeMentorPage() {
         <form onSubmit={handleSubmit} className="space-y-6 bg-gray-50 p-8 rounded-xl">
           <div>
             <label htmlFor="name" className="block mb-2 font-semibold text-gray-700">Full Name *</label>
-            <input
-              type="text"
-              id="name"
-              name="name"
-              value={formData.name}
-              onChange={handleInputChange}
-              className="w-full px-3 py-2 bg-white border border-gray-300 rounded-md text-gray-700 placeholder-gray-400"
-              placeholder="Enter your full name"
-              required
-            />
+            <input type="text" id="name" name="name" value={formData.name} onChange={handleInputChange} className="w-full px-3 py-2 bg-white border border-gray-300 rounded-md text-gray-700 placeholder-gray-400" placeholder="Enter your full name" required />
             {errors.name && <p className="text-red-500 text-sm mt-1">{errors.name}</p>}
           </div>
           <div>
             <label htmlFor="email" className="block mb-2 font-semibold text-gray-700">Email Address *</label>
-            <input
-              type="email"
-              id="email"
-              name="email"
-              value={formData.email}
-              onChange={handleInputChange}
-              className="w-full px-3 py-2 bg-white border border-gray-300 rounded-md text-gray-700 placeholder-gray-400"
-              placeholder="your.email@example.com"
-              required
-            />
+            <input type="email" id="email" name="email" value={formData.email} onChange={handleInputChange} className="w-full px-3 py-2 bg-white border border-gray-300 rounded-md text-gray-700 placeholder-gray-400" placeholder="your.email@example.com" required />
             {errors.email && <p className="text-red-500 text-sm mt-1">{errors.email}</p>}
           </div>
           <div>
@@ -149,44 +139,17 @@ export default function BecomeMentorPage() {
           </div>
           <div>
             <label htmlFor="expertise" className="block mb-2 font-semibold text-gray-700">Area of Expertise *</label>
-            <input
-              type="text"
-              id="expertise"
-              name="expertise"
-              value={formData.expertise}
-              onChange={handleInputChange}
-              className="w-full px-3 py-2 bg-white border border-gray-300 rounded-md text-gray-700 placeholder-gray-400"
-              placeholder="E.g., Machine Learning, Web Development, Data Science"
-              required
-            />
+            <input type="text" id="expertise" name="expertise" value={formData.expertise} onChange={handleInputChange} className="w-full px-3 py-2 bg-white border border-gray-300 rounded-md text-gray-700 placeholder-gray-400" placeholder="E.g., Machine Learning, Web Development, Data Science" required />
             {errors.expertise && <p className="text-red-500 text-sm mt-1">{errors.expertise}</p>}
           </div>
           <div>
             <label htmlFor="experience" className="block mb-2 font-semibold text-gray-700">Relevant Experience *</label>
-            <textarea
-              id="experience"
-              name="experience"
-              value={formData.experience}
-              onChange={handleInputChange}
-              className="w-full px-3 py-2 bg-white border border-gray-300 rounded-md text-gray-700 placeholder-gray-400"
-              rows={4}
-              placeholder="Briefly describe your relevant experience in your area of expertise"
-              required
-            ></textarea>
+            <textarea id="experience" name="experience" value={formData.experience} onChange={handleInputChange} className="w-full px-3 py-2 bg-white border border-gray-300 rounded-md text-gray-700 placeholder-gray-400" rows={4} placeholder="Briefly describe your relevant experience in your area of expertise" required></textarea>
             {errors.experience && <p className="text-red-500 text-sm mt-1">{errors.experience}</p>}
           </div>
           <div>
             <label htmlFor="motivation" className="block mb-2 font-semibold text-gray-700">Why do you want to be a mentor? *</label>
-            <textarea
-              id="motivation"
-              name="motivation"
-              value={formData.motivation}
-              onChange={handleInputChange}
-              className="w-full px-3 py-2 bg-white border border-gray-300 rounded-md text-gray-700 placeholder-gray-400"
-              rows={4}
-              placeholder="Share your motivation for becoming a mentor"
-              required
-            ></textarea>
+            <textarea id="motivation" name="motivation" value={formData.motivation} onChange={handleInputChange} className="w-full px-3 py-2 bg-white border border-gray-300 rounded-md text-gray-700 placeholder-gray-400" rows={4} placeholder="Share your motivation for becoming a mentor" required></textarea>
             {errors.motivation && <p className="text-red-500 text-sm mt-1">{errors.motivation}</p>}
           </div>
           {errors.submit && (
@@ -196,11 +159,7 @@ export default function BecomeMentorPage() {
             </div>
           )}
           <div className="flex justify-center">
-            <button
-              type="submit"
-              className="bg-orange-500 text-white px-6 py-3 rounded-full text-lg font-semibold hover:bg-orange-600 transition duration-300 flex items-center justify-center max-w-md w-full"
-              disabled={isSubmitting}
-            >
+            <button type="submit" className="bg-orange-500 text-white px-6 py-3 rounded-full text-lg font-semibold hover:bg-orange-600 transition duration-300 flex items-center justify-center max-w-md w-full" disabled={isSubmitting}>
               {isSubmitting ? (
                 <>
                   <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">

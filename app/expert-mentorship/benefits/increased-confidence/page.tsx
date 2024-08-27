@@ -2,14 +2,14 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
+import Image from 'next/image';
 import { ChartBar, ChevronRight, Star, Target, Users, Brain } from 'lucide-react';
 
 export default function IncreasedConfidencePage() {
   return (
     <div className="min-h-screen bg-white text-gray-800 p-8">
       <div className="max-w-4xl mx-auto">
-        <motion.h1
-          className="text-4xl font-bold mb-6 flex items-center text-gray-800"
+        <motion.h1 className="text-4xl font-bold mb-6 flex items-center text-gray-800"
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
@@ -17,21 +17,25 @@ export default function IncreasedConfidencePage() {
           <ChartBar className="w-12 h-12 mr-4 text-yellow-500" />
           Increased Confidence: Empowering Your Potential
         </motion.h1>
-        <motion.p
-          className="text-xl mb-8 text-gray-600"
+
+        <div className="mb-8 rounded-xl overflow-hidden">
+          <Image src="/images/expert-mentorship/increased-confidence.webp" alt="Increased Confidence" width={1200} height={600} className="w-full" />
+        </div>
+
+        <motion.p className="text-xl mb-8 text-gray-600"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.2 }}
         >
           Confidence is the cornerstone of success in both academic and professional realms. Our expert mentorship program is designed to boost your self-assurance, allowing you to tackle challenges with resilience and achieve your goals with unwavering belief in your abilities.
         </motion.p>
-        <motion.div
-          className="mb-12 bg-gray-50 rounded-xl p-6 shadow-md"
+
+        <motion.div className="mb-12 bg-gray-50 rounded-xl p-6 shadow-md"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.3 }}
         >
-          <h2 className="text-2xl font-semibold mb-4 text-gray-800">The Confidence Advantage</h2>
+          <h2 className="text-2xl font-semibold mb-4 text-gray-700">The Confidence Advantage</h2>
           <ul className="space-y-4">
             <li className="flex items-start">
               <Star className="w-6 h-6 text-yellow-500 mr-2 flex-shrink-0" />
@@ -51,13 +55,13 @@ export default function IncreasedConfidencePage() {
             </li>
           </ul>
         </motion.div>
-        <motion.div
-          className="mb-12"
+
+        <motion.div className="mb-12"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.4 }}
         >
-          <h2 className="text-2xl font-semibold mb-4 text-gray-800">Our Confidence-Boosting Strategies</h2>
+          <h2 className="text-2xl font-semibold mb-4 text-gray-700">Our Confidence-Boosting Strategies</h2>
           <div className="grid md:grid-cols-2 gap-6">
             <div className="bg-gray-50 rounded-xl p-6 shadow-md">
               <h3 className="text-xl font-semibold mb-2 text-gray-800">Positive Reinforcement</h3>
@@ -77,13 +81,13 @@ export default function IncreasedConfidencePage() {
             </div>
           </div>
         </motion.div>
-        <motion.div
-          className="mb-12"
+
+        <motion.div className="mb-12"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.5 }}
         >
-          <h2 className="text-2xl font-semibold mb-4 text-gray-800">Success Stories</h2>
+          <h2 className="text-2xl font-semibold mb-4 text-gray-700">Success Stories</h2>
           <div className="bg-gray-50 rounded-xl p-6 shadow-md">
             <blockquote className="text-lg italic mb-4 text-gray-600">
               "Before joining GuruAvatar's mentorship program, I doubted my abilities and shied away from challenges. Now, I confidently tackle complex projects and have even presented at industry conferences. The transformation in my self-belief has been life-changing!"
@@ -91,20 +95,31 @@ export default function IncreasedConfidencePage() {
             <p className="text-right text-gray-700">- Sarah L., Data Scientist</p>
           </div>
         </motion.div>
-        <motion.div
-          className="text-center"
+
+        <motion.div className="mb-12"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.6 }}
+        >
+          <h2 className="text-2xl font-semibold mb-4 text-gray-700">Confidence in Action</h2>
+          <div className="bg-gray-50 rounded-xl p-6 shadow-md">
+            <Image src="/images/expert-mentorship/increased-confidence.webp" alt="Confidence in Action" width={800} height={400} className="w-full rounded-lg mb-4" />
+            <p className="text-gray-600">
+              Our confidence-building techniques are designed to help you overcome self-doubt and unlock your full potential. Through personalized mentorship and targeted exercises, you'll develop the self-assurance needed to excel in your academic and professional endeavors.
+            </p>
+          </div>
+        </motion.div>
+
+        <motion.div className="text-center"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 0.5, delay: 0.6 }}
+          transition={{ duration: 0.5, delay: 0.7 }}
         >
           <h2 className="text-3xl font-semibold mb-6 text-gray-800">Ready to Boost Your Confidence?</h2>
           <p className="text-xl mb-8 text-gray-600">
             Unlock your full potential with our expert mentorship and watch your confidence soar to new heights.
           </p>
-          <Link
-            href="/expert-mentorship/find-mentor"
-            className="bg-yellow-500 text-white px-8 py-4 rounded-full text-xl font-semibold hover:bg-yellow-600 transition duration-300 inline-block"
-          >
+          <Link href="/expert-mentorship/find-mentor" className="bg-yellow-500 text-white px-8 py-4 rounded-full text-xl font-semibold hover:bg-yellow-600 transition duration-300 inline-block">
             Start Your Confidence Journey
           </Link>
         </motion.div>

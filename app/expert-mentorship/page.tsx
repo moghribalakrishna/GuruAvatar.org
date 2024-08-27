@@ -2,6 +2,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
+import Image from 'next/image';
 import { Users, Zap, Target, BookOpen, Brain, Rocket, ArrowRight } from 'lucide-react';
 
 interface ClickableCardProps {
@@ -10,15 +11,16 @@ interface ClickableCardProps {
   title: string;
   description: string;
   iconColor?: string;
+  imageSrc: string;
 }
 
-const ClickableCard: React.FC<ClickableCardProps> = ({ href, icon: Icon, title, description, iconColor }) => (
+const ClickableCard: React.FC<ClickableCardProps> = ({ href, icon: Icon, title, description, iconColor, imageSrc }) => (
   <Link href={href}>
-    <motion.div
-      className="bg-gray-100 p-6 rounded-xl cursor-pointer transition-all duration-300 hover:bg-gray-200 hover:shadow-lg group relative overflow-hidden"
+    <motion.div className="bg-gray-100 p-6 rounded-xl cursor-pointer transition-all duration-300 hover:bg-gray-200 hover:shadow-lg group relative overflow-hidden"
       whileHover={{ scale: 1.05 }}
       whileTap={{ scale: 0.95 }}
     >
+      <Image src={imageSrc} alt={title} width={400} height={300} className="w-full h-48 object-cover mb-4 rounded-lg" />
       <Icon className={`w-12 h-12 ${iconColor} mb-4`} />
       <h2 className="text-2xl font-semibold mb-2 text-gray-800">{title}</h2>
       <p className="text-gray-600">{description}</p>
@@ -32,22 +34,25 @@ export default function ExpertMentorshipPage() {
   return (
     <div className="min-h-screen bg-white text-gray-800 overflow-hidden relative p-8">
       <div className="max-w-6xl mx-auto">
-        <motion.h1
-          className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 text-center text-gray-800"
+        <motion.h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 text-center text-gray-800"
           initial={{ opacity: 0, y: -50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
         >
           Expert Mentorship Program
         </motion.h1>
-        <motion.p
-          className="text-xl md:text-2xl mb-12 text-center max-w-4xl mx-auto text-gray-600"
+        <motion.p className="text-xl md:text-2xl mb-12 text-center max-w-4xl mx-auto text-gray-600"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.2 }}
         >
           Connect with industry leaders and experienced professionals. Gain invaluable insights and guidance tailored to your learning journey.
         </motion.p>
+
+        <div className="mb-12 rounded-xl overflow-hidden">
+          <Image src="/images/expert-mentorship/hero.webp" alt="Expert Mentorship" width={1200} height={600} className="w-full" />
+        </div>
+
         <div className="grid md:grid-cols-2 gap-8 mb-16">
           <ClickableCard
             href="/expert-mentorship/find-mentor"
@@ -55,6 +60,7 @@ export default function ExpertMentorshipPage() {
             title="Find a Mentor"
             description="Search our diverse pool of expert mentors and find the perfect match for your goals."
             iconColor="text-orange-500"
+            imageSrc="/images/expert-mentorship/find-mentor.webp"
           />
           <ClickableCard
             href="/expert-mentorship/benefits"
@@ -62,8 +68,10 @@ export default function ExpertMentorshipPage() {
             title="Benefits of Mentorship"
             description="Discover how expert mentorship can accelerate your learning and career growth."
             iconColor="text-yellow-500"
+            imageSrc="/images/expert-mentorship/benefits.webp"
           />
         </div>
+
         <section className="mb-16">
           <h2 className="text-3xl font-semibold mb-8 text-center text-gray-800">Why Expert Mentorship?</h2>
           <div className="grid md:grid-cols-3 gap-8">
@@ -73,6 +81,7 @@ export default function ExpertMentorshipPage() {
               title="Personalized Guidance"
               description="Get tailored advice and strategies specific to your goals and challenges."
               iconColor="text-teal-500"
+              imageSrc="/images/expert-mentorship/personalized-guidance.webp"
             />
             <ClickableCard
               href="/expert-mentorship/benefits/accelerated-learning"
@@ -80,6 +89,7 @@ export default function ExpertMentorshipPage() {
               title="Accelerated Learning"
               description="Fast-track your progress with insights from experienced professionals."
               iconColor="text-teal-500"
+              imageSrc="/images/expert-mentorship/accelerated-learning.webp"
             />
             <ClickableCard
               href="/expert-mentorship/benefits/skill-development"
@@ -87,11 +97,12 @@ export default function ExpertMentorshipPage() {
               title="Skill Enhancement"
               description="Rapidly develop both technical and soft skills crucial for success."
               iconColor="text-teal-500"
+              imageSrc="/images/expert-mentorship/skill-development.webp"
             />
           </div>
         </section>
-        <motion.section
-          className="text-center"
+
+        <motion.section className="text-center"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.5 }}
@@ -101,9 +112,8 @@ export default function ExpertMentorshipPage() {
             Join our expert mentorship program and unlock your full potential.
           </p>
         </motion.section>
-        {}
-        <motion.section
-          className="mt-16"
+
+        <motion.section className="mt-16"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.6 }}
@@ -116,6 +126,7 @@ export default function ExpertMentorshipPage() {
               title="Find a Mentor"
               description="Connect with expert mentors tailored to your goals and interests."
               iconColor="text-orange-500"
+              imageSrc="/images/expert-mentorship/find-mentor.webp"
             />
             <ClickableCard
               href="/expert-mentorship/become-mentor"
@@ -123,6 +134,7 @@ export default function ExpertMentorshipPage() {
               title="Become a Mentor"
               description="Share your expertise and make a difference in students' lives."
               iconColor="text-yellow-500"
+              imageSrc="/images/expert-mentorship/become-mentor.webp"
             />
             <ClickableCard
               href="/forms/free-consultation"
@@ -130,6 +142,7 @@ export default function ExpertMentorshipPage() {
               title="Free Consultation"
               description="Schedule a free session to explore how mentorship can benefit you."
               iconColor="text-green-500"
+              imageSrc="/images/expert-mentorship/free-consultation.webp"
             />
           </div>
         </motion.section>

@@ -1,66 +1,44 @@
 'use client';
 import React from 'react';
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 import { Search, Users, MessageSquare, Target, ChartBar, Award } from 'lucide-react';
 
 const steps = [
-  {
-    icon: Search,
-    title: "Find Your Mentor",
-    description: "Use our AI-powered matching system to find mentors that align with your goals, interests, and learning style. Browse through profiles and select the mentor that resonates with you."
-  },
-  {
-    icon: Users,
-    title: "Initial Connection",
-    description: "Once you've selected a mentor, we'll facilitate an initial meeting. This is your opportunity to discuss your goals, expectations, and establish a mentorship plan together."
-  },
-  {
-    icon: MessageSquare,
-    title: "Regular Sessions",
-    description: "Engage in scheduled mentorship sessions via video calls or our integrated chat platform. These sessions are tailored to your needs and can cover various topics from skill development to career guidance."
-  },
-  {
-    icon: Target,
-    title: "Goal Setting and Tracking",
-    description: "Work with your mentor to set clear, achievable goals. Our AI-enhanced platform helps track your progress and adjusts recommendations based on your advancement."
-  },
-  {
-    icon: ChartBar,
-    title: "Continuous Growth",
-    description: "As you progress, your mentor will provide ongoing support, challenges, and resources to ensure continuous growth. Our AI system will also suggest additional learning materials and opportunities."
-  },
-  {
-    icon: Award,
-    title: "Milestone Celebrations",
-    description: "Celebrate your achievements along the way. Your mentor will help recognize your progress, and our platform will showcase your growth through badges and skill verifications."
-  }
+  { icon: Search, title: "Find Your Mentor", description: "Use our AI-powered matching system to find mentors that align with your goals, interests, and learning style. Browse through profiles and select the mentor that resonates with you." },
+  { icon: Users, title: "Initial Connection", description: "Once you've selected a mentor, we'll facilitate an initial meeting. This is your opportunity to discuss your goals, expectations, and establish a mentorship plan together." },
+  { icon: MessageSquare, title: "Regular Sessions", description: "Engage in scheduled mentorship sessions via video calls or our integrated chat platform. These sessions are tailored to your needs and can cover various topics from skill development to career guidance." },
+  { icon: Target, title: "Goal Setting and Tracking", description: "Work with your mentor to set clear, achievable goals. Our AI-enhanced platform helps track your progress and adjusts recommendations based on your advancement." },
+  { icon: ChartBar, title: "Continuous Growth", description: "As you progress, your mentor will provide ongoing support, challenges, and resources to ensure continuous growth. Our AI system will also suggest additional learning materials and opportunities." },
+  { icon: Award, title: "Milestone Celebrations", description: "Celebrate your achievements along the way. Your mentor will help recognize your progress, and our platform will showcase your growth through badges and skill verifications." }
 ];
 
 export default function HowMentorshipWorksPage() {
   return (
     <div className="min-h-screen bg-white text-gray-800 p-8">
       <div className="max-w-6xl mx-auto">
-        <motion.h1
-          className="text-5xl font-bold mb-6 text-center text-gray-800"
+        <motion.h1 className="text-5xl font-bold mb-6 text-center text-gray-800"
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
         >
           How Our Mentorship Program Works
         </motion.h1>
-        <motion.p
-          className="text-xl mb-12 text-center max-w-4xl mx-auto text-gray-600"
+        <motion.p className="text-xl mb-12 text-center max-w-4xl mx-auto text-gray-600"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.2 }}
         >
           Discover the journey of growth and learning through our innovative mentorship process.
         </motion.p>
+
+        <div className="mb-12 rounded-xl overflow-hidden">
+          <Image src="/images/expert-mentorship/how-it-works-hero.jpg" alt="How Mentorship Works" width={1200} height={600} className="w-full" />
+        </div>
+
         <div className="space-y-12">
           {steps.map((step, index) => (
-            <motion.div
-              key={index}
-              className="flex flex-col md:flex-row items-center bg-gray-50 p-6 rounded-xl shadow-md"
+            <motion.div key={index} className="flex flex-col md:flex-row items-center bg-gray-50 p-6 rounded-xl shadow-md"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.3 + index * 0.1 }}
@@ -77,8 +55,8 @@ export default function HowMentorshipWorksPage() {
             </motion.div>
           ))}
         </div>
-        <motion.section
-          className="mt-16 bg-gray-50 p-8 rounded-xl shadow-md"
+
+        <motion.section className="mt-16 bg-gray-50 p-8 rounded-xl shadow-md"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.8 }}
@@ -103,8 +81,8 @@ export default function HowMentorshipWorksPage() {
             </li>
           </ul>
         </motion.section>
-        <motion.section
-          className="text-center mt-16"
+
+        <motion.section className="text-center mt-16"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 1 }}
@@ -113,10 +91,7 @@ export default function HowMentorshipWorksPage() {
           <p className="text-xl mb-8 text-gray-600">
             Take the first step towards accelerated growth and personalized guidance.
           </p>
-          <a
-            href="/expert-mentorship/find-mentor"
-            className="bg-orange-500 text-white px-8 py-4 rounded-full text-xl font-semibold hover:bg-orange-600 transition duration-300 inline-block"
-          >
+          <a href="/expert-mentorship/find-mentor" className="bg-orange-500 text-white px-8 py-4 rounded-full text-xl font-semibold hover:bg-orange-600 transition duration-300 inline-block">
             Find Your Mentor Now
           </a>
         </motion.section>

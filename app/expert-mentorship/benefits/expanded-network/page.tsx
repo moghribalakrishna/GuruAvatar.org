@@ -2,14 +2,14 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
+import Image from 'next/image';
 import { Users, ChevronRight, Globe, Briefcase, MessageSquare, Share2, UserPlus } from 'lucide-react';
 
 export default function ExpandedNetworkPage() {
   return (
     <div className="min-h-screen bg-white text-gray-800 p-8">
       <div className="max-w-4xl mx-auto">
-        <motion.h1
-          className="text-4xl font-bold mb-6 flex items-center text-gray-800"
+        <motion.h1 className="text-4xl font-bold mb-6 flex items-center text-gray-800"
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
@@ -17,16 +17,20 @@ export default function ExpandedNetworkPage() {
           <Users className="w-12 h-12 mr-4 text-blue-500" />
           Expanded Network: Your Gateway to Opportunities
         </motion.h1>
-        <motion.p
-          className="text-xl mb-8 text-gray-600"
+
+        <div className="mb-8 rounded-xl overflow-hidden">
+          <Image src="/images/expert-mentorship/expanded-network.webp" alt="Expanded Network" width={1200} height={600} className="w-full" />
+        </div>
+
+        <motion.p className="text-xl mb-8 text-gray-600"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.2 }}
         >
           In the professional world, your network is your net worth. GuruAvatar's mentorship program doesn't just connect you with a mentor; it opens doors to a vast network of industry professionals, thought leaders, and potential collaborators.
         </motion.p>
-        <motion.div
-          className="mb-12 bg-gray-50 rounded-xl p-6 shadow-md"
+
+        <motion.div className="mb-12 bg-gray-50 rounded-xl p-6 shadow-md"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.3 }}
@@ -51,8 +55,8 @@ export default function ExpandedNetworkPage() {
             </li>
           </ul>
         </motion.div>
-        <motion.div
-          className="mb-12"
+
+        <motion.div className="mb-12"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.4 }}
@@ -77,22 +81,22 @@ export default function ExpandedNetworkPage() {
             </div>
           </div>
         </motion.div>
-        <motion.div
-          className="mb-12"
+
+        <motion.div className="mb-12"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.5 }}
         >
           <h2 className="text-2xl font-semibold mb-4 text-gray-800">Success Stories</h2>
           <div className="bg-gray-50 rounded-xl p-6 shadow-md">
-          <blockquote className="text-lg italic mb-4 text-gray-600">
+            <blockquote className="text-lg italic mb-4 text-gray-600">
               "Through GuruAvatar's network, I connected with a venture capitalist who ended up funding my startup. The introductions my mentor facilitated were invaluable – it's not just about who you know, but who your mentor knows. This expanded network literally changed the trajectory of my career."
             </blockquote>
             <p className="text-right text-gray-700">- David K., Tech Entrepreneur</p>
           </div>
         </motion.div>
-        <motion.div
-          className="mb-12"
+
+        <motion.div className="mb-12"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.6 }}
@@ -118,52 +122,17 @@ export default function ExpandedNetworkPage() {
             ))}
           </div>
         </motion.div>
-        <motion.div
-          className="mb-12"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.7 }}
-        >
-          <h2 className="text-2xl font-semibold mb-4 text-gray-800">Networking Tips from Our Experts</h2>
-          <div className="bg-gray-50 rounded-xl p-6 shadow-md">
-            <ul className="space-y-4">
-              <li className="flex items-start">
-                <span className="text-green-500 font-bold mr-2">1.</span>
-                <span className="text-gray-600">Be proactive in reaching out and introducing yourself to new connections.</span>
-              </li>
-              <li className="flex items-start">
-                <span className="text-green-500 font-bold mr-2">2.</span>
-                <span className="text-gray-600">Always look for ways to add value to your network before asking for favors.</span>
-              </li>
-              <li className="flex items-start">
-                <span className="text-green-500 font-bold mr-2">3.</span>
-                <span className="text-gray-600">Follow up after meetings or events to solidify new connections.</span>
-              </li>
-              <li className="flex items-start">
-                <span className="text-green-500 font-bold mr-2">4.</span>
-                <span className="text-gray-600">Share your knowledge and insights generously with your network.</span>
-              </li>
-              <li className="flex items-start">
-                <span className="text-green-500 font-bold mr-2">5.</span>
-                <span className="text-gray-600">Keep your online professional profile updated and engage regularly on professional platforms.</span>
-              </li>
-            </ul>
-          </div>
-        </motion.div>
-        <motion.div
-          className="text-center"
+
+        <motion.div className="text-center"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 0.5, delay: 0.8 }}
+          transition={{ duration: 0.5, delay: 0.7 }}
         >
           <h2 className="text-3xl font-semibold mb-6 text-gray-800">Ready to Expand Your Professional Network?</h2>
           <p className="text-xl mb-8 text-gray-600">
             Join GuruAvatar today and connect with mentors and professionals who can open doors to new opportunities.
           </p>
-          <Link
-            href="/expert-mentorship/find-mentor"
-            className="bg-blue-500 text-white px-8 py-4 rounded-full text-xl font-semibold hover:bg-blue-600 transition duration-300 inline-block"
-          >
+          <Link href="/expert-mentorship/find-mentor" className="bg-blue-500 text-white px-8 py-4 rounded-full text-xl font-semibold hover:bg-blue-600 transition duration-300 inline-block">
             Start Networking Now
           </Link>
         </motion.div>

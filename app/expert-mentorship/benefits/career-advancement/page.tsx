@@ -2,14 +2,14 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
+import Image from 'next/image';
 import { Rocket, ChevronRight, TrendingUp, Users, Briefcase, Award, Target } from 'lucide-react';
 
 export default function CareerAdvancementPage() {
   return (
     <div className="min-h-screen bg-white text-gray-800 p-8">
       <div className="max-w-4xl mx-auto">
-        <motion.h1
-          className="text-4xl font-bold mb-6 flex items-center text-gray-800"
+        <motion.h1 className="text-4xl font-bold mb-6 flex items-center text-gray-800"
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
@@ -17,16 +17,20 @@ export default function CareerAdvancementPage() {
           <Rocket className="w-12 h-12 mr-4 text-orange-500" />
           Career Advancement: Skyrocket Your Professional Journey
         </motion.h1>
-        <motion.p
-          className="text-xl mb-8 text-gray-600"
+
+        <div className="mb-8 rounded-xl overflow-hidden">
+          <Image src="/images/expert-mentorship/career-advancement.webp" alt="Career Advancement" width={1200} height={600} className="w-full" />
+        </div>
+
+        <motion.p className="text-xl mb-8 text-gray-600"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.2 }}
         >
           Mentorship is a powerful catalyst for career growth. At GuruAvatar, we connect you with industry leaders who can guide you towards your professional goals, help you navigate career challenges, and open doors to new opportunities.
         </motion.p>
-        <motion.div
-          className="mb-12 bg-gray-50 rounded-xl p-6 shadow-md"
+
+        <motion.div className="mb-12 bg-gray-50 rounded-xl p-6 shadow-md"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.3 }}
@@ -51,8 +55,8 @@ export default function CareerAdvancementPage() {
             </li>
           </ul>
         </motion.div>
-        <motion.div
-          className="mb-12"
+
+        <motion.div className="mb-12"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.4 }}
@@ -77,8 +81,8 @@ export default function CareerAdvancementPage() {
             </div>
           </div>
         </motion.div>
-        <motion.div
-          className="mb-12"
+
+        <motion.div className="mb-12"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.5 }}
@@ -91,8 +95,8 @@ export default function CareerAdvancementPage() {
             <p className="text-right text-gray-700">- Emily L., Senior Software Engineer</p>
           </div>
         </motion.div>
-        <motion.div
-          className="mb-12"
+
+        <motion.div className="mb-12"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.6 }}
@@ -118,20 +122,31 @@ export default function CareerAdvancementPage() {
             ))}
           </div>
         </motion.div>
-        <motion.div
-          className="text-center"
+
+        <motion.div className="mb-12"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.7 }}
+        >
+          <h2 className="text-2xl font-semibold mb-4 text-gray-800">Career Advancement in Action</h2>
+          <div className="bg-gray-50 rounded-xl p-6 shadow-md">
+            <Image src="/images/expert-mentorship/career-advancement.webp" alt="Career Advancement in Action" width={800} height={400} className="w-full rounded-lg mb-4" />
+            <p className="text-gray-600">
+              Our career advancement strategies are designed to help you climb the professional ladder with confidence. Through personalized mentorship, skill development, and strategic networking, you'll be well-equipped to seize new opportunities and achieve your career goals.
+            </p>
+          </div>
+        </motion.div>
+
+        <motion.div className="text-center"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 0.5, delay: 0.7 }}
+          transition={{ duration: 0.5, delay: 0.8 }}
         >
           <h2 className="text-3xl font-semibold mb-6 text-gray-800">Ready to Accelerate Your Career?</h2>
           <p className="text-xl mb-8 text-gray-600">
             Take the first step towards rapid career advancement with expert guidance from industry leaders.
           </p>
-          <Link
-            href="/expert-mentorship/find-mentor"
-            className="bg-orange-500 text-white px-8 py-4 rounded-full text-xl font-semibold hover:bg-orange-600 transition duration-300 inline-block"
-          >
+          <Link href="/expert-mentorship/find-mentor" className="bg-orange-500 text-white px-8 py-4 rounded-full text-xl font-semibold hover:bg-orange-600 transition duration-300 inline-block">
             Find Your Career Mentor
           </Link>
         </motion.div>

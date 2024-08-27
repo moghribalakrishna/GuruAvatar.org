@@ -38,8 +38,7 @@ export default function EnhancedFindMentorPage() {
   }, [searchTerm, selectedArea]);
 
   const MentorCard = ({ mentor }: { mentor: Mentor }) => (
-    <motion.div
-      className="bg-white rounded-lg p-6 transition-all duration-300 hover:shadow-lg border border-gray-200"
+    <motion.div className="bg-white rounded-lg p-6 transition-all duration-300 hover:shadow-lg border border-gray-200"
       whileHover={{ scale: 1.03 }}
       whileTap={{ scale: 0.98 }}
     >
@@ -82,22 +81,25 @@ export default function EnhancedFindMentorPage() {
   return (
     <div className="min-h-screen bg-white text-gray-800 p-8">
       <div className="max-w-6xl mx-auto">
-        <motion.h1
-          className="text-4xl md:text-5xl font-bold mb-6 text-center text-gray-800"
+        <motion.h1 className="text-4xl md:text-5xl font-bold mb-6 text-center text-gray-800"
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
         >
           Find Your Perfect Mentor
         </motion.h1>
-        <motion.p
-          className="text-xl mb-12 text-center max-w-3xl mx-auto text-gray-600"
+        <motion.p className="text-xl mb-12 text-center max-w-3xl mx-auto text-gray-600"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.2 }}
         >
           Connect with industry experts who can guide you on your learning journey and help you achieve your goals.
         </motion.p>
+
+        <div className="mb-8 rounded-xl overflow-hidden">
+          <Image src="/images/expert-mentorship/find-mentor.webp" alt="Find Your Mentor" width={1200} height={600} className="w-full" />
+        </div>
+
         <div className="flex flex-col md:flex-row justify-between items-center mb-8">
           <div className="relative w-full md:w-1/2 mb-4 md:mb-0">
             <input
@@ -124,16 +126,18 @@ export default function EnhancedFindMentorPage() {
             <ChevronDown className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
           </div>
         </div>
+
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
           {filteredMentors.map((mentor) => (
             <MentorCard key={mentor.id} mentor={mentor} />
           ))}
         </div>
+
         {filteredMentors.length === 0 && (
           <p className="text-center text-xl mt-12 text-gray-600">No mentors found matching your criteria. Please try adjusting your search.</p>
         )}
-        <motion.section
-          className="text-center mt-16"
+
+        <motion.section className="text-center mt-16"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.5 }}
@@ -143,7 +147,8 @@ export default function EnhancedFindMentorPage() {
             Share your expertise and make a lasting impact on the next generation of learners.
           </p>
           <Link href="/expert-mentorship/become-mentor" className="bg-green-500 text-white px-8 py-4 rounded-full text-xl font-semibold hover:bg-green-600 transition duration-300 inline-flex items-center">
-            <Users className="mr-2" /> Apply to Be a Mentor
+            <Users className="mr-2" />
+            Apply to Be a Mentor
           </Link>
         </motion.section>
       </div>
