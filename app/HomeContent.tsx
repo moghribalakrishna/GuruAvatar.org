@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
-
+import { FaLinkedin, FaTwitter, FaFacebook, FaInstagram } from 'react-icons/fa';
 interface BlogPost {
   id: number;
   attributes: {
@@ -79,20 +79,34 @@ export default function HomeContent() {
             </motion.div>
           </div>
           <motion.div
-            className="lg:w-1/2 mt-8 lg:mt-0"
-            initial={{ opacity: 0, x: 20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-          >
-            <Image
-              src="/guruavatar-hero.webp"
-              alt="GuruAvatar Learning Environment"
-              width={800}
-              height={450}
-              className="rounded-xl shadow-2xl w-full h-auto"
-              priority
-            />
-          </motion.div>
+  className="lg:w-1/2 mt-8 lg:mt-0"
+  initial={{ opacity: 0, x: 20 }}
+  animate={{ opacity: 1, x: 0 }}
+  transition={{ duration: 0.5, delay: 0.2 }}
+>
+  <Image
+    src="/guruavatar-hero.webp"
+    alt="GuruAvatar Learning Environment"
+    width={800}
+    height={450}
+    className="rounded-xl shadow-2xl w-full h-auto"
+    priority
+  />
+  <div className="flex justify-center mt-4 space-x-4">
+    <a href="https://www.linkedin.com/in/balakrismoghri" target="_blank" rel="noopener noreferrer">
+      <FaLinkedin className="text-blue-600 text-2xl" />
+    </a>
+    <a href="https://x.com/BalakrisMoghri" target="_blank" rel="noopener noreferrer">
+      <FaTwitter className="text-blue-400 text-2xl" />
+    </a>
+    <a href="https://www.facebook.com/alienhuBK" target="_blank" rel="noopener noreferrer">
+      <FaFacebook className="text-blue-700 text-2xl" />
+    </a>
+    <a href="https://www.instagram.com/balakrismoghri" target="_blank" rel="noopener noreferrer">
+      <FaInstagram className="text-pink-600 text-2xl" />
+    </a>
+  </div>
+</motion.div>
         </section>
 
         {/* Features Section */}

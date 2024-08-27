@@ -1,6 +1,7 @@
 import React from 'react';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
+import { FaLinkedin, FaTwitter, FaFacebook, FaInstagram } from 'react-icons/fa';
 
 export default function FoundersJourney() {
   return (
@@ -37,6 +38,20 @@ export default function FoundersJourney() {
             >
               Balakrishna Moghri in 2013, during GuruAvatar's founding days in Hong Kong
             </motion.p>
+            <div className="flex justify-center mt-4 space-x-4">
+              <a href="https://www.linkedin.com/in/balakrismoghri" target="_blank" rel="noopener noreferrer">
+                <FaLinkedin className="text-blue-600" />
+              </a>
+              <a href="https://x.com/BalakrisMoghri" target="_blank" rel="noopener noreferrer">
+                <FaTwitter className="text-blue-400" />
+              </a>
+              <a href="https://www.facebook.com/alienhuBK" target="_blank" rel="noopener noreferrer">
+                <FaFacebook className="text-blue-700" />
+              </a>
+              <a href="https://www.instagram.com/balakrismoghri" target="_blank" rel="noopener noreferrer">
+                <FaInstagram className="text-pink-600" />
+              </a>
+            </div>
           </div>
         </motion.div>
         <motion.div 
