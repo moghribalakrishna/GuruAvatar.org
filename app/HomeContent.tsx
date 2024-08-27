@@ -14,6 +14,13 @@ interface BlogPost {
 }
 
 export default function HomeContent() {
+  const karmaKaryaItems = [
+    { title: "Jobs & Internships", link: "/jobs-internships", image: "/images/jobs-internships/main_jobs-internships.webp" },
+    { title: "Programs & Courses", link: "/programs-and-courses", image: "/images/programs-and-courses/header-image.webp" },
+    { title: "AI Masterclasses", link: "/ai-masterclass", image: "/images/ai-masterclass/hero-2.webp" },
+    { title: "Our Approach", link: "/our-approach", image: "/images/our-approach/our-approach.webp" },
+    { title: "About", link: "/about", image: "/images/about/technology-traditional-education.webp" },
+  ];
   const [posts, setPosts] = useState<BlogPost[]>([]);
 
   useEffect(() => {
@@ -150,7 +157,41 @@ export default function HomeContent() {
             ))}
           </div>
         </section>
-
+      {/* Our Karma & Karya Section */}
+      <section className="mb-16 md:mb-20">
+          <motion.h2 
+            className="text-3xl md:text-4xl font-bold text-center mb-8 md:mb-12"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+          >
+            Our Karma & Karya
+          </motion.h2>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {karmaKaryaItems.map((item, index) => (
+              <Link href={item.link} key={index}>
+                <motion.div 
+                  className="bg-gray-100 p-6 rounded-xl shadow-xl hover:shadow-2xl transition duration-300 transform hover:-translate-y-1 cursor-pointer h-full flex flex-col"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                >
+                  <Image
+                    src={item.image}
+                    alt={item.title}
+                    width={400}
+                    height={225}
+                    className="rounded-lg mb-4 w-full h-40 object-cover"
+                  />
+                  <h3 className="text-xl font-semibold mb-2">{item.title}</h3>
+                  <span className="text-orange-400 hover:text-orange-300 font-semibold text-sm mt-4 inline-block">
+                    Explore →
+                  </span>
+                </motion.div>
+              </Link>
+            ))}
+          </div>
+        </section>
         {/* Blog Section */}
         <section className="mb-16 md:mb-20">
           <motion.h2

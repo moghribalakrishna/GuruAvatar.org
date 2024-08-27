@@ -1,5 +1,5 @@
 'use client';
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import { useAuth } from '../contexts/AuthContext';
 import { useRouter } from 'next/navigation';
@@ -12,6 +12,7 @@ export default function Header() {
   const [isMoreOpen, setIsMoreOpen] = useState(false);
   const { state, dispatch } = useAuth();
   const router = useRouter();
+  const moreDropdownRef = useRef<HTMLDivElement>(null);
 
   const handleLogout = async () => {
     await logout();
@@ -33,6 +34,23 @@ export default function Header() {
     { href: '/get-started', label: 'Get Started' },
     { href: '/blog', label: 'Blog' },
   ];
+
+  const handleMoreItemClick = () => {
+    setIsMoreOpen(false);
+  };
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (moreDropdownRef.current && !moreDropdownRef.current.contains(event.target as Node)) {
+        setIsMoreOpen(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, []);
 
   useEffect(() => {
     if (isMenuOpen) {
@@ -80,7 +98,7 @@ export default function Header() {
           <Link href="/donate" className="bg-orange-500 text-white px-4 py-2 rounded-full hover:bg-orange-600">
             Donate
           </Link>
-          <div className="relative">
+          <div className="relative" ref={moreDropdownRef}>
             <button
               onClick={() => setIsMoreOpen(!isMoreOpen)}
               className="text-gray-600 hover:text-blue-600 flex items-center"
@@ -90,18 +108,18 @@ export default function Header() {
             {isMoreOpen && (
               <div className="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-10">
                 {moreMenuItems.map((item) => (
-                  <Link key={item.href} href={item.href} className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-500 hover:text-white">
+                  <Link 
+                    key={item.href} 
+                    href={item.href} 
+                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-500 hover:text-white"
+                    onClick={handleMoreItemClick}
+                  >
                     {item.label}
                   </Link>
                 ))}
                 {!state.loading && !state.user && (
                   <>
-                    {/* <Link href="/login" className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-500 hover:text-white">
-                        Login
-                    </Link>
-                    <Link href="/signup" className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-500 hover:text-white">
-                        Sign Up
-                    </Link> */}
+                    {/* Login and Sign Up links can be added here if needed */}
                   </>
                 )}
               </div>
@@ -188,20 +206,7 @@ export default function Header() {
                   </div>
                 ) : (
                   <div className="flex flex-col space-y-2">
-                    {/* <Link
-                        href="/login"
-                        className="flex items-center justify-center bg-white text-blue-600 px-4 py-2 rounded-full hover:bg-gray-100 transition-colors duration-200"
-                        onClick={() => setIsMenuOpen(false)}
-                    >
-                        Login
-                    </Link>
-                    <Link
-                        href="/signup"
-                        className="flex items-center justify-center bg-orange-500 text-white px-4 py-2 rounded-full hover:bg-orange-600 transition-colors duration-200"
-                        onClick={() => setIsMenuOpen(false)}
-                    >
-                        Sign Up
-                    </Link> */}
+                    {/* Login and Sign Up buttons can be added here if needed */}
                   </div>
                 )
               )}
