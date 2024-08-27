@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Clock, BookOpen, Briefcase, Zap, Search } from 'lucide-react';
+import { Clock, BookOpen, Briefcase, Zap, Search, ArrowRight } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -130,7 +130,7 @@ export default function JobsWhileStudyingPage() {
         >
           <h2 className="text-2xl font-semibold mb-4 text-gray-800">Find Jobs While Studying</h2>
           <p className="mb-6 text-gray-600">Balance your studies with valuable work experience. Register now to access part-time and flexible job opportunities.</p>
-          <Link href="/register?type=jobs-while-studying" passHref>
+          <Link href="/jobs-internships/register?type=jobs-while-studying" passHref>
             <button className="bg-blue-600 text-white px-6 py-3 rounded-full hover:bg-blue-700 transition duration-300 font-semibold flex items-center mx-auto">
               Register for Student Jobs
               <ArrowRight className="ml-2 w-4 h-4" />

@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Users, Calendar, CheckCircle, Clock, Star, BookOpen, Video } from 'lucide-react';
+import { Users, Calendar, CheckCircle, Clock, Star, BookOpen, Video, ArrowRight } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -83,7 +83,7 @@ export default function MockInterviewPage() {
         >
           <h2 className="text-2xl font-semibold mb-4 text-gray-800">Practice with Mock Interviews</h2>
           <p className="mb-6 text-gray-600">Gain confidence and improve your interview skills. Register now to schedule a mock interview session.</p>
-          <Link href="/register?type=mock-interview" passHref>
+          <Link href="/jobs-internships/register?type=mock-interview" passHref>
             <button className="bg-blue-600 text-white px-6 py-3 rounded-full hover:bg-blue-700 transition duration-300 font-semibold flex items-center mx-auto">
               Register for Mock Interview
               <ArrowRight className="ml-2 w-4 h-4" />

@@ -95,7 +95,7 @@ export default function InterviewPreparationPage() {
         >
           <h2 className="text-2xl font-semibold mb-4 text-gray-800">Prepare for Your Interviews</h2>
           <p className="mb-6 text-gray-600">Get personalized interview preparation assistance. Register now to start your journey to interview success.</p>
-          <Link href="/register?type=interview-preparation" passHref>
+          <Link href="/jobs-internships/register?type=interview-preparation" passHref>
             <button className="bg-blue-600 text-white px-6 py-3 rounded-full hover:bg-blue-700 transition duration-300 font-semibold flex items-center mx-auto">
               Register for Interview Preparation
               <ArrowRight className="ml-2 w-4 h-4" />

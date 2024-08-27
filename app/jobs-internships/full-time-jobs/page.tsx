@@ -66,7 +66,7 @@ export default function FullTimeJobsPage() {
         >
           <h2 className="text-2xl font-semibold mb-4 text-gray-800">Apply for Full-Time Opportunities</h2>
           <p className="mb-6 text-gray-600">Ready to start your career? Register now to access exclusive full-time job opportunities.</p>
-          <Link href="/register?type=full-time-jobs" passHref>
+          <Link href="/jobs-internships/register?type=full-time-jobs" passHref>
             <button className="bg-blue-600 text-white px-6 py-3 rounded-full hover:bg-blue-700 transition duration-300 font-semibold flex items-center mx-auto">
               Register for Full-Time Jobs
               <ArrowRight className="ml-2 w-4 h-4" />

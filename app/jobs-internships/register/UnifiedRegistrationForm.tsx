@@ -117,18 +117,22 @@ export default function UnifiedRegistrationForm({ formType }) {
     }
   };
 
+
   const renderField = (field) => {
+    const baseInputClass = "w-full px-4 py-3 bg-white rounded-lg text-gray-800 placeholder-gray-400 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition duration-200";
+    const errorInputClass = "border-red-400 focus:ring-red-500";
+
     switch (field.type) {
       case 'select':
         return (
-          <div>
+          <div className="mb-6">
             <label htmlFor={field.name} className="block mb-2 font-semibold text-gray-700">{field.label}{field.required ? ' *' : ''}</label>
             <select
               id={field.name}
               name={field.name}
               value={formData[field.name] || ''}
               onChange={handleInputChange}
-              className={`w-full px-3 py-2 bg-white rounded-md text-gray-700 border ${errors[field.name] ? 'border-red-400' : 'border-gray-300'} focus:outline-none focus:ring-2 focus:ring-teal-500`}
+              className={`${baseInputClass} ${errors[field.name] ? errorInputClass : ''}`}
               required={field.required}
             >
               <option value="">{`Select ${field.label.toLowerCase()}`}</option>
@@ -136,12 +140,12 @@ export default function UnifiedRegistrationForm({ formType }) {
                 <option key={option} value={option}>{option}</option>
               ))}
             </select>
-            {errors[field.name] && <p className="text-red-400 text-sm mt-1">{errors[field.name]}</p>}
+            {errors[field.name] && <p className="mt-2 text-sm text-red-600">{errors[field.name]}</p>}
           </div>
         );
       case 'textarea':
         return (
-          <div>
+          <div className="mb-6">
             <label htmlFor={field.name} className="block mb-2 font-semibold text-gray-700">{field.label}{field.required ? ' *' : ''}</label>
             <textarea
               id={field.name}
@@ -149,16 +153,16 @@ export default function UnifiedRegistrationForm({ formType }) {
               value={formData[field.name] || ''}
               onChange={handleInputChange}
               placeholder={`Enter ${field.label.toLowerCase()}`}
-              className={`w-full px-3 py-2 bg-white rounded-md text-gray-700 placeholder-gray-400 border ${errors[field.name] ? 'border-red-400' : 'border-gray-300'} focus:outline-none focus:ring-2 focus:ring-teal-500`}
-              rows={3}
+              className={`${baseInputClass} ${errors[field.name] ? errorInputClass : ''}`}
+              rows={4}
               required={field.required}
             />
-            {errors[field.name] && <p className="text-red-400 text-sm mt-1">{errors[field.name]}</p>}
+            {errors[field.name] && <p className="mt-2 text-sm text-red-600">{errors[field.name]}</p>}
           </div>
         );
       case 'phone':
         return (
-          <div>
+          <div className="mb-6">
             <label htmlFor={field.name} className="block mb-2 font-semibold text-gray-700">{field.label}{field.required ? ' *' : ''}</label>
             <PhoneInput
               country={'in'}
@@ -167,18 +171,18 @@ export default function UnifiedRegistrationForm({ formType }) {
               inputProps={{
                 name: field.name,
                 required: field.required,
-                className: 'w-full px-3 py-2 bg-white rounded-md text-gray-700 placeholder-gray-400 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-teal-500 pl-14'
+                className: `${baseInputClass} ${errors[field.name] ? errorInputClass : ''} pl-14`,
               }}
               containerClass="!w-full"
               buttonClass="!bg-gray-100 !border-gray-300 !px-3 !pl-3"
-              dropdownClass="!bg-white !text-gray-700"
+              dropdownClass="!bg-white !text-gray-800"
             />
-            {errors[field.name] && <p className="text-red-400 text-sm mt-1">{errors[field.name]}</p>}
+            {errors[field.name] && <p className="mt-2 text-sm text-red-600">{errors[field.name]}</p>}
           </div>
         );
       default:
         return (
-          <div>
+          <div className="mb-6">
             <label htmlFor={field.name} className="block mb-2 font-semibold text-gray-700">{field.label}{field.required ? ' *' : ''}</label>
             <input
               type={field.type}
@@ -187,10 +191,10 @@ export default function UnifiedRegistrationForm({ formType }) {
               value={formData[field.name] || ''}
               onChange={handleInputChange}
               placeholder={`Enter ${field.label.toLowerCase()}`}
-              className={`w-full px-3 py-2 bg-white rounded-md text-gray-700 placeholder-gray-400 border ${errors[field.name] ? 'border-red-400' : 'border-gray-300'} focus:outline-none focus:ring-2 focus:ring-teal-500`}
+              className={`${baseInputClass} ${errors[field.name] ? errorInputClass : ''}`}
               required={field.required}
             />
-            {errors[field.name] && <p className="text-red-400 text-sm mt-1">{errors[field.name]}</p>}
+            {errors[field.name] && <p className="mt-2 text-sm text-red-600">{errors[field.name]}</p>}
           </div>
         );
     }
@@ -199,7 +203,7 @@ export default function UnifiedRegistrationForm({ formType }) {
   if (submitSuccess) {
     return (
       <motion.div
-        className="bg-green-100 p-8 rounded-xl text-center"
+        className="bg-green-50 p-8 rounded-xl text-center shadow-lg"
         initial={{ opacity: 0, scale: 0.9 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.5 }}
@@ -211,54 +215,48 @@ export default function UnifiedRegistrationForm({ formType }) {
   }
 
   return (
-    <motion.form
-      onSubmit={handleSubmit}
-      className="space-y-6 bg-gray-50 p-8 rounded-xl shadow-lg"
+    <motion.div
+      className="bg-white p-8 rounded-xl shadow-lg max-w-2xl mx-auto"
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
     >
-      <h2 className="text-3xl font-bold mb-6 text-center text-teal-600">
+      <h2 className="text-3xl font-bold mb-8 text-center text-gray-800">
         {formType.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ')} Registration
       </h2>
-      
-      {formSections[formType].map(section =>
-        formFields[section].map(field => (
-          <div key={field.name}>
-            {renderField(field)}
+      <form onSubmit={handleSubmit} className="space-y-6">
+        {formSections[formType].map(section =>
+          formFields[section].map(field => renderField(field))
+        )}
+        {errors.submit && (
+          <div className="bg-red-50 p-4 rounded-lg flex items-center text-red-700 mb-6">
+            <AlertCircle className="mr-2 flex-shrink-0" />
+            <p>{errors.submit}</p>
           </div>
-        ))
-      )}
-
-      {errors.submit && (
-        <div className="bg-red-100 p-3 rounded-md flex items-center text-red-700">
-          <AlertCircle className="mr-2" />
-          <p>{errors.submit}</p>
+        )}
+        <div className="flex justify-center">
+          <button
+            type="submit"
+            className="bg-blue-600 text-white px-8 py-3 rounded-full text-lg font-semibold hover:bg-blue-700 transition duration-300 flex items-center justify-center focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+            disabled={isSubmitting}
+          >
+            {isSubmitting ? (
+              <>
+                <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                  <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                  <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                </svg>
+                Submitting...
+              </>
+            ) : (
+              <>
+                <Send className="mr-2" />
+                Submit Registration
+              </>
+            )}
+          </button>
         </div>
-      )}
-
-      <div className="flex justify-center">
-        <button
-          type="submit"
-          className="bg-teal-500 text-white px-6 py-3 rounded-full text-lg font-semibold hover:bg-teal-600 transition duration-300 flex items-center justify-center max-w-md w-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-teal-500"
-          disabled={isSubmitting}
-        >
-          {isSubmitting ? (
-            <>
-              <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
-                <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-              </svg>
-              Submitting...
-            </>
-          ) : (
-            <>
-              <Send className="mr-2" />
-              Submit Registration
-            </>
-          )}
-        </button>
-      </div>
-    </motion.form>
+      </form>
+    </motion.div>
   );
 }

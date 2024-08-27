@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Lightbulb, Users, Award, TrendingUp, CheckCircle } from 'lucide-react';
+import { Lightbulb, Users, Award, TrendingUp, CheckCircle, ArrowRight } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -92,7 +92,7 @@ export default function InternshipsPage() {
         >
           <h2 className="text-2xl font-semibold mb-4 text-gray-800">Apply for Internship Opportunities</h2>
           <p className="mb-6 text-gray-600">Kickstart your career with an internship. Register now to explore exciting opportunities.</p>
-          <Link href="/register?type=internships" passHref>
+          <Link href="/jobs-internships/register?type=internships" passHref>
             <button className="bg-blue-600 text-white px-6 py-3 rounded-full hover:bg-blue-700 transition duration-300 font-semibold flex items-center mx-auto">
               Register for Internships
               <ArrowRight className="ml-2 w-4 h-4" />
