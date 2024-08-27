@@ -50,7 +50,7 @@ export default function ExpertMentorshipPage() {
         </motion.p>
 
         <div className="mb-12 rounded-xl overflow-hidden">
-          <Image src="/images/expert-mentorship/hero.webp" alt="Expert Mentorship" width={1200} height={600} className="w-full" />
+          <Image src="/images/expert-mentorship/expert-mentorship.webp" alt="Expert Mentorship" width={1200} height={600} className="w-full" />
         </div>
 
         <div className="grid md:grid-cols-2 gap-8 mb-16">

@@ -128,9 +128,9 @@ export default function HomeContent() {
           </motion.h2>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
+               { title: "Expert Mentorship", icon: "👥", description: "Connect with volunteer industry leaders for guidance and insights, bridging education and real-world experience.", link: "/expert-mentorship", image: "/images/expert-mentorship/expert-mentorship.webp" },
+               { title: "Mindfulness Integration", icon: "🧘", description: "Enhance well-being through guided mindfulness practices, freely available to all our learners.", link: "/mindful-integration", image: "/mindfulness-integration.webp" },
               { title: "Habit Forging", icon: "🔨", description: "Develop success-driving habits with our scientifically-backed system, offered at no cost.", link: "/habit-forging", image: "/habit-forging.webp" },
-              { title: "Mindfulness Integration", icon: "🧘", description: "Enhance well-being through guided mindfulness practices, freely available to all our learners.", link: "/mindful-integration", image: "/mindfulness-integration.webp" },
-              { title: "Expert Mentorship", icon: "👥", description: "Connect with volunteer industry leaders for guidance and insights, bridging education and real-world experience.", link: "/expert-mentorship", image: "/expert-mentorship.webp" },
               { title: "AI-Powered Learning", icon: "🤖", description: "Personalized learning paths adapted to individual needs, made accessible through our non-profit model.", link: "/ai-learning", image: "/ai-powered-learning.webp" },
             ].map((feature, index) => (
               <Link href={feature.link || '#'} key={index}>
