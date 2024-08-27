@@ -93,7 +93,7 @@ export default function BecomeMentorPage() {
       </p>
 
       <div className="mb-8 rounded-xl overflow-hidden">
-        <Image src="/images/expert-mentorship/become-mentor-hero.jpg" alt="Become a Mentor" width={1200} height={600} className="w-full" />
+        <Image src="/images/expert-mentorship/become-mentor.webp" alt="Become a Mentor" width={1200} height={600} className="w-full" />
       </div>
 
       {submitSuccess ? (

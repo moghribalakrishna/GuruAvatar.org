@@ -113,10 +113,10 @@ export const mentors = [
     yearsExperience: 9
   },
   {
-    id: 'anita-desai',
-    name: 'Anita Desai',
+    id: 'anita-agarwal',
+    name: 'Anita Agarwal',
     title: 'UX/UI Designer',
-    image: '/mentors/anita-desai.jpg',
+    image: '/mentors/anita-agarwal.jpg',
     expertise: ['User Research', 'Interaction Design', 'Usability Testing'],
     areas: ['Arts', 'Technology'],
     bio: 'Anita Desai is a UX/UI designer with a background in psychology. She has designed user-centric interfaces for some of India\'s top apps and websites, always focusing on creating delightful user experiences.',
@@ -133,13 +133,13 @@ export const mentors = [
     yearsExperience: 7
   },
   {
-    id: 'rahul-mehta',
-    name: 'Rahul Mehta',
+    id: 'rahul-Naidu',
+    name: 'Rahul Naidu',
     title: 'Cybersecurity Expert',
-    image: '/mentors/rahul-mehta.jpg',
+    image: '/mentors/rahul-naidu.jpg',
     expertise: ['Network Security', 'Ethical Hacking', 'Security Auditing'],
     areas: ['Technology', 'Engineering'],
-    bio: 'Rahul Mehta is a cybersecurity professional with extensive experience in protecting large-scale systems from cyber threats. He has worked with government agencies and private corporations to strengthen their security infrastructure.',
+    bio: 'Rahul Naidu is a cybersecurity professional with extensive experience in protecting large-scale systems from cyber threats. He has worked with government agencies and private corporations to strengthen their security infrastructure.',
     achievements: [
       'Led the security team for one of India\'s largest financial institutions',
       'Discovered and responsibly disclosed critical vulnerabilities in popular Indian apps',
@@ -272,13 +272,13 @@ export const mentors = [
     yearsExperience: 7
   },
   {
-    id: 'pooja-malhotra',
-    name: 'Pooja Malhotra',
+    id: 'pooja-hiremath',
+    name: 'Pooja Hiremath',
     title: 'Digital Health Innovator',
-    image: '/mentors/pooja-malhotra.jpg',
+    image: '/mentors/pooja-hiremath.jpg',
     expertise: ['Health Informatics', 'Telemedicine', 'Medical IoT'],
     areas: ['Health', 'Technology'],
-    bio: 'Dr. Pooja Malhotra is a medical doctor turned digital health innovator. She has been at the forefront of integrating technology into healthcare delivery, improving patient outcomes and healthcare accessibility in India.',
+    bio: 'Dr. Pooja Hiremath is a medical doctor turned digital health innovator. She has been at the forefront of integrating technology into healthcare delivery, improving patient outcomes and healthcare accessibility in India.',
     achievements: [
       'Developed a telemedicine platform that serves over 1 million patients in rural India',
       'Recipient of the "Healthcare Innovator of the Year" award',
@@ -292,13 +292,13 @@ export const mentors = [
     yearsExperience: 10
   },
   {
-    id: 'rohit-nair',
-    name: 'Rohit Nair',
+    id: 'rohit-patil',
+    name: 'Rohit Patil',
     title: 'Game Developer & Designer',
-    image: '/mentors/rohit-nair.jpg',
+    image: '/mentors/rohit-patil.jpg',
     expertise: ['Game Development', '3D Modeling', 'AR/VR'],
     areas: ['Technology', 'Arts'],
-    bio: 'Rohit Nair is a veteran game developer with experience in creating games for mobile, PC, and console platforms. He has a passion for creating immersive experiences and has recently ventured into AR and VR game development.',
+    bio: 'Rohit Patil is a veteran game developer with experience in creating games for mobile, PC, and console platforms. He has a passion for creating immersive experiences and has recently ventured into AR and VR game development.',
     achievements: [
       'Lead developer for a mobile game with over 10 million downloads',
       'Won "Best AR Experience" at the Indian Game Developers Conference',
@@ -372,13 +372,13 @@ export const mentors = [
     yearsExperience: 11
   },
   {
-    id: 'arjun-mehta',
-    name: 'Arjun Mehta',
+    id: 'arjun-mogre',
+    name: 'Arjun Mogre',
     title: 'Growth Hacking Expert',
-    image: '/mentors/arjun-mehta.jpg',
+    image: '/mentors/arjun-mogre.jpg',
     expertise: ['Growth Marketing', 'User Acquisition', 'Conversion Optimization'],
     areas: ['Marketing', 'Business'],
-    bio: 'Arjun Mehta is a growth hacking expert who has helped numerous startups achieve rapid user growth. He specializes in data-driven marketing strategies and innovative user acquisition techniques.',
+    bio: 'Arjun Mogre is a growth hacking expert who has helped numerous startups achieve rapid user growth. He specializes in data-driven marketing strategies and innovative user acquisition techniques.',
     achievements: [
       'Grew a fintech app from 100k to 5 million users in 18 months',
       'Developed a viral referral program that acquired 1 million users at near-zero cost',
