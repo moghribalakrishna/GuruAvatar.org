@@ -117,7 +117,7 @@ export default function UnifiedRegistrationForm({ formType }: UnifiedRegistratio
     if (validateForm()) {
       setIsSubmitting(true);
       try {
-        const response = await axios.post(`${process.env.NEXT_PUBLIC_STRAPI_API_URL}/api/registrations`, {
+        const response = await axios.post(`${process.env.NEXT_PUBLIC_STRAPI_API_URL}/jobs-internships-registrations`, {
           data: formData
         });
         if (response.status === 200) {
