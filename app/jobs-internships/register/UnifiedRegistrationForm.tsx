@@ -5,11 +5,9 @@ import PhoneInput from 'react-phone-input-2';
 import 'react-phone-input-2/lib/style.css';
 import { Send, AlertCircle } from 'lucide-react';
 
-interface FormData {
-  phone: string;
-  country: string;
-  [key: string]: string; // Add this line to handle dynamic form fields
-}
+type FormData = {
+  [key: string]: string;
+};
 
 interface UnifiedRegistrationFormProps {
   formType: keyof typeof formSections;
@@ -61,13 +59,13 @@ const formSections: Record<string, string[]> = {
 };
 
 export default function UnifiedRegistrationForm({ formType }: UnifiedRegistrationFormProps) {
-  const [formData, setFormData] = useState<FormData>({ phone: '', country: '' });
+  const [formData, setFormData] = useState<FormData>({});
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitSuccess, setSubmitSuccess] = useState(false);
 
   useEffect(() => {
-    const initialData: Record<string, string> = {};
+    const initialData: FormData = {};
     formSections[formType].forEach(section => {
       formFields[section].forEach(field => {
         initialData[field.name] = '';

@@ -27,9 +27,11 @@ const InstructorPage = () => {
         >
           <Image src="/founder-image.jpeg" alt="Mr Balakrishna Moghri" width={300} height={300} className="rounded-full mb-6 md:mb-0 md:mr-8" />
           <div>
+            {/* This is a comment inside a JSX element */}
+            {/* Correct way to place comments inside braces */}
             <h2 className="text-3xl font-bold mb-4">Mr Balakrishna Moghri</h2>
             <p className="text-xl mb-4">Founder & CTO of 2 Startups GuruAvatar & AlienHu, Worked for $300M funded startups @Leadership Positions</p>
-            <p className="text-gray-600 mb-4"> // Changed text color to gray-600
+            <p className="text-gray-600 mb-4"> {/* Changed text color to gray-600 */}
               Mr Balakrishna Moghri brings years of industry and academic experience to the AI Masterclass. 
             </p>
           </div>
