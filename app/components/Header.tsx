@@ -96,12 +96,12 @@ export default function Header() {
                 ))}
                 {!state.loading && !state.user && (
                   <>
-                    <Link href="/login" className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-500 hover:text-white">
-                      Login
+                    {/* <Link href="/login" className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-500 hover:text-white">
+                        Login
                     </Link>
                     <Link href="/signup" className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-500 hover:text-white">
-                      Sign Up
-                    </Link>
+                        Sign Up
+                    </Link> */}
                   </>
                 )}
               </div>
@@ -188,20 +188,20 @@ export default function Header() {
                   </div>
                 ) : (
                   <div className="flex flex-col space-y-2">
-                    <Link
-                      href="/login"
-                      className="flex items-center justify-center bg-white text-blue-600 px-4 py-2 rounded-full hover:bg-gray-100 transition-colors duration-200"
-                      onClick={() => setIsMenuOpen(false)}
+                    {/* <Link
+                        href="/login"
+                        className="flex items-center justify-center bg-white text-blue-600 px-4 py-2 rounded-full hover:bg-gray-100 transition-colors duration-200"
+                        onClick={() => setIsMenuOpen(false)}
                     >
-                      Login
+                        Login
                     </Link>
                     <Link
-                      href="/signup"
-                      className="flex items-center justify-center bg-orange-500 text-white px-4 py-2 rounded-full hover:bg-orange-600 transition-colors duration-200"
-                      onClick={() => setIsMenuOpen(false)}
+                        href="/signup"
+                        className="flex items-center justify-center bg-orange-500 text-white px-4 py-2 rounded-full hover:bg-orange-600 transition-colors duration-200"
+                        onClick={() => setIsMenuOpen(false)}
                     >
-                      Sign Up
-                    </Link>
+                        Sign Up
+                    </Link> */}
                   </div>
                 )
               )}
