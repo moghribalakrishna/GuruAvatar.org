@@ -1,20 +1,74 @@
 'use client';
+
 import React, { useState } from 'react';
 import { useParams } from 'next/navigation';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import Link from 'next/link';
 import Image from 'next/image';
-import { ArrowLeft, Calendar, Globe, Star, Book, MessageSquare, Users } from 'lucide-react';
+import { ArrowLeft, Calendar, Globe, Star, Book, MessageSquare, Users, Check } from 'lucide-react';
 import { mentors } from '../../data/mentorshipData';
+import axios from 'axios';
+import PhoneInput from 'react-phone-input-2';
+import 'react-phone-input-2/lib/style.css';
 
 export default function MentorProfilePage() {
   const { mentorId } = useParams();
   const mentor = mentors.find(m => m.id === mentorId);
   const [showContactForm, setShowContactForm] = useState(false);
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    phone: '',
+    message: ''
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState('');
+  const [submitSuccess, setSubmitSuccess] = useState(false);
 
   if (!mentor) {
     return <div>Mentor not found</div>;
   }
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
+  };
+
+  const handlePhoneChange = (value: string) => {
+    setFormData({ ...formData, phone: value });
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    setSubmitError('');
+    setSubmitSuccess(false);
+
+    try {
+      const response = await axios.post(`${process.env.NEXT_PUBLIC_STRAPI_API_URL}/mentorship-requests`, {
+        data: {
+          ...formData,
+          mentorName: mentor.name
+        }
+      });
+
+      if (response.status === 200) {
+        setSubmitSuccess(true);
+        setFormData({ name: '', email: '', phone: '', message: '' });
+        setTimeout(() => {
+          setShowContactForm(false);
+          setSubmitSuccess(false);
+        }, 5000); // Close the form after 5 seconds
+      } else {
+        throw new Error('Failed to submit request');
+      }
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      setSubmitError('An error occurred. Please try again.');
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
 
   return (
     <div className="min-h-screen bg-white text-gray-800 p-8">
@@ -35,12 +89,10 @@ export default function MentorProfilePage() {
                 ))}
               </div>
               <div className="flex items-center text-gray-600 mb-2">
-                <Calendar className="mr-2" size={18} />
-                Available: {mentor.availableTimes.join(', ')}
+                <Calendar className="mr-2" size={18} /> Available: {mentor.availableTimes.join(', ')}
               </div>
               <div className="flex items-center text-gray-600">
-                <Globe className="mr-2" size={18} />
-                Languages: {mentor.languages.join(', ')}
+                <Globe className="mr-2" size={18} /> Languages: {mentor.languages.join(', ')}
               </div>
             </div>
           </div>
@@ -105,35 +157,117 @@ export default function MentorProfilePage() {
             <Users className="mr-2" /> Request Mentorship
           </button>
         </motion.div>
-        {showContactForm && (
-          <motion.div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4" initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
-            <motion.div className="bg-white text-gray-800 p-8 rounded-lg max-w-md w-full" initial={{ y: -50, opacity: 0 }} animate={{ y: 0, opacity: 1 }}>
-              <h3 className="text-2xl font-semibold mb-4">Contact {mentor.name}</h3>
-              <form className="space-y-4">
-                <div>
-                  <label htmlFor="name" className="block text-sm font-medium text-gray-700">Your Name</label>
-                  <input type="text" id="name" name="name" className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50" />
-                </div>
-                <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-gray-700">Your Email</label>
-                  <input type="email" id="email" name="email" className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50" />
-                </div>
-                <div>
-                  <label htmlFor="message" className="block text-sm font-medium text-gray-700">Message</label>
-                  <textarea id="message" name="message" rows={4} className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50"></textarea>
-                </div>
-                <div className="flex justify-end space-x-2">
-                  <button type="button" onClick={() => setShowContactForm(false)} className="px-4 py-2 border border-gray-300 rounded-md text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
-                    Cancel
-                  </button>
-                  <button type="submit" className="px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
-                    Send Request
-                  </button>
-                </div>
-              </form>
+
+        <AnimatePresence>
+          {showContactForm && (
+            <motion.div
+              className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+            >
+              <motion.div
+                className="bg-white text-gray-800 p-8 rounded-lg max-w-md w-full shadow-2xl"
+                initial={{ y: -50, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                exit={{ y: -50, opacity: 0 }}
+              >
+                {submitSuccess ? (
+                  <motion.div
+                    className="text-center"
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 0.5 }}
+                  >
+                    <Check className="w-16 h-16 text-green-500 mx-auto mb-4" />
+                    <h3 className="text-2xl font-semibold mb-4 text-green-600">Thank You!</h3>
+                    <p className="text-gray-600 mb-4">
+                      We have received your mentorship request. GuruAvatar will facilitate and fast-track your mentorship journey with {mentor.name}.
+                    </p>
+                    <p className="text-gray-600">We'll be in touch soon!</p>
+                  </motion.div>
+                ) : (
+                  <>
+                    <h3 className="text-2xl font-semibold mb-6 text-gray-800">Contact {mentor.name}</h3>
+                    <form onSubmit={handleSubmit} className="space-y-6">
+                      <div>
+                        <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">Your Name</label>
+                        <input
+                          type="text"
+                          id="name"
+                          name="name"
+                          value={formData.name}
+                          onChange={handleInputChange}
+                          className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent"
+                          required
+                        />
+                      </div>
+                      <div>
+                        <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">Your Email</label>
+                        <input
+                          type="email"
+                          id="email"
+                          name="email"
+                          value={formData.email}
+                          onChange={handleInputChange}
+                          className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent"
+                          required
+                        />
+                      </div>
+                      <div>
+                        <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-1">Your Phone Number</label>
+                        <PhoneInput
+                          country={'in'}
+                          value={formData.phone}
+                          onChange={handlePhoneChange}
+                          inputProps={{
+                            name: 'phone',
+                            required: true,
+                            className: 'w-full pl-[48px] pr-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent'
+                          }}
+                          containerClass="!w-full relative"
+                          buttonClass="!absolute !left-0 !top-0 !bottom-0 !pl-3 !border-r-0"
+                          dropdownClass="!left-0 !mt-1"
+                        />
+                      </div>
+                      <div>
+                        <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">Message</label>
+                        <textarea
+                          id="message"
+                          name="message"
+                          rows={4}
+                          value={formData.message}
+                          onChange={handleInputChange}
+                          className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent"
+                          required
+                        ></textarea>
+                      </div>
+                      {submitError && (
+                        <p className="text-red-500 text-sm">{submitError}</p>
+                      )}
+                      <div className="flex justify-end space-x-2">
+                        <button
+                          type="button"
+                          onClick={() => setShowContactForm(false)}
+                          className="px-4 py-2 border border-gray-300 rounded-md text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-500 transition duration-300"
+                        >
+                          Cancel
+                        </button>
+                        <button
+                          type="submit"
+                          className="px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-orange-600 hover:bg-orange-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-500 transition duration-300"
+                          disabled={isSubmitting}
+                        >
+                          {isSubmitting ? 'Sending...' : 'Send Request'}
+                        </button>
+                      </div>
+                    </form>
+                  </>
+                )}
+              </motion.div>
             </motion.div>
-          </motion.div>
-        )}
+          )}
+        </AnimatePresence>
       </div>
     </div>
   );
